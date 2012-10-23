@@ -1,0 +1,6 @@
+#!/bin/bash
+
+#saxonb-xslt -s ../samples/WB.KeyFamily.xml -xsl generic.xsl > ../samples/WB.KeyFamily.rdf
+#saxonb-xslt -s ../samples/OECD.HEALTH_STAT.xml -xsl generic.xsl > ../samples/OECD.HEALTH_STAT.rdf
+#saxonb-xslt -s ../samples/IMF.BOPDSD.xml -xsl generic.xsl > ../samples/IMF.BOPDSD.rdf
+saxonb-xslt -s ../samples/SDMX.StructureSample.xml -xsl generic.xsl > ../samples/SDMX.StructureSample.rdf

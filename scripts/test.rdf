@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:wgs="http://www.w3.org/2003/01/geo/wgs84_pos#"
+         xmlns:sdmx-metadata="http://purl.org/linked-data/sdmx/2009/metadata#"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+         xmlns:sdmx-subject="http://purl.org/linked-data/sdmx/2009/subject#"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns:structure="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/structure"
+         xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+         xmlns:message="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
+         xmlns:qb="http://purl.org/linked-data/cube#"
+         xmlns:sdmx="http://purl.org/linked-data/sdmx#"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:sdmx-attribute="http://purl.org/linked-data/sdmx/2009/attribute#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:sdmx-code="http://purl.org/linked-data/sdmx/2009/code#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:sdmx-concept="http://purl.org/linked-data/sdmx/2009/concept#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:sdmx-dimension="http://purl.org/linked-data/sdmx/2009/dimension#"
+         xmlns:wbldfn="http://worldbank.270a.info/xpath-function/"
+         xmlns:sdmx-measure="http://purl.org/linked-data/sdmx/2009/measure#">
+   <rdf:Description rdf:about="http://example.org/dataset/BIS_JOINT_DEBT/structure">
+      <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#DataStructureDefinition"/>
+      <sdmx-concept:dsi>BIS_JOINT_DEBT</sdmx-concept:dsi>
+      <sdmx-concept:mAgency>BIS</sdmx-concept:mAgency>
+      <sdmx-concept:dataRev>1.0</sdmx-concept:dataRev>
+      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/key_families/JOINT_DEBT.xml"/>
+      <skos:prefLabel xml:lang="en">Joint BIS-IMF-OECD-World Bank stats - external debt</skos:prefLabel>
+      <qb:component>
+         <qb:ComponentSpecification>
+            <qb:dimension rdf:resource="http://example.org/code/CL_FREQ"/>
+            <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</qb:order>
+         </qb:ComponentSpecification>
+      </qb:component>
+      <qb:component>
+         <qb:ComponentSpecification>
+            <qb:dimension rdf:resource="http://example.org/code/CL_JD_TYPE"/>
+            <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</qb:order>
+         </qb:ComponentSpecification>
+      </qb:component>
+      <qb:component>
+         <qb:ComponentSpecification>
+            <qb:dimension rdf:resource="http://example.org/code/CL_JD_CATEGORY"/>
+            <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</qb:order>
+         </qb:ComponentSpecification>
+      </qb:component>
+      <qb:component>
+         <qb:ComponentSpecification>
+            <qb:dimension rdf:resource="http://example.org/code/CL_BIS_IF_REF_AREA"/>
+            <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</qb:order>
+         </qb:ComponentSpecification>
+      </qb:component>
+      <qb:component>
+         <qb:ComponentSpecification>
+            <qb:dimension rdf:resource="http://example.org/code/TIME"/>
+            <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</qb:order>
+         </qb:ComponentSpecification>
+      </qb:component>
+      <qb:component>
+         <qb:ComponentSpecification/>
+      </qb:component>
+      <qb:component>
+         <qb:ComponentSpecification>
+            <qb:measure rdf:resource="http://example.org/property/OBS_VALUE"/>
+         </qb:ComponentSpecification>
+      </qb:component>
+      <qb:component>
+         <qb:ComponentSpecification/>
+      </qb:component>
+      <qb:component>
+         <qb:ComponentSpecification/>
+      </qb:component>
+      <qb:component>
+         <qb:ComponentSpecification>
+            <qb:attribute rdf:resource="http://example.org/code/CL_AVAILABILITY"/>
+            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Group"/>
+         </qb:ComponentSpecification>
+      </qb:component>
+      <qb:component>
+         <qb:ComponentSpecification>
+            <qb:attribute rdf:resource="http://example.org/code/CL_TIME_FORMAT"/>
+            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Series"/>
+         </qb:ComponentSpecification>
+      </qb:component>
+      <qb:component>
+         <qb:ComponentSpecification>
+            <qb:attribute rdf:resource="http://example.org/code/CL_COLLECTION"/>
+            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Series"/>
+         </qb:ComponentSpecification>
+      </qb:component>
+      <qb:component>
+         <qb:ComponentSpecification>
+            <qb:attribute rdf:resource="http://example.org/code/CL_DECIMALS"/>
+            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Group"/>
+         </qb:ComponentSpecification>
+      </qb:component>
+      <qb:component>
+         <qb:ComponentSpecification>
+            <qb:attribute rdf:resource="http://example.org/code/CL_BIS_OBS_CONF"/>
+            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Observation"/>
+         </qb:ComponentSpecification>
+      </qb:component>
+      <qb:component>
+         <qb:ComponentSpecification>
+            <qb:attribute rdf:resource="http://example.org/code/CL_OBS_STATUS"/>
+            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Observation"/>
+         </qb:ComponentSpecification>
+      </qb:component>
+      <qb:component>
+         <qb:ComponentSpecification>
+            <qb:attribute rdf:resource="http://example.org/code/"/>
+            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Observation"/>
+         </qb:ComponentSpecification>
+      </qb:component>
+      <qb:component>
+         <qb:ComponentSpecification>
+            <qb:attribute rdf:resource="http://example.org/code/CL_BIS_UNIT"/>
+            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Group"/>
+         </qb:ComponentSpecification>
+      </qb:component>
+      <qb:component>
+         <qb:ComponentSpecification>
+            <qb:attribute rdf:resource="http://example.org/code/CL_UNIT_MULT"/>
+            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Group"/>
+         </qb:ComponentSpecification>
+      </qb:component>
+   </rdf:Description>
+</rdf:RDF>
