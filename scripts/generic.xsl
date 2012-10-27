@@ -77,9 +77,9 @@ TODO:
         <rdf:RDF>
             <xsl:call-template name="KeyFamily"/>
 
-            <xsl:call-template name="Concept"/>
+            <xsl:call-template name="Concepts"/>
 
-            <xsl:call-template name="CodeList"/>
+            <xsl:call-template name="CodeLists"/>
         </rdf:RDF>
     </xsl:template>
 
@@ -316,44 +316,112 @@ XXX: This might be attached to qb:Dimension?
 TODO:
 Check where to get ConceptScheme
 -->
-    <xsl:template name="Concept">
-        <xsl:for-each select="Structure/Concepts/structure:Concept">
-            <xsl:variable name="id">
-                <xsl:call-template name="getAttributeId"/>
-            </xsl:variable>
+    <xsl:template name="Concepts">
+        <xsl:for-each select="Structure/Concepts/structure:ConceptScheme">
+            <xsl:call-template name="structureConceptScheme"/>
+        </xsl:for-each>
 
-            <xsl:variable name="agencyID">
-                <xsl:call-template name="getAttributeAgencyID"/>
-            </xsl:variable>
+        <xsl:for-each select="Structure/Concepts/structure:Concept">
+            <xsl:call-template name="structureConcept"/>
+        </xsl:for-each>
+    </xsl:template>
+
+
+    <xsl:template name="structureConceptScheme">
+        <xsl:variable name="id">
+            <xsl:call-template name="getAttributeId"/>
+        </xsl:variable>
+        <xsl:variable name="agencyID">
+            <xsl:call-template name="getAttributeAgencyID"/>
+        </xsl:variable>
+
+        <rdf:Description rdf:about="{$concept}{$id}">
+<!--
+XXX:
+SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptScheme?
+-->
+            <rdf:type rdf:resource="{$skos}ConceptScheme"/>
+
+            <xsl:if test="@uri">
+                <rdfs:isDefinedBy rdf:resource="{@uri}"/>
+            </xsl:if>
+
+            <skos:notation><xsl:value-of select="$id"/></skos:notation>
+
+            <xsl:apply-templates select="structure:Name"/>
+
+            <xsl:for-each select="structure:Concept">
+                <skos:hasTopConcept>
+                    <xsl:call-template name="structureConcept">
+                        <xsl:with-param name="ConceptSchemeID" select="$id"/>
+                    </xsl:call-template>
+                </skos:hasTopConcept>
+            </xsl:for-each>
+        </rdf:Description>
+    </xsl:template>
+
+
+    <xsl:template name="structureConcept">
+        <xsl:param name="ConceptSchemeID"/>
+
+        <xsl:variable name="id">
+            <xsl:call-template name="getAttributeId"/>
+        </xsl:variable>
+
+        <xsl:variable name="agencyID">
+            <xsl:call-template name="getAttributeAgencyID"/>
+        </xsl:variable>
 
 <!--
 TODO:
 Consider whether to include agencyID here because.. what happens if a KeyFamily mixes agencyIDs?
 -->
-            <rdf:Description rdf:about="{$concept}{$id}">
+        <rdf:Description rdf:about="{$concept}{$id}">
 <!--
 XXX:
 Maybe this should be excluded since sdmx:Concept is a rdfs:subClassOf skos:Concept
 -->
-                <rdf:type rdf:resource="{$sdmx}Concept"/>
-                <rdf:type rdf:resource="{$skos}Concept"/>
+            <rdf:type rdf:resource="{$sdmx}Concept"/>
+            <rdf:type rdf:resource="{$skos}Concept"/>
 
-                <xsl:if test="@uri">
-                    <rdfs:isDefinedBy rdf:resource="{@uri}"/>
-                </xsl:if>
+            <xsl:if test="$ConceptSchemeID">
+                <skos:topConceptOf rdf:resource="{$concept}{$ConceptSchemeID}"/>
+                <skos:inScheme rdf:resource="{$concept}{$ConceptSchemeID}"/>
+            </xsl:if>
+
+            <xsl:if test="@uri">
+                <rdfs:isDefinedBy rdf:resource="{@uri}"/>
+            </xsl:if>
 
 
-                <skos:notation><xsl:value-of select="$id"/></skos:notation>
+            <skos:notation><xsl:value-of select="$id"/></skos:notation>
 
-                <xsl:apply-templates select="structure:Name"/>
+            <xsl:apply-templates select="structure:Name"/>
 
-                <xsl:apply-templates select="structure:Description"/>
-            </rdf:Description>
-        </xsl:for-each>   
+            <xsl:apply-templates select="structure:Description"/>
+        </rdf:Description>
     </xsl:template>
 
 
-    <xsl:template name="CodeList">
+<!--                    <structure:Dimension conceptRef="FREQ" codelist="CL_FREQ" isFrequencyDimension="true" codelistVersion="1.0" codelistAgency="IMF" conceptSchemeRef="IMF_DSD_CONCEPTS" conceptSchemeAgency="IMF"/>-->
+
+<!-- 		<structure:ConceptScheme id="IMF_DSD_CONCEPTS" agencyID="IMF" version="1.0">-->
+<!--          <structure:Name xml:lang="en">Data Structure Definition Concepts</structure:Name>-->
+<!--          <structure:Concept id="FREQ">-->
+<!--               <structure:Name xml:lang="en">Frequency</structure:Name>-->
+<!--          </structure:Concept>-->
+
+<!--          <structure:CodeList id="CL_FREQ" agencyID="IMF" version="1.0">-->
+<!--               <structure:Name xml:lang="en">Frequency code list</structure:Name>-->
+<!--               <structure:Code value="A">-->
+<!--                    <structure:Description xml:lang="en">Annual</structure:Description>-->
+
+
+
+
+
+
+    <xsl:template name="CodeLists">
         <xsl:for-each select="Structure/CodeLists/structure:CodeList">
             <xsl:variable name="id">
                 <xsl:call-template name="getAttributeId"/>

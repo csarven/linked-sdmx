@@ -68,6 +68,75 @@
          </qb:ComponentSpecification>
       </qb:component>
    </rdf:Description>
+   <rdf:Description rdf:about="http://example.org/concept/CONCEPTS">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+      <skos:notation>CONCEPTS</skos:notation>
+      <skos:prefLabel xml:lang="en">Concepts</skos:prefLabel>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/FREQ">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/CONCEPTS"/>
+            <skos:notation>FREQ</skos:notation>
+            <skos:prefLabel xml:lang="en">Frequency</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/indic_de">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/CONCEPTS"/>
+            <skos:notation>indic_de</skos:notation>
+            <skos:prefLabel xml:lang="en">Demographic indicator</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Demographische Indikator</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Indicateur démographique</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/geo">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/CONCEPTS"/>
+            <skos:notation>geo</skos:notation>
+            <skos:prefLabel xml:lang="en">Geopolitical entity (declaring)</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Geopolitische Meldeeinheit</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Entité géopolitique (déclarante)</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/TIME_PERIOD">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/CONCEPTS"/>
+            <skos:notation>TIME_PERIOD</skos:notation>
+            <skos:prefLabel xml:lang="en">Time period or range</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/OBS_VALUE">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/CONCEPTS"/>
+            <skos:notation>OBS_VALUE</skos:notation>
+            <skos:prefLabel xml:lang="en">Observation Value</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/OBS_STATUS">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/CONCEPTS"/>
+            <skos:notation>OBS_STATUS</skos:notation>
+            <skos:prefLabel xml:lang="en">Observation Status</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+   </rdf:Description>
    <rdf:Description rdf:about="http://example.org/code/CL_INDIC_DE">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
       <skos:notation>CL_INDIC_DE</skos:notation>

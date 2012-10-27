@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:wgs="http://www.w3.org/2003/01/geo/wgs84_pos#"
+         xmlns:sdmx-metadata="http://purl.org/linked-data/sdmx/2009/metadata#"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+         xmlns:sdmx-subject="http://purl.org/linked-data/sdmx/2009/subject#"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns:structure="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/structure"
+         xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+         xmlns:message="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
+         xmlns:qb="http://purl.org/linked-data/cube#"
+         xmlns:sdmx="http://purl.org/linked-data/sdmx#"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:sdmx-attribute="http://purl.org/linked-data/sdmx/2009/attribute#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:sdmx-code="http://purl.org/linked-data/sdmx/2009/code#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:sdmx-concept="http://purl.org/linked-data/sdmx/2009/concept#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:sdmx-dimension="http://purl.org/linked-data/sdmx/2009/dimension#"
+         xmlns:wbldfn="http://worldbank.270a.info/xpath-function/"
+         xmlns:sdmx-measure="http://purl.org/linked-data/sdmx/2009/measure#">
+   <rdf:Description rdf:about="http://example.org/dataset/TRADE_DATASTRUCTURE/structure">
+      <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#DataStructureDefinition"/>
+      <sdmx-concept:dsi>TRADE_DATASTRUCTURE</sdmx-concept:dsi>
+      <sdmx-concept:mAgency>FAO</sdmx-concept:mAgency>
+      <sdmx-concept:dataRev>0.1</sdmx-concept:dataRev>
+      <sdmx-concept:urn rdf:resource="urn:sdmx:org.sdmx.infomodel.DataStructure=FAO:TRADE_DATASTRUCTURE[0.1]"/>
+      <skos:prefLabel xml:lang="en">TRADE_DATASTRUCTURE</skos:prefLabel>
+      <qb:component>
+         <qb:ComponentSpecification>
+            <qb:dimension rdf:resource="http://example.org/property/UN_COUNTRY"/>
+            <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</qb:order>
+         </qb:ComponentSpecification>
+      </qb:component>
+      <qb:component>
+         <qb:ComponentSpecification>
+            <qb:dimension rdf:resource="http://example.org/property/COMMODITY"/>
+            <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</qb:order>
+         </qb:ComponentSpecification>
+      </qb:component>
+      <qb:component>
+         <qb:ComponentSpecification>
+            <qb:dimension rdf:resource="http://example.org/property/TRADE_FLOW"/>
+            <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</qb:order>
+         </qb:ComponentSpecification>
+      </qb:component>
+      <qb:component>
+         <qb:ComponentSpecification>
+            <qb:dimension rdf:resource="http://example.org/property/TIME"/>
+            <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</qb:order>
+         </qb:ComponentSpecification>
+      </qb:component>
+      <qb:component>
+         <qb:ComponentSpecification>
+            <qb:measure rdf:resource="http://example.org/property/OBS_VALUE"/>
+         </qb:ComponentSpecification>
+      </qb:component>
+      <qb:component>
+         <qb:ComponentSpecification>
+            <qb:attribute rdf:resource="http://example.org/property/UNIT"/>
+            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#DataSet"/>
+         </qb:ComponentSpecification>
+      </qb:component>
+      <qb:component>
+         <qb:ComponentSpecification>
+            <qb:attribute rdf:resource="http://example.org/property/UNIT_MULTIPLIER"/>
+            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#DataSet"/>
+         </qb:ComponentSpecification>
+      </qb:component>
+   </rdf:Description>
+</rdf:RDF>

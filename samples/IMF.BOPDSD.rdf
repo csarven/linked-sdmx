@@ -190,6 +190,281 @@
          </qb:ComponentSpecification>
       </qb:component>
    </rdf:Description>
+   <rdf:Description rdf:about="http://example.org/concept/IMF_DSD_CONCEPTS">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+      <skos:notation>IMF_DSD_CONCEPTS</skos:notation>
+      <skos:prefLabel xml:lang="en">Data Structure Definition Concepts</skos:prefLabel>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/FREQ">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:notation>FREQ</skos:notation>
+            <skos:prefLabel xml:lang="en">Frequency</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/REF_AREA">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:notation>REF_AREA</skos:notation>
+            <skos:prefLabel xml:lang="en">Reference area </skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/DATA_TYPE_BOP">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:notation>DATA_TYPE_BOP</skos:notation>
+            <skos:prefLabel xml:lang="en">BOP type of data, flow and position</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/BOP_ITEM">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:notation>BOP_ITEM</skos:notation>
+            <skos:prefLabel xml:lang="en">Balance of Payment item</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/CURR_BRKDWN">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:notation>CURR_BRKDWN</skos:notation>
+            <skos:prefLabel xml:lang="en">Currency breakdown</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/COUNT_AREA">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:notation>COUNT_AREA</skos:notation>
+            <skos:prefLabel xml:lang="en">Counterpart area</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/SERIES_DENOM">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:notation>SERIES_DENOM</skos:notation>
+            <skos:prefLabel xml:lang="en">Series denominat/special calcul code list</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/OBS_VALUE">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:notation>OBS_VALUE</skos:notation>
+            <skos:prefLabel xml:lang="en">Observation Value</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/OBS_STATUS">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:notation>OBS_STATUS</skos:notation>
+            <skos:prefLabel xml:lang="en">Observation status</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/OBS_CONF">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:notation>OBS_CONF</skos:notation>
+            <skos:prefLabel xml:lang="en">Observation confidentiality</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/OBS_PRE_BREAK">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:notation>OBS_PRE_BREAK</skos:notation>
+            <skos:prefLabel xml:lang="en">Pre-break observation value</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/TITLE">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:notation>TITLE</skos:notation>
+            <skos:prefLabel xml:lang="en">Title</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/UNIT">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:notation>UNIT</skos:notation>
+            <skos:prefLabel xml:lang="en">Unit</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/UNIT_MULT">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:notation>UNIT_MULT</skos:notation>
+            <skos:prefLabel xml:lang="en">Unit multiplier</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/DECIMALS">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:notation>DECIMALS</skos:notation>
+            <skos:prefLabel xml:lang="en">Decimals</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/COLLECTION">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:notation>COLLECTION</skos:notation>
+            <skos:prefLabel xml:lang="en">Collection Indicator</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/BOP_BASIS">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:notation>BOP_BASIS</skos:notation>
+            <skos:prefLabel xml:lang="en">BOP data collection basis</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/TITLE_COMPL">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:notation>TITLE_COMPL</skos:notation>
+            <skos:prefLabel xml:lang="en">Title complement</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/COMPILATION">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:notation>COMPILATION</skos:notation>
+            <skos:prefLabel xml:lang="en">Compilation</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/BREAKS">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:notation>BREAKS</skos:notation>
+            <skos:prefLabel xml:lang="en">Breaks</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/AGG_EQUN">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:notation>AGG_EQUN</skos:notation>
+            <skos:prefLabel xml:lang="en">Aggregation equations</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/OBS_COM">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:notation>OBS_COM</skos:notation>
+            <skos:prefLabel xml:lang="en">Observation comment</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/PUBL_PUBLIC">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:notation>PUBL_PUBLIC</skos:notation>
+            <skos:prefLabel xml:lang="en">Source publication (public)</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/PUBL_ECB">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:notation>PUBL_ECB</skos:notation>
+            <skos:prefLabel xml:lang="en">Source publication (ECB only)</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/ADJUSTMENT">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:notation>ADJUSTMENT</skos:notation>
+            <skos:prefLabel xml:lang="en">Seasonal Adjustment</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/TIME_FORMAT">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:notation>TIME_FORMAT</skos:notation>
+            <skos:prefLabel xml:lang="en">Time Format</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/concept/TIME_PERIOD">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/IMF_DSD_CONCEPTS"/>
+            <skos:notation>TIME_PERIOD</skos:notation>
+            <skos:prefLabel xml:lang="en">Time Period</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+   </rdf:Description>
    <rdf:Description rdf:about="http://example.org/code/CL_OBS_STATUS">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
       <skos:notation>CL_OBS_STATUS</skos:notation>

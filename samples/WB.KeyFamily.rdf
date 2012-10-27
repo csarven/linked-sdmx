@@ -61,58 +61,6 @@
          </qb:ComponentSpecification>
       </qb:component>
    </rdf:Description>
-   <rdf:Description rdf:about="http://example.org/concept/FREQ">
-      <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
-      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-      <skos:notation>FREQ</skos:notation>
-      <skos:prefLabel xml:lang="en">Frequency</skos:prefLabel>
-      <skos:definition xml:lang="en">Indicates rate of recurrence at which observations
-				occur (e.g. monthly, yearly, biannually, etc.).</skos:definition>
-   </rdf:Description>
-   <rdf:Description rdf:about="http://example.org/concept/REF_AREA">
-      <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
-      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-      <skos:notation>REF_AREA</skos:notation>
-      <skos:prefLabel xml:lang="en">Reference Area</skos:prefLabel>
-      <skos:definition xml:lang="en">Reference Area: Specific areas (e.g. Country,
-				Regional Grouping, etc) the observed values refer to. Reference areas can be
-				determined according to different criteria (e.g.: geographical, economic,
-				etc.).</skos:definition>
-   </rdf:Description>
-   <rdf:Description rdf:about="http://example.org/concept/SERIES">
-      <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
-      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-      <skos:notation>SERIES</skos:notation>
-      <skos:prefLabel xml:lang="en">Series</skos:prefLabel>
-      <skos:definition xml:lang="en">The phenomenon or phenomena to be measured in the
-				data set. The word SERIES is used for consistency with the term used in the WDI
-				Database. SERIES are 54 key indicators from WDI</skos:definition>
-   </rdf:Description>
-   <rdf:Description rdf:about="http://example.org/concept/TIME_PERIOD">
-      <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
-      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-      <skos:notation>TIME_PERIOD</skos:notation>
-      <skos:prefLabel xml:lang="en">Time period</skos:prefLabel>
-      <skos:definition xml:lang="en">Reference date - or date range - the observed value
-				refers to (usually different from the dates of data production or dissemination).
-				</skos:definition>
-   </rdf:Description>
-   <rdf:Description rdf:about="http://example.org/concept/UNIT_MULT">
-      <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
-      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-      <skos:notation>UNIT_MULT</skos:notation>
-      <skos:prefLabel xml:lang="en">Unit multiplier</skos:prefLabel>
-      <skos:definition xml:lang="en">Exponent in base 10 that multiplied by the
-				observation numeric value gives the result expressed in the unit of
-				measure.</skos:definition>
-   </rdf:Description>
-   <rdf:Description rdf:about="http://example.org/concept/OBS_VALUE">
-      <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
-      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-      <skos:notation>OBS_VALUE</skos:notation>
-      <skos:prefLabel xml:lang="en">Observation Value</skos:prefLabel>
-      <skos:definition xml:lang="en">Observation value</skos:definition>
-   </rdf:Description>
    <rdf:Description rdf:about="http://example.org/code/CL_FREQ_WDI">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
       <skos:notation>CL_FREQ_WDI</skos:notation>
