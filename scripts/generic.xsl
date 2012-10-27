@@ -10,7 +10,7 @@
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-    xmlns:wbldfn="http://worldbank.270a.info/xpath-function/"
+    xmlns:fn="http://270a.info/xpath-function/"
     xmlns:wgs="http://www.w3.org/2003/01/geo/wgs84_pos#"
     xmlns:dcterms="http://purl.org/dc/terms/"
     xmlns:foaf="http://xmlns.com/foaf/0.1/"
@@ -29,6 +29,7 @@
     xmlns:message="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
     xpath-default-namespace="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message">
 
+    <xsl:import href="common.xsl"/>
     <xsl:output encoding="utf-8" indent="yes" method="xml" omit-xml-declaration="no"/>
 
     <xsl:param name="lang"/>
@@ -90,11 +91,10 @@ TODO:
 Merge these. Change it to xsl:function
 -->
             <xsl:variable name="id">
-                <xsl:call-template name="getAttributeId"/>
+                <xsl:call-template name="getAttributeValue"><xsl:with-param name="attributeName" select="@id"/></xsl:call-template>
             </xsl:variable>
-
             <xsl:variable name="agencyID">
-                <xsl:call-template name="getAttributeAgencyID"/>
+                <xsl:call-template name="getAttributeValue"><xsl:with-param name="attributeName" select="@agencyID"/></xsl:call-template>
             </xsl:variable>
 
             <rdf:Description rdf:about="{$baseuri}dataset/{$id}/structure">
@@ -118,11 +118,7 @@ Merge these. Change it to xsl:function
                 </xsl:if>
 
                 <xsl:if test="@urn">
-                    <sdmx-concept:urn>
-                        <xsl:attribute name="rdf:resource">
-                            <xsl:value-of select="@urn"/>
-                        </xsl:attribute>
-                    </sdmx-concept:urn>
+                    <sdmx-concept:urn rdf:resource="{@urn}"/>
                 </xsl:if>
 
                 <xsl:if test="@isFinal">
@@ -174,51 +170,6 @@ XXX: dcterms:valid could be used along with gregorian-interval but 1) we don't k
             <xsl:call-template name="langTextNode"/>
         </skos:definition>
     </xsl:template>
-
-<!--
-TODO:
-Move this to common.xsl
--->
-    <xsl:template name="langTextNode">
-        <xsl:if test="@xml:lang">
-            <xsl:copy-of select="@*[name() = 'xml:lang']"/>
-        </xsl:if>
-        <xsl:value-of select="text()"/>
-    </xsl:template>
-
-    <xsl:template name="getAttributeId">
-        <xsl:choose>
-            <xsl:when test="@id">
-                <xsl:value-of select="@id"/>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:text>id</xsl:text>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
-
-    <xsl:template name="getAttributeAgencyID">
-        <xsl:choose>
-            <xsl:when test="@agencyID">
-                <xsl:value-of select="@agencyID"/>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:text>agencyID</xsl:text>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
-
-    <xsl:template name="getAttributeValue">
-        <xsl:choose>
-            <xsl:when test="@value">
-                <xsl:value-of select="@value"/>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:text>value</xsl:text>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
-
 
 
     <xsl:template name="structureComponents">
@@ -329,10 +280,10 @@ Check where to get ConceptScheme
 
     <xsl:template name="structureConceptScheme">
         <xsl:variable name="id">
-            <xsl:call-template name="getAttributeId"/>
+            <xsl:call-template name="getAttributeValue"><xsl:with-param name="attributeName" select="@id"/></xsl:call-template>
         </xsl:variable>
         <xsl:variable name="agencyID">
-            <xsl:call-template name="getAttributeAgencyID"/>
+            <xsl:call-template name="getAttributeValue"><xsl:with-param name="attributeName" select="@agencyID"/></xsl:call-template>
         </xsl:variable>
 
         <rdf:Description rdf:about="{$concept}{$id}">
@@ -365,11 +316,10 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
         <xsl:param name="ConceptSchemeID"/>
 
         <xsl:variable name="id">
-            <xsl:call-template name="getAttributeId"/>
+            <xsl:call-template name="getAttributeValue"><xsl:with-param name="attributeName" select="@id"/></xsl:call-template>
         </xsl:variable>
-
         <xsl:variable name="agencyID">
-            <xsl:call-template name="getAttributeAgencyID"/>
+            <xsl:call-template name="getAttributeValue"><xsl:with-param name="attributeName" select="@agencyID"/></xsl:call-template>
         </xsl:variable>
 
 <!--
@@ -403,28 +353,14 @@ Maybe this should be excluded since sdmx:Concept is a rdfs:subClassOf skos:Conce
     </xsl:template>
 
 
-<!--                    <structure:Dimension conceptRef="FREQ" codelist="CL_FREQ" isFrequencyDimension="true" codelistVersion="1.0" codelistAgency="IMF" conceptSchemeRef="IMF_DSD_CONCEPTS" conceptSchemeAgency="IMF"/>-->
-
-<!-- 		<structure:ConceptScheme id="IMF_DSD_CONCEPTS" agencyID="IMF" version="1.0">-->
-<!--          <structure:Name xml:lang="en">Data Structure Definition Concepts</structure:Name>-->
-<!--          <structure:Concept id="FREQ">-->
-<!--               <structure:Name xml:lang="en">Frequency</structure:Name>-->
-<!--          </structure:Concept>-->
-
-<!--          <structure:CodeList id="CL_FREQ" agencyID="IMF" version="1.0">-->
-<!--               <structure:Name xml:lang="en">Frequency code list</structure:Name>-->
-<!--               <structure:Code value="A">-->
-<!--                    <structure:Description xml:lang="en">Annual</structure:Description>-->
-
-
-
-
-
 
     <xsl:template name="CodeLists">
         <xsl:for-each select="Structure/CodeLists/structure:CodeList">
             <xsl:variable name="id">
-                <xsl:call-template name="getAttributeId"/>
+                <xsl:call-template name="getAttributeValue"><xsl:with-param name="attributeName" select="@id"/></xsl:call-template>
+            </xsl:variable>
+            <xsl:variable name="agencyID">
+                <xsl:call-template name="getAttributeValue"><xsl:with-param name="attributeName" select="@agencyID"/></xsl:call-template>
             </xsl:variable>
 
             <rdf:Description rdf:about="{$code}{$id}">

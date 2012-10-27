@@ -17,7 +17,7 @@
          xmlns:sdmx-concept="http://purl.org/linked-data/sdmx/2009/concept#"
          xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
          xmlns:sdmx-dimension="http://purl.org/linked-data/sdmx/2009/dimension#"
-         xmlns:wbldfn="http://worldbank.270a.info/xpath-function/"
+         xmlns:fn="http://270a.info/xpath-function/"
          xmlns:sdmx-measure="http://purl.org/linked-data/sdmx/2009/measure#">
    <rdf:Description rdf:about="http://example.org/dataset/HEALTH_STAT/structure">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#DataStructureDefinition"/>
@@ -78,6 +78,90 @@
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Series"/>
          </qb:ComponentSpecification>
       </qb:component>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.org/concept/VAR">
+      <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:notation>VAR</skos:notation>
+      <skos:prefLabel xml:lang="en">Variable</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Variable</skos:prefLabel>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.org/concept/UNIT">
+      <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:notation>UNIT</skos:notation>
+      <skos:prefLabel xml:lang="en">Unit</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Unité</skos:prefLabel>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.org/concept/COU">
+      <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:notation>COU</skos:notation>
+      <skos:prefLabel xml:lang="en">Country</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Pays</skos:prefLabel>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.org/concept/YEA">
+      <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:notation>YEA</skos:notation>
+      <skos:prefLabel xml:lang="en">Year</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Année</skos:prefLabel>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.org/concept/UNIT">
+      <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:notation>UNIT</skos:notation>
+      <skos:prefLabel xml:lang="en">Unit</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Unit</skos:prefLabel>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.org/concept/POWERCODE">
+      <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:notation>POWERCODE</skos:notation>
+      <skos:prefLabel xml:lang="en">Powercode</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Powercode</skos:prefLabel>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.org/concept/TIME_FORMAT">
+      <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:notation>TIME_FORMAT</skos:notation>
+      <skos:prefLabel xml:lang="en">Time format</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Time format</skos:prefLabel>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.org/concept/OBS_STATUS">
+      <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:notation>OBS_STATUS</skos:notation>
+      <skos:prefLabel xml:lang="en">Observation Status</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Statut d'observation</skos:prefLabel>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.org/concept/UNIT">
+      <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:notation>UNIT</skos:notation>
+      <skos:prefLabel xml:lang="en">Unit</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Unité</skos:prefLabel>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.org/concept/POWERCODE">
+      <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:notation>POWERCODE</skos:notation>
+      <skos:prefLabel xml:lang="en">Unit multplier</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Unité multiplicateur</skos:prefLabel>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.org/concept/TIME_FORMAT">
+      <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:notation>TIME_FORMAT</skos:notation>
+      <skos:prefLabel xml:lang="en">Time Format</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Format de l'heure</skos:prefLabel>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.org/concept/OBS_VALUE">
+      <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:notation>OBS_VALUE</skos:notation>
+      <skos:prefLabel xml:lang="en">Observation Value</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Valeur d'observation</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_OBS_STATUS">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
