@@ -83,6 +83,8 @@ TODO:
             <xsl:call-template name="Concepts"/>
 
             <xsl:call-template name="CodeLists"/>
+
+            <xsl:call-template name="HierarchicalCodelists"/>
         </rdf:RDF>
     </xsl:template>
 
@@ -397,6 +399,9 @@ Hello redundancy!
                             <xsl:if test="@uri">
                                 <rdfs:isDefinedBy rdf:resource="{@uri}"/>
                             </xsl:if>
+                            <xsl:if test="@urn">
+                                <dcterms:identifier rdf:resource="{@urn}"/>
+                            </xsl:if>
 
                             <skos:notation><xsl:value-of select="@value"/></skos:notation>
                             <xsl:apply-templates select="structure:Description"/>
@@ -408,4 +413,82 @@ Hello redundancy!
     </xsl:template>
 
 
+    <xsl:template name="HierarchicalCodelists">
+        <xsl:for-each select="Structure/HierarchicalCodelists/structure:HierarchicalCodelist">
+            <xsl:variable name="id">
+                <xsl:call-template name="getAttributeValue"><xsl:with-param name="attributeName" select="@id"/></xsl:call-template>
+            </xsl:variable>
+            <xsl:variable name="agencyID">
+                <xsl:call-template name="getAttributeValue"><xsl:with-param name="attributeName" select="@agencyID"/></xsl:call-template>
+            </xsl:variable>
+
+            <rdf:Description rdf:about="{$code}{$id}">
+                <rdf:type rdf:resource="{$sdmx}CodeList"/>
+
+                <xsl:if test="@uri">
+                    <rdfs:isDefinedBy rdf:resource="{@uri}"/>
+                </xsl:if>
+                <xsl:if test="@urn">
+                    <dcterms:identifier rdf:resource="{@urn}"/>
+                </xsl:if>
+
+                <skos:notation><xsl:value-of select="$id"/></skos:notation>
+                <xsl:apply-templates select="structure:Name"/>
+                <xsl:apply-templates select="structure:Description"/>
+
+                <xsl:for-each select="structure:CodelistRef">
+                    <dcterms:references rdf:resource="{$code}{structure:Alias}"/>
+                </xsl:for-each>
+
+                <xsl:for-each select="structure:Hierarchy/structure:CodeRef">
+                    <xsl:variable name="CodelistAliasRef">
+                        <xsl:value-of select="structure:CodelistAliasRef"/>
+                    </xsl:variable>
+
+                    <xsl:variable name="CodeID">
+                        <xsl:value-of select="structure:CodeID"/>
+                    </xsl:variable>
+
+<!--
+XXX:
+Doublecheck the exact relationship between an hierarchical list and a code list.
+-->
+                    <dcterms:hasPart>
+                        <rdf:Description rdf:about="{$code}{$CodelistAliasRef}/{$CodeID}">
+<!--
+XXX:
+Handle Annotations using skos:note
+-->
+                            <xsl:variable name="CodelistAliasRef_parent">
+                                <xsl:value-of select="$CodelistAliasRef"/>
+                            </xsl:variable>
+                            <xsl:variable name="CodeID_parent">
+                                <xsl:value-of select="$CodeID"/>
+                            </xsl:variable>
+
+                            <xsl:for-each select="structure:CodeRef">
+<!--
+FIXME:
+"At a minimum, either a URN value (a valid SDMX Registry URN as specified in teh SDMX Registry Specification) must be supplied, or a ColdelistAliasRef and a CodeID must be specified."
+-->
+                                <xsl:variable name="CodelistAliasRef">
+                                    <xsl:value-of select="structure:CodelistAliasRef"/>
+                                </xsl:variable>
+
+                                <xsl:variable name="CodeID">
+                                    <xsl:value-of select="structure:CodeID"/>
+                                </xsl:variable>
+
+                                <skos:narrower>
+                                    <rdf:Description rdf:about="{$code}{$CodelistAliasRef}/{$CodeID}">
+                                        <skos:broader rdf:resource="{$code}{$CodelistAliasRef_parent}/{$CodeID_parent}"/>
+                                    </rdf:Description>
+                                </skos:narrower>
+                            </xsl:for-each>
+                        </rdf:Description>
+                    </dcterms:hasPart>
+                </xsl:for-each>
+            </rdf:Description>
+        </xsl:for-each>
+    </xsl:template>
 </xsl:stylesheet>
