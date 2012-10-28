@@ -24,10 +24,12 @@
     xmlns:sdmx-measure="http://purl.org/linked-data/sdmx/2009/measure#"
     xmlns:sdmx-metadata="http://purl.org/linked-data/sdmx/2009/metadata#"
     xmlns:sdmx-subject="http://purl.org/linked-data/sdmx/2009/subject#"
-
     xmlns:structure="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/structure"
     xmlns:message="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
-    xpath-default-namespace="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message">
+
+    xpath-default-namespace="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
+    exclude-result-prefixes="xsl fn structure message"
+    >
 
     <xsl:import href="common.xsl"/>
     <xsl:output encoding="utf-8" indent="yes" method="xml" omit-xml-declaration="no"/>
@@ -118,7 +120,7 @@ Merge these. Change it to xsl:function
                 </xsl:if>
 
                 <xsl:if test="@urn">
-                    <sdmx-concept:urn rdf:resource="{@urn}"/>
+                    <dcterms:identifier rdf:resource="{@urn}"/>
                 </xsl:if>
 
                 <xsl:if test="@isFinal">
@@ -296,6 +298,9 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
             <xsl:if test="@uri">
                 <rdfs:isDefinedBy rdf:resource="{@uri}"/>
             </xsl:if>
+            <xsl:if test="@urn">
+                <dcterms:identifier rdf:resource="{@urn}"/>
+            </xsl:if>
 
             <skos:notation><xsl:value-of select="$id"/></skos:notation>
 
@@ -341,6 +346,9 @@ Maybe this should be excluded since sdmx:Concept is a rdfs:subClassOf skos:Conce
 
             <xsl:if test="@uri">
                 <rdfs:isDefinedBy rdf:resource="{@uri}"/>
+            </xsl:if>
+            <xsl:if test="@urn">
+                <dcterms:identifier rdf:resource="{@urn}"/>
             </xsl:if>
 
 
