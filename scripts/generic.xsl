@@ -403,6 +403,14 @@ Hello redundancy!
                                 <dcterms:identifier rdf:resource="{@urn}"/>
                             </xsl:if>
 
+                            <xsl:if test="@parentCode">
+                                <skos:broader>
+                                    <rdf:Description rdf:about="{$code}{$id}/{@parentCode}">
+                                        <skos:narrower rdf:resource="{$code}{$id}/{@value}"/>
+                                    </rdf:Description>
+                                </skos:broader>
+                            </xsl:if>
+
                             <skos:notation><xsl:value-of select="@value"/></skos:notation>
                             <xsl:apply-templates select="structure:Description"/>
                         </rdf:Description>
