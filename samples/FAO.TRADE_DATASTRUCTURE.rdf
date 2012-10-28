@@ -4,9 +4,7 @@
          xmlns:dcterms="http://purl.org/dc/terms/"
          xmlns:sdmx-subject="http://purl.org/linked-data/sdmx/2009/subject#"
          xmlns:foaf="http://xmlns.com/foaf/0.1/"
-         xmlns:structure="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/structure"
          xmlns:skos="http://www.w3.org/2004/02/skos/core#"
-         xmlns:message="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
          xmlns:qb="http://purl.org/linked-data/cube#"
          xmlns:sdmx="http://purl.org/linked-data/sdmx#"
          xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -17,14 +15,13 @@
          xmlns:sdmx-concept="http://purl.org/linked-data/sdmx/2009/concept#"
          xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
          xmlns:sdmx-dimension="http://purl.org/linked-data/sdmx/2009/dimension#"
-         xmlns:fn="http://270a.info/xpath-function/"
          xmlns:sdmx-measure="http://purl.org/linked-data/sdmx/2009/measure#">
    <rdf:Description rdf:about="http://example.org/dataset/TRADE_DATASTRUCTURE/structure">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#DataStructureDefinition"/>
       <sdmx-concept:dsi>TRADE_DATASTRUCTURE</sdmx-concept:dsi>
       <sdmx-concept:mAgency>FAO</sdmx-concept:mAgency>
       <sdmx-concept:dataRev>0.1</sdmx-concept:dataRev>
-      <sdmx-concept:urn rdf:resource="urn:sdmx:org.sdmx.infomodel.DataStructure=FAO:TRADE_DATASTRUCTURE[0.1]"/>
+      <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.DataStructure=FAO:TRADE_DATASTRUCTURE[0.1]"/>
       <skos:prefLabel xml:lang="en">TRADE_DATASTRUCTURE</skos:prefLabel>
       <qb:component>
          <qb:ComponentSpecification>

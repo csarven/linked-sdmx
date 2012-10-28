@@ -4,9 +4,7 @@
          xmlns:dcterms="http://purl.org/dc/terms/"
          xmlns:sdmx-subject="http://purl.org/linked-data/sdmx/2009/subject#"
          xmlns:foaf="http://xmlns.com/foaf/0.1/"
-         xmlns:structure="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/structure"
          xmlns:skos="http://www.w3.org/2004/02/skos/core#"
-         xmlns:message="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
          xmlns:qb="http://purl.org/linked-data/cube#"
          xmlns:sdmx="http://purl.org/linked-data/sdmx#"
          xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -17,7 +15,6 @@
          xmlns:sdmx-concept="http://purl.org/linked-data/sdmx/2009/concept#"
          xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
          xmlns:sdmx-dimension="http://purl.org/linked-data/sdmx/2009/dimension#"
-         xmlns:fn="http://270a.info/xpath-function/"
          xmlns:sdmx-measure="http://purl.org/linked-data/sdmx/2009/measure#">
    <rdf:Description rdf:about="http://example.org/dataset/HEALTH_STAT/structure">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#DataStructureDefinition"/>
@@ -384,6 +381,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/SANT">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/EVIE"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>EVIE</skos:notation>
             <skos:definition xml:lang="en">Life expectancy</skos:definition>
             <skos:definition xml:lang="fr">Espérance de vie</skos:definition>
@@ -396,6 +398,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/EVIE">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/EVIEFE00"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>EVIEFE00</skos:notation>
             <skos:definition xml:lang="en">Females at birth</skos:definition>
             <skos:definition xml:lang="fr">Femmes à la naissance</skos:definition>
@@ -408,6 +415,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/EVIE">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/EVIEFE40"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>EVIEFE40</skos:notation>
             <skos:definition xml:lang="en">Females at age 40</skos:definition>
             <skos:definition xml:lang="fr">Femmes à 40 ans</skos:definition>
@@ -420,6 +432,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/EVIE">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/EVIEFE60"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>EVIEFE60</skos:notation>
             <skos:definition xml:lang="en">Females at age 60</skos:definition>
             <skos:definition xml:lang="fr">Femmes à 60 ans</skos:definition>
@@ -432,6 +449,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/EVIE">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/EVIEFE65"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>EVIEFE65</skos:notation>
             <skos:definition xml:lang="en">Females at age 65</skos:definition>
             <skos:definition xml:lang="fr">Femmes à 65 ans</skos:definition>
@@ -444,6 +466,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/EVIE">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/EVIEFE80"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>EVIEFE80</skos:notation>
             <skos:definition xml:lang="en">Females at age 80</skos:definition>
             <skos:definition xml:lang="fr">Femmes à 80 ans</skos:definition>
@@ -456,6 +483,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/EVIE">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/EVIEHO00"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>EVIEHO00</skos:notation>
             <skos:definition xml:lang="en">Males at birth</skos:definition>
             <skos:definition xml:lang="fr">Hommes à la naissance</skos:definition>
@@ -468,6 +500,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/EVIE">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/EVIEHO40"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>EVIEHO40</skos:notation>
             <skos:definition xml:lang="en">Males at age 40</skos:definition>
             <skos:definition xml:lang="fr">Hommes à 40 ans</skos:definition>
@@ -480,6 +517,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/EVIE">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/EVIEHO60"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>EVIEHO60</skos:notation>
             <skos:definition xml:lang="en">Males at age 60</skos:definition>
             <skos:definition xml:lang="fr">Hommes à 60 ans</skos:definition>
@@ -492,6 +534,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/EVIE">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/EVIEHO65"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>EVIEHO65</skos:notation>
             <skos:definition xml:lang="en">Males at age 65</skos:definition>
             <skos:definition xml:lang="fr">Hommes à 65 ans</skos:definition>
@@ -504,6 +551,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/EVIE">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/EVIEHO80"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>EVIEHO80</skos:notation>
             <skos:definition xml:lang="en">Males at age 80</skos:definition>
             <skos:definition xml:lang="fr">Hommes à 80 ans</skos:definition>
@@ -516,6 +568,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/EVIE">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/EVIETOTA"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>EVIETOTA</skos:notation>
             <skos:definition xml:lang="en">Total population at birth</skos:definition>
             <skos:definition xml:lang="fr">Femmes et hommes à la naissance</skos:definition>
@@ -528,6 +585,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/SANT">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICD"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICD</skos:notation>
             <skos:definition xml:lang="en">Causes of mortality</skos:definition>
             <skos:definition xml:lang="fr">Causes de mortalité</skos:definition>
@@ -540,6 +602,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDALLC"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDALLC</skos:notation>
             <skos:definition xml:lang="en">All causes of death</skos:definition>
             <skos:definition xml:lang="fr">Toutes les causes de décès</skos:definition>
@@ -552,6 +619,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDINFE"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDINFE</skos:notation>
             <skos:definition xml:lang="en">Certain infectious and parasitic diseases</skos:definition>
             <skos:definition xml:lang="fr">Certaines maladies infectieuses et parasitaires</skos:definition>
@@ -564,6 +636,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDTBLS"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDTBLS</skos:notation>
             <skos:definition xml:lang="en">- Tuberculosis</skos:definition>
             <skos:definition xml:lang="fr">- Tuberculose</skos:definition>
@@ -576,6 +653,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDHIVD"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDHIVD</skos:notation>
             <skos:definition xml:lang="en">- HIV-AIDS</skos:definition>
             <skos:definition xml:lang="fr">- VIH/SIDA</skos:definition>
@@ -588,6 +670,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDNEOP"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDNEOP</skos:notation>
             <skos:definition xml:lang="en">Neoplasms</skos:definition>
             <skos:definition xml:lang="fr">Tumeurs</skos:definition>
@@ -600,6 +687,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDTUME"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDTUME</skos:notation>
             <skos:definition xml:lang="en">- Malignant neoplasms</skos:definition>
             <skos:definition xml:lang="fr">- Tumeurs malignes</skos:definition>
@@ -612,6 +704,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDCANC"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDCANC</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of trachea, bronchus, lung</skos:definition>
             <skos:definition xml:lang="fr">-- Tumeurs de la trachée, des bronches et du poumon</skos:definition>
@@ -624,6 +721,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDNCRA"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDNCRA</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of colon, rectum and anus</skos:definition>
             <skos:definition xml:lang="fr">-- Tumeurs du côlon, du rectum et de l'anus</skos:definition>
@@ -636,6 +738,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDMNBR"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDMNBR</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of female breast</skos:definition>
             <skos:definition xml:lang="fr">-- Tumeurs du sein chez la femme</skos:definition>
@@ -648,6 +755,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDSTOM"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDSTOM</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of stomach</skos:definition>
             <skos:definition xml:lang="fr">-- Tumeurs de l'estomac</skos:definition>
@@ -660,6 +772,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDPANC"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDPANC</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of pancreas</skos:definition>
             <skos:definition xml:lang="fr">-- Tumeurs du pancreas</skos:definition>
@@ -672,6 +789,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDMNPR"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDMNPR</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of prostate</skos:definition>
             <skos:definition xml:lang="fr">-- Tumeurs de la prostate</skos:definition>
@@ -684,6 +806,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDLIVR"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDLIVR</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of liver </skos:definition>
             <skos:definition xml:lang="fr">-- Tumeurs du foie</skos:definition>
@@ -696,6 +823,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDCRVX"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDCRVX</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of cervix uteri</skos:definition>
             <skos:definition xml:lang="fr">-- Tumeurs du col de l'utérus</skos:definition>
@@ -708,6 +840,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDOVRY"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDOVRY</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of ovary</skos:definition>
             <skos:definition xml:lang="fr">-- Tumeurs de l'ovaire</skos:definition>
@@ -720,6 +857,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDHODG"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDHODG</skos:notation>
             <skos:definition xml:lang="en">-- Hodgkin’s disease</skos:definition>
             <skos:definition xml:lang="fr">-- Maladie de Hodgkin</skos:definition>
@@ -732,6 +874,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDLEUK"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDLEUK</skos:notation>
             <skos:definition xml:lang="en">-- Leukemia</skos:definition>
             <skos:definition xml:lang="fr">-- Leucémie</skos:definition>
@@ -744,6 +891,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDBLAD"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDBLAD</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of bladder</skos:definition>
             <skos:definition xml:lang="fr">-- Tumeurs de la vessie</skos:definition>
@@ -756,6 +908,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDSKIN"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDSKIN</skos:notation>
             <skos:definition xml:lang="en">-- Malignant melanoma of skin</skos:definition>
             <skos:definition xml:lang="fr">-- Mélanome malin de la peau</skos:definition>
@@ -768,6 +925,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDSANG"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDSANG</skos:notation>
             <skos:definition xml:lang="en">Diseases of the blood and blood-forming organs</skos:definition>
             <skos:definition xml:lang="fr">Maladies du sang et des organes hématopoïétiques</skos:definition>
@@ -780,6 +942,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDENDO"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDENDO</skos:notation>
             <skos:definition xml:lang="en">Endocrine, nutritional and metabolic diseases</skos:definition>
             <skos:definition xml:lang="fr">Maladies endocriniennes, nutritionnelles et métaboliques</skos:definition>
@@ -792,6 +959,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDDBTM"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDDBTM</skos:notation>
             <skos:definition xml:lang="en">- Diabetes mellitus</skos:definition>
             <skos:definition xml:lang="fr">- Diabète sucré</skos:definition>
@@ -804,6 +976,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDTROU"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDTROU</skos:notation>
             <skos:definition xml:lang="en">Mental and behavioural disorders</skos:definition>
             <skos:definition xml:lang="fr">Troubles mentaux et du comportement</skos:definition>
@@ -816,6 +993,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDDMTA"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDDMTA</skos:notation>
             <skos:definition xml:lang="en">- Dementia </skos:definition>
             <skos:definition xml:lang="fr">- Démence</skos:definition>
@@ -828,6 +1010,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDALCO"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDALCO</skos:notation>
             <skos:definition xml:lang="en">- Alcohol use disorders</skos:definition>
             <skos:definition xml:lang="fr">- Troubles liés à l'utilisation de l'alcool</skos:definition>
@@ -840,6 +1027,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDSUBS"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDSUBS</skos:notation>
             <skos:definition xml:lang="en">- Drug use disorders</skos:definition>
             <skos:definition xml:lang="fr">- Troubles liés à l'utilisation de drogue</skos:definition>
@@ -852,6 +1044,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDNERV"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDNERV</skos:notation>
             <skos:definition xml:lang="en">Diseases of the nervous system</skos:definition>
             <skos:definition xml:lang="fr">Maladies du système nerveux</skos:definition>
@@ -864,6 +1061,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDPARK"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDPARK</skos:notation>
             <skos:definition xml:lang="en">- Parkinson's disease</skos:definition>
             <skos:definition xml:lang="fr">- Maladie de Parkinson</skos:definition>
@@ -876,6 +1078,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDALZH"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDALZH</skos:notation>
             <skos:definition xml:lang="en">- Alzheimer's disease </skos:definition>
             <skos:definition xml:lang="fr">- Maladie d'Alzheimer</skos:definition>
@@ -888,6 +1095,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDCIRC"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDCIRC</skos:notation>
             <skos:definition xml:lang="en">Diseases of the circulatory system</skos:definition>
             <skos:definition xml:lang="fr">Maladies de l'appareil circulatoire</skos:definition>
@@ -900,6 +1112,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDISCH"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDISCH</skos:notation>
             <skos:definition xml:lang="en">- Ischaemic heart diseases</skos:definition>
             <skos:definition xml:lang="fr">- Cardiopathies ischémiques</skos:definition>
@@ -912,6 +1129,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDMYOC"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDMYOC</skos:notation>
             <skos:definition xml:lang="en">-- Acute myocardial infarction</skos:definition>
             <skos:definition xml:lang="fr">-- Infarctus aigu du myocarde</skos:definition>
@@ -924,6 +1146,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDCERV"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDCERV</skos:notation>
             <skos:definition xml:lang="en">- Cerebrovascular diseases</skos:definition>
             <skos:definition xml:lang="fr">- Maladies cérébrovasculaires</skos:definition>
@@ -936,6 +1163,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDREPS"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDREPS</skos:notation>
             <skos:definition xml:lang="en">Diseases of the respiratory system</skos:definition>
             <skos:definition xml:lang="fr">Maladies de l'appareil respiratoire</skos:definition>
@@ -948,6 +1180,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDINPN"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDINPN</skos:notation>
             <skos:definition xml:lang="en">- Influenza</skos:definition>
             <skos:definition xml:lang="fr">- Grippe</skos:definition>
@@ -960,6 +1197,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDPNEU"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDPNEU</skos:notation>
             <skos:definition xml:lang="en">- Pneumonia</skos:definition>
             <skos:definition xml:lang="fr">- Pneumonie</skos:definition>
@@ -972,6 +1214,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDBAEM"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDBAEM</skos:notation>
             <skos:definition xml:lang="en">- Chronic obstructive pulmonary diseases</skos:definition>
             <skos:definition xml:lang="fr">- Maladies pulmonaires obstructives chroniques</skos:definition>
@@ -984,6 +1231,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDASMA"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDASMA</skos:notation>
             <skos:definition xml:lang="en">- Asthma</skos:definition>
             <skos:definition xml:lang="fr">- Asthme</skos:definition>
@@ -996,6 +1248,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDDIGE"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDDIGE</skos:notation>
             <skos:definition xml:lang="en">Diseases of the digestive system</skos:definition>
             <skos:definition xml:lang="fr">Maladies de l'appareil digestif</skos:definition>
@@ -1008,6 +1265,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDPEPT"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDPEPT</skos:notation>
             <skos:definition xml:lang="en">- Peptic ulcer</skos:definition>
             <skos:definition xml:lang="fr">- Ulcère gastro-duodénal</skos:definition>
@@ -1020,6 +1282,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDCIRR"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDCIRR</skos:notation>
             <skos:definition xml:lang="en">- Chronic liver diseases and cirrhosis</skos:definition>
             <skos:definition xml:lang="fr">- Maladies chroniques du foie et cirrhose</skos:definition>
@@ -1032,6 +1299,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDPEAU"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDPEAU</skos:notation>
             <skos:definition xml:lang="en">Diseases of the skin and subcutaneous tissue</skos:definition>
             <skos:definition xml:lang="fr">Maladies de la peau et du tissu cellulaire sous-cutané</skos:definition>
@@ -1044,6 +1316,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDOSTE"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDOSTE</skos:notation>
             <skos:definition xml:lang="en">Diseases of the musculoskeletal system and connective tissue</skos:definition>
             <skos:definition xml:lang="fr">Maladie du système ostéo-articulaire, des muscles et du tissu conjonctif</skos:definition>
@@ -1056,6 +1333,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDGENI"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDGENI</skos:notation>
             <skos:definition xml:lang="en">Diseases of the genitourinary system</skos:definition>
             <skos:definition xml:lang="fr">Maladies de l'appareil génito-urinaire</skos:definition>
@@ -1068,6 +1350,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDGROS"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDGROS</skos:notation>
             <skos:definition xml:lang="en">Complications of pregnancy, childbirth and the puerperium</skos:definition>
             <skos:definition xml:lang="fr">Complications suite à grossesse, accouchement et puerpéralité</skos:definition>
@@ -1080,6 +1367,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDAFFE"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDAFFE</skos:notation>
             <skos:definition xml:lang="en">Certain conditions originating in the perinatal period</skos:definition>
             <skos:definition xml:lang="fr">Certaines affections dont l'origine se situe dans la période périnatale</skos:definition>
@@ -1092,6 +1384,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDCONG"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDCONG</skos:notation>
             <skos:definition xml:lang="en">Congenital malformations and chromosomal abnormalities</skos:definition>
             <skos:definition xml:lang="fr">Congenital malformations and chromosomal abnormalities</skos:definition>
@@ -1104,6 +1401,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDSYMP"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDSYMP</skos:notation>
             <skos:definition xml:lang="en">Symptoms, signs, ill-defined causes</skos:definition>
             <skos:definition xml:lang="fr">Symptômes, signes, causes mal-définies</skos:definition>
@@ -1116,6 +1418,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDEXTC"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDEXTC</skos:notation>
             <skos:definition xml:lang="en">External causes of mortality</skos:definition>
             <skos:definition xml:lang="fr">Causes externes de mortalité</skos:definition>
@@ -1128,6 +1435,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDACCD"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDACCD</skos:notation>
             <skos:definition xml:lang="en">- Accidents</skos:definition>
             <skos:definition xml:lang="fr">- Accidents</skos:definition>
@@ -1140,6 +1452,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDTRAC"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDTRAC</skos:notation>
             <skos:definition xml:lang="en">-- Transport accidents</skos:definition>
             <skos:definition xml:lang="fr">-- Accidents de transports</skos:definition>
@@ -1152,6 +1469,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDCHUT"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDCHUT</skos:notation>
             <skos:definition xml:lang="en">-- Accidental falls</skos:definition>
             <skos:definition xml:lang="fr">-- Chutes accidentelles</skos:definition>
@@ -1164,6 +1486,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDPOSN"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDPOSN</skos:notation>
             <skos:definition xml:lang="en">-- Accidental poisoning</skos:definition>
             <skos:definition xml:lang="fr">-- Intoxication accidentelle</skos:definition>
@@ -1176,6 +1503,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDHARM"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDHARM</skos:notation>
             <skos:definition xml:lang="en">- Intentional self-harm</skos:definition>
             <skos:definition xml:lang="fr">- Lésions auto-infligées</skos:definition>
@@ -1188,6 +1520,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CICD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CICDHOCD"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CICDHOCD</skos:notation>
             <skos:definition xml:lang="en">- Assault</skos:definition>
             <skos:definition xml:lang="fr">- Agression</skos:definition>
@@ -1200,6 +1537,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/SANT">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/MATI"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>MATI</skos:notation>
             <skos:definition xml:lang="en">Maternal and infant mortality</skos:definition>
             <skos:definition xml:lang="fr">Mortalité infantile et maternelle</skos:definition>
@@ -1212,6 +1554,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/MATI">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/MATIINFA"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>MATIINFA</skos:notation>
             <skos:definition xml:lang="en">Infant mortality</skos:definition>
             <skos:definition xml:lang="fr">Mortalité infantile</skos:definition>
@@ -1224,6 +1571,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/MATI">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/MATINEON"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>MATINEON</skos:notation>
             <skos:definition xml:lang="en">Neonatal mortality</skos:definition>
             <skos:definition xml:lang="fr">Mortalité néonatale</skos:definition>
@@ -1236,6 +1588,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/MATI">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/MATIPERI"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>MATIPERI</skos:notation>
             <skos:definition xml:lang="en">Perinatal mortality</skos:definition>
             <skos:definition xml:lang="fr">Mortalité périnatale</skos:definition>
@@ -1248,6 +1605,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/MATI">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/MATIMATM"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>MATIMATM</skos:notation>
             <skos:definition xml:lang="en">Maternal mortality</skos:definition>
             <skos:definition xml:lang="fr">Mortalité maternelle</skos:definition>
@@ -1260,6 +1622,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/SANT">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYL</skos:notation>
             <skos:definition xml:lang="en">Potential years of life lost</skos:definition>
             <skos:definition xml:lang="fr">Années potentielles de vie perdues</skos:definition>
@@ -1272,6 +1639,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLALLC"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLALLC</skos:notation>
             <skos:definition xml:lang="en">All causes of death</skos:definition>
             <skos:definition xml:lang="fr">Toutes les causes de décès</skos:definition>
@@ -1284,6 +1656,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLINFE"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLINFE</skos:notation>
             <skos:definition xml:lang="en">Certain infectious and parasitic diseases</skos:definition>
             <skos:definition xml:lang="fr">Certaines maladies infectieuses et parasitaires</skos:definition>
@@ -1296,6 +1673,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLTBLS"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLTBLS</skos:notation>
             <skos:definition xml:lang="en">- Tuberculosis</skos:definition>
             <skos:definition xml:lang="fr">- Tuberculose</skos:definition>
@@ -1308,6 +1690,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLHIVD"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLHIVD</skos:notation>
             <skos:definition xml:lang="en">- HIV-AIDS</skos:definition>
             <skos:definition xml:lang="fr">- VIH/SIDA</skos:definition>
@@ -1320,6 +1707,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLNEOP"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLNEOP</skos:notation>
             <skos:definition xml:lang="en">Neoplasms</skos:definition>
             <skos:definition xml:lang="fr">Tumeurs</skos:definition>
@@ -1332,6 +1724,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLTUME"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLTUME</skos:notation>
             <skos:definition xml:lang="en">- Malignant neoplasms</skos:definition>
             <skos:definition xml:lang="fr">- Tumeurs malignes</skos:definition>
@@ -1344,6 +1741,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLCANC"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLCANC</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of trachea, bronchus, lung</skos:definition>
             <skos:definition xml:lang="fr">-- Tumeurs de la trachée, des bronches et du poumon</skos:definition>
@@ -1356,6 +1758,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLNCRA"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLNCRA</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of colon, rectum and anus</skos:definition>
             <skos:definition xml:lang="fr">-- Tumeurs du côlon, du rectum et de l'anus</skos:definition>
@@ -1368,6 +1775,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLMNBR"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLMNBR</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of female breast</skos:definition>
             <skos:definition xml:lang="fr">-- Tumeurs du sein chez la femme</skos:definition>
@@ -1380,6 +1792,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLSTOM"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLSTOM</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of stomach</skos:definition>
             <skos:definition xml:lang="fr">-- Tumeurs de l'estomac</skos:definition>
@@ -1392,6 +1809,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLPANC"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLPANC</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of pancreas</skos:definition>
             <skos:definition xml:lang="fr">-- Tumeurs du pancreas</skos:definition>
@@ -1404,6 +1826,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLMNPR"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLMNPR</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of prostate</skos:definition>
             <skos:definition xml:lang="fr">-- Tumeurs de la prostate</skos:definition>
@@ -1416,6 +1843,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLLIVR"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLLIVR</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of liver </skos:definition>
             <skos:definition xml:lang="fr">-- Tumeurs du foie</skos:definition>
@@ -1428,6 +1860,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLCRVX"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLCRVX</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of cervix uteri</skos:definition>
             <skos:definition xml:lang="fr">-- Tumeurs du col de l'utérus</skos:definition>
@@ -1440,6 +1877,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLOVRY"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLOVRY</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of ovary</skos:definition>
             <skos:definition xml:lang="fr">-- Tumeurs de l'ovaire</skos:definition>
@@ -1452,6 +1894,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLHODG"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLHODG</skos:notation>
             <skos:definition xml:lang="en">-- Hodgkin’s disease</skos:definition>
             <skos:definition xml:lang="fr">-- Maladie de Hodgkin</skos:definition>
@@ -1464,6 +1911,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLLEUK"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLLEUK</skos:notation>
             <skos:definition xml:lang="en">-- Leukemia</skos:definition>
             <skos:definition xml:lang="fr">-- Leucémie</skos:definition>
@@ -1476,6 +1928,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLBLAD"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLBLAD</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of bladder</skos:definition>
             <skos:definition xml:lang="fr">-- Tumeurs de la vessie</skos:definition>
@@ -1488,6 +1945,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLSKIN"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLSKIN</skos:notation>
             <skos:definition xml:lang="en">-- Malignant melanoma of skin</skos:definition>
             <skos:definition xml:lang="fr">-- Mélanome malin de la peau</skos:definition>
@@ -1500,6 +1962,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLSANG"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLSANG</skos:notation>
             <skos:definition xml:lang="en">Diseases of the blood and blood-forming organs</skos:definition>
             <skos:definition xml:lang="fr">Maladies du sang et des organes hématopoïétiques</skos:definition>
@@ -1512,6 +1979,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLENDO"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLENDO</skos:notation>
             <skos:definition xml:lang="en">Endocrine, nutritional and metabolic diseases</skos:definition>
             <skos:definition xml:lang="fr">Maladies endocriniennes, nutritionnelles et métaboliques</skos:definition>
@@ -1524,6 +1996,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLDBTM"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLDBTM</skos:notation>
             <skos:definition xml:lang="en">- Diabetes mellitus</skos:definition>
             <skos:definition xml:lang="fr">- Diabète sucré</skos:definition>
@@ -1536,6 +2013,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLTROU"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLTROU</skos:notation>
             <skos:definition xml:lang="en">Mental and behavioural disorders</skos:definition>
             <skos:definition xml:lang="fr">Troubles mentaux et du comportement</skos:definition>
@@ -1548,6 +2030,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLDMTA"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLDMTA</skos:notation>
             <skos:definition xml:lang="en">- Dementia </skos:definition>
             <skos:definition xml:lang="fr">- Démence</skos:definition>
@@ -1560,6 +2047,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLALCO"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLALCO</skos:notation>
             <skos:definition xml:lang="en">- Alcohol use disorders</skos:definition>
             <skos:definition xml:lang="fr">- Troubles liés à l'utilisation de l'alcool</skos:definition>
@@ -1572,6 +2064,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLSUBS"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLSUBS</skos:notation>
             <skos:definition xml:lang="en">- Drug use disorders</skos:definition>
             <skos:definition xml:lang="fr">- Troubles liés à l'utilisation de drogue</skos:definition>
@@ -1584,6 +2081,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLNERV"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLNERV</skos:notation>
             <skos:definition xml:lang="en">Diseases of the nervous system</skos:definition>
             <skos:definition xml:lang="fr">Maladies du système nerveux</skos:definition>
@@ -1596,6 +2098,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLPARK"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLPARK</skos:notation>
             <skos:definition xml:lang="en">- Parkinson's disease</skos:definition>
             <skos:definition xml:lang="fr">- Maladie de Parkinson</skos:definition>
@@ -1608,6 +2115,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLALZH"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLALZH</skos:notation>
             <skos:definition xml:lang="en">- Alzheimer's disease </skos:definition>
             <skos:definition xml:lang="fr">- Maladie d'Alzheimer</skos:definition>
@@ -1620,6 +2132,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLCIRC"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLCIRC</skos:notation>
             <skos:definition xml:lang="en">Diseases of the circulatory system</skos:definition>
             <skos:definition xml:lang="fr">Maladies de l'appareil circulatoire</skos:definition>
@@ -1632,6 +2149,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLISCH"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLISCH</skos:notation>
             <skos:definition xml:lang="en">- Ischaemic heart diseases</skos:definition>
             <skos:definition xml:lang="fr">- Cardiopathies ischémiques</skos:definition>
@@ -1644,6 +2166,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLMYOC"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLMYOC</skos:notation>
             <skos:definition xml:lang="en">-- Acute myocardial infarction</skos:definition>
             <skos:definition xml:lang="fr">-- Infarctus aigu du myocarde</skos:definition>
@@ -1656,6 +2183,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLCERV"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLCERV</skos:notation>
             <skos:definition xml:lang="en">- Cerebrovascular diseases</skos:definition>
             <skos:definition xml:lang="fr">- Maladies cérébrovasculaires</skos:definition>
@@ -1668,6 +2200,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLREPS"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLREPS</skos:notation>
             <skos:definition xml:lang="en">Diseases of the respiratory system</skos:definition>
             <skos:definition xml:lang="fr">Maladies de l'appareil respiratoire</skos:definition>
@@ -1680,6 +2217,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLINPN"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLINPN</skos:notation>
             <skos:definition xml:lang="en">- Influenza</skos:definition>
             <skos:definition xml:lang="fr">- Grippe</skos:definition>
@@ -1692,6 +2234,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLPNEU"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLPNEU</skos:notation>
             <skos:definition xml:lang="en">- Pneumonia</skos:definition>
             <skos:definition xml:lang="fr">- Pneumonie</skos:definition>
@@ -1704,6 +2251,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLBAEM"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLBAEM</skos:notation>
             <skos:definition xml:lang="en">- Chronic obstructive pulmonary diseases</skos:definition>
             <skos:definition xml:lang="fr">- Maladies pulmonaires obstructives chroniques</skos:definition>
@@ -1716,6 +2268,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLASMA"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLASMA</skos:notation>
             <skos:definition xml:lang="en">- Asthma</skos:definition>
             <skos:definition xml:lang="fr">- Asthme</skos:definition>
@@ -1728,6 +2285,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLDIGE"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLDIGE</skos:notation>
             <skos:definition xml:lang="en">Diseases of the digestive system</skos:definition>
             <skos:definition xml:lang="fr">Maladies de l'appareil digestif</skos:definition>
@@ -1740,6 +2302,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLPEPT"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLPEPT</skos:notation>
             <skos:definition xml:lang="en">- Peptic ulcer</skos:definition>
             <skos:definition xml:lang="fr">- Ulcère gastro-duodénal</skos:definition>
@@ -1752,6 +2319,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLCIRR"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLCIRR</skos:notation>
             <skos:definition xml:lang="en">- Chronic liver diseases and cirrhosis</skos:definition>
             <skos:definition xml:lang="fr">- Maladies chroniques du foie et cirrhose</skos:definition>
@@ -1764,6 +2336,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLPEAU"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLPEAU</skos:notation>
             <skos:definition xml:lang="en">Diseases of the skin and subcutaneous tissue</skos:definition>
             <skos:definition xml:lang="fr">Maladies de la peau et du tissu cellulaire sous-cutané</skos:definition>
@@ -1776,6 +2353,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLOSTE"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLOSTE</skos:notation>
             <skos:definition xml:lang="en">Diseases of the musculoskeletal system and connective tissue</skos:definition>
             <skos:definition xml:lang="fr">Maladie du système ostéo-articulaire, des muscles et du tissu conjonctif</skos:definition>
@@ -1788,6 +2370,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLGENI"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLGENI</skos:notation>
             <skos:definition xml:lang="en">Diseases of the genitourinary system</skos:definition>
             <skos:definition xml:lang="fr">Maladies de l'appareil génito-urinaire</skos:definition>
@@ -1800,6 +2387,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLGROS"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLGROS</skos:notation>
             <skos:definition xml:lang="en">Complications of pregnancy, childbirth and the puerperium</skos:definition>
             <skos:definition xml:lang="fr">Complications suite à grossesse, accouchement et puerpéralité</skos:definition>
@@ -1812,6 +2404,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLAFFE"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLAFFE</skos:notation>
             <skos:definition xml:lang="en">Certain conditions originating in the perinatal period</skos:definition>
             <skos:definition xml:lang="fr">Certaines affections dont l'origine se situe dans la période périnatale</skos:definition>
@@ -1824,6 +2421,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLCONG"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLCONG</skos:notation>
             <skos:definition xml:lang="en">Congenital malformations and chromosomal abnormalities</skos:definition>
             <skos:definition xml:lang="fr">Congenital malformations and chromosomal abnormalities</skos:definition>
@@ -1836,6 +2438,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLSYMP"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLSYMP</skos:notation>
             <skos:definition xml:lang="en">Symptoms, signs, ill-defined causes</skos:definition>
             <skos:definition xml:lang="fr">Symptômes, signes, causes mal-définies</skos:definition>
@@ -1848,6 +2455,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLEXTC"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLEXTC</skos:notation>
             <skos:definition xml:lang="en">External causes of mortality</skos:definition>
             <skos:definition xml:lang="fr">Causes externes de mortalité</skos:definition>
@@ -1860,6 +2472,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLACCD"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLACCD</skos:notation>
             <skos:definition xml:lang="en">- Accidents</skos:definition>
             <skos:definition xml:lang="fr">- Accidents</skos:definition>
@@ -1872,6 +2489,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLTRAC"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLTRAC</skos:notation>
             <skos:definition xml:lang="en">-- Transport accidents</skos:definition>
             <skos:definition xml:lang="fr">-- Accidents de transports</skos:definition>
@@ -1884,6 +2506,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLCHUT"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLCHUT</skos:notation>
             <skos:definition xml:lang="en">-- Accidental falls</skos:definition>
             <skos:definition xml:lang="fr">-- Chutes accidentelles</skos:definition>
@@ -1896,6 +2523,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLPOSN"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLPOSN</skos:notation>
             <skos:definition xml:lang="en">-- Accidental poisoning</skos:definition>
             <skos:definition xml:lang="fr">-- Intoxication accidentelle</skos:definition>
@@ -1908,6 +2540,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLHARM"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLHARM</skos:notation>
             <skos:definition xml:lang="en">- Intentional self-harm</skos:definition>
             <skos:definition xml:lang="fr">- Lésions auto-infligées</skos:definition>
@@ -1920,6 +2557,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/PLYL">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/PLYLHOCD"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>PLYLHOCD</skos:notation>
             <skos:definition xml:lang="en">- Assault</skos:definition>
             <skos:definition xml:lang="fr">- Agression</skos:definition>
@@ -1944,6 +2586,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/MORB">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/SRHS"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>SRHS</skos:notation>
             <skos:definition xml:lang="en">Perceived health status</skos:definition>
             <skos:definition xml:lang="fr">Perception de l'état de santé</skos:definition>
@@ -1956,6 +2603,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/SRHS">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/SRHSFGHA"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>SRHSFGHA</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, female, 15-24 years old</skos:definition>
             <skos:definition xml:lang="fr">Santé &gt;= bonne, femmes, 15-24 ans</skos:definition>
@@ -1968,6 +2620,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/SRHS">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/SRHSFGHB"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>SRHSFGHB</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, female, 25-44 years old</skos:definition>
             <skos:definition xml:lang="fr">Santé &gt;= bonne, femmes, 25-44 ans</skos:definition>
@@ -1980,6 +2637,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/SRHS">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/SRHSFGHC"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>SRHSFGHC</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, female, 45-64 years old</skos:definition>
             <skos:definition xml:lang="fr">Santé &gt;= bonne, femmes, 45-64 ans</skos:definition>
@@ -1992,6 +2654,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/SRHS">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/SRHSFGHD"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>SRHSFGHD</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, female, 65 years old and over</skos:definition>
             <skos:definition xml:lang="fr">Santé &gt;= bonne, femmes, 65 ans et plus</skos:definition>
@@ -2004,6 +2671,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/SRHS">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/SRHSFGHE"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>SRHSFGHE</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, female, all ages</skos:definition>
             <skos:definition xml:lang="fr">Santé &gt;= bonne, femmes, tous âges</skos:definition>
@@ -2016,6 +2688,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/SRHS">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/SRHSMGHA"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>SRHSMGHA</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, male, 15-24 years old</skos:definition>
             <skos:definition xml:lang="fr">Santé &gt;= bonne, hommes, 15-24 ans</skos:definition>
@@ -2028,6 +2705,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/SRHS">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/SRHSMGHB"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>SRHSMGHB</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, male, 25-44 years old</skos:definition>
             <skos:definition xml:lang="fr">Santé &gt;= bonne, hommes, 25-44 ans</skos:definition>
@@ -2040,6 +2722,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/SRHS">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/SRHSMGHC"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>SRHSMGHC</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, male, 45-64 years old</skos:definition>
             <skos:definition xml:lang="fr">Santé &gt;= bonne, hommes, 45-64 ans</skos:definition>
@@ -2052,6 +2739,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/SRHS">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/SRHSMGHD"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>SRHSMGHD</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, male, 65 years old and over</skos:definition>
             <skos:definition xml:lang="fr">Santé &gt;= bonne, hommes, 65 ans et plus</skos:definition>
@@ -2064,6 +2756,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/SRHS">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/SRHSMGHE"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>SRHSMGHE</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, male, all ages</skos:definition>
             <skos:definition xml:lang="fr">Santé &gt;= bonne, hommes, tous âges</skos:definition>
@@ -2076,6 +2773,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/SRHS">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/SRHSTGHA"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>SRHSTGHA</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, total, 15-24 years old</skos:definition>
             <skos:definition xml:lang="fr">Santé &gt;= bonne, population, 15-24 ans</skos:definition>
@@ -2088,6 +2790,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/SRHS">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/SRHSTGHB"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>SRHSTGHB</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, total, 25-44 years old</skos:definition>
             <skos:definition xml:lang="fr">Santé &gt;= bonne, population, 25-44 ans</skos:definition>
@@ -2100,6 +2807,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/SRHS">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/SRHSTGHC"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>SRHSTGHC</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, total, 45-64 years old</skos:definition>
             <skos:definition xml:lang="fr">Santé &gt;= bonne, population, 45-64 ans</skos:definition>
@@ -2112,6 +2824,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/SRHS">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/SRHSTGHD"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>SRHSTGHD</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, total, 65 years old and over</skos:definition>
             <skos:definition xml:lang="fr">Santé &gt;= bonne, population, 65 ans et plus</skos:definition>
@@ -2124,6 +2841,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/SRHS">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/SRHSTGHE"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>SRHSTGHE</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, total, all ages</skos:definition>
             <skos:definition xml:lang="fr">Santé &gt;= bonne, population, tous âges</skos:definition>
@@ -2136,6 +2858,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/SRHS">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/SRHSGHQO"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>SRHSGHQO</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, total, income quintile 1 (lowest)</skos:definition>
             <skos:definition xml:lang="fr">Santé &gt;= bonne, total, revenus 1er quintile (faibles)</skos:definition>
@@ -2148,6 +2875,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/SRHS">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/SRHSGHQV"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>SRHSGHQV</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, total, income quintile 5 (highest)</skos:definition>
             <skos:definition xml:lang="fr">Santé &gt;= bonne, total, revenus 5ème quintile (élevés)</skos:definition>
@@ -2160,6 +2892,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/MORB">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/INFA"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>INFA</skos:notation>
             <skos:definition xml:lang="en">Infant health</skos:definition>
             <skos:definition xml:lang="fr">Santé du nourrisson</skos:definition>
@@ -2172,6 +2909,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/INFA">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/INFAPREM"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>INFAPREM</skos:notation>
             <skos:definition xml:lang="en">Low birthweight</skos:definition>
             <skos:definition xml:lang="fr">Hypotrophie à la naissance</skos:definition>
@@ -2184,6 +2926,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/MORB">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/DENT"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>DENT</skos:notation>
             <skos:definition xml:lang="en">Dental health</skos:definition>
             <skos:definition xml:lang="fr">Santé buccale</skos:definition>
@@ -2196,6 +2943,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/DENT">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/DENTDMTF"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>DENTDMTF</skos:notation>
             <skos:definition xml:lang="en">Decayed-missing-filled teeth (DMFT)</skos:definition>
             <skos:definition xml:lang="fr">Dents cariées, avulsées, obturées (DCAO)</skos:definition>
@@ -2208,6 +2960,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/MORB">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/COMD"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>COMD</skos:notation>
             <skos:definition xml:lang="en">Communicable diseases</skos:definition>
             <skos:definition xml:lang="fr">Maladies transmissibles</skos:definition>
@@ -2220,6 +2977,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/COMD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/COMDAIDS"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>COMDAIDS</skos:notation>
             <skos:definition xml:lang="en">Acquired immunodeficiency syndrome (AIDS)</skos:definition>
             <skos:definition xml:lang="fr">Syndrôme d'immuno-déficience acquise (SIDA)</skos:definition>
@@ -2232,6 +2994,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/COMD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/COMDIPER"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>COMDIPER</skos:notation>
             <skos:definition xml:lang="en">Incidence of pertussis</skos:definition>
             <skos:definition xml:lang="fr">Incidence de la coqueluche</skos:definition>
@@ -2244,6 +3011,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/COMD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/COMDIMEA"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>COMDIMEA</skos:notation>
             <skos:definition xml:lang="en">Incidence of measles</skos:definition>
             <skos:definition xml:lang="fr">Incidence de la rougeole</skos:definition>
@@ -2256,6 +3028,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/COMD">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/COMDIHPB"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>COMDIHPB</skos:notation>
             <skos:definition xml:lang="en">Incidence of hepatitis B</skos:definition>
             <skos:definition xml:lang="fr">Incidence de l'hépatite B</skos:definition>
@@ -2268,6 +3045,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/MORB">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CANC"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CANC</skos:notation>
             <skos:definition xml:lang="en">Cancer</skos:definition>
             <skos:definition xml:lang="fr">Cancer</skos:definition>
@@ -2280,6 +3062,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CANC">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CANCTOCA"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CANCTOCA</skos:notation>
             <skos:definition xml:lang="en">Malignant neoplasms</skos:definition>
             <skos:definition xml:lang="fr">Tumeurs malignes</skos:definition>
@@ -2292,6 +3079,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CANC">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CANCCOLC"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CANCCOLC</skos:notation>
             <skos:definition xml:lang="en">Malignant neoplasms of colon</skos:definition>
             <skos:definition xml:lang="fr">Tumeurs malignes du côlon</skos:definition>
@@ -2304,6 +3096,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CANC">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CANCLUNC"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CANCLUNC</skos:notation>
             <skos:definition xml:lang="en">Malignant neoplasms of lung</skos:definition>
             <skos:definition xml:lang="fr">Tumeurs malignes du poumon</skos:definition>
@@ -2316,6 +3113,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CANC">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CANCBREC"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CANCBREC</skos:notation>
             <skos:definition xml:lang="en">Malignant neoplasms of female breast</skos:definition>
             <skos:definition xml:lang="fr">Tumeurs malignes du sein (femmes)</skos:definition>
@@ -2328,6 +3130,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CANC">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CANCCEIX"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CANCCEIX</skos:notation>
             <skos:definition xml:lang="en">Malignant neoplasms of cervix</skos:definition>
             <skos:definition xml:lang="fr">Tumeurs malignes du col de l'utérus</skos:definition>
@@ -2340,6 +3147,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_VAR/CANC">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_VAR/CANCPROC"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CANCPROC</skos:notation>
             <skos:definition xml:lang="en">Malignant neoplasms of prostate</skos:definition>
             <skos:definition xml:lang="fr">Tumeurs malignes de la prostate</skos:definition>
@@ -3094,6 +3906,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_LOCATION"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_LOCATION"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_LOCATION"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_LOCATION/NMEC">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_LOCATION/BRA"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>BRA</skos:notation>
             <skos:definition xml:lang="en">Brazil</skos:definition>
             <skos:definition xml:lang="fr">Brésil</skos:definition>
@@ -3106,6 +3923,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_LOCATION"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_LOCATION"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_LOCATION"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_LOCATION/NMEC">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_LOCATION/CHN"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>CHN</skos:notation>
             <skos:definition xml:lang="en">China</skos:definition>
             <skos:definition xml:lang="fr">Chine</skos:definition>
@@ -3118,6 +3940,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_LOCATION"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_LOCATION"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_LOCATION"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_LOCATION/NMEC">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_LOCATION/IND"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>IND</skos:notation>
             <skos:definition xml:lang="en">India</skos:definition>
             <skos:definition xml:lang="fr">Inde</skos:definition>
@@ -3130,6 +3957,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_LOCATION"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_LOCATION"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_LOCATION"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_LOCATION/NMEC">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_LOCATION/IDN"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>IDN</skos:notation>
             <skos:definition xml:lang="en">Indonesia</skos:definition>
             <skos:definition xml:lang="fr">Indonésie</skos:definition>
@@ -3142,6 +3974,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_LOCATION"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_LOCATION"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_LOCATION"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_LOCATION/NMEC">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_LOCATION/RUS"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>RUS</skos:notation>
             <skos:definition xml:lang="en">Russian Federation</skos:definition>
             <skos:definition xml:lang="fr">Fédération de Russie</skos:definition>
@@ -3154,6 +3991,11 @@
             <rdf:type rdf:resource="http://example.org/code/CL_HEALTH_STAT_LOCATION"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/CL_HEALTH_STAT_LOCATION"/>
             <skos:inScheme rdf:resource="http://example.org/code/CL_HEALTH_STAT_LOCATION"/>
+            <skos:broader>
+               <rdf:Description rdf:about="http://example.org/code/CL_HEALTH_STAT_LOCATION/NMEC">
+                  <skos:narrower rdf:resource="http://example.org/code/CL_HEALTH_STAT_LOCATION/ZAF"/>
+               </rdf:Description>
+            </skos:broader>
             <skos:notation>ZAF</skos:notation>
             <skos:definition xml:lang="en">South Africa</skos:definition>
             <skos:definition xml:lang="fr">Afrique du Sud</skos:definition>
