@@ -40,6 +40,9 @@
 TODO:
 * Consider offering an option to use human readable URIs e.g., world-development-indicators (from Header::Name) instead of WDI
 * Decide whether to leave the string cases as is or change e.g., lowercased, separated by dash
+* Default to language when the structure or data doesn't contain xml:lang
+* Option to use slash or hash URIs
+* Options to pass for each URI path component
 -->
 
     <xsl:variable name="xsd">http://www.w3.org/2001/XMLSchema#</xsl:variable>
@@ -331,7 +334,7 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
 
 <!--
 TODO:
-Consider whether to include agencyID here because.. what happens if a KeyFamily mixes agencyIDs?
+Consider whether to include agencyID in the URI because.. what happens if a KeyFamily mixes agencyIDs?
 -->
         <rdf:Description rdf:about="{$concept}{$id}">
 <!--
@@ -442,7 +445,17 @@ Hello redundancy!
                 <xsl:apply-templates select="structure:Description"/>
 
                 <xsl:for-each select="structure:CodelistRef">
-                    <dcterms:references rdf:resource="{$code}{structure:Alias}"/>
+<!--
+XXX:
+The difference between structure:Alias and structure:CodelistID is not entirely clear. Looking at the sample structure data thus far, it is not clear either because one or the other is used. So, I'm putting both of these here, where one or the other will be used in practice even though both could exist.
+-->
+                    <xsl:if test="structure:Alias">
+                        <dcterms:references rdf:resource="{$code}{structure:Alias}"/>
+                    </xsl:if>
+
+                    <xsl:if test="structure:CodelistID">
+                        <dcterms:references rdf:resource="{$code}{structure:CodelistID}"/>
+                    </xsl:if>
                 </xsl:for-each>
 
                 <xsl:for-each select="structure:Hierarchy">
@@ -473,8 +486,8 @@ FIXME:
 <!--
 XXX:
 Doublecheck the exact relationship between an hierarchical list and a code list.
-At this point, hierarchical list and a code list is not linked together. Could use:
-            <dcterms:hasPart> or skos:narrower
+Could use:
+            <dcterms:hasPart> or skos:narrower ?
 -->
             <skos:narrower>
                 <rdf:Description rdf:about="{$code}{$CodelistAliasRef}/{$CodeID}">
