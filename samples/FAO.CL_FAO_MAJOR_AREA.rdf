@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:wgs="http://www.w3.org/2003/01/geo/wgs84_pos#"
+         xmlns:sdmx-metadata="http://purl.org/linked-data/sdmx/2009/metadata#"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+         xmlns:sdmx-subject="http://purl.org/linked-data/sdmx/2009/subject#"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+         xmlns:qb="http://purl.org/linked-data/cube#"
+         xmlns:sdmx="http://purl.org/linked-data/sdmx#"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:sdmx-attribute="http://purl.org/linked-data/sdmx/2009/attribute#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:sdmx-code="http://purl.org/linked-data/sdmx/2009/code#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:sdmx-concept="http://purl.org/linked-data/sdmx/2009/concept#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:sdmx-dimension="http://purl.org/linked-data/sdmx/2009/dimension#"
+         xmlns:sdmx-measure="http://purl.org/linked-data/sdmx/2009/measure#">
+   <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA">
+      <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
+      <skos:notation>CL_FAO_MAJOR_AREA</skos:notation>
+      <skos:prefLabel xml:lang="en">CL_FAO_MAJOR_AREA</skos:prefLabel>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA/01">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:topConceptOf rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:inScheme rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:notation>01</skos:notation>
+            <skos:definition xml:lang="en">Africa - Inland waters</skos:definition>
+            <skos:definition xml:lang="fr">Afrique - Eaux continentales</skos:definition>
+            <skos:definition xml:lang="es">África - Aguas continentales</skos:definition>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA/02">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:topConceptOf rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:inScheme rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:notation>02</skos:notation>
+            <skos:definition xml:lang="en">America, North - Inland waters</skos:definition>
+            <skos:definition xml:lang="fr">Amérique du Nord - Eaux continentales</skos:definition>
+            <skos:definition xml:lang="es">América del Norte - Aguas continentales</skos:definition>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA/03">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:topConceptOf rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:inScheme rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:notation>03</skos:notation>
+            <skos:definition xml:lang="en">America, South - Inland waters</skos:definition>
+            <skos:definition xml:lang="fr">Amérique du Sud - Eaux continentales</skos:definition>
+            <skos:definition xml:lang="es">América del Sur - Aguas continentales</skos:definition>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA/04">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:topConceptOf rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:inScheme rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:notation>04</skos:notation>
+            <skos:definition xml:lang="en">Asia - Inland waters</skos:definition>
+            <skos:definition xml:lang="fr">Asie - Eaux continentales</skos:definition>
+            <skos:definition xml:lang="es">Asia - Aguas continentales</skos:definition>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA/05">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:topConceptOf rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:inScheme rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:notation>05</skos:notation>
+            <skos:definition xml:lang="en">Europe - Inland waters</skos:definition>
+            <skos:definition xml:lang="fr">Europe - Eaux continentales</skos:definition>
+            <skos:definition xml:lang="es">Europa - Aguas continentales</skos:definition>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA/06">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:topConceptOf rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:inScheme rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:notation>06</skos:notation>
+            <skos:definition xml:lang="en">Oceania - Inland waters</skos:definition>
+            <skos:definition xml:lang="fr">Océanie - Eaux continentales</skos:definition>
+            <skos:definition xml:lang="es">Oceanía - Aguas continentales</skos:definition>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA/07">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:topConceptOf rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:inScheme rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:notation>07</skos:notation>
+            <skos:definition xml:lang="en">Former USSR area - Inland waters</skos:definition>
+            <skos:definition xml:lang="fr">Zone de l'ex-URSS - Eaux continentales</skos:definition>
+            <skos:definition xml:lang="es">Área de la ex URSS - Aguas continentales</skos:definition>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA/18">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:topConceptOf rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:inScheme rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:notation>18</skos:notation>
+            <skos:definition xml:lang="en">Arctic Sea</skos:definition>
+            <skos:definition xml:lang="fr">Mer Arctique</skos:definition>
+            <skos:definition xml:lang="es">Mar Ártico</skos:definition>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA/21">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:topConceptOf rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:inScheme rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:notation>21</skos:notation>
+            <skos:definition xml:lang="en">Atlantic, Northwest</skos:definition>
+            <skos:definition xml:lang="fr">Atlantique, nord-ouest</skos:definition>
+            <skos:definition xml:lang="es">Atlántico, noroeste</skos:definition>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA/27">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:topConceptOf rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:inScheme rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:notation>27</skos:notation>
+            <skos:definition xml:lang="en">Atlantic, Northeast</skos:definition>
+            <skos:definition xml:lang="fr">Atlantique, nord-est</skos:definition>
+            <skos:definition xml:lang="es">Atlántico, nordeste</skos:definition>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA/31">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:topConceptOf rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:inScheme rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:notation>31</skos:notation>
+            <skos:definition xml:lang="en">Atlantic, Western Central</skos:definition>
+            <skos:definition xml:lang="fr">Atlantique, centre-ouest</skos:definition>
+            <skos:definition xml:lang="es">Atlántico, centro-occidental</skos:definition>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA/34">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:topConceptOf rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:inScheme rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:notation>34</skos:notation>
+            <skos:definition xml:lang="en">Atlantic, Eastern Central</skos:definition>
+            <skos:definition xml:lang="fr">Atlantique, centre-est</skos:definition>
+            <skos:definition xml:lang="es">Atlántico, centro-oriental</skos:definition>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA/37">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:topConceptOf rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:inScheme rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:notation>37</skos:notation>
+            <skos:definition xml:lang="en">Mediterranean and Black Sea</skos:definition>
+            <skos:definition xml:lang="fr">Méditerranée et mer Noire</skos:definition>
+            <skos:definition xml:lang="es">Mediterráneo y Mar Negro</skos:definition>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA/41">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:topConceptOf rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:inScheme rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:notation>41</skos:notation>
+            <skos:definition xml:lang="en">Atlantic, Southwest</skos:definition>
+            <skos:definition xml:lang="fr">Atlantique, sud-ouest</skos:definition>
+            <skos:definition xml:lang="es">Atlántico, sudoccidental</skos:definition>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA/47">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:topConceptOf rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:inScheme rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:notation>47</skos:notation>
+            <skos:definition xml:lang="en">Atlantic, Southeast</skos:definition>
+            <skos:definition xml:lang="fr">Atlantique, sud-est</skos:definition>
+            <skos:definition xml:lang="es">Atlántico, sudoriental</skos:definition>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA/48">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:topConceptOf rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:inScheme rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:notation>48</skos:notation>
+            <skos:definition xml:lang="en">Atlantic, Antarctic</skos:definition>
+            <skos:definition xml:lang="fr">Atlantique, Antarctique</skos:definition>
+            <skos:definition xml:lang="es">Atlántico, Antártico</skos:definition>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA/51">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:topConceptOf rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:inScheme rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:notation>51</skos:notation>
+            <skos:definition xml:lang="en">Indian Ocean, Western</skos:definition>
+            <skos:definition xml:lang="fr">Océan Indien, ouest</skos:definition>
+            <skos:definition xml:lang="es">Océano Índico, occidental</skos:definition>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA/57">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:topConceptOf rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:inScheme rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:notation>57</skos:notation>
+            <skos:definition xml:lang="en">Indian Ocean, Eastern</skos:definition>
+            <skos:definition xml:lang="fr">Océan Indien, est</skos:definition>
+            <skos:definition xml:lang="es">Océano Índico, oriental</skos:definition>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA/58">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:topConceptOf rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:inScheme rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:notation>58</skos:notation>
+            <skos:definition xml:lang="en">Indian Ocean, Antarctic</skos:definition>
+            <skos:definition xml:lang="fr">Océan Indien, Antarctique</skos:definition>
+            <skos:definition xml:lang="es">Océano Índico, Antártico</skos:definition>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA/61">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:topConceptOf rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:inScheme rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:notation>61</skos:notation>
+            <skos:definition xml:lang="en">Pacific, Northwest</skos:definition>
+            <skos:definition xml:lang="fr">Pacifique, nord-ouest</skos:definition>
+            <skos:definition xml:lang="es">Pacífico, noroeste</skos:definition>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA/67">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:topConceptOf rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:inScheme rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:notation>67</skos:notation>
+            <skos:definition xml:lang="en">Pacific, Northeast</skos:definition>
+            <skos:definition xml:lang="fr">Pacifique, nord-est</skos:definition>
+            <skos:definition xml:lang="es">Pacífico, nordeste</skos:definition>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA/71">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:topConceptOf rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:inScheme rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:notation>71</skos:notation>
+            <skos:definition xml:lang="en">Pacific, Western Central</skos:definition>
+            <skos:definition xml:lang="fr">Pacifique, centre-ouest</skos:definition>
+            <skos:definition xml:lang="es">Pacífico, centro-occidental</skos:definition>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA/77">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:topConceptOf rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:inScheme rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:notation>77</skos:notation>
+            <skos:definition xml:lang="en">Pacific, Eastern Central</skos:definition>
+            <skos:definition xml:lang="fr">Pacifique, centre-est</skos:definition>
+            <skos:definition xml:lang="es">Pacífico, centro-oriental</skos:definition>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA/81">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:topConceptOf rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:inScheme rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:notation>81</skos:notation>
+            <skos:definition xml:lang="en">Pacific, Southwest</skos:definition>
+            <skos:definition xml:lang="fr">Pacifique, sud-ouest</skos:definition>
+            <skos:definition xml:lang="es">Pacífico, sudoccidental</skos:definition>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA/87">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:topConceptOf rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:inScheme rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:notation>87</skos:notation>
+            <skos:definition xml:lang="en">Pacific, Southeast</skos:definition>
+            <skos:definition xml:lang="fr">Pacifique, sud-est</skos:definition>
+            <skos:definition xml:lang="es">Pacífico, sudoriental</skos:definition>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA/88">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:topConceptOf rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:inScheme rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:notation>88</skos:notation>
+            <skos:definition xml:lang="en">Pacific, Antarctic</skos:definition>
+            <skos:definition xml:lang="fr">Pacifique, Antarctique</skos:definition>
+            <skos:definition xml:lang="es">Pacífico, Antártico</skos:definition>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA/98">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:topConceptOf rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:inScheme rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:notation>98</skos:notation>
+            <skos:definition xml:lang="en">Antarctic areas nei</skos:definition>
+            <skos:definition xml:lang="fr">Zones antarctiques nca</skos:definition>
+            <skos:definition xml:lang="es">Áreas antárticas nep</skos:definition>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA/99">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:topConceptOf rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:inScheme rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:notation>99</skos:notation>
+            <skos:definition xml:lang="en">Marine areas outside the Antarctic</skos:definition>
+            <skos:definition xml:lang="fr">Zones maritimes hors de l'Antarctique</skos:definition>
+            <skos:definition xml:lang="es">Áreas marítimas fuera del Antártico</skos:definition>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://example.org/code/CL_FAO_MAJOR_AREA/08">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:topConceptOf rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:inScheme rdf:resource="http://example.org/code/CL_FAO_MAJOR_AREA"/>
+            <skos:notation>08</skos:notation>
+            <skos:definition xml:lang="en">Antarctica - Inland waters</skos:definition>
+            <skos:definition xml:lang="fr">Antarctique - Eaux continentales</skos:definition>
+            <skos:definition xml:lang="es">Antártida - Aguas continentales</skos:definition>
+         </rdf:Description>
+      </skos:hasTopConcept>
+   </rdf:Description>
+</rdf:RDF>

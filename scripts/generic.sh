@@ -6,3 +6,7 @@ saxonb-xslt -s ../samples/IMF.BOPDSD.xml -xsl generic.xsl > ../samples/IMF.BOPDS
 saxonb-xslt -s ../samples/SDMX.StructureSample.xml -xsl generic.xsl > ../samples/SDMX.StructureSample.rdf
 saxonb-xslt -s ../samples/Eurostat.tps00001.dsd.xml -xsl generic.xsl > ../samples/Eurostat.tps00001.dsd.rdf
 saxonb-xslt -s ../samples/FAO.TRADE_DATASTRUCTURE.xml -xsl generic.xsl > ../samples/FAO.TRADE_DATASTRUCTURE.rdf
+saxonb-xslt -s ../samples/FAO.HCL_AREA_SUB_AREA.xml -xsl generic.xsl > ../samples/FAO.HCL_AREA_SUB_AREA.rdf
+saxonb-xslt -s ../samples/FAO.CL_FAO_MAJOR_AREA.xml -xsl generic.xsl > ../samples/FAO.CL_FAO_MAJOR_AREA.rdf
+saxonb-xslt -s ../samples/BIS.WEBSTATS_CIBL_UR_DATAFLOW-1351443106306.xml -xsl generic.xsl > ../samples/BIS.WEBSTATS_CIBL_UR_DATAFLOW-1351443106306.rdf
+#saxonb-xslt -s ../samples/ECB.KeyFamily.xml -xsl generic.xsl > ../samples/ECB.KeyFamily.rdf

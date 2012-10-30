@@ -43,6 +43,7 @@ TODO:
 * Default to language when the structure or data doesn't contain xml:lang
 * Option to use slash or hash URIs
 * Options to pass for each URI path component
+* Consider what to do when the SDMX-ML is well-formed but doesn't exactly follow the intended use.
 -->
 
     <xsl:variable name="xsd">http://www.w3.org/2001/XMLSchema#</xsl:variable>
@@ -472,29 +473,45 @@ The difference between structure:Alias and structure:CodelistID is not entirely 
 
         <xsl:for-each select="structure:CodeRef">
 <!--
-FIXME:
+XXX:
 "At a minimum, either a URN value (a valid SDMX Registry URN as specified in teh SDMX Registry Specification) must be supplied, or a ColdelistAliasRef and a CodeID must be specified."
 -->
-            <xsl:variable name="CodelistAliasRef">
-                <xsl:value-of select="structure:CodelistAliasRef"/>
-            </xsl:variable>
-
             <xsl:variable name="CodeID">
                 <xsl:value-of select="structure:CodeID"/>
             </xsl:variable>
 
 <!--
+FIXME:
+This is a kind of a hack, works based on tested sample structures. Not guaranteed to work for all URNs. It won't work if the codelist is defined in a different document. Alternatively, reconsider the data model given URNs
+-->
+            <xsl:variable name="CodelistAliasRef">
+                <xsl:choose>
+                    <xsl:when test="structure:URN">
+                        <xsl:variable name="structureURN" select="structure:URN"/>
+
+                        <xsl:for-each select="distinct-values(/Structure/HierarchicalCodelists/structure:HierarchicalCodelist/structure:CodelistRef/structure:CodelistID/text())">
+                            <xsl:if test="contains($structureURN, .)">
+                                <xsl:value-of select="."/>
+                            </xsl:if>
+                        </xsl:for-each>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="structure:CodelistAliasRef"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:variable>
+
+<!--
 XXX:
 Doublecheck the exact relationship between an hierarchical list and a code list.
-Could use:
-            <dcterms:hasPart> or skos:narrower ?
+Could use dcterms:hasPart or skos:narrower ?
 -->
             <skos:narrower>
                 <rdf:Description rdf:about="{$code}{$CodelistAliasRef}/{$CodeID}">
-    <!--
-    XXX:
-    Handle Annotations using skos:note
-    -->
+<!--
+TODO:
+Handle Annotations using skos:note
+-->
                     <xsl:if test="$CodelistAliasRef_parent and $CodeID_parent">
                         <skos:broader rdf:resource="{$code}{$CodelistAliasRef_parent}/{$CodeID_parent}"/>
                     </xsl:if>
@@ -507,7 +524,6 @@ Could use:
                     </xsl:if>
                 </rdf:Description>
             </skos:narrower>
-<!--                </dcterms:hasPart>-->
         </xsl:for-each>
     </xsl:template>
 
