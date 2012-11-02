@@ -17,7 +17,7 @@
          xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
          xmlns:sdmx-dimension="http://purl.org/linked-data/sdmx/2009/dimension#"
          xmlns:sdmx-measure="http://purl.org/linked-data/sdmx/2009/measure#">
-   <rdf:Description rdf:about="http://example.org/dataset//HEALTH_STAT/structure">
+   <rdf:Description rdf:about="http://example.org/dataset/HEALTH_STAT/structure">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#DataStructureDefinition"/>
       <sdmx-concept:dsi>HEALTH_STAT</sdmx-concept:dsi>
       <sdmx-concept:mAgency>OECD</sdmx-concept:mAgency>

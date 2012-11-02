@@ -116,7 +116,7 @@ Merge these. Change it to xsl:function
                 <xsl:call-template name="getAttributeValue"><xsl:with-param name="attributeName" select="@agencyID"/></xsl:call-template>
             </xsl:variable>
 
-            <rdf:Description rdf:about="{$dataset}/{$id}/structure">
+            <rdf:Description rdf:about="{$dataset}{$id}/structure">
                 <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#DataStructureDefinition"/>
 <!-- XXX:               <rdf:type rdf:resource="{$qb}DataStructureDefinition"/>-->
 
