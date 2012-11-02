@@ -26,9 +26,12 @@
     xmlns:sdmx-subject="http://purl.org/linked-data/sdmx/2009/subject#"
     xmlns:structure="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/structure"
     xmlns:message="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
+    xmlns:generic="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/generic"
+
+    xmlns:property="http://example.org/property/"
 
     xpath-default-namespace="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
-    exclude-result-prefixes="xsl fn structure message"
+    exclude-result-prefixes="xsl fn structure message generic"
     >
 
     <xsl:import href="common.xsl"/>
@@ -36,6 +39,7 @@
 
     <xsl:param name="lang"/>
     <xsl:param name="base"/>
+    <xsl:param name="pathToGenericStructure"/>
 <!--
 TODO:
 * Consider offering an option to use human readable URIs e.g., world-development-indicators (from Header::Name) instead of WDI
@@ -74,6 +78,9 @@ TODO:
         <xsl:value-of select="$baseuri"/><xsl:text>property/</xsl:text>
     </xsl:variable>
 
+    <xsl:variable name="dataset">
+        <xsl:value-of select="$baseuri"/><xsl:text>dataset/</xsl:text>
+    </xsl:variable>
 
     <xsl:template match="/">
 <!--<xsl:message>-->
@@ -82,6 +89,8 @@ TODO:
 <!--</xsl:message>-->
 
         <rdf:RDF>
+<!--            <xsl:attribute name="xmlns:property" select="$property"/>-->
+
             <xsl:call-template name="KeyFamily"/>
 
             <xsl:call-template name="Concepts"/>
@@ -89,6 +98,8 @@ TODO:
             <xsl:call-template name="CodeLists"/>
 
             <xsl:call-template name="HierarchicalCodelists"/>
+
+            <xsl:call-template name="DataSets"/>
         </rdf:RDF>
     </xsl:template>
 
@@ -105,7 +116,7 @@ Merge these. Change it to xsl:function
                 <xsl:call-template name="getAttributeValue"><xsl:with-param name="attributeName" select="@agencyID"/></xsl:call-template>
             </xsl:variable>
 
-            <rdf:Description rdf:about="{$baseuri}dataset/{$id}/structure">
+            <rdf:Description rdf:about="{$dataset}/{$id}/structure">
                 <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#DataStructureDefinition"/>
 <!-- XXX:               <rdf:type rdf:resource="{$qb}DataStructureDefinition"/>-->
 
@@ -482,7 +493,7 @@ XXX:
 
 <!--
 FIXME:
-This is a kind of a hack, works based on tested sample structures. Not guaranteed to work for all URNs. It won't work if the codelist is defined in a different document. Alternatively, reconsider the data model given URNs
+This is a kind of a hack, works based on tested sample structures. Not guaranteed to work for all URNs. Alternatively, reconsider the data model given URNs
 -->
             <xsl:variable name="CodelistAliasRef">
                 <xsl:choose>
@@ -500,6 +511,11 @@ This is a kind of a hack, works based on tested sample structures. Not guarantee
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:variable>
+
+<!--
+TODO:
+"NodeAliasID allows for an ID to be assigned to the use of the particular code at that specific point in the hierarchy. This value is unique within the hierarchy being created, and is used to map the hierarchy against external structures."
+-->
 
 <!--
 XXX:
@@ -528,4 +544,104 @@ Handle Annotations using skos:note
     </xsl:template>
 
 
+    <xsl:template name="DataSets">
+        <xsl:for-each select="GenericData/DataSet">
+            <xsl:variable name="KeyFamilyRef" select="generic:KeyFamilyRef"/>
+
+<!--
+TODO:
+"TextType provides for a set of language-specific alternates to be provided for any human-readable construct in the instance."
+
+This is a one time retrieval but perhaps not necessary for the observations. Revisit.
+
+            <xsl:variable name="PrimaryMeasureTextFormattextType">
+                <xsl:value-of select="document($pathToGenericStructure)/Structure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/PrimaryMeasure/TextFormat/@textType"/>
+            </xsl:variable>
+-->
+
+
+            <xsl:variable name="TimeDimensionConceptRef">
+                <xsl:value-of select="document($pathToGenericStructure)/Structure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/structure:TimeDimension/@conceptRef"/>
+            </xsl:variable>
+
+            <xsl:for-each select="generic:Series">
+                <xsl:variable name="SeriesKeyValues">
+                    <xsl:for-each select="generic:SeriesKey/generic:Value/@value">
+                        <xsl:text>/</xsl:text><xsl:value-of select="normalize-space(.)"/>
+                    </xsl:for-each>
+                </xsl:variable>
+
+                <xsl:for-each select="generic:Obs">
+                    <xsl:variable name="ObsTime">
+                        <xsl:value-of select="replace(generic:Time, '\s+', '')"/>
+                    </xsl:variable>
+
+                    <xsl:variable name="ObsTimeURI">
+                        <xsl:text>/</xsl:text><xsl:value-of select="$ObsTime"/>
+                    </xsl:variable>
+<!--
+TODO:
+Create a URI safe function
+-->
+                    <rdf:Description about="{$dataset}{$KeyFamilyRef}{$SeriesKeyValues}{$ObsTimeURI}">
+                        <xsl:for-each select="../generic:SeriesKey/generic:Value">
+                            <xsl:call-template name="ObsProperty">
+                                <xsl:with-param name="KeyFamilyRef" select="$KeyFamilyRef"/>
+                                <xsl:with-param name="concept" select="@concept"/>
+                                <xsl:with-param name="value" select="@value"/>
+                            </xsl:call-template>
+                        </xsl:for-each>
+<!--
+TODO:
+Revisit datatype or do some smart pattern detection and use a URI if possible
+-->
+                        <xsl:if test="$ObsTime != '' and $TimeDimensionConceptRef != ''">
+                            <xsl:element name="property:{$TimeDimensionConceptRef}">
+                                <xsl:value-of select="$ObsTime"/>
+                            </xsl:element>
+                        </xsl:if>
+
+                        <xsl:for-each select="generic:ObsValue">
+                            <property:OBS_VALUE>
+                                <xsl:call-template name="datatype-xsd-double"/>
+                                <xsl:value-of select="@value"/>
+                            </property:OBS_VALUE>
+                        </xsl:for-each>
+
+                        <xsl:for-each select="generic:Attributes/generic:Value">
+                            <xsl:call-template name="ObsProperty">
+                                <xsl:with-param name="KeyFamilyRef" select="$KeyFamilyRef"/>
+                                <xsl:with-param name="concept" select="@concept"/>
+                                <xsl:with-param name="value" select="@value"/>
+                            </xsl:call-template>
+                        </xsl:for-each>
+                    </rdf:Description>
+                </xsl:for-each>
+            </xsl:for-each>
+        </xsl:for-each>
+    </xsl:template>
+
+
+    <xsl:template name="ObsProperty">
+        <xsl:param name="KeyFamilyRef"/>
+        <xsl:param name="concept"/>
+        <xsl:param name="value"/>
+
+        <xsl:element name="property:{$concept}">
+            <xsl:attribute name="rdf:resource">
+                <xsl:variable name="codelist">
+                    <xsl:value-of select="document($pathToGenericStructure)/Structure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/*[@conceptRef = $concept]/@codelist"/>
+                </xsl:variable>
+
+                <xsl:choose>
+                    <xsl:when test="$codelist != ''">
+                        <xsl:value-of select="$code"/><xsl:value-of select="$codelist"/><xsl:text>/</xsl:text><xsl:value-of select="$value"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="$concept"/><xsl:value-of select="$value"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:attribute>
+        </xsl:element>
+    </xsl:template>
 </xsl:stylesheet>

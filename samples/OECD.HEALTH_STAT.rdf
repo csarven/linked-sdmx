@@ -7,6 +7,7 @@
          xmlns:skos="http://www.w3.org/2004/02/skos/core#"
          xmlns:qb="http://purl.org/linked-data/cube#"
          xmlns:sdmx="http://purl.org/linked-data/sdmx#"
+         xmlns:property="http://example.org/property/"
          xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
          xmlns:sdmx-attribute="http://purl.org/linked-data/sdmx/2009/attribute#"
          xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -16,7 +17,7 @@
          xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
          xmlns:sdmx-dimension="http://purl.org/linked-data/sdmx/2009/dimension#"
          xmlns:sdmx-measure="http://purl.org/linked-data/sdmx/2009/measure#">
-   <rdf:Description rdf:about="http://example.org/dataset/HEALTH_STAT/structure">
+   <rdf:Description rdf:about="http://example.org/dataset//HEALTH_STAT/structure">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#DataStructureDefinition"/>
       <sdmx-concept:dsi>HEALTH_STAT</sdmx-concept:dsi>
       <sdmx-concept:mAgency>OECD</sdmx-concept:mAgency>

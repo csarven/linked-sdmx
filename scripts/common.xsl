@@ -28,4 +28,27 @@
         </xsl:if>
     </xsl:template>
 
+    <xsl:template name="datatype-dateTime">
+        <xsl:attribute name="rdf:datatype">
+            <xsl:text>http://www.w3.org/2001/XMLSchema#dateTime</xsl:text>
+        </xsl:attribute>
+    </xsl:template>
+
+    <xsl:template name="datatype-date">
+        <xsl:attribute name="rdf:datatype">
+            <xsl:text>http://www.w3.org/2001/XMLSchema#date</xsl:text>
+        </xsl:attribute>
+    </xsl:template>
+
+    <xsl:template name="datatype-xsd-decimal">
+        <xsl:attribute name="rdf:datatype">
+            <xsl:text>http://www.w3.org/2001/XMLSchema#decimal</xsl:text>
+        </xsl:attribute>
+    </xsl:template>
+
+    <xsl:template name="datatype-xsd-double">
+        <xsl:attribute name="rdf:datatype">
+            <xsl:text>http://www.w3.org/2001/XMLSchema#double</xsl:text>
+        </xsl:attribute>
+    </xsl:template>
 </xsl:stylesheet>
