@@ -20,7 +20,6 @@
    <rdf:Description about="http://example.org/dataset/WDI">
       <rdf:type rdf:resource="http://purl.org/linked-data/cube#DataSet"/>
       <qb:structure rdf:resource="http://example.org/dataset/WDI/structure"/>
-      <skos:prefLabel/>
    </rdf:Description>
    <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1960">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>

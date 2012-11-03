@@ -202,9 +202,10 @@ XXX: dcterms:valid could be used along with gregorian-interval but 1) we don't k
                     <xsl:choose>
                         <xsl:when test="local-name() = 'Dimension' or local-name() = 'TimeDimension'">
                             <qb:dimension>
-                                <xsl:attribute name="rdf:resource">
-                                    <xsl:value-of select="$property"/><xsl:value-of select="@conceptRef"/>
-                                </xsl:attribute>
+                                <rdf:Description rdf:about="{$property}{@conceptRef}/">
+                                    <rdf:type rdf:resource="{$qb}DimensionProperty"/>
+                                    <qb:concept rdf:resource="{$concept}{@conceptRef}"/>
+                                </rdf:Description>
                             </qb:dimension>
 
                             <qb:order rdf:datatype="{$xsd}integer">
@@ -226,9 +227,10 @@ Consider what to do with optional <TextFormat textType="Double"/> or whatever. P
 -->
                         <xsl:when test="local-name() = 'PrimaryMeasure'">
                             <qb:measure>
-                                <xsl:attribute name="rdf:resource">
-                                    <xsl:value-of select="$property"/><xsl:value-of select="@conceptRef"/>
-                                </xsl:attribute>
+                                <rdf:Description rdf:about="{$property}{@conceptRef}">
+                                    <rdf:type rdf:resource="{$qb}MeasureProperty"/>
+                                    <qb:concept rdf:resource="{$concept}{@conceptRef}"/>
+                                </rdf:Description>
                             </qb:measure>
                         </xsl:when>
 
@@ -246,9 +248,10 @@ This is like qb:Slice
 
                         <xsl:when test="local-name() = 'Attribute'">
                             <qb:attribute>
-                                <xsl:attribute name="rdf:resource">
-                                    <xsl:value-of select="$property"/><xsl:value-of select="@conceptRef"/>
-                                </xsl:attribute>
+                                <rdf:Description rdf:about="{$property}{@conceptRef}">
+                                    <rdf:type rdf:resource="{$qb}AttributeProperty"/>   
+                                    <qb:concept rdf:resource="{$concept}{@conceptRef}"/>                         
+                                </rdf:Description>
                             </qb:attribute>
 
                             <xsl:choose>

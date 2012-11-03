@@ -28,49 +28,89 @@
       <skos:prefLabel xml:lang="en">International bank claims, consolidated - ultimate risk basis</skos:prefLabel>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:dimension rdf:resource="http://example.org/property/FREQ"/>
+            <qb:dimension>
+               <rdf:Description rdf:about="http://example.org/property/FREQ/">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+                  <qb:concept rdf:resource="http://example.org/concept/FREQ"/>
+               </rdf:Description>
+            </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</qb:order>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:dimension rdf:resource="http://example.org/property/BIS_BLOCK"/>
+            <qb:dimension>
+               <rdf:Description rdf:about="http://example.org/property/BIS_BLOCK/">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+                  <qb:concept rdf:resource="http://example.org/concept/BIS_BLOCK"/>
+               </rdf:Description>
+            </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</qb:order>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:dimension rdf:resource="http://example.org/property/CIBL_CATEGORY"/>
+            <qb:dimension>
+               <rdf:Description rdf:about="http://example.org/property/CIBL_CATEGORY/">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+                  <qb:concept rdf:resource="http://example.org/concept/CIBL_CATEGORY"/>
+               </rdf:Description>
+            </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</qb:order>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:dimension rdf:resource="http://example.org/property/CIBL_TABLE"/>
+            <qb:dimension>
+               <rdf:Description rdf:about="http://example.org/property/CIBL_TABLE/">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+                  <qb:concept rdf:resource="http://example.org/concept/CIBL_TABLE"/>
+               </rdf:Description>
+            </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</qb:order>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:dimension rdf:resource="http://example.org/property/CIBL_TYPE"/>
+            <qb:dimension>
+               <rdf:Description rdf:about="http://example.org/property/CIBL_TYPE/">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+                  <qb:concept rdf:resource="http://example.org/concept/CIBL_TYPE"/>
+               </rdf:Description>
+            </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</qb:order>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:dimension rdf:resource="http://example.org/property/REP_CTY"/>
+            <qb:dimension>
+               <rdf:Description rdf:about="http://example.org/property/REP_CTY/">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+                  <qb:concept rdf:resource="http://example.org/concept/REP_CTY"/>
+               </rdf:Description>
+            </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</qb:order>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:dimension rdf:resource="http://example.org/property/VIS_CTY"/>
+            <qb:dimension>
+               <rdf:Description rdf:about="http://example.org/property/VIS_CTY/">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+                  <qb:concept rdf:resource="http://example.org/concept/VIS_CTY"/>
+               </rdf:Description>
+            </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</qb:order>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:dimension rdf:resource="http://example.org/property/TIME_PERIOD"/>
+            <qb:dimension>
+               <rdf:Description rdf:about="http://example.org/property/TIME_PERIOD/">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+                  <qb:concept rdf:resource="http://example.org/concept/TIME_PERIOD"/>
+               </rdf:Description>
+            </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</qb:order>
          </qb:ComponentSpecification>
       </qb:component>
@@ -79,54 +119,99 @@
       </qb:component>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:measure rdf:resource="http://example.org/property/OBS_VALUE"/>
+            <qb:measure>
+               <rdf:Description rdf:about="http://example.org/property/OBS_VALUE">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#MeasureProperty"/>
+                  <qb:concept rdf:resource="http://example.org/concept/OBS_VALUE"/>
+               </rdf:Description>
+            </qb:measure>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:attribute rdf:resource="http://example.org/property/TIME_FORMAT"/>
+            <qb:attribute>
+               <rdf:Description rdf:about="http://example.org/property/TIME_FORMAT">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
+                  <qb:concept rdf:resource="http://example.org/concept/TIME_FORMAT"/>
+               </rdf:Description>
+            </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Series"/>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:attribute rdf:resource="http://example.org/property/OBS_STATUS"/>
+            <qb:attribute>
+               <rdf:Description rdf:about="http://example.org/property/OBS_STATUS">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
+                  <qb:concept rdf:resource="http://example.org/concept/OBS_STATUS"/>
+               </rdf:Description>
+            </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Observation"/>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:attribute rdf:resource="http://example.org/property/OBS_CONF"/>
+            <qb:attribute>
+               <rdf:Description rdf:about="http://example.org/property/OBS_CONF">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
+                  <qb:concept rdf:resource="http://example.org/concept/OBS_CONF"/>
+               </rdf:Description>
+            </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Observation"/>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:attribute rdf:resource="http://example.org/property/OBS_PRE_BREAK"/>
+            <qb:attribute>
+               <rdf:Description rdf:about="http://example.org/property/OBS_PRE_BREAK">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
+                  <qb:concept rdf:resource="http://example.org/concept/OBS_PRE_BREAK"/>
+               </rdf:Description>
+            </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Observation"/>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:attribute rdf:resource="http://example.org/property/BIS_UNIT"/>
+            <qb:attribute>
+               <rdf:Description rdf:about="http://example.org/property/BIS_UNIT">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
+                  <qb:concept rdf:resource="http://example.org/concept/BIS_UNIT"/>
+               </rdf:Description>
+            </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Group"/>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:attribute rdf:resource="http://example.org/property/COLLECTION"/>
+            <qb:attribute>
+               <rdf:Description rdf:about="http://example.org/property/COLLECTION">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
+                  <qb:concept rdf:resource="http://example.org/concept/COLLECTION"/>
+               </rdf:Description>
+            </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Series"/>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:attribute rdf:resource="http://example.org/property/DECIMALS"/>
+            <qb:attribute>
+               <rdf:Description rdf:about="http://example.org/property/DECIMALS">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
+                  <qb:concept rdf:resource="http://example.org/concept/DECIMALS"/>
+               </rdf:Description>
+            </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Group"/>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:attribute rdf:resource="http://example.org/property/UNIT_MULT"/>
+            <qb:attribute>
+               <rdf:Description rdf:about="http://example.org/property/UNIT_MULT">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
+                  <qb:concept rdf:resource="http://example.org/concept/UNIT_MULT"/>
+               </rdf:Description>
+            </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Group"/>
          </qb:ComponentSpecification>
       </qb:component>

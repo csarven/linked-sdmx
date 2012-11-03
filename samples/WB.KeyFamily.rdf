@@ -25,36 +25,66 @@
       <skos:prefLabel xml:lang="en">World Development Indicators</skos:prefLabel>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:dimension rdf:resource="http://example.org/property/FREQ"/>
+            <qb:dimension>
+               <rdf:Description rdf:about="http://example.org/property/FREQ/">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+                  <qb:concept rdf:resource="http://example.org/concept/FREQ"/>
+               </rdf:Description>
+            </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</qb:order>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:dimension rdf:resource="http://example.org/property/SERIES"/>
+            <qb:dimension>
+               <rdf:Description rdf:about="http://example.org/property/SERIES/">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+                  <qb:concept rdf:resource="http://example.org/concept/SERIES"/>
+               </rdf:Description>
+            </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</qb:order>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:dimension rdf:resource="http://example.org/property/REF_AREA"/>
+            <qb:dimension>
+               <rdf:Description rdf:about="http://example.org/property/REF_AREA/">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+                  <qb:concept rdf:resource="http://example.org/concept/REF_AREA"/>
+               </rdf:Description>
+            </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</qb:order>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:dimension rdf:resource="http://example.org/property/TIME_PERIOD"/>
+            <qb:dimension>
+               <rdf:Description rdf:about="http://example.org/property/TIME_PERIOD/">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+                  <qb:concept rdf:resource="http://example.org/concept/TIME_PERIOD"/>
+               </rdf:Description>
+            </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</qb:order>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:measure rdf:resource="http://example.org/property/OBS_VALUE"/>
+            <qb:measure>
+               <rdf:Description rdf:about="http://example.org/property/OBS_VALUE">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#MeasureProperty"/>
+                  <qb:concept rdf:resource="http://example.org/concept/OBS_VALUE"/>
+               </rdf:Description>
+            </qb:measure>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:attribute rdf:resource="http://example.org/property/UNIT_MULT"/>
+            <qb:attribute>
+               <rdf:Description rdf:about="http://example.org/property/UNIT_MULT">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
+                  <qb:concept rdf:resource="http://example.org/concept/UNIT_MULT"/>
+               </rdf:Description>
+            </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Observation"/>
          </qb:ComponentSpecification>
       </qb:component>
