@@ -50,6 +50,7 @@ TODO:
 * Consider what to do when the SDMX-ML is well-formed but doesn't exactly follow the intended use.
 -->
 
+    <xsl:variable name="rdf">http://www.w3.org/1999/02/22-rdf-syntax-ns#</xsl:variable>
     <xsl:variable name="xsd">http://www.w3.org/2001/XMLSchema#</xsl:variable>
     <xsl:variable name="qb">http://purl.org/linked-data/cube#</xsl:variable>
     <xsl:variable name="skos">http://www.w3.org/2004/02/skos/core#</xsl:variable>
@@ -117,12 +118,11 @@ Merge these. Change it to xsl:function
             </xsl:variable>
 
             <rdf:Description rdf:about="{$dataset}{$id}/structure">
-                <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#DataStructureDefinition"/>
-<!-- XXX:               <rdf:type rdf:resource="{$qb}DataStructureDefinition"/>-->
+                <rdf:type rdf:resource="{$sdmx}DataStructureDefinition"/>
+                <rdf:type rdf:resource="{$qb}DataStructureDefinition"/>
 
 <!-- TODO:
-* Review these properties. Some are close enough to existing SDMX, some I made them up - they should be added to sdmx* vocabs
-* Consider creating sdmx-concept URIs for dsi/mAgency ...?
+* Review these properties. Some are close enough to existing SDMX, some I made them up - they should be added to sdmx* vocabs perhpas, so, consider creating sdmx-concept URIs for dsi/mAgency/isFinal/isExternalReference/validFrom/validTo ...?
 -->
                 <sdmx-concept:dsi><xsl:value-of select="$id"/></sdmx-concept:dsi>
 
@@ -200,10 +200,15 @@ XXX: dcterms:valid could be used along with gregorian-interval but 1) we don't k
             <qb:component>
                 <qb:ComponentSpecification>
                     <xsl:choose>
+<!--
+XXX:
+Should we give any special treatment to TimeDimension even though qb currently doesn't?
+-->
                         <xsl:when test="local-name() = 'Dimension' or local-name() = 'TimeDimension'">
                             <qb:dimension>
                                 <rdf:Description rdf:about="{$property}{@conceptRef}/">
                                     <rdf:type rdf:resource="{$qb}DimensionProperty"/>
+                                    <rdf:type rdf:resource="{$rdf}Property"/>
                                     <qb:concept rdf:resource="{$concept}{@conceptRef}"/>
                                 </rdf:Description>
                             </qb:dimension>
@@ -229,6 +234,7 @@ Consider what to do with optional <TextFormat textType="Double"/> or whatever. P
                             <qb:measure>
                                 <rdf:Description rdf:about="{$property}{@conceptRef}">
                                     <rdf:type rdf:resource="{$qb}MeasureProperty"/>
+                                    <rdf:type rdf:resource="{$rdf}Property"/>
                                     <qb:concept rdf:resource="{$concept}{@conceptRef}"/>
                                 </rdf:Description>
                             </qb:measure>
@@ -249,7 +255,8 @@ This is like qb:Slice
                         <xsl:when test="local-name() = 'Attribute'">
                             <qb:attribute>
                                 <rdf:Description rdf:about="{$property}{@conceptRef}">
-                                    <rdf:type rdf:resource="{$qb}AttributeProperty"/>   
+                                    <rdf:type rdf:resource="{$qb}AttributeProperty"/>
+                                    <rdf:type rdf:resource="{$rdf}Property"/>
                                     <qb:concept rdf:resource="{$concept}{@conceptRef}"/>                         
                                 </rdf:Description>
                             </qb:attribute>
