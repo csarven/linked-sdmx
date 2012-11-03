@@ -546,7 +546,38 @@ Handle Annotations using skos:note
 
     <xsl:template name="DataSets">
         <xsl:for-each select="GenericData/DataSet">
-            <xsl:variable name="KeyFamilyRef" select="generic:KeyFamilyRef"/>
+<!--
+XXX: KeyfamilyRef may not exist.
+-->
+            <xsl:variable name="KeyFamilyRef">
+                <xsl:choose>
+                    <xsl:when test="generic:KeyFamilyRef">
+                        <xsl:value-of select="generic:KeyFamilyRef"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+<!--
+TODO:
+-->
+                        <xsl:text>---FIXME---</xsl:text>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:variable>
+<!--
+TODO:
+This dataset URI needs to be unique
+-->
+            <rdf:Description about="{$dataset}{$KeyFamilyRef}">
+                <rdf:type rdf:resource="{$qb}DataSet"/>
+                <qb:structure rdf:resource="{$dataset}{$KeyFamilyRef}/structure"/>
+                <xsl:if test="@datasetID">
+                    <skos:notation><xsl:value-of select="@datasetID"/></skos:notation>
+                </xsl:if>
+<!--
+XXX:
+Consider getting this value from KeyFamily and adding a suffix e.g., data
+                <skos:prefLabel></skos:prefLabel>
+-->
+            </rdf:Description>
 
 <!--
 TODO:
@@ -583,6 +614,11 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
 TODO:
 Create a URI safe function
 -->
+<!--
+TODO:
+This dataset URI needs to be unique
+-->
+
                     <rdf:Description about="{$dataset}{$KeyFamilyRef}{$SeriesKeyValues}{$ObsTimeURI}">
                         <xsl:for-each select="../generic:SeriesKey/generic:Value">
                             <xsl:call-template name="ObsProperty">

@@ -17,417 +17,422 @@
          xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
          xmlns:sdmx-dimension="http://purl.org/linked-data/sdmx/2009/dimension#"
          xmlns:sdmx-measure="http://purl.org/linked-data/sdmx/2009/measure#">
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1960">
+   <rdf:Description about="http://example.org/dataset/WDI">
+      <rdf:type rdf:resource="http://purl.org/linked-data/cube#DataSet"/>
+      <qb:structure rdf:resource="http://example.org/dataset/WDI/structure"/>
+      <skos:prefLabel/>
+   </rdf:Description>
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1960">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1960</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">667070000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1961">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1961">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1961</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">660330000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1962">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1962">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1962</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">665770000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1963">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1963">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1963</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">682335000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1964">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1964">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1964</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">698355000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1965">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1965">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1965</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">715185000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1966">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1966">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1966</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">735400000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1967">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1967">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1967</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">754550000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1968">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1968">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1968</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">774510000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1969">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1969">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1969</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">796025000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1970">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1970">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1970</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">818315000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1971">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1971">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1971</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">841105000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1972">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1972">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1972</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">862030000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1973">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1973">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1973</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">881940000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1974">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1974">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1974</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">900350000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1975">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1975">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1975</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">916395000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1976">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1976">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1976</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">930685000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1977">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1977">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1977</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">943455000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1978">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1978">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1978</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">956165000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1979">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1979">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1979</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">969005000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1980">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1980">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1980</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">981235000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1981">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1981">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1981</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">993885000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1982">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1982">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1982</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1008630000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1983">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1983">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1983</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1023310000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1984">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1984">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1984</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1036825000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1985">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1985">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1985</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1051040000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1986">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1986">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1986</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1066790000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1987">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1987">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1987</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1084035000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1988">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1988">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1988</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1101630000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1989">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1989">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1989</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1118650000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1990">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1990">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1990</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1135185000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1991">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1991">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1991</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1150780000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1992">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1992">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1992</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1164970000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1993">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1993">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1993</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1178440000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1994">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1994">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1994</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1191835000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1995">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1995">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1995</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1204855000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1996">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1996">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1996</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1217550000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1997">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1997">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1997</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1230075000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1998">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1998">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1998</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1241935000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/1999">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/1999">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>1999</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1252735000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/2000">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/2000">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>2000</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1262645000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/2001">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/2001">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>2001</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1271850000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/2002">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/2002">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>2002</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1280400000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/2003">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/2003">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>2003</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1288400000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/2004">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/2004">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>2004</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1296075000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/2005">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/2005">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>2005</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1303720000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/2006">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/2006">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>2006</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1311020000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/2007">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/2007">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>2007</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1317885000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/2008">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/2008">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>2008</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1324655000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/2009">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/2009">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>2009</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1331380000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/2010">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/2010">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>2010</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1337825000</property:OBS_VALUE>
       <property:UNIT_MULT rdf:resource="http://example.org/code/CL_UNIT_MULT_WDI/0"/>
    </rdf:Description>
-   <rdf:Description about="http://example.org/dataset/WDI/A/CL_SERIES_WDI/CN/2011">
+   <rdf:Description about="http://example.org/dataset/WDI/A/SP_POP_TOTL/CN/2011">
       <property:FREQ rdf:resource="http://example.org/code/CL_FREQ_WDI/A"/>
-      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/CL_SERIES_WDI"/>
+      <property:SERIES rdf:resource="http://example.org/code/CL_SERIES_WDI/SP_POP_TOTL"/>
       <property:REF_AREA rdf:resource="http://example.org/code/CL_REF_AREA_WDI/CN"/>
       <property:TIME_PERIOD>2011</property:TIME_PERIOD>
       <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1344130000</property:OBS_VALUE>
