@@ -20,13 +20,13 @@
         <xsl:value-of select="text()"/>
     </xsl:template>
 
-    <xsl:template name="getAttributeValue">
+    <xsl:function name="fn:getAttributeValue">
         <xsl:param name="attributeName"/>
 
         <xsl:if test="$attributeName">
             <xsl:value-of select="$attributeName"/>
         </xsl:if>
-    </xsl:template>
+    </xsl:function>
 
     <xsl:template name="datatype-dateTime">
         <xsl:attribute name="rdf:datatype">

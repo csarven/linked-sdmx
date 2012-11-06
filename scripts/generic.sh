@@ -15,5 +15,5 @@ saxonb-xslt -s ../samples/BIS.WEBSTATS_CIBL_UR_DATAFLOW-1351443131267.xml -xsl g
 saxonb-xslt -s ../samples/WB.sp.pop.totl.xml -xsl generic.xsl pathToGenericStructure=../samples/WB.KeyFamily.xml > ../samples/WB.sp.pop.totl.rdf
 #saxonb-xslt -s ../samples/OECD.HEALTH_STAT.data.xml -xsl generic.xsl > ../samples/OECD.HEALTH_STAT.data.rdf
 #saxonb-xslt -s ../samples/SDMX.GenericSample.xml -xsl generic.xsl > ../samples/SDMX.GenericSample.rdf
-saxonb-xslt -s ../samples/FAO.CAPTURE_DATASTRUCTURE.xml -xsl generic.xsl pathToGenericStructure=../samples/FAO.CAPTURE_DATASTRUCTURE.xml > ../samples/FAO.CAPTURE_DATASTRUCTURE.rdf
-saxonb-xslt -s ../samples/FAO.CAPTURE.xml -xsl generic.xsl pathToGenericStructure=../samples/FAO.CAPTURE_DATASTRUCTURE.xml > ../samples/FAO.CAPTURE.rdf
+#saxonb-xslt -s ../samples/FAO.CAPTURE_DATASTRUCTURE.xml -xsl generic.xsl pathToGenericStructure=../samples/FAO.CAPTURE_DATASTRUCTURE.xml > ../samples/FAO.CAPTURE_DATASTRUCTURE.rdf
+#saxonb-xslt -s ../samples/FAO.CAPTURE.xml -xsl generic.xsl pathToGenericStructure=../samples/FAO.CAPTURE_DATASTRUCTURE.xml > ../samples/FAO.CAPTURE.rdf

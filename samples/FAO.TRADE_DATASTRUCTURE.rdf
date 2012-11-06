@@ -17,8 +17,9 @@
          xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
          xmlns:sdmx-dimension="http://purl.org/linked-data/sdmx/2009/dimension#"
          xmlns:sdmx-measure="http://purl.org/linked-data/sdmx/2009/measure#">
-   <rdf:Description rdf:about="http://example.org/dataset/TRADE_DATASTRUCTURE/structure">
+   <rdf:Description rdf:about="http://example.org/dataset/FAO/TRADE_DATASTRUCTURE/structure">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#DataStructureDefinition"/>
+      <rdf:type rdf:resource="http://purl.org/linked-data/cube#DataStructureDefinition"/>
       <sdmx-concept:dsi>TRADE_DATASTRUCTURE</sdmx-concept:dsi>
       <sdmx-concept:mAgency>FAO</sdmx-concept:mAgency>
       <sdmx-concept:dataRev>0.1</sdmx-concept:dataRev>
@@ -26,42 +27,84 @@
       <skos:prefLabel xml:lang="en">TRADE_DATASTRUCTURE</skos:prefLabel>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:dimension rdf:resource="http://example.org/property/UN_COUNTRY"/>
+            <qb:dimension>
+               <rdf:Description rdf:about="http://example.org/property/FAO/UN_COUNTRY/">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+                  <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+                  <qb:concept rdf:resource="http://example.org/concept/FAO/UN_COUNTRY"/>
+               </rdf:Description>
+            </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</qb:order>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:dimension rdf:resource="http://example.org/property/COMMODITY"/>
+            <qb:dimension>
+               <rdf:Description rdf:about="http://example.org/property/FAO/COMMODITY/">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+                  <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+                  <qb:concept rdf:resource="http://example.org/concept/FAO/COMMODITY"/>
+               </rdf:Description>
+            </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</qb:order>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:dimension rdf:resource="http://example.org/property/TRADE_FLOW"/>
+            <qb:dimension>
+               <rdf:Description rdf:about="http://example.org/property/FAO/TRADE_FLOW/">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+                  <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+                  <qb:concept rdf:resource="http://example.org/concept/FAO/TRADE_FLOW"/>
+               </rdf:Description>
+            </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</qb:order>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:dimension rdf:resource="http://example.org/property/TIME"/>
+            <qb:dimension>
+               <rdf:Description rdf:about="http://example.org/property/FAO/TIME/">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+                  <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+                  <qb:concept rdf:resource="http://example.org/concept/FAO/TIME"/>
+               </rdf:Description>
+            </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</qb:order>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:measure rdf:resource="http://example.org/property/OBS_VALUE"/>
+            <qb:measure>
+               <rdf:Description rdf:about="http://example.org/property/FAO/OBS_VALUE">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#MeasureProperty"/>
+                  <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+                  <qb:concept rdf:resource="http://example.org/concept/FAO/OBS_VALUE"/>
+               </rdf:Description>
+            </qb:measure>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:attribute rdf:resource="http://example.org/property/UNIT"/>
+            <qb:attribute>
+               <rdf:Description rdf:about="http://example.org/property/FAO/UNIT">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
+                  <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+                  <qb:concept rdf:resource="http://example.org/concept/FAO/UNIT"/>
+               </rdf:Description>
+            </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#DataSet"/>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
          <qb:ComponentSpecification>
-            <qb:attribute rdf:resource="http://example.org/property/UNIT_MULTIPLIER"/>
+            <qb:attribute>
+               <rdf:Description rdf:about="http://example.org/property/FAO/UNIT_MULTIPLIER">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
+                  <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+                  <qb:concept rdf:resource="http://example.org/concept/FAO/UNIT_MULTIPLIER"/>
+               </rdf:Description>
+            </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#DataSet"/>
          </qb:ComponentSpecification>
       </qb:component>
