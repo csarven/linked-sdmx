@@ -240,11 +240,11 @@
       <skos:notation>BIS_CONCEPT_SCHEME</skos:notation>
       <skos:prefLabel xml:lang="en">BIS Concept Scheme</skos:prefLabel>
       <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/concept/BIS_BLOCK">
+         <rdf:Description rdf:about="http://example.org/concept/BIS/BIS_BLOCK">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
-            <skos:inScheme rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
             <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=BIS:BIS_CONCEPT_SCHEME(1.0).BIS_BLOCK"/>
             <skos:notation>BIS_BLOCK</skos:notation>
             <skos:prefLabel xml:lang="en">Unit</skos:prefLabel>
@@ -252,11 +252,11 @@
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/concept/BIS_UNIT">
+         <rdf:Description rdf:about="http://example.org/concept/BIS/BIS_UNIT">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
-            <skos:inScheme rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
             <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=BIS:BIS_CONCEPT_SCHEME(1.0).BIS_UNIT"/>
             <skos:notation>BIS_UNIT</skos:notation>
             <skos:prefLabel xml:lang="en">Unit</skos:prefLabel>
@@ -264,11 +264,11 @@
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/concept/CIBL_CATEGORY">
+         <rdf:Description rdf:about="http://example.org/concept/BIS/CIBL_CATEGORY">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
-            <skos:inScheme rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
             <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=BIS:BIS_CONCEPT_SCHEME(1.0).CIBL_CATEGORY"/>
             <skos:notation>CIBL_CATEGORY</skos:notation>
             <skos:prefLabel xml:lang="en">Basis, measure</skos:prefLabel>
@@ -276,11 +276,11 @@
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/concept/CIBL_TABLE">
+         <rdf:Description rdf:about="http://example.org/concept/BIS/CIBL_TABLE">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
-            <skos:inScheme rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
             <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=BIS:BIS_CONCEPT_SCHEME(1.0).CIBL_TABLE"/>
             <skos:notation>CIBL_TABLE</skos:notation>
             <skos:prefLabel xml:lang="en">Type of reporting banks</skos:prefLabel>
@@ -288,11 +288,11 @@
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/concept/CIBL_TYPE">
+         <rdf:Description rdf:about="http://example.org/concept/BIS/CIBL_TYPE">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
-            <skos:inScheme rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
             <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=BIS:BIS_CONCEPT_SCHEME(1.0).CIBL_TYPE"/>
             <skos:notation>CIBL_TYPE</skos:notation>
             <skos:prefLabel xml:lang="en">Type of claim, counterparty sector and other breakdowns</skos:prefLabel>
@@ -300,11 +300,11 @@
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/concept/IBLN_CATEGORY">
+         <rdf:Description rdf:about="http://example.org/concept/BIS/IBLN_CATEGORY">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
-            <skos:inScheme rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
             <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=BIS:BIS_CONCEPT_SCHEME(1.0).IBLN_CATEGORY"/>
             <skos:notation>IBLN_CATEGORY</skos:notation>
             <skos:prefLabel xml:lang="en">Measure (outstanding / change)</skos:prefLabel>
@@ -312,11 +312,11 @@
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/concept/IBLN_TABLE">
+         <rdf:Description rdf:about="http://example.org/concept/BIS/IBLN_TABLE">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
-            <skos:inScheme rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
             <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=BIS:BIS_CONCEPT_SCHEME(1.0).IBLN_TABLE"/>
             <skos:notation>IBLN_TABLE</skos:notation>
             <skos:prefLabel xml:lang="en">Currency, resident / non-resident</skos:prefLabel>
@@ -324,11 +324,11 @@
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/concept/IBLN_TYPE">
+         <rdf:Description rdf:about="http://example.org/concept/BIS/IBLN_TYPE">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
-            <skos:inScheme rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
             <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=BIS:BIS_CONCEPT_SCHEME(1.0).IBLN_TYPE"/>
             <skos:notation>IBLN_TYPE</skos:notation>
             <skos:prefLabel xml:lang="en">Counterparty sector, position</skos:prefLabel>
@@ -336,11 +336,11 @@
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/concept/IBLR_CATEGORY">
+         <rdf:Description rdf:about="http://example.org/concept/BIS/IBLR_CATEGORY">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
-            <skos:inScheme rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
             <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=BIS:BIS_CONCEPT_SCHEME(1.0).IBLR_CATEGORY"/>
             <skos:notation>IBLR_CATEGORY</skos:notation>
             <skos:prefLabel xml:lang="en">Instrument, measure (outstanding / change)</skos:prefLabel>
@@ -348,11 +348,11 @@
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/concept/IBLR_CURR">
+         <rdf:Description rdf:about="http://example.org/concept/BIS/IBLR_CURR">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
-            <skos:inScheme rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
             <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=BIS:BIS_CONCEPT_SCHEME(1.0).IBLR_CURR"/>
             <skos:notation>IBLR_CURR</skos:notation>
             <skos:prefLabel xml:lang="en">Currency</skos:prefLabel>
@@ -360,11 +360,11 @@
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/concept/IBLR_TYPE">
+         <rdf:Description rdf:about="http://example.org/concept/BIS/IBLR_TYPE">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
-            <skos:inScheme rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
             <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=BIS:BIS_CONCEPT_SCHEME(1.0).IBLR_TYPE"/>
             <skos:notation>IBLR_TYPE</skos:notation>
             <skos:prefLabel xml:lang="en">Counterparty sector, position</skos:prefLabel>
@@ -372,11 +372,11 @@
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/concept/REP_CTY">
+         <rdf:Description rdf:about="http://example.org/concept/BIS/REP_CTY">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
-            <skos:inScheme rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
             <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=BIS:BIS_CONCEPT_SCHEME(1.0).REP_CTY"/>
             <skos:notation>REP_CTY</skos:notation>
             <skos:prefLabel xml:lang="en">Reporting country</skos:prefLabel>
@@ -384,11 +384,11 @@
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/concept/VIS_CTY">
+         <rdf:Description rdf:about="http://example.org/concept/BIS/VIS_CTY">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
-            <skos:inScheme rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
             <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=BIS:BIS_CONCEPT_SCHEME(1.0).VIS_CTY"/>
             <skos:notation>VIS_CTY</skos:notation>
             <skos:prefLabel xml:lang="en">Counterparty location</skos:prefLabel>
@@ -396,11 +396,11 @@
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/concept/COLLECTION">
+         <rdf:Description rdf:about="http://example.org/concept/BIS/COLLECTION">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
-            <skos:inScheme rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
             <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=BIS:BIS_CONCEPT_SCHEME(1.0).COLLECTION"/>
             <skos:notation>COLLECTION</skos:notation>
             <skos:prefLabel xml:lang="en">Collection Indicator</skos:prefLabel>
@@ -408,11 +408,11 @@
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/concept/DECIMALS">
+         <rdf:Description rdf:about="http://example.org/concept/BIS/DECIMALS">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
-            <skos:inScheme rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
             <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=BIS:BIS_CONCEPT_SCHEME(1.0).DECIMALS"/>
             <skos:notation>DECIMALS</skos:notation>
             <skos:prefLabel xml:lang="en">Decimals</skos:prefLabel>
@@ -420,11 +420,11 @@
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/concept/EER_BASKET">
+         <rdf:Description rdf:about="http://example.org/concept/BIS/EER_BASKET">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
-            <skos:inScheme rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
             <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=BIS:BIS_CONCEPT_SCHEME(1.0).EER_BASKET"/>
             <skos:notation>EER_BASKET</skos:notation>
             <skos:prefLabel xml:lang="en">Basket</skos:prefLabel>
@@ -432,11 +432,11 @@
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/concept/EER_TYPE">
+         <rdf:Description rdf:about="http://example.org/concept/BIS/EER_TYPE">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
-            <skos:inScheme rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
             <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=BIS:BIS_CONCEPT_SCHEME(1.0).EER_TYPE"/>
             <skos:notation>EER_TYPE</skos:notation>
             <skos:prefLabel xml:lang="en">Type</skos:prefLabel>
@@ -444,11 +444,11 @@
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/concept/FREQ">
+         <rdf:Description rdf:about="http://example.org/concept/BIS/FREQ">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
-            <skos:inScheme rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
             <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=BIS:BIS_CONCEPT_SCHEME(1.0).FREQ"/>
             <skos:notation>FREQ</skos:notation>
             <skos:prefLabel xml:lang="en">Frequency</skos:prefLabel>
@@ -456,11 +456,11 @@
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/concept/OBS_CONF">
+         <rdf:Description rdf:about="http://example.org/concept/BIS/OBS_CONF">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
-            <skos:inScheme rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
             <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=BIS:BIS_CONCEPT_SCHEME(1.0).OBS_CONF"/>
             <skos:notation>OBS_CONF</skos:notation>
             <skos:prefLabel xml:lang="en">Observation Confidentiality</skos:prefLabel>
@@ -468,11 +468,11 @@
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/concept/OBS_PRE_BREAK">
+         <rdf:Description rdf:about="http://example.org/concept/BIS/OBS_PRE_BREAK">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
-            <skos:inScheme rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
             <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=BIS:BIS_CONCEPT_SCHEME(1.0).OBS_PRE_BREAK"/>
             <skos:notation>OBS_PRE_BREAK</skos:notation>
             <skos:prefLabel xml:lang="en">Pre-Break Observation</skos:prefLabel>
@@ -480,11 +480,11 @@
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/concept/OBS_STATUS">
+         <rdf:Description rdf:about="http://example.org/concept/BIS/OBS_STATUS">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
-            <skos:inScheme rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
             <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=BIS:BIS_CONCEPT_SCHEME(1.0).OBS_STATUS"/>
             <skos:notation>OBS_STATUS</skos:notation>
             <skos:prefLabel xml:lang="en">Observation Status</skos:prefLabel>
@@ -492,11 +492,11 @@
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/concept/OBS_VALUE">
+         <rdf:Description rdf:about="http://example.org/concept/BIS/OBS_VALUE">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
-            <skos:inScheme rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
             <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=BIS:BIS_CONCEPT_SCHEME(1.0).OBS_VALUE"/>
             <skos:notation>OBS_VALUE</skos:notation>
             <skos:prefLabel xml:lang="en">Observation Value</skos:prefLabel>
@@ -504,11 +504,11 @@
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/concept/REF_AREA">
+         <rdf:Description rdf:about="http://example.org/concept/BIS/REF_AREA">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
-            <skos:inScheme rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
             <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=BIS:BIS_CONCEPT_SCHEME(1.0).REF_AREA"/>
             <skos:notation>REF_AREA</skos:notation>
             <skos:prefLabel xml:lang="en">Reference area</skos:prefLabel>
@@ -516,11 +516,11 @@
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/concept/TIME_FORMAT">
+         <rdf:Description rdf:about="http://example.org/concept/BIS/TIME_FORMAT">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
-            <skos:inScheme rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
             <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=BIS:BIS_CONCEPT_SCHEME(1.0).TIME_FORMAT"/>
             <skos:notation>TIME_FORMAT</skos:notation>
             <skos:prefLabel xml:lang="en">Time Format Code</skos:prefLabel>
@@ -528,11 +528,11 @@
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/concept/TIME_PERIOD">
+         <rdf:Description rdf:about="http://example.org/concept/BIS/TIME_PERIOD">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
-            <skos:inScheme rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
             <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=BIS:BIS_CONCEPT_SCHEME(1.0).TIME_PERIOD"/>
             <skos:notation>TIME_PERIOD</skos:notation>
             <skos:prefLabel xml:lang="en">Time period or range</skos:prefLabel>
@@ -540,11 +540,11 @@
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/concept/UNIT_MEASURE">
+         <rdf:Description rdf:about="http://example.org/concept/BIS/UNIT_MEASURE">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
-            <skos:inScheme rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
             <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=BIS:BIS_CONCEPT_SCHEME(1.0).UNIT_MEASURE"/>
             <skos:notation>UNIT_MEASURE</skos:notation>
             <skos:prefLabel xml:lang="en">Unit of measure</skos:prefLabel>
@@ -552,11 +552,11 @@
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/concept/UNIT_MULT">
+         <rdf:Description rdf:about="http://example.org/concept/BIS/UNIT_MULT">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
-            <skos:inScheme rdf:resource="http://example.org/concept/BIS_CONCEPT_SCHEME"/>
+            <skos:topConceptOf rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
+            <skos:inScheme rdf:resource="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME"/>
             <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=BIS:BIS_CONCEPT_SCHEME(1.0).UNIT_MULT"/>
             <skos:notation>UNIT_MULT</skos:notation>
             <skos:prefLabel xml:lang="en">Unit Multiplier</skos:prefLabel>

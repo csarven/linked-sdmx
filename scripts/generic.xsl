@@ -354,6 +354,7 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
                 <skos:hasTopConcept>
                     <xsl:call-template name="structureConcept">
                         <xsl:with-param name="ConceptSchemeID" select="$id"/>
+                        <xsl:with-param name="ConceptSchemeIDAgencyIDPath" select="$agencyIDPath"/>
                     </xsl:call-template>
                 </skos:hasTopConcept>
             </xsl:for-each>
@@ -363,6 +364,7 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
 
     <xsl:template name="structureConcept">
         <xsl:param name="ConceptSchemeID"/>
+        <xsl:param name="ConceptSchemeIDAgencyIDPath"/>
 
         <xsl:variable name="id">
             <xsl:value-of select="fn:getAttributeValue(@id)"/>
@@ -372,9 +374,14 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
         </xsl:variable>
 
         <xsl:variable name="agencyIDPath">
-            <xsl:if test="$agencyID != ''">
-                <xsl:value-of select="$agencyID"/><xsl:text>/</xsl:text>
-            </xsl:if>
+            <xsl:choose>
+                <xsl:when test="$agencyID != ''">
+                    <xsl:value-of select="$agencyID"/><xsl:text>/</xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="$ConceptSchemeIDAgencyIDPath"/>
+                </xsl:otherwise>
+            </xsl:choose>
         </xsl:variable>
 
         <rdf:Description rdf:about="{$concept}{$agencyIDPath}{$id}">
