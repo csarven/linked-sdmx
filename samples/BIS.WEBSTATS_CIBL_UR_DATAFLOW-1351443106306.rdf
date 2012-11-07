@@ -124,9 +124,6 @@
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
-         <qb:ComponentSpecification/>
-      </qb:component>
-      <qb:component>
          <qb:ComponentSpecification>
             <qb:measure>
                <rdf:Description rdf:about="http://example.org/property/BIS/OBS_VALUE">
@@ -194,7 +191,7 @@
                   <qb:concept rdf:resource="http://example.org/concept/BIS/BIS_UNIT"/>
                </rdf:Description>
             </qb:attribute>
-            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Group"/>
+            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Slice"/>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
@@ -218,7 +215,7 @@
                   <qb:concept rdf:resource="http://example.org/concept/BIS/DECIMALS"/>
                </rdf:Description>
             </qb:attribute>
-            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Group"/>
+            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Slice"/>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
@@ -230,9 +227,21 @@
                   <qb:concept rdf:resource="http://example.org/concept/BIS/UNIT_MULT"/>
                </rdf:Description>
             </qb:attribute>
-            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Group"/>
+            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Slice"/>
          </qb:ComponentSpecification>
       </qb:component>
+      <qb:sliceKey>
+         <rdf:Description rdf:about="http://example.org/slice/BIS/Sibling">
+            <rdf:type rdf:resource="http://purl.org/linked-data/cube#SliceKey"/>
+            <skos:notation>Sibling</skos:notation>
+            <qb:componentProperty rdf:resource="http://example.org/concept/BIS/BIS_BLOCK"/>
+            <qb:componentProperty rdf:resource="http://example.org/concept/BIS/CIBL_CATEGORY"/>
+            <qb:componentProperty rdf:resource="http://example.org/concept/BIS/CIBL_TABLE"/>
+            <qb:componentProperty rdf:resource="http://example.org/concept/BIS/CIBL_TYPE"/>
+            <qb:componentProperty rdf:resource="http://example.org/concept/BIS/REP_CTY"/>
+            <qb:componentProperty rdf:resource="http://example.org/concept/BIS/VIS_CTY"/>
+         </rdf:Description>
+      </qb:sliceKey>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/BIS/BIS_CONCEPT_SCHEME">
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
