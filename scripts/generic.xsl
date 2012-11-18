@@ -42,12 +42,12 @@
     <xsl:param name="pathToGenericStructure"/>
 <!--
 TODO:
-* Consider offering an option to use human readable URIs e.g., world-development-indicators (from Header::Name) instead of WDI
-* Decide whether to leave the string cases as is or change e.g., lowercased, separated by dash
 * Default to language when the structure or data doesn't contain xml:lang
 * Option to use slash or hash URIs
 * Options to pass for each URI path component
-* Consider what to do when the SDMX-ML is well-formed but doesn't exactly follow the intended use.
+* When agencyID="SDMX", fixed corresponding URIs within the SDMX namespace should be used. Sometimes codelistAgency or conceptSchemeAgency is not mentioned in the KeyFamily but the Codelist uses agencyID="SDMX". A first check might be to see if there is an agencyID set for the conceptRef or codelist
+* Similarly consider what to do for agencyID's that's different than self agency and SDMX.
+* Consider what to do when the SDMX-ML doesn't follow the schema
 -->
 
     <xsl:variable name="rdf">http://www.w3.org/1999/02/22-rdf-syntax-ns#</xsl:variable>
