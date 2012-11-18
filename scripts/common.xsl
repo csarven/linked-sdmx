@@ -89,4 +89,12 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
+
+
+    <xsl:function name="fn:getSliceKey">
+        <xsl:param name="agencyIDPath"/>
+        <xsl:param name="Group"/>
+
+        <xsl:value-of select="$slice"/><xsl:value-of select="$agencyIDPath"/><xsl:text>/</xsl:text><xsl:value-of select="fn:getAttributeValue($Group/@id)"/>
+    </xsl:function>
 </xsl:stylesheet>
