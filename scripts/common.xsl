@@ -51,4 +51,42 @@
             <xsl:text>http://www.w3.org/2001/XMLSchema#double</xsl:text>
         </xsl:attribute>
     </xsl:template>
+
+
+    <xsl:function name="fn:getSDMXCodeListURI">
+        <xsl:param name="CodeList"/>
+
+        <xsl:choose>
+            <xsl:when test="$CodeList = 'CL_CURRENCY'">
+                <xsl:text>http://purl.org/linked-data/sdmx/2009/code#currency</xsl:text>
+            </xsl:when>
+            <xsl:when test="$CodeList = 'CL_AREA'">
+                <xsl:text>http://purl.org/linked-data/sdmx/2009/code#area</xsl:text>
+            </xsl:when>
+            <xsl:when test="$CodeList = 'CL_DECIMALS'">
+                <xsl:text>http://purl.org/linked-data/sdmx/2009/code#decimals</xsl:text>
+            </xsl:when>
+            <xsl:when test="$CodeList = 'CL_FREQ'">
+                <xsl:text>http://purl.org/linked-data/sdmx/2009/code#freq</xsl:text>
+            </xsl:when>
+            <xsl:when test="$CodeList = 'CL_CONF_STATUS'">
+                <xsl:text>http://purl.org/linked-data/sdmx/2009/code#confStatus</xsl:text>
+            </xsl:when>
+            <xsl:when test="$CodeList = 'CL_OBS_STATUS'">
+                <xsl:text>http://purl.org/linked-data/sdmx/2009/code#obsStatus</xsl:text>
+            </xsl:when>
+            <xsl:when test="$CodeList = 'CL_SEX'">
+                <xsl:text>http://purl.org/linked-data/sdmx/2009/code#sex</xsl:text>
+            </xsl:when>
+            <xsl:when test="$CodeList = 'CL_TIME_FORMAT'">
+                <xsl:text>http://purl.org/linked-data/sdmx/2009/code#timeFormat</xsl:text>
+            </xsl:when>
+            <xsl:when test="$CodeList = 'CL_UNIT_MULT'">
+                <xsl:text>http://purl.org/linked-data/sdmx/2009/code#unitMult</xsl:text>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:text>FIXME: getSDMXCodeListURI probably shouldn't have been called.</xsl:text>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>
 </xsl:stylesheet>
