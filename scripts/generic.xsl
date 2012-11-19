@@ -672,10 +672,7 @@ Consider getting this value from KeyFamily and adding a suffix e.g., data
 <!--
 XXX: This is a bit chaotic but, yea, works I guess. Needs to be tested with more samples
 -->
-
-                <xsl:variable name="Series" select="generic:Series"/>
-
-                <xsl:for-each select="$Series">
+                <xsl:for-each select="generic:Series">
 <!--
 FIXME:
 Excluding 'FREQ' is a bit grubby?
@@ -688,45 +685,58 @@ Excluding 'FREQ' is a bit grubby?
                     <xsl:variable name="DimensionRefs" select="$Group/structure:DimensionRef"/>
 
 <!--
-XXX: Sorting would be tricky as the dimension order in the KeyFamily needs to be preserved.
+XXX:
+Sorting would be tricky as the dimension order in the KeyFamily needs to be preserved.
 -->
                     <xsl:if test="count($Concepts) = count($DimensionRefs)">
-                        <xsl:for-each select="$Concepts">
-                            <xsl:if test="$DimensionRefs[starts-with(current(), .)]">
-                                <qb:slice>
-                                    <rdf:Description>
-                                        <rdf:type rdf:resource="{$qb}Slice"/>
-                                        <qb:sliceStructure rdf:resource="{fn:getSliceKey($agencyID, $Group)}"/>
-                                        <xsl:for-each select="$Values">
-                                            <xsl:call-template name="ObsProperty">
-                                                <xsl:with-param name="KeyFamilyRef" select="$KeyFamilyRef"/>
-                                                <xsl:with-param name="concept" select="@concept"/>
-                                                <xsl:with-param name="value" select="@value"/>
-                                            </xsl:call-template>
-                                        </xsl:for-each>
-
-                                        <xsl:variable name="SeriesKeyValues">
-                                            <xsl:for-each select="$Values/@value">
-                                                <xsl:text>/</xsl:text><xsl:value-of select="normalize-space(.)"/>
-                                            </xsl:for-each>
-                                        </xsl:variable>
+                        <xsl:variable name="hasSlice">
+                            <xsl:for-each select="$Concepts">
+                                <xsl:choose>
+                                    <xsl:when test="$DimensionRefs[starts-with(current(), .)]">
+                                        <xsl:value-of select="true()"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="false()"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </xsl:for-each>
+                        </xsl:variable>
 <!--
-FIXME: Loops weird..
+XXX: FIXME:
+Are these supposed to be unique slices?
 -->
-<!--                                        <xsl:for-each select="$Series/generic:Obs">-->
-<!--                                            <xsl:variable name="ObsTimeURI">-->
-<!--                                                <xsl:text>/</xsl:text><xsl:value-of select="replace(generic:Time, '\s+', '')"/>-->
-<!--                                            </xsl:variable>-->
-<!--                                            <qb:observation>-->
-<!--                                                <xsl:attribute name="rdf:resource">-->
-<!--                                                    <xsl:value-of select="$dataset"/><xsl:value-of select="$KeyFamilyRef"/><xsl:value-of select="$SeriesKeyValues"/><xsl:value-of select="$ObsTimeURI"/>-->
-<!--                                                </xsl:attribute>-->
-<!--                                            </qb:observation>-->
-<!--                                        </xsl:for-each>-->
-                                    </rdf:Description>
-                                </qb:slice>
-                            </xsl:if>
-                        </xsl:for-each>
+                        <xsl:if test="not(contains($hasSlice, 'false'))">
+                            <qb:slice>
+                                <rdf:Description>
+                                    <rdf:type rdf:resource="{$qb}Slice"/>
+                                    <qb:sliceStructure rdf:resource="{fn:getSliceKey($agencyID, $Group)}"/>
+                                    <xsl:for-each select="generic:SeriesKey/generic:Value[@concept != 'FREQ']">
+                                        <xsl:call-template name="ObsProperty">
+                                            <xsl:with-param name="KeyFamilyRef" select="$KeyFamilyRef"/>
+                                            <xsl:with-param name="concept" select="@concept"/>
+                                            <xsl:with-param name="value" select="@value"/>
+                                        </xsl:call-template>
+                                    </xsl:for-each>
+
+                                    <xsl:variable name="SeriesKeyValues">
+                                        <xsl:for-each select="$Values/@value">
+                                            <xsl:text>/</xsl:text><xsl:value-of select="normalize-space(.)"/>
+                                        </xsl:for-each>
+                                    </xsl:variable>
+
+                                    <xsl:for-each select="generic:Obs">
+                                        <xsl:variable name="ObsTimeURI">
+                                            <xsl:text>/</xsl:text><xsl:value-of select="replace(generic:Time, '\s+', '')"/>
+                                        </xsl:variable>
+                                        <qb:observation>
+                                            <xsl:attribute name="rdf:resource">
+                                                <xsl:value-of select="$dataset"/><xsl:value-of select="$KeyFamilyRef"/><xsl:value-of select="$SeriesKeyValues"/><xsl:value-of select="$ObsTimeURI"/>
+                                            </xsl:attribute>
+                                        </qb:observation>
+                                    </xsl:for-each>
+                                </rdf:Description>
+                            </qb:slice>
+                        </xsl:if>
                     </xsl:if>
                 </xsl:for-each>
             </rdf:Description>
