@@ -86,9 +86,6 @@
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
-         <qb:ComponentSpecification/>
-      </qb:component>
-      <qb:component>
          <qb:ComponentSpecification>
             <qb:measure>
                <rdf:Description rdf:about="http://example.org/property/BIS/OBS_VALUE">
@@ -114,7 +111,7 @@
                   <qb:concept rdf:resource="http://example.org/concept/BIS/AVAILABILITY"/>
                </rdf:Description>
             </qb:attribute>
-            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Group"/>
+            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Slice"/>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
@@ -126,7 +123,7 @@
                   <qb:concept rdf:resource="http://example.org/concept/BIS/TIME_FORMAT"/>
                </rdf:Description>
             </qb:attribute>
-            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Series"/>
+            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Dimension"/>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
@@ -138,7 +135,7 @@
                   <qb:concept rdf:resource="http://example.org/concept/BIS/COLLECTION"/>
                </rdf:Description>
             </qb:attribute>
-            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Series"/>
+            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Dimension"/>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
@@ -150,7 +147,7 @@
                   <qb:concept rdf:resource="http://example.org/concept/BIS/DECIMALS"/>
                </rdf:Description>
             </qb:attribute>
-            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Group"/>
+            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Slice"/>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
@@ -198,7 +195,7 @@
                   <qb:concept rdf:resource="http://example.org/concept/BIS/BIS_UNIT"/>
                </rdf:Description>
             </qb:attribute>
-            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Group"/>
+            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Slice"/>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
@@ -210,9 +207,18 @@
                   <qb:concept rdf:resource="http://example.org/concept/BIS/UNIT_MULT"/>
                </rdf:Description>
             </qb:attribute>
-            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Group"/>
+            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Slice"/>
          </qb:ComponentSpecification>
       </qb:component>
+      <qb:sliceKey>
+         <rdf:Description rdf:about="http://example.org/slice/BIS/SiblingGroup">
+            <rdf:type rdf:resource="http://purl.org/linked-data/cube#SliceKey"/>
+            <skos:notation>SiblingGroup</skos:notation>
+            <qb:componentProperty rdf:resource="http://example.org/concept/BIS/JD_TYPE"/>
+            <qb:componentProperty rdf:resource="http://example.org/concept/BIS/JD_CATEGORY"/>
+            <qb:componentProperty rdf:resource="http://example.org/concept/BIS/VIS_CTY"/>
+         </rdf:Description>
+      </qb:sliceKey>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/BIS/TIME">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>

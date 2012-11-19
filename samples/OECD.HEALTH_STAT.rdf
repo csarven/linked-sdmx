@@ -104,7 +104,7 @@
                   <qb:concept rdf:resource="http://example.org/concept/OECD/UNIT"/>
                </rdf:Description>
             </qb:attribute>
-            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Series"/>
+            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Dimension"/>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
@@ -116,7 +116,7 @@
                   <qb:concept rdf:resource="http://example.org/concept/OECD/POWERCODE"/>
                </rdf:Description>
             </qb:attribute>
-            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Series"/>
+            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Dimension"/>
          </qb:ComponentSpecification>
       </qb:component>
       <qb:component>
@@ -128,7 +128,7 @@
                   <qb:concept rdf:resource="http://example.org/concept/OECD/TIME_FORMAT"/>
                </rdf:Description>
             </qb:attribute>
-            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Series"/>
+            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Dimension"/>
          </qb:ComponentSpecification>
       </qb:component>
    </rdf:Description>
