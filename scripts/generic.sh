@@ -17,3 +17,4 @@ saxonb-xslt -s ../samples/WB.sp.pop.totl.xml -xsl generic.xsl pathToGenericStruc
 #saxonb-xslt -s ../samples/SDMX.GenericSample.xml -xsl generic.xsl > ../samples/SDMX.GenericSample.rdf
 #saxonb-xslt -s ../samples/FAO.CAPTURE_DATASTRUCTURE.xml -xsl generic.xsl pathToGenericStructure=../samples/FAO.CAPTURE_DATASTRUCTURE.xml > ../samples/FAO.CAPTURE_DATASTRUCTURE.rdf
 #saxonb-xslt -s ../samples/FAO.CAPTURE.xml -xsl generic.xsl pathToGenericStructure=../samples/FAO.CAPTURE_DATASTRUCTURE.xml > ../samples/FAO.CAPTURE.rdf
+#saxonb-xslt -s ../samples/Eurostat.tps00001.sdmx.xml -xsl generic.xsl > ../samples/Eurostat.tps00001.sdmx.rdf

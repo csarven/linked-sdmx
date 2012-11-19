@@ -2,7 +2,7 @@
     Author: Sarven Capadisli <info@csarven.ca>
     Author URL: http://csarven.ca/#i
 
-    Description: XSLT for generic SDMX-ML to RDF Data Cube structure
+    Description: XSLT for generic SDMX-ML to RDF Data Cube
 -->
 <xsl:stylesheet version="2.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -48,6 +48,7 @@ TODO:
 * When agencyID="SDMX", fixed corresponding URIs within the SDMX namespace should be used. Sometimes codelistAgency or conceptSchemeAgency is not mentioned in the KeyFamily but the Codelist uses agencyID="SDMX". A first check might be to see if there is an agencyID set for the conceptRef or codelist
 * Similarly consider what to do for agencyID's that's different than self agency and SDMX.
 * Consider what to do when the SDMX-ML doesn't follow the schema
+* Consider detecting common datetime patterns and use a URI
 -->
 
     <xsl:variable name="rdf">http://www.w3.org/1999/02/22-rdf-syntax-ns#</xsl:variable>
@@ -272,12 +273,17 @@ TODO:
                                     </xsl:when>
                                     <xsl:when test="@attachmentLevel = 'Group'">
                                         <qb:componentAttachment rdf:resource="{$qb}Slice"/>
+<!--
+TODO:
+structure:AttachmentGroup is "to indicate which declared group or groups the attribute may be attached to".
+"TextFormat element to specify constraints on the value of the uncoded attribute"
+-->
                                     </xsl:when>
                                     <xsl:when test="@attachmentLevel = 'Series'">
 <!--
-XXX: This might be attached to qb:Dimension?
+FIXME: Is this somehow for qb:Dimension?
 -->
-                                        <qb:componentAttachment rdf:resource="{$qb}Series"/>
+                                        <qb:componentAttachment rdf:resource="{$qb}Dimension"/>
                                     </xsl:when>
 
                                     <xsl:otherwise>
@@ -662,6 +668,67 @@ XXX:
 Consider getting this value from KeyFamily and adding a suffix e.g., data
                 <skos:prefLabel></skos:prefLabel>
 -->
+
+<!--
+XXX: This is a bit chaotic but, yea, works I guess. Needs to be tested with more samples
+-->
+
+                <xsl:variable name="Series" select="generic:Series"/>
+
+                <xsl:for-each select="$Series">
+<!--
+FIXME:
+Excluding 'FREQ' is a bit grubby?
+-->
+                    <xsl:variable name="Values" select="generic:SeriesKey/generic:Value[@concept != 'FREQ']"/>
+                    <xsl:variable name="Concepts" select="$Values/@concept"/>
+                    <xsl:variable name="KeyFamily" select="document($pathToGenericStructure)/Structure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]"/>
+                    <xsl:variable name="agencyID" select="$KeyFamily/@agencyID"/>
+                    <xsl:variable name="Group" select="$KeyFamily/structure:Components/structure:Group"/>
+                    <xsl:variable name="DimensionRefs" select="$Group/structure:DimensionRef"/>
+
+<!--
+XXX: Sorting would be tricky as the dimension order in the KeyFamily needs to be preserved.
+-->
+                    <xsl:if test="count($Concepts) = count($DimensionRefs)">
+                        <xsl:for-each select="$Concepts">
+                            <xsl:if test="$DimensionRefs[starts-with(current(), .)]">
+                                <qb:slice>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="{$qb}Slice"/>
+                                        <qb:sliceStructure rdf:resource="{fn:getSliceKey($agencyID, $Group)}"/>
+                                        <xsl:for-each select="$Values">
+                                            <xsl:call-template name="ObsProperty">
+                                                <xsl:with-param name="KeyFamilyRef" select="$KeyFamilyRef"/>
+                                                <xsl:with-param name="concept" select="@concept"/>
+                                                <xsl:with-param name="value" select="@value"/>
+                                            </xsl:call-template>
+                                        </xsl:for-each>
+
+                                        <xsl:variable name="SeriesKeyValues">
+                                            <xsl:for-each select="$Values/@value">
+                                                <xsl:text>/</xsl:text><xsl:value-of select="normalize-space(.)"/>
+                                            </xsl:for-each>
+                                        </xsl:variable>
+<!--
+FIXME: Loops weird..
+-->
+<!--                                        <xsl:for-each select="$Series/generic:Obs">-->
+<!--                                            <xsl:variable name="ObsTimeURI">-->
+<!--                                                <xsl:text>/</xsl:text><xsl:value-of select="replace(generic:Time, '\s+', '')"/>-->
+<!--                                            </xsl:variable>-->
+<!--                                            <qb:observation>-->
+<!--                                                <xsl:attribute name="rdf:resource">-->
+<!--                                                    <xsl:value-of select="$dataset"/><xsl:value-of select="$KeyFamilyRef"/><xsl:value-of select="$SeriesKeyValues"/><xsl:value-of select="$ObsTimeURI"/>-->
+<!--                                                </xsl:attribute>-->
+<!--                                            </qb:observation>-->
+<!--                                        </xsl:for-each>-->
+                                    </rdf:Description>
+                                </qb:slice>
+                            </xsl:if>
+                        </xsl:for-each>
+                    </xsl:if>
+                </xsl:for-each>
             </rdf:Description>
 
 <!--
