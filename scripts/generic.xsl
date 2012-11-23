@@ -609,8 +609,8 @@ TODO:
 
 <!--
 XXX:
-Doublecheck the exact relationship between an hierarchical list and a code list.
-Could use dcterms:hasPart or skos:narrower ?
+* Doublecheck the exact relationship between an hierarchical list and a code list.
+* Should the parent CodelistAliasRef/CodeID be prefixed to current CodelistAliasRef/CodeID?
 -->
             <skos:narrower>
                 <rdf:Description rdf:about="{$code}{$agencyIDPath}{$CodelistAliasRef}/{$CodeID}">
