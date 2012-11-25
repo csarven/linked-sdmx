@@ -6,12 +6,29 @@
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:dcterms="http://purl.org/dc/terms/"
     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
     xmlns:fn="http://270a.info/xpath-function/"
     >
 
     <xsl:output encoding="utf-8" indent="yes" method="xml" omit-xml-declaration="no"/>
+
+    <xsl:variable name="pathToConfig"><xsl:text>./config.rdf</xsl:text></xsl:variable>
+    <xsl:variable name="rdf" select="fn:getConfig('rdf')"/>
+    <xsl:variable name="xsd" select="fn:getConfig('xsd')"/>
+    <xsl:variable name="qb" select="fn:getConfig('qb')"/>
+    <xsl:variable name="skos" select="fn:getConfig('skos')"/>
+    <xsl:variable name="sdmx" select="fn:getConfig('sdmx')"/>
+    <xsl:variable name="lang" select="fn:getConfig('lang')"/>
+    <xsl:variable name="baseuri" select="fn:getConfig('baseuri')"/>
+    <xsl:variable name="concept" select="fn:getConfig('concept')"/>
+    <xsl:variable name="code" select="fn:getConfig('code')"/>
+    <xsl:variable name="property" select="fn:getConfig('property')"/>
+    <xsl:variable name="dataset" select="fn:getConfig('dataset')"/>
+    <xsl:variable name="slice" select="fn:getConfig('slice')"/>
+    <xsl:variable name="uriThingSeperator" select="fn:getConfig('uriThingSeperator')"/>
+    <xsl:variable name="uriDimensionSeperator" select="fn:getConfig('uriDimensionSeperator')"/>
 
     <xsl:template name="langTextNode">
         <xsl:if test="@xml:lang">
@@ -96,5 +113,12 @@
         <xsl:param name="Group"/>
 
         <xsl:value-of select="$slice"/><xsl:value-of select="$agencyIDPath"/><xsl:text>/</xsl:text><xsl:value-of select="fn:getAttributeValue($Group/@id)"/>
+    </xsl:function>
+
+
+    <xsl:function name="fn:getConfig">
+        <xsl:param name="label"/>
+
+        <xsl:value-of select="document($pathToConfig)/rdf:RDF/rdf:Description/rdf:value/rdf:Description[rdfs:label = $label]/rdf:value"/>
     </xsl:function>
 </xsl:stylesheet>

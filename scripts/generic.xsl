@@ -35,11 +35,11 @@
     >
 
     <xsl:import href="common.xsl"/>
+
     <xsl:output encoding="utf-8" indent="yes" method="xml" omit-xml-declaration="no"/>
 
-    <xsl:param name="lang"/>
-    <xsl:param name="base"/>
     <xsl:param name="pathToGenericStructure"/>
+
 <!--
 TODO:
 * Default to language when the structure or data doesn't contain xml:lang
@@ -51,49 +51,7 @@ TODO:
 * Consider detecting common datetime patterns and use a URI
 -->
 
-    <xsl:variable name="rdf">http://www.w3.org/1999/02/22-rdf-syntax-ns#</xsl:variable>
-    <xsl:variable name="xsd">http://www.w3.org/2001/XMLSchema#</xsl:variable>
-    <xsl:variable name="qb">http://purl.org/linked-data/cube#</xsl:variable>
-    <xsl:variable name="skos">http://www.w3.org/2004/02/skos/core#</xsl:variable>
-    <xsl:variable name="sdmx">http://purl.org/linked-data/sdmx#</xsl:variable>
-
-    <xsl:variable name="baseuri">
-        <xsl:choose>
-            <xsl:when test="$base = ''">
-                <xsl:text>http://example.org/</xsl:text>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:value-of select="$base"/>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:variable>
-
-    <xsl:variable name="concept">
-        <xsl:value-of select="$baseuri"/><xsl:text>concept/</xsl:text>
-    </xsl:variable>
-
-    <xsl:variable name="code">
-        <xsl:value-of select="$baseuri"/><xsl:text>code/</xsl:text>
-    </xsl:variable>
-
-    <xsl:variable name="property">
-        <xsl:value-of select="$baseuri"/><xsl:text>property/</xsl:text>
-    </xsl:variable>
-
-    <xsl:variable name="dataset">
-        <xsl:value-of select="$baseuri"/><xsl:text>dataset/</xsl:text>
-    </xsl:variable>
-
-    <xsl:variable name="slice">
-        <xsl:value-of select="$baseuri"/><xsl:text>slice/</xsl:text>
-    </xsl:variable>
-
     <xsl:template match="/">
-<!--<xsl:message>-->
-<!--<xsl:text>base: </xsl:text><xsl:value-of select="$base"/>-->
-<!--<xsl:text>baseuri: </xsl:text><xsl:value-of select="$baseuri"/>-->
-<!--</xsl:message>-->
-
         <rdf:RDF>
 <!--            <xsl:attribute name="xmlns:property" select="$property"/>-->
 
@@ -460,7 +418,7 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
 
                 <xsl:for-each select="structure:Code">
                     <skos:hasTopConcept>
-                        <rdf:Description rdf:about="{$code}{$agencyIDPath}{$id}/{@value}">
+                        <rdf:Description rdf:about="{$code}{$agencyIDPath}{$id}{$uriThingSeperator}{@value}">
                             <rdf:type rdf:resource="{$sdmx}Concept"/>
                             <rdf:type rdf:resource="{$skos}Concept"/>
                             <rdf:type rdf:resource="{$code}{$agencyIDPath}{$id}"/>
@@ -473,7 +431,7 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
 
                             <xsl:if test="@parentCode">
                                 <skos:broader>
-                                    <rdf:Description rdf:about="{$code}{$agencyIDPath}{$id}/{@parentCode}">
+                                    <rdf:Description rdf:about="{$code}{$agencyIDPath}{$id}{$uriThingSeperator}{@parentCode}">
                                         <skos:narrower rdf:resource="{$code}{$agencyIDPath}{$id}/{@value}"/>
                                     </rdf:Description>
                                 </skos:broader>
@@ -613,13 +571,13 @@ XXX:
 * Should the parent CodelistAliasRef/CodeID be prefixed to current CodelistAliasRef/CodeID?
 -->
             <skos:narrower>
-                <rdf:Description rdf:about="{$code}{$agencyIDPath}{$CodelistAliasRef}/{$CodeID}">
+                <rdf:Description rdf:about="{$code}{$agencyIDPath}{$CodelistAliasRef}{$uriThingSeperator}{$CodeID}">
 <!--
 TODO:
 Handle Annotations using skos:note
 -->
                     <xsl:if test="$CodelistAliasRef_parent and $CodeID_parent">
-                        <skos:broader rdf:resource="{$code}{$agencyIDPath}{$CodelistAliasRef_parent}/{$CodeID_parent}"/>
+                        <skos:broader rdf:resource="{$code}{$agencyIDPath}{$CodelistAliasRef_parent}{$uriThingSeperator}{$CodeID_parent}"/>
                     </xsl:if>
 
                     <xsl:if test="structure:CodeRef">
@@ -718,19 +676,15 @@ Are these supposed to be unique slices?
                                         </xsl:call-template>
                                     </xsl:for-each>
 
-                                    <xsl:variable name="SeriesKeyValues">
-                                        <xsl:for-each select="$Values/@value">
-                                            <xsl:text>/</xsl:text><xsl:value-of select="normalize-space(.)"/>
-                                        </xsl:for-each>
-                                    </xsl:variable>
+                                    <xsl:variable name="SeriesKeyValues" select="string-join($Values/normalize-space(@value), $uriDimensionSeperator)"/>
 
                                     <xsl:for-each select="generic:Obs">
                                         <xsl:variable name="ObsTimeURI">
-                                            <xsl:text>/</xsl:text><xsl:value-of select="replace(generic:Time, '\s+', '')"/>
+                                            <xsl:value-of select="$uriDimensionSeperator"/><xsl:value-of select="replace(generic:Time, '\s+', '')"/>
                                         </xsl:variable>
                                         <qb:observation>
                                             <xsl:attribute name="rdf:resource">
-                                                <xsl:value-of select="$dataset"/><xsl:value-of select="$KeyFamilyRef"/><xsl:value-of select="$SeriesKeyValues"/><xsl:value-of select="$ObsTimeURI"/>
+                                                <xsl:value-of select="$dataset"/><xsl:value-of select="$KeyFamilyRef"/><xsl:value-of select="$uriThingSeperator"/><xsl:value-of select="$SeriesKeyValues"/><xsl:value-of select="$ObsTimeURI"/>
                                             </xsl:attribute>
                                         </qb:observation>
                                     </xsl:for-each>
@@ -758,11 +712,7 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
             </xsl:variable>
 
             <xsl:for-each select="generic:Series">
-                <xsl:variable name="SeriesKeyValues">
-                    <xsl:for-each select="generic:SeriesKey/generic:Value/@value">
-                        <xsl:text>/</xsl:text><xsl:value-of select="normalize-space(.)"/>
-                    </xsl:for-each>
-                </xsl:variable>
+                <xsl:variable name="SeriesKeyValues" select="string-join(generic:SeriesKey/generic:Value/normalize-space(@value), $uriDimensionSeperator)"/>
 
                 <xsl:for-each select="generic:Obs">
                     <xsl:variable name="ObsTime">
@@ -770,7 +720,7 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
                     </xsl:variable>
 
                     <xsl:variable name="ObsTimeURI">
-                        <xsl:text>/</xsl:text><xsl:value-of select="$ObsTime"/>
+                        <xsl:value-of select="$uriDimensionSeperator"/><xsl:value-of select="$ObsTime"/>
                     </xsl:variable>
 <!--
 TODO:
@@ -781,7 +731,10 @@ TODO:
 This dataset URI needs to be unique
 -->
 
-                    <rdf:Description about="{$dataset}{$KeyFamilyRef}{$SeriesKeyValues}{$ObsTimeURI}">
+                    <rdf:Description about="{$dataset}{$KeyFamilyRef}{$uriThingSeperator}{$SeriesKeyValues}{$ObsTimeURI}">
+                        <rdf:type rdf:resource="{$qb}Observation"/>
+                        <qb:dataSet rdf:resource="{$dataset}{$KeyFamilyRef}"/>
+
                         <xsl:for-each select="../generic:SeriesKey/generic:Value">
                             <xsl:call-template name="ObsProperty">
                                 <xsl:with-param name="KeyFamilyRef" select="$KeyFamilyRef"/>
@@ -801,7 +754,10 @@ Revisit datatype or do some smart pattern detection and use a URI if possible
 
                         <xsl:for-each select="generic:ObsValue">
                             <property:OBS_VALUE>
-                                <xsl:call-template name="datatype-xsd-double"/>
+<!--
+TODO:
+datatype
+-->
                                 <xsl:value-of select="@value"/>
                             </property:OBS_VALUE>
                         </xsl:for-each>
@@ -826,20 +782,24 @@ Revisit datatype or do some smart pattern detection and use a URI if possible
         <xsl:param name="value"/>
 
         <xsl:element name="property:{$concept}">
-            <xsl:attribute name="rdf:resource">
-                <xsl:variable name="codelist">
-                    <xsl:value-of select="document($pathToGenericStructure)/Structure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/*[@conceptRef = $concept]/@codelist"/>
-                </xsl:variable>
+            <xsl:variable name="codelist">
+                <xsl:value-of select="document($pathToGenericStructure)/Structure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/*[@conceptRef = $concept]/@codelist"/>
+            </xsl:variable>
 
-                <xsl:choose>
-                    <xsl:when test="$codelist != ''">
-                        <xsl:value-of select="$code"/><xsl:value-of select="$codelist"/><xsl:text>/</xsl:text><xsl:value-of select="$value"/>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:value-of select="$concept"/><xsl:value-of select="$value"/>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </xsl:attribute>
+            <xsl:choose>
+                <xsl:when test="$codelist != ''">
+                    <xsl:attribute name="rdf:resource">
+                        <xsl:value-of select="$code"/><xsl:value-of select="$codelist"/><xsl:value-of select="$uriThingSeperator"/><xsl:value-of select="$value"/>
+                    </xsl:attribute>
+                </xsl:when>
+<!--
+XXX: I think it is okay to leave the value as is if it is not a code. Check this later.
+TODO: datatype 
+-->
+                <xsl:otherwise>
+                    <xsl:value-of select="$value"/>
+                </xsl:otherwise>
+            </xsl:choose>
         </xsl:element>
     </xsl:template>
 </xsl:stylesheet>

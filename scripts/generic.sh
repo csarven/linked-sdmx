@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#rapper -g config.ttl -o rdfxml-abbrev > config.rdf
+#ls -1 ~/Data/BFS/*.xml | sed 's/\.xml//' | while read i; do saxonb-xslt -s "$i".xml -xsl /var/www/sdmx-to-qb/scripts/generic.xsl > "$i".rdf; echo "Created $i.rdf"; done
+
 saxonb-xslt -s ../samples/WB.KeyFamily.xml -xsl generic.xsl > ../samples/WB.KeyFamily.rdf
 #saxonb-xslt -s ../samples/OECD.HEALTH_STAT.xml -xsl generic.xsl > ../samples/OECD.HEALTH_STAT.rdf
 #saxonb-xslt -s ../samples/IMF.BOPDSD.xml -xsl generic.xsl > ../samples/IMF.BOPDSD.rdf
@@ -18,3 +21,4 @@ saxonb-xslt -s ../samples/WB.sp.pop.totl.xml -xsl generic.xsl pathToGenericStruc
 #saxonb-xslt -s ../samples/FAO.CAPTURE_DATASTRUCTURE.xml -xsl generic.xsl pathToGenericStructure=../samples/FAO.CAPTURE_DATASTRUCTURE.xml > ../samples/FAO.CAPTURE_DATASTRUCTURE.rdf
 #saxonb-xslt -s ../samples/FAO.CAPTURE.xml -xsl generic.xsl pathToGenericStructure=../samples/FAO.CAPTURE_DATASTRUCTURE.xml > ../samples/FAO.CAPTURE.rdf
 #saxonb-xslt -s ../samples/Eurostat.tps00001.sdmx.xml -xsl generic.xsl > ../samples/Eurostat.tps00001.sdmx.rdf
+
