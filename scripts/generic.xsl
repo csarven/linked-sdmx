@@ -28,7 +28,6 @@
     xmlns:message="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
     xmlns:generic="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/generic"
 
-    xmlns:property="http://example.org/property/"
 
     xpath-default-namespace="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
     exclude-result-prefixes="xsl fn structure message generic"
@@ -53,7 +52,7 @@ TODO:
 
     <xsl:template match="/">
         <rdf:RDF>
-<!--            <xsl:attribute name="xmlns:property" select="$property"/>-->
+            <xsl:namespace name="property" select="$property"/>
 
             <xsl:call-template name="KeyFamily"/>
 
@@ -167,7 +166,7 @@ Should we give any special treatment to TimeDimension even though qb currently d
 -->
                             <xsl:when test="local-name() = 'Dimension' or local-name() = 'TimeDimension'">
                                 <qb:dimension>
-                                    <rdf:Description rdf:about="{$property}{$agencyIDPath}{@conceptRef}/">
+                                    <rdf:Description rdf:about="{$property}{$agencyIDPath}{@conceptRef}">
                                         <rdf:type rdf:resource="{$qb}DimensionProperty"/>
                                         <rdf:type rdf:resource="{$rdf}Property"/>
                                         <qb:concept rdf:resource="{$concept}{$agencyIDPath}{@conceptRef}"/>
@@ -712,7 +711,7 @@ TODO:
 Revisit datatype or do some smart pattern detection and use a URI if possible
 -->
                         <xsl:if test="$ObsTime != '' and $TimeDimensionConceptRef != ''">
-                            <xsl:element name="property:{$TimeDimensionConceptRef}">
+                            <xsl:element name="property:{$TimeDimensionConceptRef}" namespace="{$property}">
                                 <xsl:value-of select="$ObsTime"/>
                             </xsl:element>
                         </xsl:if>
@@ -722,7 +721,9 @@ Revisit datatype or do some smart pattern detection and use a URI if possible
 TODO:
 datatype
 -->
-                            <property:OBS_VALUE><xsl:value-of select="@value"/></property:OBS_VALUE>
+                            <xsl:element name="property:OBS_VALUE" namespace="{$property}">
+                                <xsl:value-of select="@value"/>
+                            </xsl:element>
                         </xsl:for-each>
 
                         <xsl:for-each select="generic:Attributes/generic:Value">
@@ -744,7 +745,7 @@ datatype
         <xsl:param name="concept"/>
         <xsl:param name="value"/>
 
-        <xsl:element name="property:{$concept}">
+        <xsl:element name="property:{$concept}" namespace="{$property}">
             <xsl:variable name="codelist">
                 <xsl:value-of select="document($pathToGenericStructure)/Structure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/*[@conceptRef = $concept]/@codelist"/>
             </xsl:variable>
