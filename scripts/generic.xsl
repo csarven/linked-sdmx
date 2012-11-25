@@ -69,12 +69,8 @@ TODO:
 
     <xsl:template name="KeyFamily">
         <xsl:for-each select="Structure/KeyFamilies/structure:KeyFamily">
-            <xsl:variable name="id">
-                <xsl:value-of select="fn:getAttributeValue(@id)"/>
-            </xsl:variable>
-            <xsl:variable name="agencyID">
-                <xsl:value-of select="fn:getAttributeValue(@agencyID)"/>
-            </xsl:variable>
+            <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
+            <xsl:variable name="agencyID" select="fn:getAttributeValue(@agencyID)"/>
 
             <xsl:variable name="agencyIDPath">
                 <xsl:if test="$agencyID != ''">
@@ -82,7 +78,7 @@ TODO:
                 </xsl:if>
             </xsl:variable>
 
-            <rdf:Description rdf:about="{$dataset}{$agencyIDPath}{$id}/structure">
+            <rdf:Description rdf:about="{$dataset}{$agencyIDPath}{$id}{$uriThingSeperator}structure">
                 <rdf:type rdf:resource="{$sdmx}DataStructureDefinition"/>
                 <rdf:type rdf:resource="{$qb}DataStructureDefinition"/>
 
@@ -150,15 +146,11 @@ XXX: dcterms:valid could be used along with gregorian-interval but 1) we don't k
 
 
     <xsl:template match="structure:Name">
-        <skos:prefLabel>
-            <xsl:call-template name="langTextNode"/>
-        </skos:prefLabel>
+        <skos:prefLabel><xsl:call-template name="langTextNode"/></skos:prefLabel>
     </xsl:template>
 
     <xsl:template match="structure:Description">
-        <skos:definition>
-            <xsl:call-template name="langTextNode"/>
-        </skos:definition>
+        <skos:definition><xsl:call-template name="langTextNode"/></skos:definition>
     </xsl:template>
 
 
@@ -182,12 +174,10 @@ Should we give any special treatment to TimeDimension even though qb currently d
                                     </rdf:Description>
                                 </qb:dimension>
 
-                                <qb:order rdf:datatype="{$xsd}integer">
 <!--
 XXX: Order matters but consider the case when XML doesn't list all dimensions one after another. It won't be sequential (skips numbers)
 -->
-                                    <xsl:value-of select="position()"/>
-                                </qb:order>
+                                <qb:order rdf:datatype="{$xsd}integer"><xsl:value-of select="position()"/></qb:order>
 
 <!--
 TODO:
@@ -266,9 +256,7 @@ FIXME: Is this somehow for qb:Dimension?
         <xsl:param name="agencyIDPath"/>
 
         <xsl:for-each select="structure:Components/structure:Group">
-            <xsl:variable name="id">
-                <xsl:value-of select="fn:getAttributeValue(@id)"/>
-            </xsl:variable>
+            <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
 
             <qb:sliceKey>
                 <rdf:Description rdf:about="{$slice}{$agencyIDPath}{$id}">
@@ -299,12 +287,8 @@ Check where to get ConceptScheme
 
 
     <xsl:template name="structureConceptScheme">
-        <xsl:variable name="id">
-            <xsl:value-of select="fn:getAttributeValue(@id)"/>
-        </xsl:variable>
-        <xsl:variable name="agencyID">
-            <xsl:value-of select="fn:getAttributeValue(@agencyID)"/>
-        </xsl:variable>
+        <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
+        <xsl:variable name="agencyID" select="fn:getAttributeValue(@agencyID)"/>
 
         <xsl:variable name="agencyIDPath">
             <xsl:if test="$agencyID != ''">
@@ -347,12 +331,8 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
         <xsl:param name="ConceptSchemeID"/>
         <xsl:param name="ConceptSchemeIDAgencyIDPath"/>
 
-        <xsl:variable name="id">
-            <xsl:value-of select="fn:getAttributeValue(@id)"/>
-        </xsl:variable>
-        <xsl:variable name="agencyID">
-            <xsl:value-of select="fn:getAttributeValue(@agencyID)"/>
-        </xsl:variable>
+        <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
+        <xsl:variable name="agencyID" select="fn:getAttributeValue(@agencyID)"/>
 
         <xsl:variable name="agencyIDPath">
             <xsl:choose>
@@ -393,12 +373,8 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
 
     <xsl:template name="CodeLists">
         <xsl:for-each select="Structure/CodeLists/structure:CodeList">
-            <xsl:variable name="id">
-                <xsl:value-of select="fn:getAttributeValue(@id)"/>
-            </xsl:variable>
-            <xsl:variable name="agencyID">
-                <xsl:value-of select="fn:getAttributeValue(@agencyID)"/>
-            </xsl:variable>
+            <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
+            <xsl:variable name="agencyID" select="fn:getAttributeValue(@agencyID)"/>
 
             <xsl:variable name="agencyIDPath">
                 <xsl:if test="$agencyID != ''">
@@ -449,12 +425,8 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
 
     <xsl:template name="HierarchicalCodelists">
         <xsl:for-each select="Structure/HierarchicalCodelists/structure:HierarchicalCodelist">
-            <xsl:variable name="id">
-                <xsl:value-of select="fn:getAttributeValue(@id)"/>
-            </xsl:variable>
-            <xsl:variable name="agencyID">
-                <xsl:value-of select="fn:getAttributeValue(@agencyID)"/>
-            </xsl:variable>
+            <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
+            <xsl:variable name="agencyID" select="fn:getAttributeValue(@agencyID)"/>
 
             <xsl:variable name="agencyIDPath">
                 <xsl:if test="$agencyID != ''">
@@ -510,9 +482,7 @@ The difference between structure:Alias and structure:CodelistID is not entirely 
 XXX:
 "At a minimum, either a URN value (a valid SDMX Registry URN as specified in teh SDMX Registry Specification) must be supplied, or a ColdelistAliasRef and a CodeID must be specified."
 -->
-            <xsl:variable name="CodeID">
-                <xsl:value-of select="structure:CodeID"/>
-            </xsl:variable>
+            <xsl:variable name="CodeID" select="structure:CodeID"/>
 
 <!--
 FIXME:
@@ -707,18 +677,13 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
 -->
 
 
-            <xsl:variable name="TimeDimensionConceptRef">
-                <xsl:value-of select="document($pathToGenericStructure)/Structure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/structure:TimeDimension/@conceptRef"/>
-            </xsl:variable>
+            <xsl:variable name="TimeDimensionConceptRef" select="document($pathToGenericStructure)/Structure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/structure:TimeDimension/@conceptRef"/>
 
             <xsl:for-each select="generic:Series">
                 <xsl:variable name="SeriesKeyValues" select="string-join(generic:SeriesKey/generic:Value/normalize-space(@value), $uriDimensionSeperator)"/>
 
                 <xsl:for-each select="generic:Obs">
-                    <xsl:variable name="ObsTime">
-                        <xsl:value-of select="replace(generic:Time, '\s+', '')"/>
-                    </xsl:variable>
-
+                    <xsl:variable name="ObsTime" select="replace(generic:Time, '\s+', '')"/>
                     <xsl:variable name="ObsTimeURI">
                         <xsl:value-of select="$uriDimensionSeperator"/><xsl:value-of select="$ObsTime"/>
                     </xsl:variable>
@@ -753,13 +718,11 @@ Revisit datatype or do some smart pattern detection and use a URI if possible
                         </xsl:if>
 
                         <xsl:for-each select="generic:ObsValue">
-                            <property:OBS_VALUE>
 <!--
 TODO:
 datatype
 -->
-                                <xsl:value-of select="@value"/>
-                            </property:OBS_VALUE>
+                            <property:OBS_VALUE><xsl:value-of select="@value"/></property:OBS_VALUE>
                         </xsl:for-each>
 
                         <xsl:for-each select="generic:Attributes/generic:Value">
