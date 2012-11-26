@@ -42,12 +42,12 @@
 <!--
 TODO:
 * Default to language when the structure or data doesn't contain xml:lang
-* Option to use slash or hash URIs
-* Options to pass for each URI path component
 * When agencyID="SDMX", fixed corresponding URIs within the SDMX namespace should be used. Sometimes codelistAgency or conceptSchemeAgency is not mentioned in the KeyFamily but the Codelist uses agencyID="SDMX". A first check might be to see if there is an agencyID set for the conceptRef or codelist
 * Similarly consider what to do for agencyID's that's different than self agency and SDMX.
 * Consider what to do when the SDMX-ML doesn't follow the schema
 * Consider detecting common datetime patterns and use a URI
+* Improve config for URI and thing seperator
+* FIXME: agencyIDPath
 -->
 
     <xsl:template match="/">
@@ -157,96 +157,96 @@ XXX: dcterms:valid could be used along with gregorian-interval but 1) we don't k
         <xsl:param name="agencyIDPath"/>
 
         <xsl:for-each select="structure:Components/*[local-name() != 'Group']">
-                <qb:component>
-                    <qb:ComponentSpecification>
-                        <xsl:choose>
+            <qb:component>
+                <qb:ComponentSpecification>
+                    <xsl:choose>
 <!--
 XXX:
 Should we give any special treatment to TimeDimension even though qb currently doesn't?
 -->
-                            <xsl:when test="local-name() = 'Dimension' or local-name() = 'TimeDimension'">
-                                <qb:dimension>
-                                    <rdf:Description rdf:about="{$property}{$agencyIDPath}{@conceptRef}">
-                                        <rdf:type rdf:resource="{$qb}DimensionProperty"/>
-                                        <rdf:type rdf:resource="{$rdf}Property"/>
-                                        <qb:concept rdf:resource="{$concept}{$agencyIDPath}{@conceptRef}"/>
-                                    </rdf:Description>
-                                </qb:dimension>
+                        <xsl:when test="local-name() = 'Dimension' or local-name() = 'TimeDimension'">
+                            <qb:dimension>
+                                <rdf:Description rdf:about="{$property}{$agencyIDPath}{@conceptRef}">
+                                    <rdf:type rdf:resource="{$qb}DimensionProperty"/>
+                                    <rdf:type rdf:resource="{$rdf}Property"/>
+                                    <qb:concept rdf:resource="{$concept}{$agencyIDPath}{@conceptRef}"/>
+                                </rdf:Description>
+                            </qb:dimension>
 
 <!--
 XXX: Order matters but consider the case when XML doesn't list all dimensions one after another. It won't be sequential (skips numbers)
 -->
-                                <qb:order rdf:datatype="{$xsd}integer"><xsl:value-of select="position()"/></qb:order>
+                            <qb:order rdf:datatype="{$xsd}integer"><xsl:value-of select="position()"/></qb:order>
 
 <!--
 TODO:
 RDF Data Cube lets you have an attachment at this level. See what indicates this in SDMX-ML
 -->
-                            </xsl:when>
+                        </xsl:when>
 
 <!--
 TODO:
 Consider what to do with optional <TextFormat textType="Double"/> or whatever. Probably a datatype on the range of the measure instead.
 -->
-                            <xsl:when test="local-name() = 'PrimaryMeasure'">
-                                <qb:measure>
-                                    <rdf:Description rdf:about="{$property}{$agencyIDPath}{@conceptRef}">
-                                        <rdf:type rdf:resource="{$qb}MeasureProperty"/>
-                                        <rdf:type rdf:resource="{$rdf}Property"/>
-                                        <qb:concept rdf:resource="{$concept}{$agencyIDPath}{@conceptRef}"/>
-                                    </rdf:Description>
-                                </qb:measure>
-                            </xsl:when>
+                        <xsl:when test="local-name() = 'PrimaryMeasure'">
+                            <qb:measure>
+                                <rdf:Description rdf:about="{$property}{$agencyIDPath}{@conceptRef}">
+                                    <rdf:type rdf:resource="{$qb}MeasureProperty"/>
+                                    <rdf:type rdf:resource="{$rdf}Property"/>
+                                    <qb:concept rdf:resource="{$concept}{$agencyIDPath}{@conceptRef}"/>
+                                </rdf:Description>
+                            </qb:measure>
+                        </xsl:when>
 
 <!--
 TODO:
 -->
-                            <xsl:when test="local-name() = 'CrossSectionalMeasure'">
-                            </xsl:when>
+                        <xsl:when test="local-name() = 'CrossSectionalMeasure'">
+                        </xsl:when>
 
 
-                            <xsl:when test="local-name() = 'Attribute'">
-                                <qb:attribute>
-                                    <rdf:Description rdf:about="{$property}{$agencyIDPath}{@conceptRef}">
-                                        <rdf:type rdf:resource="{$qb}AttributeProperty"/>
-                                        <rdf:type rdf:resource="{$rdf}Property"/>
-                                        <qb:concept rdf:resource="{$concept}{$agencyIDPath}{@conceptRef}"/>
-                                    </rdf:Description>
-                                </qb:attribute>
+                        <xsl:when test="local-name() = 'Attribute'">
+                            <qb:attribute>
+                                <rdf:Description rdf:about="{$property}{$agencyIDPath}{@conceptRef}">
+                                    <rdf:type rdf:resource="{$qb}AttributeProperty"/>
+                                    <rdf:type rdf:resource="{$rdf}Property"/>
+                                    <qb:concept rdf:resource="{$concept}{$agencyIDPath}{@conceptRef}"/>
+                                </rdf:Description>
+                            </qb:attribute>
 
-                                <xsl:choose>
-                                    <xsl:when test="@attachmentLevel = 'DataSet'">
-                                        <qb:componentAttachment rdf:resource="{$qb}DataSet"/>
-                                    </xsl:when>
-                                    <xsl:when test="@attachmentLevel = 'Group'">
-                                        <qb:componentAttachment rdf:resource="{$qb}Slice"/>
+                            <xsl:choose>
+                                <xsl:when test="@attachmentLevel = 'DataSet'">
+                                    <qb:componentAttachment rdf:resource="{$qb}DataSet"/>
+                                </xsl:when>
+                                <xsl:when test="@attachmentLevel = 'Group'">
+                                    <qb:componentAttachment rdf:resource="{$qb}Slice"/>
 <!--
 TODO:
 structure:AttachmentGroup is "to indicate which declared group or groups the attribute may be attached to".
 "TextFormat element to specify constraints on the value of the uncoded attribute"
 -->
-                                    </xsl:when>
-                                    <xsl:when test="@attachmentLevel = 'Series'">
+                                </xsl:when>
+                                <xsl:when test="@attachmentLevel = 'Series'">
 <!--
 FIXME: Is this somehow for qb:Dimension?
 -->
-                                        <qb:componentAttachment rdf:resource="{$qb}Dimension"/>
-                                    </xsl:when>
+                                    <qb:componentAttachment rdf:resource="{$qb}Dimension"/>
+                                </xsl:when>
 
-                                    <xsl:otherwise>
-                                        <qb:componentAttachment rdf:resource="{$qb}Observation"/>
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                            </xsl:when>
+                                <xsl:otherwise>
+                                    <qb:componentAttachment rdf:resource="{$qb}Observation"/>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </xsl:when>
 
-                            <xsl:otherwise>
-                                <xsl:message>
-                                    <xsl:text>FIXME: Unknown local-name() = '</xsl:text><xsl:value-of select="local-name()"/><xsl:text>' to use for qb:component.</xsl:text>
-                                </xsl:message>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </qb:ComponentSpecification>
-                </qb:component>
+                        <xsl:otherwise>
+                            <xsl:message>
+                                <xsl:text>FIXME: Unknown local-name() = '</xsl:text><xsl:value-of select="local-name()"/><xsl:text>' to use for qb:component.</xsl:text>
+                            </xsl:message>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </qb:ComponentSpecification>
+            </qb:component>
         </xsl:for-each>
     </xsl:template>
 
@@ -679,6 +679,10 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
             <xsl:variable name="TimeDimensionConceptRef" select="document($pathToGenericStructure)/Structure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/structure:TimeDimension/@conceptRef"/>
 
             <xsl:for-each select="generic:Series">
+<!--
+TODO:
+Order SeriesKeyValues same as the order in KeyFamily Dimensions
+-->
                 <xsl:variable name="SeriesKeyValues" select="string-join(generic:SeriesKey/generic:Value/normalize-space(@value), $uriDimensionSeperator)"/>
 
                 <xsl:for-each select="generic:Obs">
@@ -744,7 +748,9 @@ datatype
         <xsl:param name="KeyFamilyRef"/>
         <xsl:param name="concept"/>
         <xsl:param name="value"/>
-
+<!--
+FIXME: Needs agencyID in path for property
+-->
         <xsl:element name="property:{$concept}" namespace="{$property}">
             <xsl:variable name="codelist">
                 <xsl:value-of select="document($pathToGenericStructure)/Structure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/*[@conceptRef = $concept]/@codelist"/>
