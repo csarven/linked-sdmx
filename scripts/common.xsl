@@ -1,6 +1,6 @@
 <!--
     Author: Sarven Capadisli <info@csarven.ca>
-    Author URL: http://csarven.ca/#i
+    Author URI: http://csarven.ca/#i
 -->
 <xsl:stylesheet version="2.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -10,6 +10,7 @@
     xmlns:dcterms="http://purl.org/dc/terms/"
     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
     xmlns:fn="http://270a.info/xpath-function/"
+    xmlns:structure="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/structure"
     >
 
     <xsl:output encoding="utf-8" indent="yes" method="xml" omit-xml-declaration="no"/>
@@ -120,5 +121,60 @@
         <xsl:param name="label"/>
 
         <xsl:value-of select="document($pathToConfig)/rdf:RDF/rdf:Description/rdf:value/rdf:Description[rdfs:label = $label]/rdf:value"/>
+    </xsl:function>
+
+    <xsl:function name="fn:getConceptAgencyID">
+        <xsl:param name="doc"/>
+        <xsl:param name="node"/>
+
+        <xsl:variable name="ConceptAgencyID">
+            <xsl:variable name="Concept" select="$doc/descendant::structure:Concept[@id = $node/@conceptRef]"/>
+
+            <xsl:if test="count($Concept) = 1">
+                <xsl:choose>
+                    <xsl:when test="$Concept/@agencyID">
+                        <xsl:value-of select="$Concept/@agencyID"/>
+                    </xsl:when>
+                    <xsl:when test="$Concept/ancestor::structure:ConceptScheme[@agencyID]/@agencyID">
+                        <xsl:value-of select="$Concept/ancestor::structure:ConceptScheme[@agencyID]/@agencyID"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:if>
+        </xsl:variable>
+
+        <xsl:variable name="cAgency">
+            <xsl:choose>
+                <xsl:when test="$node/@conceptAgency">
+                    <xsl:value-of select="$node/@conceptAgency"/>
+                </xsl:when>
+                <xsl:when test="$node/@conceptSchemeAgency">
+                    <xsl:value-of select="$node/@conceptSchemeAgency"/>
+                </xsl:when>
+                <xsl:when test="$node/@codelistAgency">
+                    <xsl:value-of select="$node/@codelistAgency"/>
+                </xsl:when>
+                <xsl:otherwise>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+
+        <xsl:variable name="KeyFamilyAgencyID" select="$doc/descendant::structure:KeyFamily/@agencyID"/>
+
+        <xsl:choose>
+            <!-- Best bet if Concept is in the same document -->
+            <xsl:when test="$ConceptAgencyID">
+                <xsl:value-of select="$ConceptAgencyID"/>
+            </xsl:when>
+            <!-- Cheapest -->
+            <xsl:when test="$cAgency">
+                <xsl:value-of select="$cAgency"/>
+            </xsl:when>
+            <!-- Fallback -->
+            <xsl:otherwise>
+                <xsl:value-of select="$KeyFamilyAgencyID"/>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:function>
 </xsl:stylesheet>

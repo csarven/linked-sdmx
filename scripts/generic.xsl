@@ -1,6 +1,6 @@
 <!--
     Author: Sarven Capadisli <info@csarven.ca>
-    Author URL: http://csarven.ca/#i
+    Author URI: http://csarven.ca/#i
 
     Description: XSLT for generic SDMX-ML to RDF Data Cube
 -->
@@ -28,7 +28,6 @@
     xmlns:message="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
     xmlns:generic="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/generic"
 
-
     xpath-default-namespace="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
     exclude-result-prefixes="xsl fn structure message generic"
     >
@@ -47,7 +46,6 @@ TODO:
 * Consider what to do when the SDMX-ML doesn't follow the schema
 * Consider detecting common datetime patterns and use a URI
 * Improve config for URI and thing seperator
-* FIXME: agencyIDPath
 -->
 
     <xsl:template match="/">
@@ -71,13 +69,11 @@ TODO:
             <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
             <xsl:variable name="agencyID" select="fn:getAttributeValue(@agencyID)"/>
 
-            <xsl:variable name="agencyIDPath">
-                <xsl:if test="$agencyID != ''">
-                    <xsl:value-of select="$agencyID"/><xsl:text>/</xsl:text>
-                </xsl:if>
-            </xsl:variable>
+            <xsl:if test="$agencyID != ''">
+                <xsl:value-of select="$agencyID"/>
+            </xsl:if>
 
-            <rdf:Description rdf:about="{$dataset}{$agencyIDPath}{$id}{$uriThingSeperator}structure">
+            <rdf:Description rdf:about="{$dataset}{$agencyID}/{$id}{$uriThingSeperator}structure">
                 <rdf:type rdf:resource="{$sdmx}DataStructureDefinition"/>
                 <rdf:type rdf:resource="{$qb}DataStructureDefinition"/>
 
@@ -131,13 +127,9 @@ XXX: dcterms:valid could be used along with gregorian-interval but 1) we don't k
 
                 <xsl:apply-templates select="structure:Description"/>
 
-                <xsl:call-template name="structureComponents">
-                    <xsl:with-param name="agencyIDPath" select="$agencyIDPath"/>
-                </xsl:call-template>
+                <xsl:call-template name="structureComponents"/>
 
-                <xsl:call-template name="structureGroup">
-                    <xsl:with-param name="agencyIDPath" select="$agencyIDPath"/>
-                </xsl:call-template>
+                <xsl:call-template name="structureGroup"/>
             </rdf:Description>
         </xsl:for-each>
     </xsl:template>
@@ -154,9 +146,9 @@ XXX: dcterms:valid could be used along with gregorian-interval but 1) we don't k
 
 
     <xsl:template name="structureComponents">
-        <xsl:param name="agencyIDPath"/>
-
         <xsl:for-each select="structure:Components/*[local-name() != 'Group']">
+            <xsl:variable name="agencyID" select="fn:getConceptAgencyID(/,.)"/>
+
             <qb:component>
                 <qb:ComponentSpecification>
                     <xsl:choose>
@@ -166,10 +158,10 @@ Should we give any special treatment to TimeDimension even though qb currently d
 -->
                         <xsl:when test="local-name() = 'Dimension' or local-name() = 'TimeDimension'">
                             <qb:dimension>
-                                <rdf:Description rdf:about="{$property}{$agencyIDPath}{@conceptRef}">
+                                <rdf:Description rdf:about="{$property}{$agencyID}{$uriThingSeperator}{@conceptRef}">
                                     <rdf:type rdf:resource="{$qb}DimensionProperty"/>
                                     <rdf:type rdf:resource="{$rdf}Property"/>
-                                    <qb:concept rdf:resource="{$concept}{$agencyIDPath}{@conceptRef}"/>
+                                    <qb:concept rdf:resource="{$concept}{$agencyID}{$uriThingSeperator}{@conceptRef}"/>
                                 </rdf:Description>
                             </qb:dimension>
 
@@ -190,10 +182,10 @@ Consider what to do with optional <TextFormat textType="Double"/> or whatever. P
 -->
                         <xsl:when test="local-name() = 'PrimaryMeasure'">
                             <qb:measure>
-                                <rdf:Description rdf:about="{$property}{$agencyIDPath}{@conceptRef}">
+                                <rdf:Description rdf:about="{$property}{$agencyID}{$uriThingSeperator}{@conceptRef}">
                                     <rdf:type rdf:resource="{$qb}MeasureProperty"/>
                                     <rdf:type rdf:resource="{$rdf}Property"/>
-                                    <qb:concept rdf:resource="{$concept}{$agencyIDPath}{@conceptRef}"/>
+                                    <qb:concept rdf:resource="{$concept}{$agencyID}{$uriThingSeperator}{@conceptRef}"/>
                                 </rdf:Description>
                             </qb:measure>
                         </xsl:when>
@@ -207,10 +199,10 @@ TODO:
 
                         <xsl:when test="local-name() = 'Attribute'">
                             <qb:attribute>
-                                <rdf:Description rdf:about="{$property}{$agencyIDPath}{@conceptRef}">
+                                <rdf:Description rdf:about="{$property}{$agencyID}{$uriThingSeperator}{@conceptRef}">
                                     <rdf:type rdf:resource="{$qb}AttributeProperty"/>
                                     <rdf:type rdf:resource="{$rdf}Property"/>
-                                    <qb:concept rdf:resource="{$concept}{$agencyIDPath}{@conceptRef}"/>
+                                    <qb:concept rdf:resource="{$concept}{$agencyID}{$uriThingSeperator}{@conceptRef}"/>
                                 </rdf:Description>
                             </qb:attribute>
 
@@ -252,18 +244,18 @@ FIXME: Is this somehow for qb:Dimension?
 
 
     <xsl:template name="structureGroup">
-        <xsl:param name="agencyIDPath"/>
+        <xsl:variable name="agencyID" select="ancestor-or-self::structure:KeyFamily/@agencyID"/>
 
         <xsl:for-each select="structure:Components/structure:Group">
             <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
 
             <qb:sliceKey>
-                <rdf:Description rdf:about="{$slice}{$agencyIDPath}{$id}">
+                <rdf:Description rdf:about="{$slice}{$agencyID}{$uriThingSeperator}{$id}">
                     <rdf:type rdf:resource="{$qb}SliceKey"/>
                     <skos:notation><xsl:value-of select="$id"/></skos:notation>
 
                     <xsl:for-each select="structure:DimensionRef">
-                        <qb:componentProperty rdf:resource="{$concept}{$agencyIDPath}{text()}"/>
+                        <qb:componentProperty rdf:resource="{$concept}{$agencyID}{$uriThingSeperator}{text()}"/>
                     </xsl:for-each>
                 </rdf:Description>
             </qb:sliceKey>
@@ -289,14 +281,7 @@ Check where to get ConceptScheme
         <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
         <xsl:variable name="agencyID" select="fn:getAttributeValue(@agencyID)"/>
 
-        <xsl:variable name="agencyIDPath">
-            <xsl:if test="$agencyID != ''">
-                <xsl:value-of select="$agencyID"/><xsl:text>/</xsl:text>
-            </xsl:if>
-        </xsl:variable>
-
-
-        <rdf:Description rdf:about="{$concept}{$agencyIDPath}{$id}">
+        <rdf:Description rdf:about="{$concept}{$agencyID}{$uriThingSeperator}{$id}">
 <!--
 XXX:
 SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptScheme?
@@ -318,7 +303,7 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
                 <skos:hasTopConcept>
                     <xsl:call-template name="structureConcept">
                         <xsl:with-param name="ConceptSchemeID" select="$id"/>
-                        <xsl:with-param name="ConceptSchemeIDAgencyIDPath" select="$agencyIDPath"/>
+                        <xsl:with-param name="ConceptSchemeIDAgencyID" select="$agencyID"/>
                     </xsl:call-template>
                 </skos:hasTopConcept>
             </xsl:for-each>
@@ -328,29 +313,29 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
 
     <xsl:template name="structureConcept">
         <xsl:param name="ConceptSchemeID"/>
-        <xsl:param name="ConceptSchemeIDAgencyIDPath"/>
+        <xsl:param name="ConceptSchemeIDAgencyID"/>
 
         <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
         <xsl:variable name="agencyID" select="fn:getAttributeValue(@agencyID)"/>
 
-        <xsl:variable name="agencyIDPath">
+        <xsl:variable name="agencyID">
             <xsl:choose>
                 <xsl:when test="$agencyID != ''">
-                    <xsl:value-of select="$agencyID"/><xsl:text>/</xsl:text>
+                    <xsl:value-of select="$agencyID"/>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:value-of select="$ConceptSchemeIDAgencyIDPath"/>
+                    <xsl:value-of select="$ConceptSchemeIDAgencyID"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
 
-        <rdf:Description rdf:about="{$concept}{$agencyIDPath}{$id}">
+        <rdf:Description rdf:about="{$concept}{$agencyID}{$uriThingSeperator}{$id}">
             <rdf:type rdf:resource="{$sdmx}Concept"/>
             <rdf:type rdf:resource="{$skos}Concept"/>
 
             <xsl:if test="$ConceptSchemeID">
-                <skos:topConceptOf rdf:resource="{$concept}{$agencyIDPath}{$ConceptSchemeID}"/>
-                <skos:inScheme rdf:resource="{$concept}{$agencyIDPath}{$ConceptSchemeID}"/>
+                <skos:topConceptOf rdf:resource="{$concept}{$agencyID}{$uriThingSeperator}{$ConceptSchemeID}"/>
+                <skos:inScheme rdf:resource="{$concept}{$agencyID}{$uriThingSeperator}{$ConceptSchemeID}"/>
             </xsl:if>
 
             <xsl:if test="@uri">
@@ -375,13 +360,7 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
             <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
             <xsl:variable name="agencyID" select="fn:getAttributeValue(@agencyID)"/>
 
-            <xsl:variable name="agencyIDPath">
-                <xsl:if test="$agencyID != ''">
-                    <xsl:value-of select="$agencyID"/><xsl:text>/</xsl:text>
-                </xsl:if>
-            </xsl:variable>
-
-            <rdf:Description rdf:about="{$code}{$agencyIDPath}{$id}">
+            <rdf:Description rdf:about="{$code}{$agencyID}{$uriThingSeperator}{$id}">
                 <rdf:type rdf:resource="{$sdmx}CodeList"/>
 
                 <xsl:if test="@uri">
@@ -393,12 +372,12 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
 
                 <xsl:for-each select="structure:Code">
                     <skos:hasTopConcept>
-                        <rdf:Description rdf:about="{$code}{$agencyIDPath}{$id}{$uriThingSeperator}{@value}">
+                        <rdf:Description rdf:about="{$code}{$agencyID}/{$id}{$uriThingSeperator}{@value}">
                             <rdf:type rdf:resource="{$sdmx}Concept"/>
                             <rdf:type rdf:resource="{$skos}Concept"/>
-                            <rdf:type rdf:resource="{$code}{$agencyIDPath}{$id}"/>
-                            <skos:topConceptOf rdf:resource="{$code}{$agencyIDPath}{$id}"/>
-                            <skos:inScheme rdf:resource="{$code}{$agencyIDPath}{$id}"/>
+                            <rdf:type rdf:resource="{$code}{$agencyID}{$uriThingSeperator}{$id}"/>
+                            <skos:topConceptOf rdf:resource="{$code}{$agencyID}{$uriThingSeperator}{$id}"/>
+                            <skos:inScheme rdf:resource="{$code}{$agencyID}{$uriThingSeperator}{$id}"/>
 
                             <xsl:if test="@urn">
                                 <dcterms:identifier rdf:resource="{@urn}"/>
@@ -406,8 +385,8 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
 
                             <xsl:if test="@parentCode">
                                 <skos:broader>
-                                    <rdf:Description rdf:about="{$code}{$agencyIDPath}{$id}{$uriThingSeperator}{@parentCode}">
-                                        <skos:narrower rdf:resource="{$code}{$agencyIDPath}{$id}/{@value}"/>
+                                    <rdf:Description rdf:about="{$code}{$agencyID}/{$id}{$uriThingSeperator}{@parentCode}">
+                                        <skos:narrower rdf:resource="{$code}{$agencyID}/{$id}{$uriThingSeperator}{@value}"/>
                                     </rdf:Description>
                                 </skos:broader>
                             </xsl:if>
@@ -427,13 +406,7 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
             <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
             <xsl:variable name="agencyID" select="fn:getAttributeValue(@agencyID)"/>
 
-            <xsl:variable name="agencyIDPath">
-                <xsl:if test="$agencyID != ''">
-                    <xsl:value-of select="$agencyID"/><xsl:text>/</xsl:text>
-                </xsl:if>
-            </xsl:variable>
-
-            <rdf:Description rdf:about="{$code}{$agencyIDPath}{$id}">
+            <rdf:Description rdf:about="{$code}{$agencyID}{$uriThingSeperator}{$id}">
                 <rdf:type rdf:resource="{$sdmx}CodeList"/>
 
                 <xsl:if test="@uri">
@@ -453,17 +426,17 @@ XXX:
 The difference between structure:Alias and structure:CodelistID is not entirely clear. Looking at the sample structure data thus far, it is not clear either because one or the other is used. So, I'm putting both of these here, where one or the other will be used in practice even though both could exist.
 -->
                     <xsl:if test="structure:Alias">
-                        <dcterms:references rdf:resource="{$code}{$agencyIDPath}{structure:Alias}"/>
+                        <dcterms:references rdf:resource="{$code}{$agencyID}{$uriThingSeperator}{structure:Alias}"/>
                     </xsl:if>
 
                     <xsl:if test="structure:CodelistID">
-                        <dcterms:references rdf:resource="{$code}{$agencyIDPath}{structure:CodelistID}"/>
+                        <dcterms:references rdf:resource="{$code}{$agencyID}{$uriThingSeperator}{structure:CodelistID}"/>
                     </xsl:if>
                 </xsl:for-each>
 
                 <xsl:for-each select="structure:Hierarchy">
                     <xsl:call-template name="CodeRefs">
-                        <xsl:with-param name="agencyIDPath" select="$agencyIDPath"/>
+                        <xsl:with-param name="agencyID" select="$agencyID"/>
                     </xsl:call-template>
                 </xsl:for-each>
             </rdf:Description>
@@ -474,7 +447,7 @@ The difference between structure:Alias and structure:CodelistID is not entirely 
     <xsl:template name="CodeRefs">
         <xsl:param name="CodelistAliasRef_parent"/>
         <xsl:param name="CodeID_parent"/>
-        <xsl:param name="agencyIDPath"/>
+        <xsl:param name="agencyID"/>
 
         <xsl:for-each select="structure:CodeRef">
 <!--
@@ -508,7 +481,7 @@ This is a kind of a hack, works based on tested sample structures. Not guarantee
 XXX:
 Dirty?
 -->
-            <xsl:variable name="agencyIDPath">
+            <xsl:variable name="agencyID">
                 <xsl:choose>
                     <xsl:when test="structure:URN">
                         <xsl:variable name="structureURN" select="structure:URN"/>
@@ -519,12 +492,12 @@ Dirty?
                             <xsl:variable name="CodelistID" select="."/>
 
                             <xsl:if test="contains($structureURN, $CodelistID)">
-                                <xsl:value-of select="distinct-values($AgencyID[structure:CodelistID = $CodelistID]/structure:AgencyID)[1]"/><xsl:text>/</xsl:text>
+                                <xsl:value-of select="distinct-values($AgencyID[structure:CodelistID = $CodelistID]/structure:AgencyID)[1]"/>
                             </xsl:if>
                         </xsl:for-each>
                     </xsl:when>
                     <xsl:otherwise>
-                        <xsl:value-of select="$agencyIDPath"/>
+                        <xsl:value-of select="$agencyID"/>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:variable>
@@ -540,20 +513,20 @@ XXX:
 * Should the parent CodelistAliasRef/CodeID be prefixed to current CodelistAliasRef/CodeID?
 -->
             <skos:narrower>
-                <rdf:Description rdf:about="{$code}{$agencyIDPath}{$CodelistAliasRef}{$uriThingSeperator}{$CodeID}">
+                <rdf:Description rdf:about="{$code}{$agencyID}/{$CodelistAliasRef}{$uriThingSeperator}{$CodeID}">
 <!--
 TODO:
 Handle Annotations using skos:note
 -->
                     <xsl:if test="$CodelistAliasRef_parent and $CodeID_parent">
-                        <skos:broader rdf:resource="{$code}{$agencyIDPath}{$CodelistAliasRef_parent}{$uriThingSeperator}{$CodeID_parent}"/>
+                        <skos:broader rdf:resource="{$code}{$agencyID}/{$CodelistAliasRef_parent}{$uriThingSeperator}{$CodeID_parent}"/>
                     </xsl:if>
 
                     <xsl:if test="structure:CodeRef">
                         <xsl:call-template name="CodeRefs">
                             <xsl:with-param name="CodelistAliasRef_parent" select="$CodelistAliasRef"/>
                             <xsl:with-param name="CodeID_parent" select="$CodeID"/>
-                            <xsl:with-param name="agencyIDPath" select="$agencyIDPath"/>
+                            <xsl:with-param name="agencyID" select="$agencyID"/>
                         </xsl:call-template>
                     </xsl:if>
                 </rdf:Description>

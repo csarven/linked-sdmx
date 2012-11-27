@@ -7,7 +7,6 @@
          xmlns:skos="http://www.w3.org/2004/02/skos/core#"
          xmlns:qb="http://purl.org/linked-data/cube#"
          xmlns:sdmx="http://purl.org/linked-data/sdmx#"
-         xmlns:property="http://example.org/property/"
          xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
          xmlns:sdmx-attribute="http://purl.org/linked-data/sdmx/2009/attribute#"
          xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -16,8 +15,8 @@
          xmlns:sdmx-concept="http://purl.org/linked-data/sdmx/2009/concept#"
          xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
          xmlns:sdmx-dimension="http://purl.org/linked-data/sdmx/2009/dimension#"
-         xmlns:sdmx-measure="http://purl.org/linked-data/sdmx/2009/measure#">
-   <rdf:Description rdf:about="http://example.org/dataset/WB/WDI/structure">
+         xmlns:sdmx-measure="http://purl.org/linked-data/sdmx/2009/measure#"
+         xmlns:property="http://example.org/property/">WB<rdf:Description rdf:about="http://example.org/dataset/WB/WDI/structure">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#DataStructureDefinition"/>
       <rdf:type rdf:resource="http://purl.org/linked-data/cube#DataStructureDefinition"/>
       <sdmx-concept:dsi>WDI</sdmx-concept:dsi>
@@ -27,7 +26,7 @@
       <qb:component>
          <qb:ComponentSpecification>
             <qb:dimension>
-               <rdf:Description rdf:about="http://example.org/property/WB/FREQ/">
+               <rdf:Description rdf:about="http://example.org/property/WB/FREQ">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/WB/FREQ"/>
@@ -39,7 +38,7 @@
       <qb:component>
          <qb:ComponentSpecification>
             <qb:dimension>
-               <rdf:Description rdf:about="http://example.org/property/WB/SERIES/">
+               <rdf:Description rdf:about="http://example.org/property/WB/SERIES">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/WB/SERIES"/>
@@ -51,7 +50,7 @@
       <qb:component>
          <qb:ComponentSpecification>
             <qb:dimension>
-               <rdf:Description rdf:about="http://example.org/property/WB/REF_AREA/">
+               <rdf:Description rdf:about="http://example.org/property/WB/REF_AREA">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/WB/REF_AREA"/>
@@ -63,7 +62,7 @@
       <qb:component>
          <qb:ComponentSpecification>
             <qb:dimension>
-               <rdf:Description rdf:about="http://example.org/property/WB/TIME_PERIOD/">
+               <rdf:Description rdf:about="http://example.org/property/WB/TIME_PERIOD">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/WB/TIME_PERIOD"/>
@@ -75,10 +74,10 @@
       <qb:component>
          <qb:ComponentSpecification>
             <qb:measure>
-               <rdf:Description rdf:about="http://example.org/property/WB/OBS_VALUE">
+               <rdf:Description rdf:about="http://example.org/property/IAEG/OBS_VALUE">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#MeasureProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/WB/OBS_VALUE"/>
+                  <qb:concept rdf:resource="http://example.org/concept/IAEG/OBS_VALUE"/>
                </rdf:Description>
             </qb:measure>
          </qb:ComponentSpecification>
