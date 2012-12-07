@@ -46,6 +46,7 @@ TODO:
 * Consider what to do when the SDMX-ML doesn't follow the schema
 * Consider detecting common datetime patterns and use a URI
 * Improve config for URI and thing seperator
+* Datatypes for dates
 -->
 
     <xsl:template match="/">
@@ -110,8 +111,6 @@ Decide whether this should be omitted.
                 </xsl:if>
 
 <!--
-TODO: These should have datatypes
-
 XXX: dcterms:valid could be used along with gregorian-interval but 1) we don't know the format of these dates and 2) whether both will be supplied. Probably simpler to leave them separate.
 -->
                 <xsl:if test="@validFrom">
@@ -192,6 +191,7 @@ Consider what to do with optional <TextFormat textType="Double"/> or whatever. P
 
 <!--
 TODO:
+Multiple measures
 -->
                         <xsl:when test="local-name() = 'CrossSectionalMeasure'">
                         </xsl:when>
@@ -501,6 +501,14 @@ Dirty?
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:variable>
+
+            <xsl:if test="structure:ValidFrom">
+                <sdmx-concept:validFrom><xsl:value-of select="structure:ValidFrom"/></sdmx-concept:validFrom>
+            </xsl:if>
+            <xsl:if test="structure:ValidTo">
+                <sdmx-concept:validTo><xsl:value-of select="structure:ValidTo"/></sdmx-concept:validTo>
+            </xsl:if>
+
 
 <!--
 TODO:
