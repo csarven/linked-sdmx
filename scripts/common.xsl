@@ -11,6 +11,9 @@
     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
     xmlns:fn="http://270a.info/xpath-function/"
     xmlns:structure="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/structure"
+    xmlns:message="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
+    xmlns:generic="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/generic"
+    xmlns:common="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/common"
     >
 
     <xsl:output encoding="utf-8" indent="yes" method="xml" omit-xml-declaration="no"/>
@@ -36,6 +39,38 @@
             <xsl:copy-of select="@*[name() = 'xml:lang']"/>
         </xsl:if>
         <xsl:value-of select="text()"/>
+    </xsl:template>
+
+    <xsl:template match="structure:Name">
+        <skos:prefLabel><xsl:call-template name="langTextNode"/></skos:prefLabel>
+    </xsl:template>
+
+    <xsl:template match="structure:Description">
+        <skos:definition><xsl:call-template name="langTextNode"/></skos:definition>
+    </xsl:template>
+
+    <xsl:template match="structure:Annotations/common:Annotation">
+        <xsl:variable name="AnnotationType" select="normalize-space(common:AnnotationType)"/>
+
+        <xsl:if test="$AnnotationType">
+            <xsl:for-each select="common:AnnotationTitle">
+                <xsl:element name="property:{$AnnotationType}" namespace="{$property}">
+                    <xsl:value-of select="."/>
+                    <xsl:call-template name="langTextNode"/>
+                </xsl:element>
+            </xsl:for-each>
+        </xsl:if>
+
+        <xsl:for-each select="common:AnnotationText">
+            <rdfs:comment>
+                <xsl:value-of select="common:AnnotationText"/>
+                <xsl:call-template name="langTextNode"/>
+            </rdfs:comment>
+        </xsl:for-each>
+
+        <xsl:for-each select="common:AnnotationURL">
+            <rdfs:seeAlso rdf:resource="{normalize-space(.)}"/>
+        </xsl:for-each>
     </xsl:template>
 
     <xsl:function name="fn:getAttributeValue">

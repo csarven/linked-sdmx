@@ -27,9 +27,10 @@
     xmlns:structure="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/structure"
     xmlns:message="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
     xmlns:generic="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/generic"
+    xmlns:common="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/common"
 
     xpath-default-namespace="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
-    exclude-result-prefixes="xsl fn structure message generic"
+    exclude-result-prefixes="xsl fn structure message generic common"
     >
 
     <xsl:import href="common.xsl"/>
@@ -132,17 +133,6 @@ XXX: dcterms:valid could be used along with gregorian-interval but 1) we don't k
             </rdf:Description>
         </xsl:for-each>
     </xsl:template>
-
-
-
-    <xsl:template match="structure:Name">
-        <skos:prefLabel><xsl:call-template name="langTextNode"/></skos:prefLabel>
-    </xsl:template>
-
-    <xsl:template match="structure:Description">
-        <skos:definition><xsl:call-template name="langTextNode"/></skos:definition>
-    </xsl:template>
-
 
     <xsl:template name="structureComponents">
         <xsl:for-each select="structure:Components/*[local-name() != 'Group']">
@@ -350,6 +340,13 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
             <xsl:apply-templates select="structure:Name"/>
 
             <xsl:apply-templates select="structure:Description"/>
+
+<!--
+TODO:
+structure:textFormat
+-->
+
+            <xsl:apply-templates select="structure:Annotations/common:Annotation"/>
         </rdf:Description>
     </xsl:template>
 
@@ -393,6 +390,8 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
 
                             <skos:notation><xsl:value-of select="@value"/></skos:notation>
                             <xsl:apply-templates select="structure:Description"/>
+
+                            <xsl:apply-templates select="structure:Annotations/common:Annotation"/>
                         </rdf:Description>
                     </skos:hasTopConcept>
                 </xsl:for-each>
