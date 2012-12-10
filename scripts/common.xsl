@@ -53,19 +53,16 @@
         <xsl:variable name="AnnotationType" select="normalize-space(common:AnnotationType)"/>
 
         <xsl:if test="$AnnotationType">
-            <xsl:for-each select="common:AnnotationTitle">
+            <xsl:for-each select="common:AnnotationText">
                 <xsl:element name="property:{$AnnotationType}" namespace="{$property}">
-                    <xsl:value-of select="."/>
                     <xsl:call-template name="langTextNode"/>
+                    <xsl:value-of select="common:AnnotationText"/>
                 </xsl:element>
             </xsl:for-each>
         </xsl:if>
 
-        <xsl:for-each select="common:AnnotationText">
-            <rdfs:comment>
-                <xsl:value-of select="common:AnnotationText"/>
-                <xsl:call-template name="langTextNode"/>
-            </rdfs:comment>
+        <xsl:for-each select="common:AnnotationTitle">
+            <rdfs:comment><xsl:value-of select="."/></rdfs:comment>
         </xsl:for-each>
 
         <xsl:for-each select="common:AnnotationURL">
