@@ -501,14 +501,6 @@ Dirty?
                 </xsl:choose>
             </xsl:variable>
 
-            <xsl:if test="structure:ValidFrom">
-                <sdmx-concept:validFrom><xsl:value-of select="structure:ValidFrom"/></sdmx-concept:validFrom>
-            </xsl:if>
-            <xsl:if test="structure:ValidTo">
-                <sdmx-concept:validTo><xsl:value-of select="structure:ValidTo"/></sdmx-concept:validTo>
-            </xsl:if>
-
-
 <!--
 TODO:
 "NodeAliasID allows for an ID to be assigned to the use of the particular code at that specific point in the hierarchy. This value is unique within the hierarchy being created, and is used to map the hierarchy against external structures."
@@ -521,21 +513,22 @@ XXX:
 -->
             <skos:narrower>
                 <rdf:Description rdf:about="{$code}{$agencyID}/{$CodelistAliasRef}{$uriThingSeperator}{$CodeID}">
-<!--
-TODO:
-Handle Annotations using skos:note
--->
                     <xsl:if test="$CodelistAliasRef_parent and $CodeID_parent">
                         <skos:broader rdf:resource="{$code}{$agencyID}/{$CodelistAliasRef_parent}{$uriThingSeperator}{$CodeID_parent}"/>
                     </xsl:if>
 
-                    <xsl:if test="structure:CodeRef">
-                        <xsl:call-template name="CodeRefs">
-                            <xsl:with-param name="CodelistAliasRef_parent" select="$CodelistAliasRef"/>
-                            <xsl:with-param name="CodeID_parent" select="$CodeID"/>
-                            <xsl:with-param name="agencyID" select="$agencyID"/>
-                        </xsl:call-template>
+                    <xsl:if test="structure:ValidFrom">
+                        <sdmx-concept:validFrom><xsl:value-of select="structure:ValidFrom"/></sdmx-concept:validFrom>
                     </xsl:if>
+                    <xsl:if test="structure:ValidTo">
+                        <sdmx-concept:validTo><xsl:value-of select="structure:ValidTo"/></sdmx-concept:validTo>
+                    </xsl:if>
+
+                    <xsl:call-template name="CodeRefs">
+                        <xsl:with-param name="CodelistAliasRef_parent" select="$CodelistAliasRef"/>
+                        <xsl:with-param name="CodeID_parent" select="$CodeID"/>
+                        <xsl:with-param name="agencyID" select="$agencyID"/>
+                    </xsl:call-template>
                 </rdf:Description>
             </skos:narrower>
         </xsl:for-each>
