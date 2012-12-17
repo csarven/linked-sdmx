@@ -46,9 +46,9 @@ TODO:
 * When agencyID="SDMX", fixed corresponding URIs within the SDMX namespace should be used. Sometimes codelistAgency or conceptSchemeAgency is not mentioned in the KeyFamily but the Codelist uses agencyID="SDMX". A first check might be to see if there is an agencyID set for the conceptRef or codelist
 * Similarly consider what to do for agencyID's that's different than self agency and SDMX.
 * Consider what to do when the SDMX-ML doesn't follow the schema
-* Consider detecting common datetime patterns and use a URI
-* Improve config for URI and thing seperator
-* Datatypes for dates
+* Consider detecting common datetime patterns and use a URI or datatypes
+* Improve config for URI and thing separator
+* isExternalReference
 -->
 
     <xsl:template match="/">
@@ -76,7 +76,7 @@ TODO:
                 <xsl:value-of select="$agencyID"/>
             </xsl:if>
 
-            <rdf:Description rdf:about="{$dataset}{$agencyID}/{$id}{$uriThingSeperator}structure">
+            <rdf:Description rdf:about="{$dataset}{$agencyID}/{$id}{$uriThingSeparator}structure">
                 <rdf:type rdf:resource="{$sdmx}DataStructureDefinition"/>
                 <rdf:type rdf:resource="{$qb}DataStructureDefinition"/>
 
@@ -101,15 +101,6 @@ TODO:
 
                 <xsl:if test="@isFinal">
                     <sdmx-concept:isFinal rdf:datatype="{$xsd}boolean"><xsl:value-of select="@isFinal"/></sdmx-concept:isFinal>
-                </xsl:if>
-
-<!--
-XXX: "If the isExternalReference attribute is true, then the uri attribute must be provided, giving a location where a valid structure message can be found containing the full details of the key family."
-
-Decide whether this should be omitted.
--->
-                <xsl:if test="@isExternalReference">
-                    <sdmx-concept:isExternalReference rdf:datatype="{$xsd}boolean"><xsl:value-of select="@isExternalReference"/></sdmx-concept:isExternalReference>
                 </xsl:if>
 
 <!--
@@ -143,10 +134,10 @@ Should we give any special treatment to TimeDimension even though qb currently d
 -->
                         <xsl:when test="local-name() = 'Dimension' or local-name() = 'TimeDimension'">
                             <qb:dimension>
-                                <rdf:Description rdf:about="{$property}{$agencyID}{$uriThingSeperator}{@conceptRef}">
+                                <rdf:Description rdf:about="{$property}{$agencyID}{$uriThingSeparator}{@conceptRef}">
                                     <rdf:type rdf:resource="{$qb}DimensionProperty"/>
                                     <rdf:type rdf:resource="{$rdf}Property"/>
-                                    <qb:concept rdf:resource="{$concept}{$agencyID}{$uriThingSeperator}{@conceptRef}"/>
+                                    <qb:concept rdf:resource="{$concept}{$agencyID}{$uriThingSeparator}{@conceptRef}"/>
                                 </rdf:Description>
                             </qb:dimension>
 
@@ -167,10 +158,10 @@ Consider what to do with optional <TextFormat textType="Double"/> or whatever. P
 -->
                         <xsl:when test="local-name() = 'PrimaryMeasure'">
                             <qb:measure>
-                                <rdf:Description rdf:about="{$property}{$agencyID}{$uriThingSeperator}{@conceptRef}">
+                                <rdf:Description rdf:about="{$property}{$agencyID}{$uriThingSeparator}{@conceptRef}">
                                     <rdf:type rdf:resource="{$qb}MeasureProperty"/>
                                     <rdf:type rdf:resource="{$rdf}Property"/>
-                                    <qb:concept rdf:resource="{$concept}{$agencyID}{$uriThingSeperator}{@conceptRef}"/>
+                                    <qb:concept rdf:resource="{$concept}{$agencyID}{$uriThingSeparator}{@conceptRef}"/>
                                 </rdf:Description>
                             </qb:measure>
                         </xsl:when>
@@ -185,10 +176,10 @@ Multiple measures
 
                         <xsl:when test="local-name() = 'Attribute'">
                             <qb:attribute>
-                                <rdf:Description rdf:about="{$property}{$agencyID}{$uriThingSeperator}{@conceptRef}">
+                                <rdf:Description rdf:about="{$property}{$agencyID}{$uriThingSeparator}{@conceptRef}">
                                     <rdf:type rdf:resource="{$qb}AttributeProperty"/>
                                     <rdf:type rdf:resource="{$rdf}Property"/>
-                                    <qb:concept rdf:resource="{$concept}{$agencyID}{$uriThingSeperator}{@conceptRef}"/>
+                                    <qb:concept rdf:resource="{$concept}{$agencyID}{$uriThingSeparator}{@conceptRef}"/>
                                 </rdf:Description>
                             </qb:attribute>
 
@@ -236,12 +227,12 @@ FIXME: Is this somehow for qb:Dimension?
             <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
 
             <qb:sliceKey>
-                <rdf:Description rdf:about="{$slice}{$agencyID}{$uriThingSeperator}{$id}">
+                <rdf:Description rdf:about="{$slice}{$agencyID}{$uriThingSeparator}{$id}">
                     <rdf:type rdf:resource="{$qb}SliceKey"/>
                     <skos:notation><xsl:value-of select="$id"/></skos:notation>
 
                     <xsl:for-each select="structure:DimensionRef">
-                        <qb:componentProperty rdf:resource="{$concept}{$agencyID}{$uriThingSeperator}{text()}"/>
+                        <qb:componentProperty rdf:resource="{$concept}{$agencyID}{$uriThingSeparator}{text()}"/>
                     </xsl:for-each>
                 </rdf:Description>
             </qb:sliceKey>
@@ -267,7 +258,7 @@ Check where to get ConceptScheme
         <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
         <xsl:variable name="agencyID" select="fn:getAttributeValue(@agencyID)"/>
 
-        <rdf:Description rdf:about="{$concept}{$agencyID}{$uriThingSeperator}{$id}">
+        <rdf:Description rdf:about="{$concept}{$agencyID}{$uriThingSeparator}{$id}">
 <!--
 XXX:
 SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptScheme?
@@ -315,13 +306,13 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
             </xsl:choose>
         </xsl:variable>
 
-        <rdf:Description rdf:about="{$concept}{$agencyID}{$uriThingSeperator}{$id}">
+        <rdf:Description rdf:about="{$concept}{$agencyID}{$uriThingSeparator}{$id}">
             <rdf:type rdf:resource="{$sdmx}Concept"/>
             <rdf:type rdf:resource="{$skos}Concept"/>
 
             <xsl:if test="$ConceptSchemeID">
-                <skos:topConceptOf rdf:resource="{$concept}{$agencyID}{$uriThingSeperator}{$ConceptSchemeID}"/>
-                <skos:inScheme rdf:resource="{$concept}{$agencyID}{$uriThingSeperator}{$ConceptSchemeID}"/>
+                <skos:topConceptOf rdf:resource="{$concept}{$agencyID}{$uriThingSeparator}{$ConceptSchemeID}"/>
+                <skos:inScheme rdf:resource="{$concept}{$agencyID}{$uriThingSeparator}{$ConceptSchemeID}"/>
             </xsl:if>
 
             <xsl:if test="@uri">
@@ -353,7 +344,7 @@ structure:textFormat
             <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
             <xsl:variable name="agencyID" select="fn:getAttributeValue(@agencyID)"/>
 
-            <rdf:Description rdf:about="{$code}{$agencyID}{$uriThingSeperator}{$id}">
+            <rdf:Description rdf:about="{$code}{$agencyID}{$uriThingSeparator}{$id}">
                 <rdf:type rdf:resource="{$sdmx}CodeList"/>
 
                 <xsl:if test="@uri">
@@ -365,12 +356,12 @@ structure:textFormat
 
                 <xsl:for-each select="structure:Code">
                     <skos:hasTopConcept>
-                        <rdf:Description rdf:about="{$code}{$agencyID}/{$id}{$uriThingSeperator}{@value}">
+                        <rdf:Description rdf:about="{$code}{$agencyID}/{$id}{$uriThingSeparator}{@value}">
                             <rdf:type rdf:resource="{$sdmx}Concept"/>
                             <rdf:type rdf:resource="{$skos}Concept"/>
-                            <rdf:type rdf:resource="{$code}{$agencyID}{$uriThingSeperator}{$id}"/>
-                            <skos:topConceptOf rdf:resource="{$code}{$agencyID}{$uriThingSeperator}{$id}"/>
-                            <skos:inScheme rdf:resource="{$code}{$agencyID}{$uriThingSeperator}{$id}"/>
+                            <rdf:type rdf:resource="{$code}{$agencyID}{$uriThingSeparator}{$id}"/>
+                            <skos:topConceptOf rdf:resource="{$code}{$agencyID}{$uriThingSeparator}{$id}"/>
+                            <skos:inScheme rdf:resource="{$code}{$agencyID}{$uriThingSeparator}{$id}"/>
 
                             <xsl:if test="@urn">
                                 <dcterms:identifier rdf:resource="{@urn}"/>
@@ -378,8 +369,8 @@ structure:textFormat
 
                             <xsl:if test="@parentCode">
                                 <skos:broader>
-                                    <rdf:Description rdf:about="{$code}{$agencyID}/{$id}{$uriThingSeperator}{@parentCode}">
-                                        <skos:narrower rdf:resource="{$code}{$agencyID}/{$id}{$uriThingSeperator}{@value}"/>
+                                    <rdf:Description rdf:about="{$code}{$agencyID}/{$id}{$uriThingSeparator}{@parentCode}">
+                                        <skos:narrower rdf:resource="{$code}{$agencyID}/{$id}{$uriThingSeparator}{@value}"/>
                                     </rdf:Description>
                                 </skos:broader>
                             </xsl:if>
@@ -401,7 +392,7 @@ structure:textFormat
             <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
             <xsl:variable name="agencyID" select="fn:getAttributeValue(@agencyID)"/>
 
-            <rdf:Description rdf:about="{$code}{$agencyID}{$uriThingSeperator}{$id}">
+            <rdf:Description rdf:about="{$code}{$agencyID}{$uriThingSeparator}{$id}">
                 <rdf:type rdf:resource="{$skos}Collection"/>
 
                 <xsl:if test="@uri">
@@ -416,18 +407,18 @@ structure:textFormat
                 <xsl:apply-templates select="structure:Description"/>
 
                 <xsl:for-each select="structure:CodelistRef">
-                    <dcterms:references rdf:resource="{$code}{$agencyID}{$uriThingSeperator}{structure:CodelistID}"/>
+                    <dcterms:references rdf:resource="{$code}{$agencyID}{$uriThingSeparator}{structure:CodelistID}"/>
                 </xsl:for-each>
 
                 <xsl:for-each select="structure:Hierarchy">
                     <xsl:variable name="HierarchyID" select="@id"/>
 
                     <xkos:hasPart>
-                        <rdf:Description rdf:about="{$code}{$agencyID}{$uriThingSeperator}{$HierarchyID}">
+                        <rdf:Description rdf:about="{$code}{$agencyID}{$uriThingSeparator}{$HierarchyID}">
                             <rdf:type rdf:resource="{$skos}Collection"/>
                             <skos:notation><xsl:value-of select="$id"/></skos:notation>
 
-                            <xkos:isPartOf rdf:resource="{$code}{$agencyID}{$uriThingSeperator}{$id}"/>
+                            <xkos:isPartOf rdf:resource="{$code}{$agencyID}{$uriThingSeparator}{$id}"/>
 
                             <xsl:apply-templates select="structure:Name"/>
 
@@ -520,9 +511,9 @@ XXX:
 * Consider changing skos:narrower, skos:broader to xkos:hasPart, xkos:isPartOf
 -->
             <xkos:hasPart>
-                <rdf:Description rdf:about="{$code}{$agencyID}/{$CodelistAliasRef}{$uriThingSeperator}{$CodeID}">
+                <rdf:Description rdf:about="{$code}{$agencyID}/{$CodelistAliasRef}{$uriThingSeparator}{$CodeID}">
                     <xsl:if test="$CodelistAliasRef_parent and $CodeID_parent">
-                        <xkos:isPartOf rdf:resource="{$code}{$agencyID}/{$CodelistAliasRef_parent}{$uriThingSeperator}{$CodeID_parent}"/>
+                        <xkos:isPartOf rdf:resource="{$code}{$agencyID}/{$CodelistAliasRef_parent}{$uriThingSeparator}{$CodeID_parent}"/>
                     </xsl:if>
 
                     <xsl:if test="structure:ValidFrom">
@@ -627,15 +618,15 @@ Are these supposed to be unique slices?
                                         </xsl:call-template>
                                     </xsl:for-each>
 
-                                    <xsl:variable name="SeriesKeyValues" select="string-join($Values/normalize-space(@value), $uriDimensionSeperator)"/>
+                                    <xsl:variable name="SeriesKeyValues" select="string-join($Values/normalize-space(@value), $uriDimensionSeparator)"/>
 
                                     <xsl:for-each select="generic:Obs">
                                         <xsl:variable name="ObsTimeURI">
-                                            <xsl:value-of select="$uriDimensionSeperator"/><xsl:value-of select="replace(generic:Time, '\s+', '')"/>
+                                            <xsl:value-of select="$uriDimensionSeparator"/><xsl:value-of select="replace(generic:Time, '\s+', '')"/>
                                         </xsl:variable>
                                         <qb:observation>
                                             <xsl:attribute name="rdf:resource">
-                                                <xsl:value-of select="$dataset"/><xsl:value-of select="$KeyFamilyRef"/><xsl:value-of select="$uriThingSeperator"/><xsl:value-of select="$SeriesKeyValues"/><xsl:value-of select="$ObsTimeURI"/>
+                                                <xsl:value-of select="$dataset"/><xsl:value-of select="$KeyFamilyRef"/><xsl:value-of select="$uriThingSeparator"/><xsl:value-of select="$SeriesKeyValues"/><xsl:value-of select="$ObsTimeURI"/>
                                             </xsl:attribute>
                                         </qb:observation>
                                     </xsl:for-each>
@@ -665,12 +656,12 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
 TODO:
 Order SeriesKeyValues same as the order in KeyFamily Dimensions
 -->
-                <xsl:variable name="SeriesKeyValues" select="string-join(generic:SeriesKey/generic:Value/normalize-space(@value), $uriDimensionSeperator)"/>
+                <xsl:variable name="SeriesKeyValues" select="string-join(generic:SeriesKey/generic:Value/normalize-space(@value), $uriDimensionSeparator)"/>
 
                 <xsl:for-each select="generic:Obs">
                     <xsl:variable name="ObsTime" select="replace(generic:Time, '\s+', '')"/>
                     <xsl:variable name="ObsTimeURI">
-                        <xsl:value-of select="$uriDimensionSeperator"/><xsl:value-of select="$ObsTime"/>
+                        <xsl:value-of select="$uriDimensionSeparator"/><xsl:value-of select="$ObsTime"/>
                     </xsl:variable>
 <!--
 TODO:
@@ -681,7 +672,7 @@ TODO:
 This dataset URI needs to be unique
 -->
 
-                    <rdf:Description about="{$dataset}{$KeyFamilyRef}{$uriThingSeperator}{$SeriesKeyValues}{$ObsTimeURI}">
+                    <rdf:Description about="{$dataset}{$KeyFamilyRef}{$uriThingSeparator}{$SeriesKeyValues}{$ObsTimeURI}">
                         <rdf:type rdf:resource="{$qb}Observation"/>
                         <qb:dataSet rdf:resource="{$dataset}{$KeyFamilyRef}"/>
 
@@ -741,7 +732,7 @@ FIXME: Needs agencyID in path for property
             <xsl:choose>
                 <xsl:when test="$codelist != ''">
                     <xsl:attribute name="rdf:resource">
-                        <xsl:value-of select="$code"/><xsl:value-of select="$codelist"/><xsl:value-of select="$uriThingSeperator"/><xsl:value-of select="$value"/>
+                        <xsl:value-of select="$code"/><xsl:value-of select="$codelist"/><xsl:value-of select="$uriThingSeparator"/><xsl:value-of select="$value"/>
                     </xsl:attribute>
                 </xsl:when>
 <!--

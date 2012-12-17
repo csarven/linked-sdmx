@@ -72,13 +72,13 @@
     <rdf:value>
       <rdf:Description>
         <rdf:value>/</rdf:value>
-        <rdfs:label>uriThingSeperator</rdfs:label>
+        <rdfs:label>uriThingSeparator</rdfs:label>
       </rdf:Description>
     </rdf:value>
     <rdf:value>
       <rdf:Description>
         <rdf:value>/</rdf:value>
-        <rdfs:label>uriDimensionSeperator</rdfs:label>
+        <rdfs:label>uriDimensionSeparator</rdfs:label>
       </rdf:Description>
     </rdf:value>
     <rdf:value>

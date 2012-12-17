@@ -32,8 +32,8 @@
     <xsl:variable name="property" select="fn:getConfig('property')"/>
     <xsl:variable name="dataset" select="fn:getConfig('dataset')"/>
     <xsl:variable name="slice" select="fn:getConfig('slice')"/>
-    <xsl:variable name="uriThingSeperator" select="fn:getConfig('uriThingSeperator')"/>
-    <xsl:variable name="uriDimensionSeperator" select="fn:getConfig('uriDimensionSeperator')"/>
+    <xsl:variable name="uriThingSeparator" select="fn:getConfig('uriThingSeparator')"/>
+    <xsl:variable name="uriDimensionSeparator" select="fn:getConfig('uriDimensionSeparator')"/>
 
     <xsl:template name="langTextNode">
         <xsl:if test="@xml:lang">
