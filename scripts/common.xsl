@@ -9,6 +9,7 @@
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:dcterms="http://purl.org/dc/terms/"
     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:sdmx-concept="http://purl.org/linked-data/sdmx/2009/concept#"
     xmlns:fn="http://270a.info/xpath-function/"
     xmlns:structure="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/structure"
     xmlns:message="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
@@ -68,6 +69,18 @@
         <xsl:for-each select="common:AnnotationURL">
             <rdfs:seeAlso rdf:resource="{normalize-space(.)}"/>
         </xsl:for-each>
+    </xsl:template>
+
+    <xsl:template match="@validFrom">
+        <sdmx-concept:validFrom><xsl:value-of select="."/></sdmx-concept:validFrom>
+    </xsl:template>
+
+    <xsl:template match="@validTo">
+        <sdmx-concept:validTo><xsl:value-of select="."/></sdmx-concept:validTo>
+    </xsl:template>
+
+    <xsl:template match="@urn">
+        <dcterms:identifier rdf:resource="normalize-space(.)"/>
     </xsl:template>
 
     <xsl:function name="fn:getAttributeValue">

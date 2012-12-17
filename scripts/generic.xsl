@@ -15,6 +15,7 @@
     xmlns:dcterms="http://purl.org/dc/terms/"
     xmlns:foaf="http://xmlns.com/foaf/0.1/"
     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:xkos="http://purl.org/linked-data/xkos#"
     xmlns:qb="http://purl.org/linked-data/cube#"
     xmlns:sdmx="http://purl.org/linked-data/sdmx#"
     xmlns:sdmx-attribute="http://purl.org/linked-data/sdmx/2009/attribute#"
@@ -114,14 +115,9 @@ Decide whether this should be omitted.
 <!--
 XXX: dcterms:valid could be used along with gregorian-interval but 1) we don't know the format of these dates and 2) whether both will be supplied. Probably simpler to leave them separate.
 -->
-                <xsl:if test="@validFrom">
-                    <sdmx-concept:validFrom><xsl:value-of select="@validFrom"/></sdmx-concept:validFrom>
-                </xsl:if>
 
-                <xsl:if test="@validTo">
-                    <sdmx-concept:validTo><xsl:value-of select="@validTo"/></sdmx-concept:validTo>
-                </xsl:if>
-
+                <xsl:apply-templates select="@validFrom"/>
+                <xsl:apply-templates select="@validTo"/>
 
                 <xsl:apply-templates select="structure:Name"/>
 
@@ -406,7 +402,7 @@ structure:textFormat
             <xsl:variable name="agencyID" select="fn:getAttributeValue(@agencyID)"/>
 
             <rdf:Description rdf:about="{$code}{$agencyID}{$uriThingSeperator}{$id}">
-                <rdf:type rdf:resource="{$sdmx}CodeList"/>
+                <rdf:type rdf:resource="{$skos}Collection"/>
 
                 <xsl:if test="@uri">
                     <rdfs:isDefinedBy rdf:resource="{@uri}"/>
@@ -420,23 +416,31 @@ structure:textFormat
                 <xsl:apply-templates select="structure:Description"/>
 
                 <xsl:for-each select="structure:CodelistRef">
-<!--
-XXX:
-The difference between structure:Alias and structure:CodelistID is not entirely clear. Looking at the sample structure data thus far, it is not clear either because one or the other is used. So, I'm putting both of these here, where one or the other will be used in practice even though both could exist.
--->
-                    <xsl:if test="structure:Alias">
-                        <dcterms:references rdf:resource="{$code}{$agencyID}{$uriThingSeperator}{structure:Alias}"/>
-                    </xsl:if>
-
-                    <xsl:if test="structure:CodelistID">
-                        <dcterms:references rdf:resource="{$code}{$agencyID}{$uriThingSeperator}{structure:CodelistID}"/>
-                    </xsl:if>
+                    <dcterms:references rdf:resource="{$code}{$agencyID}{$uriThingSeperator}{structure:CodelistID}"/>
                 </xsl:for-each>
 
                 <xsl:for-each select="structure:Hierarchy">
-                    <xsl:call-template name="CodeRefs">
-                        <xsl:with-param name="agencyID" select="$agencyID"/>
-                    </xsl:call-template>
+                    <xsl:variable name="HierarchyID" select="@id"/>
+
+                    <xkos:hasPart>
+                        <rdf:Description rdf:about="{$code}{$agencyID}{$uriThingSeperator}{$HierarchyID}">
+                            <rdf:type rdf:resource="{$skos}Collection"/>
+                            <skos:notation><xsl:value-of select="$id"/></skos:notation>
+
+                            <xkos:isPartOf rdf:resource="{$code}{$agencyID}{$uriThingSeperator}{$id}"/>
+
+                            <xsl:apply-templates select="structure:Name"/>
+
+                            <xsl:apply-templates select="@urn"/>
+                            <xsl:apply-templates select="@validFrom"/>
+                            <xsl:apply-templates select="@validTo"/>
+
+                            <xsl:call-template name="CodeRefs">
+                                <xsl:with-param name="HierarchicalCodelistID" select="$id"/>
+                                <xsl:with-param name="agencyID" select="$agencyID"/>
+                            </xsl:call-template>
+                        </rdf:Description>
+                    </xkos:hasPart>
                 </xsl:for-each>
             </rdf:Description>
         </xsl:for-each>
@@ -444,6 +448,7 @@ The difference between structure:Alias and structure:CodelistID is not entirely 
 
 
     <xsl:template name="CodeRefs">
+        <xsl:param name="HierarchicalCodelistID"/>
         <xsl:param name="CodelistAliasRef_parent"/>
         <xsl:param name="CodeID_parent"/>
         <xsl:param name="agencyID"/>
@@ -464,14 +469,16 @@ This is a kind of a hack, works based on tested sample structures. Not guarantee
                     <xsl:when test="structure:URN">
                         <xsl:variable name="structureURN" select="structure:URN"/>
 
-                        <xsl:for-each select="distinct-values(/Structure/HierarchicalCodelists/structure:HierarchicalCodelist/structure:CodelistRef/structure:CodelistID/text())">
+                        <xsl:for-each select="distinct-values(/Structure/HierarchicalCodelists/structure:HierarchicalCodelist[@id = $HierarchicalCodelistID]/structure:CodelistRef/structure:CodelistID/text())">
                             <xsl:if test="contains($structureURN, .)">
                                 <xsl:value-of select="."/>
                             </xsl:if>
                         </xsl:for-each>
                     </xsl:when>
                     <xsl:otherwise>
-                        <xsl:value-of select="structure:CodelistAliasRef"/>
+                        <xsl:variable name="CodelistAliasRef" select="structure:CodelistAliasRef"/>
+
+                        <xsl:value-of select="/Structure/HierarchicalCodelists/structure:HierarchicalCodelist[@id = $HierarchicalCodelistID]/structure:CodelistRef[structure:Alias = $CodelistAliasRef]/structure:CodelistID/text()"/>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:variable>
@@ -485,9 +492,9 @@ Dirty?
                     <xsl:when test="structure:URN">
                         <xsl:variable name="structureURN" select="structure:URN"/>
 
-                        <xsl:variable name="AgencyID" select="/Structure/HierarchicalCodelists/structure:HierarchicalCodelist/structure:CodelistRef"/>
+                        <xsl:variable name="AgencyID" select="/Structure/HierarchicalCodelists[@id = $HierarchicalCodelistID]/structure:HierarchicalCodelist/structure:CodelistRef"/>
 
-                        <xsl:for-each select="distinct-values(/Structure/HierarchicalCodelists/structure:HierarchicalCodelist/structure:CodelistRef/structure:CodelistID/text())">
+                        <xsl:for-each select="distinct-values(/Structure/HierarchicalCodelists[@id = $HierarchicalCodelistID]/structure:HierarchicalCodelist/structure:CodelistRef/structure:CodelistID/text())">
                             <xsl:variable name="CodelistID" select="."/>
 
                             <xsl:if test="contains($structureURN, $CodelistID)">
@@ -510,11 +517,12 @@ TODO:
 XXX:
 * Doublecheck the exact relationship between an hierarchical list and a code list.
 * Should the parent CodelistAliasRef/CodeID be prefixed to current CodelistAliasRef/CodeID?
+* Consider changing skos:narrower, skos:broader to xkos:hasPart, xkos:isPartOf
 -->
-            <skos:narrower>
+            <xkos:hasPart>
                 <rdf:Description rdf:about="{$code}{$agencyID}/{$CodelistAliasRef}{$uriThingSeperator}{$CodeID}">
                     <xsl:if test="$CodelistAliasRef_parent and $CodeID_parent">
-                        <skos:broader rdf:resource="{$code}{$agencyID}/{$CodelistAliasRef_parent}{$uriThingSeperator}{$CodeID_parent}"/>
+                        <xkos:isPartOf rdf:resource="{$code}{$agencyID}/{$CodelistAliasRef_parent}{$uriThingSeperator}{$CodeID_parent}"/>
                     </xsl:if>
 
                     <xsl:if test="structure:ValidFrom">
@@ -525,12 +533,13 @@ XXX:
                     </xsl:if>
 
                     <xsl:call-template name="CodeRefs">
+                        <xsl:with-param name="HierarchicalCodelistID" select="$HierarchicalCodelistID"/>
                         <xsl:with-param name="CodelistAliasRef_parent" select="$CodelistAliasRef"/>
                         <xsl:with-param name="CodeID_parent" select="$CodeID"/>
                         <xsl:with-param name="agencyID" select="$agencyID"/>
                     </xsl:call-template>
                 </rdf:Description>
-            </skos:narrower>
+            </xkos:hasPart>
         </xsl:for-each>
     </xsl:template>
 
