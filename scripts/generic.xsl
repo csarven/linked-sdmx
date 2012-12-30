@@ -575,9 +575,9 @@ Consider getting this value from KeyFamily and adding a suffix e.g., data
 XXX: This is a bit chaotic but, yea, works I guess. Needs to be tested with more samples
 -->
                 <xsl:for-each select="generic:Series">
-<xsl:message>
-<xsl:value-of select="position()"/>
-</xsl:message>
+<!--<xsl:message>-->
+<!--<xsl:value-of select="position()"/>-->
+<!--</xsl:message>-->
 <!--
 FIXME:
 Excluding 'FREQ' is a bit grubby?

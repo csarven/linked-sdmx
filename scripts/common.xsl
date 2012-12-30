@@ -24,6 +24,7 @@
     <xsl:variable name="xsd" select="fn:getConfig('xsd')"/>
     <xsl:variable name="qb" select="fn:getConfig('qb')"/>
     <xsl:variable name="skos" select="fn:getConfig('skos')"/>
+    <xsl:variable name="xkos" select="fn:getConfig('xkos')"/>
     <xsl:variable name="sdmx" select="fn:getConfig('sdmx')"/>
     <xsl:variable name="lang" select="fn:getConfig('lang')"/>
     <xsl:variable name="baseuri" select="fn:getConfig('baseuri')"/>
@@ -34,6 +35,7 @@
     <xsl:variable name="slice" select="fn:getConfig('slice')"/>
     <xsl:variable name="uriThingSeparator" select="fn:getConfig('uriThingSeparator')"/>
     <xsl:variable name="uriDimensionSeparator" select="fn:getConfig('uriDimensionSeparator')"/>
+    <xsl:variable name="interlinkAnnotationTypes" select="fn:getConfig('interlinkAnnotationTypes')"/>
 
     <xsl:template name="langTextNode">
         <xsl:if test="@xml:lang">
@@ -54,11 +56,29 @@
         <xsl:variable name="AnnotationType" select="normalize-space(common:AnnotationType)"/>
 
         <xsl:if test="$AnnotationType">
+            <xsl:variable name="ConfigInterlinkAnnotationTypes" select="document($pathToConfig)/rdf:RDF/rdf:Description/rdf:value/rdf:Description[rdfs:label = 'interlinkAnnotationTypes']/rdf:value/rdf:Description[rdfs:label = $AnnotationType]"/>
+<!--
+FIXME: namespace is not necessarily ?kos
+-->
             <xsl:for-each select="common:AnnotationText">
-                <xsl:element name="property:{$AnnotationType}" namespace="{$property}">
-                    <xsl:call-template name="langTextNode"/>
-                    <xsl:value-of select="common:AnnotationText"/>
-                </xsl:element>
+                <xsl:variable name="AnnotationText" select="normalize-space(.)"/>
+
+                <xsl:choose>
+                    <xsl:when test="string-length($ConfigInterlinkAnnotationTypes) > 0">
+                        <xsl:for-each select="$ConfigInterlinkAnnotationTypes">
+                            <xsl:element name="{rdf:predicate}" namespace="{$xkos}">
+                                <xsl:attribute name="rdf:resource">
+                                    <xsl:value-of select="rdf:type"/><xsl:value-of select="$uriThingSeparator"/><xsl:value-of select="$AnnotationText"/>
+                                </xsl:attribute>
+                            </xsl:element>
+                        </xsl:for-each>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:element name="property:{$AnnotationType}" namespace="{$property}">
+                            <xsl:call-template name="langTextNode"/>
+                        </xsl:element>
+                    </xsl:otherwise>
+                </xsl:choose>
             </xsl:for-each>
         </xsl:if>
 
