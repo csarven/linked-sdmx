@@ -91,13 +91,8 @@ TODO:
                     <sdmx-concept:dataRev><xsl:value-of select="@version"/></sdmx-concept:dataRev>
                 </xsl:if>
 
-                <xsl:if test="@uri">
-                    <rdfs:isDefinedBy rdf:resource="{@uri}"/>
-                </xsl:if>
-
-                <xsl:if test="@urn">
-                    <dcterms:identifier rdf:resource="{@urn}"/>
-                </xsl:if>
+                <xsl:apply-templates select="@uri"/>
+                <xsl:apply-templates select="@urn"/>
 
                 <xsl:if test="@isFinal">
                     <sdmx-concept:isFinal rdf:datatype="{$xsd}boolean"><xsl:value-of select="@isFinal"/></sdmx-concept:isFinal>
@@ -265,12 +260,8 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
 -->
             <rdf:type rdf:resource="{$skos}ConceptScheme"/>
 
-            <xsl:if test="@uri">
-                <rdfs:isDefinedBy rdf:resource="{@uri}"/>
-            </xsl:if>
-            <xsl:if test="@urn">
-                <dcterms:identifier rdf:resource="{@urn}"/>
-            </xsl:if>
+            <xsl:apply-templates select="@uri"/>
+            <xsl:apply-templates select="@urn"/>
 
             <skos:notation><xsl:value-of select="$id"/></skos:notation>
 
@@ -315,12 +306,8 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
                 <skos:inScheme rdf:resource="{$concept}{$agencyID}{$uriThingSeparator}{$ConceptSchemeID}"/>
             </xsl:if>
 
-            <xsl:if test="@uri">
-                <rdfs:isDefinedBy rdf:resource="{@uri}"/>
-            </xsl:if>
-            <xsl:if test="@urn">
-                <dcterms:identifier rdf:resource="{@urn}"/>
-            </xsl:if>
+            <xsl:apply-templates select="@uri"/>
+            <xsl:apply-templates select="@urn"/>
 
             <skos:notation><xsl:value-of select="$id"/></skos:notation>
 
@@ -347,9 +334,7 @@ structure:textFormat
             <rdf:Description rdf:about="{$code}{$agencyID}{$uriThingSeparator}{$id}">
                 <rdf:type rdf:resource="{$sdmx}CodeList"/>
 
-                <xsl:if test="@uri">
-                    <rdfs:isDefinedBy rdf:resource="{@uri}"/>
-                </xsl:if>
+                <xsl:apply-templates select="@uri"/>
 
                 <skos:notation><xsl:value-of select="$id"/></skos:notation>
                 <xsl:apply-templates select="structure:Name"/>
@@ -363,9 +348,7 @@ structure:textFormat
                             <skos:topConceptOf rdf:resource="{$code}{$agencyID}{$uriThingSeparator}{$id}"/>
                             <skos:inScheme rdf:resource="{$code}{$agencyID}{$uriThingSeparator}{$id}"/>
 
-                            <xsl:if test="@urn">
-                                <dcterms:identifier rdf:resource="{@urn}"/>
-                            </xsl:if>
+                            <xsl:apply-templates select="@urn"/>
 
                             <xsl:if test="@parentCode">
                                 <skos:broader>
@@ -395,12 +378,8 @@ structure:textFormat
             <rdf:Description rdf:about="{$code}{$agencyID}{$uriThingSeparator}{$id}">
                 <rdf:type rdf:resource="{$skos}Collection"/>
 
-                <xsl:if test="@uri">
-                    <rdfs:isDefinedBy rdf:resource="{@uri}"/>
-                </xsl:if>
-                <xsl:if test="@urn">
-                    <dcterms:identifier rdf:resource="{@urn}"/>
-                </xsl:if>
+                <xsl:apply-templates select="@uri"/>
+                <xsl:apply-templates select="@urn"/>
 
                 <skos:notation><xsl:value-of select="$id"/></skos:notation>
                 <xsl:apply-templates select="structure:Name"/>

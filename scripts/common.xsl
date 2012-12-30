@@ -99,6 +99,10 @@ FIXME: namespace is not necessarily ?kos
         <sdmx-concept:validTo><xsl:value-of select="."/></sdmx-concept:validTo>
     </xsl:template>
 
+    <xsl:template match="@uri">
+        <rdfs:isDefinedBy rdf:resource="normalize-space(.)"/>
+    </xsl:template>
+
     <xsl:template match="@urn">
         <dcterms:identifier rdf:resource="normalize-space(.)"/>
     </xsl:template>
