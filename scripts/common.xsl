@@ -140,6 +140,13 @@ FIXME: namespace is not necessarily ?kos
     </xsl:template>
 
 
+    <xsl:function name="fn:getUriValidFromToSeparator">
+        <xsl:param name="validFrom"/>
+        <xsl:param name="validTo"/>
+
+        <xsl:text>-</xsl:text><xsl:value-of select="normalize-space($validFrom)"/><xsl:text>-</xsl:text><xsl:value-of select="normalize-space($validTo)"/>
+    </xsl:function>
+
     <xsl:function name="fn:getSDMXCodeListURI">
         <xsl:param name="CodeList"/>
 

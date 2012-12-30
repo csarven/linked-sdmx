@@ -253,7 +253,13 @@ Check where to get ConceptScheme
         <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
         <xsl:variable name="agencyID" select="fn:getAttributeValue(@agencyID)"/>
 
-        <rdf:Description rdf:about="{$concept}{$agencyID}{$uriThingSeparator}{$id}">
+        <xsl:variable name="uriValidFromToSeparator">
+            <xsl:if test="@validFrom and @validTo">
+                <xsl:value-of select="fn:getUriValidFromToSeparator(@validFrom, @validTo)"/>
+            </xsl:if>
+        </xsl:variable>
+
+        <rdf:Description rdf:about="{$concept}{$agencyID}{$uriThingSeparator}{$id}{$uriValidFromToSeparator}">
 <!--
 XXX:
 SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptScheme?
@@ -331,10 +337,18 @@ structure:textFormat
             <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
             <xsl:variable name="agencyID" select="fn:getAttributeValue(@agencyID)"/>
 
-            <rdf:Description rdf:about="{$code}{$agencyID}{$uriThingSeparator}{$id}">
+            <xsl:variable name="uriValidFromToSeparator">
+                <xsl:if test="@validFrom and @validTo">
+                    <xsl:value-of select="fn:getUriValidFromToSeparator(@validFrom, @validTo)"/>
+                </xsl:if>
+            </xsl:variable>
+
+            <rdf:Description rdf:about="{$code}{$agencyID}{$uriThingSeparator}{$id}{$uriValidFromToSeparator}">
                 <rdf:type rdf:resource="{$sdmx}CodeList"/>
 
                 <xsl:apply-templates select="@uri"/>
+                <xsl:apply-templates select="@validFrom"/>
+                <xsl:apply-templates select="@validTo"/>
 
                 <skos:notation><xsl:value-of select="$id"/></skos:notation>
                 <xsl:apply-templates select="structure:Name"/>
@@ -344,9 +358,9 @@ structure:textFormat
                         <rdf:Description rdf:about="{$code}{$agencyID}/{$id}{$uriThingSeparator}{@value}">
                             <rdf:type rdf:resource="{$sdmx}Concept"/>
                             <rdf:type rdf:resource="{$skos}Concept"/>
-                            <rdf:type rdf:resource="{$code}{$agencyID}{$uriThingSeparator}{$id}"/>
-                            <skos:topConceptOf rdf:resource="{$code}{$agencyID}{$uriThingSeparator}{$id}"/>
-                            <skos:inScheme rdf:resource="{$code}{$agencyID}{$uriThingSeparator}{$id}"/>
+                            <rdf:type rdf:resource="{$code}{$agencyID}{$uriThingSeparator}{$id}{$uriValidFromToSeparator}"/>
+                            <skos:topConceptOf rdf:resource="{$code}{$agencyID}{$uriThingSeparator}{$id}{$uriValidFromToSeparator}"/>
+                            <skos:inScheme rdf:resource="{$code}{$agencyID}{$uriThingSeparator}{$id}{$uriValidFromToSeparator}"/>
 
                             <xsl:apply-templates select="@urn"/>
 
@@ -375,7 +389,13 @@ structure:textFormat
             <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
             <xsl:variable name="agencyID" select="fn:getAttributeValue(@agencyID)"/>
 
-            <rdf:Description rdf:about="{$code}{$agencyID}{$uriThingSeparator}{$id}">
+            <xsl:variable name="uriValidFromToSeparator">
+                <xsl:if test="@validFrom and @validTo">
+                    <xsl:value-of select="fn:getUriValidFromToSeparator(@validFrom, @validTo)"/>
+                </xsl:if>
+            </xsl:variable>
+
+            <rdf:Description rdf:about="{$code}{$agencyID}{$uriThingSeparator}{$id}{$uriValidFromToSeparator}">
                 <rdf:type rdf:resource="{$skos}Collection"/>
 
                 <xsl:apply-templates select="@uri"/>
@@ -393,11 +413,17 @@ structure:textFormat
                     <xsl:variable name="HierarchyID" select="@id"/>
 
                     <xkos:hasPart>
-                        <rdf:Description rdf:about="{$code}{$agencyID}{$uriThingSeparator}{$HierarchyID}">
+                        <xsl:variable name="uriValidFromToHierarchySeparator">
+                            <xsl:if test="@validFrom and @validTo">
+                                <xsl:value-of select="fn:getUriValidFromToSeparator(@validFrom, @validTo)"/>
+                            </xsl:if>
+                        </xsl:variable>
+
+                        <rdf:Description rdf:about="{$code}{$agencyID}{$uriValidFromToHierarchySeparator}{$uriThingSeparator}{$HierarchyID}">
                             <rdf:type rdf:resource="{$skos}Collection"/>
                             <skos:notation><xsl:value-of select="$id"/></skos:notation>
 
-                            <xkos:isPartOf rdf:resource="{$code}{$agencyID}{$uriThingSeparator}{$id}"/>
+                            <xkos:isPartOf rdf:resource="{$code}{$agencyID}{$uriThingSeparator}{$id}{$uriValidFromToSeparator}"/>
 
                             <xsl:apply-templates select="structure:Name"/>
 
