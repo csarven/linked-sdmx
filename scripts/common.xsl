@@ -9,6 +9,7 @@
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:dcterms="http://purl.org/dc/terms/"
     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:qb="http://purl.org/linked-data/cube#"
     xmlns:sdmx-concept="http://purl.org/linked-data/sdmx/2009/concept#"
     xmlns:fn="http://270a.info/xpath-function/"
     xmlns:structure="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/structure"
@@ -105,6 +106,29 @@ FIXME: namespace is not necessarily ?kos
 
     <xsl:template match="@urn">
         <dcterms:identifier rdf:resource="normalize-space(.)"/>
+    </xsl:template>
+
+    <xsl:template name="qbCodeList">
+        <xsl:variable name="codelist" select="@codelist"/>
+
+        <xsl:if test="@codelist">
+            <xsl:variable name="codelistVersion" select="@codelistVersion"/>
+            <xsl:variable name="codelistAgency" select="@codelistAgency"/>
+
+            <xsl:variable name="uriValidFromToSeparator">
+                <xsl:choose>
+                    <xsl:when test="$codelistAgency and $codelistVersion">
+                        <xsl:for-each select="//structure:CodeList[@id = $codelist and @agencyID = $codelistAgency and @version = $codelistVersion and (@validFrom and @validTo)]">
+                            <xsl:value-of select="fn:getUriValidFromToSeparator(@validFrom, @validTo)"/>
+                        </xsl:for-each>
+                    </xsl:when>
+                    <xsl:otherwise>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:variable>
+
+            <qb:codeList rdf:resource="{$code}{$codelistAgency}{$uriThingSeparator}{$codelist}{$uriValidFromToSeparator}"/>
+        </xsl:if>
     </xsl:template>
 
     <xsl:function name="fn:getAttributeValue">

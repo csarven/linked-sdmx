@@ -129,10 +129,12 @@ Should we give any special treatment to TimeDimension even though qb currently d
 -->
                         <xsl:when test="local-name() = 'Dimension' or local-name() = 'TimeDimension'">
                             <qb:dimension>
+                                <xsl:variable name="conceptRef" select="@conceptRef"/>
                                 <rdf:Description rdf:about="{$property}{$agencyID}{$uriThingSeparator}{@conceptRef}">
                                     <rdf:type rdf:resource="{$qb}DimensionProperty"/>
                                     <rdf:type rdf:resource="{$rdf}Property"/>
                                     <qb:concept rdf:resource="{$concept}{$agencyID}{$uriThingSeparator}{@conceptRef}"/>
+                                    <xsl:call-template name="qbCodeList"/>
                                 </rdf:Description>
                             </qb:dimension>
 
@@ -157,6 +159,7 @@ Consider what to do with optional <TextFormat textType="Double"/> or whatever. P
                                     <rdf:type rdf:resource="{$qb}MeasureProperty"/>
                                     <rdf:type rdf:resource="{$rdf}Property"/>
                                     <qb:concept rdf:resource="{$concept}{$agencyID}{$uriThingSeparator}{@conceptRef}"/>
+                                    <xsl:call-template name="qbCodeList"/>
                                 </rdf:Description>
                             </qb:measure>
                         </xsl:when>
@@ -175,6 +178,7 @@ Multiple measures
                                     <rdf:type rdf:resource="{$qb}AttributeProperty"/>
                                     <rdf:type rdf:resource="{$rdf}Property"/>
                                     <qb:concept rdf:resource="{$concept}{$agencyID}{$uriThingSeparator}{@conceptRef}"/>
+                                    <xsl:call-template name="qbCodeList"/>
                                 </rdf:Description>
                             </qb:attribute>
 
@@ -345,6 +349,7 @@ structure:textFormat
 
             <rdf:Description rdf:about="{$code}{$agencyID}{$uriThingSeparator}{$id}{$uriValidFromToSeparator}">
                 <rdf:type rdf:resource="{$sdmx}CodeList"/>
+                <rdf:type rdf:resource="{$skos}ConceptScheme"/>
 
                 <xsl:apply-templates select="@uri"/>
                 <xsl:apply-templates select="@validFrom"/>
