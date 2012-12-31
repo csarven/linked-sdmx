@@ -44,7 +44,7 @@
 TODO:
 * Default to language when the structure or data doesn't contain xml:lang
 * When agencyID="SDMX", fixed corresponding URIs within the SDMX namespace should be used. Sometimes codelistAgency or conceptSchemeAgency is not mentioned in the KeyFamily but the Codelist uses agencyID="SDMX". A first check might be to see if there is an agencyID set for the conceptRef or codelist
-* Similarly consider what to do for agencyID's that's different than self agency and SDMX.
+* Similarly consider what to do for agencyID's that's different than self agency and SDMX. Ideally it should use their full URI - needs to check registry?
 * Consider what to do when the SDMX-ML doesn't follow the schema
 * Consider detecting common datetime patterns and use a URI or datatypes
 * Improve config for URI and thing separator
