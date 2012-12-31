@@ -134,7 +134,7 @@ Should we give any special treatment to TimeDimension even though qb currently d
                                     <rdf:type rdf:resource="{$qb}DimensionProperty"/>
                                     <rdf:type rdf:resource="{$rdf}Property"/>
                                     <qb:concept rdf:resource="{$concept}{$agencyID}{$uriThingSeparator}{@conceptRef}"/>
-                                    <xsl:call-template name="qbCodeList"/>
+                                    <xsl:call-template name="qbCodeListrdfsRange"/>
                                 </rdf:Description>
                             </qb:dimension>
 
@@ -159,7 +159,7 @@ Consider what to do with optional <TextFormat textType="Double"/> or whatever. P
                                     <rdf:type rdf:resource="{$qb}MeasureProperty"/>
                                     <rdf:type rdf:resource="{$rdf}Property"/>
                                     <qb:concept rdf:resource="{$concept}{$agencyID}{$uriThingSeparator}{@conceptRef}"/>
-                                    <xsl:call-template name="qbCodeList"/>
+                                    <xsl:call-template name="qbCodeListrdfsRange"/>
                                 </rdf:Description>
                             </qb:measure>
                         </xsl:when>
@@ -178,7 +178,7 @@ Multiple measures
                                     <rdf:type rdf:resource="{$qb}AttributeProperty"/>
                                     <rdf:type rdf:resource="{$rdf}Property"/>
                                     <qb:concept rdf:resource="{$concept}{$agencyID}{$uriThingSeparator}{@conceptRef}"/>
-                                    <xsl:call-template name="qbCodeList"/>
+                                    <xsl:call-template name="qbCodeListrdfsRange"/>
                                 </rdf:Description>
                             </qb:attribute>
 
@@ -351,6 +351,16 @@ structure:textFormat
                 <rdf:type rdf:resource="{$sdmx}CodeList"/>
                 <rdf:type rdf:resource="{$skos}ConceptScheme"/>
 
+                <rdfs:seeAlso>
+                    <rdf:Description rdf:about="{$class}{$agencyID}{$uriThingSeparator}{$id}{$uriValidFromToSeparator}">
+                        <rdf:type rdf:resource="{$rdfs}Class"/>
+                        <rdf:type rdf:resource="{$owl}Class"/>
+                        <rdfs:subClassOf rdf:resource="{$skos}Concept"/>
+                        <rdfs:seeAlso rdf:resource="{$code}{$agencyID}{$uriThingSeparator}{$id}{$uriValidFromToSeparator}"/>
+                        <xsl:apply-templates select="structure:Name"/>
+                    </rdf:Description>
+                </rdfs:seeAlso>
+
                 <xsl:apply-templates select="@uri"/>
                 <xsl:apply-templates select="@validFrom"/>
                 <xsl:apply-templates select="@validTo"/>
@@ -363,7 +373,7 @@ structure:textFormat
                         <rdf:Description rdf:about="{$code}{$agencyID}/{$id}{$uriThingSeparator}{@value}">
                             <rdf:type rdf:resource="{$sdmx}Concept"/>
                             <rdf:type rdf:resource="{$skos}Concept"/>
-                            <rdf:type rdf:resource="{$code}{$agencyID}{$uriThingSeparator}{$id}{$uriValidFromToSeparator}"/>
+                            <rdf:type rdf:resource="{$class}{$agencyID}{$uriThingSeparator}{$id}{$uriValidFromToSeparator}"/>
                             <skos:topConceptOf rdf:resource="{$code}{$agencyID}{$uriThingSeparator}{$id}{$uriValidFromToSeparator}"/>
                             <skos:inScheme rdf:resource="{$code}{$agencyID}{$uriThingSeparator}{$id}{$uriValidFromToSeparator}"/>
 

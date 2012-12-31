@@ -22,6 +22,8 @@
 
     <xsl:variable name="pathToConfig"><xsl:text>./config.rdf</xsl:text></xsl:variable>
     <xsl:variable name="rdf" select="fn:getConfig('rdf')"/>
+    <xsl:variable name="rdfs" select="fn:getConfig('rdfs')"/>
+    <xsl:variable name="owl" select="fn:getConfig('owl')"/>
     <xsl:variable name="xsd" select="fn:getConfig('xsd')"/>
     <xsl:variable name="qb" select="fn:getConfig('qb')"/>
     <xsl:variable name="skos" select="fn:getConfig('skos')"/>
@@ -31,6 +33,7 @@
     <xsl:variable name="baseuri" select="fn:getConfig('baseuri')"/>
     <xsl:variable name="concept" select="fn:getConfig('concept')"/>
     <xsl:variable name="code" select="fn:getConfig('code')"/>
+    <xsl:variable name="class" select="fn:getConfig('class')"/>
     <xsl:variable name="property" select="fn:getConfig('property')"/>
     <xsl:variable name="dataset" select="fn:getConfig('dataset')"/>
     <xsl:variable name="slice" select="fn:getConfig('slice')"/>
@@ -108,7 +111,7 @@ FIXME: namespace is not necessarily ?kos
         <dcterms:identifier rdf:resource="normalize-space(.)"/>
     </xsl:template>
 
-    <xsl:template name="qbCodeList">
+    <xsl:template name="qbCodeListrdfsRange">
         <xsl:variable name="codelist" select="@codelist"/>
 
         <xsl:if test="@codelist">
@@ -128,6 +131,7 @@ FIXME: namespace is not necessarily ?kos
             </xsl:variable>
 
             <qb:codeList rdf:resource="{$code}{$codelistAgency}{$uriThingSeparator}{$codelist}{$uriValidFromToSeparator}"/>
+            <rdfs:range rdf:resource="{$class}{$codelistAgency}{$uriThingSeparator}{$codelist}{$uriValidFromToSeparator}"/>
         </xsl:if>
     </xsl:template>
 
