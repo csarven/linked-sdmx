@@ -21,6 +21,7 @@
     <xsl:output encoding="utf-8" indent="yes" method="xml" omit-xml-declaration="no"/>
 
     <xsl:variable name="pathToConfig"><xsl:text>./config.rdf</xsl:text></xsl:variable>
+    <xsl:variable name="Config" select="document($pathToConfig)/rdf:RDF"/>
     <xsl:variable name="rdf" select="fn:getConfig('rdf')"/>
     <xsl:variable name="rdfs" select="fn:getConfig('rdfs')"/>
     <xsl:variable name="owl" select="fn:getConfig('owl')"/>
@@ -60,7 +61,7 @@
         <xsl:variable name="AnnotationType" select="normalize-space(common:AnnotationType)"/>
 
         <xsl:if test="$AnnotationType">
-            <xsl:variable name="ConfigInterlinkAnnotationTypes" select="document($pathToConfig)/rdf:RDF/rdf:Description/rdf:value/rdf:Description[rdfs:label = 'interlinkAnnotationTypes']/rdf:value/rdf:Description[rdfs:label = $AnnotationType]"/>
+            <xsl:variable name="ConfigInterlinkAnnotationTypes" select="$Config/rdf:Description/rdf:value/rdf:Description[rdfs:label = 'interlinkAnnotationTypes']/rdf:value/rdf:Description[rdfs:label = $AnnotationType]"/>
 <!--
 FIXME: namespace is not necessarily ?kos
 -->
@@ -224,7 +225,7 @@ FIXME: namespace is not necessarily ?kos
     <xsl:function name="fn:getConfig">
         <xsl:param name="label"/>
 
-        <xsl:value-of select="document($pathToConfig)/rdf:RDF/rdf:Description/rdf:value/rdf:Description[rdfs:label = $label]/rdf:value"/>
+        <xsl:value-of select="$Config/rdf:Description/rdf:value/rdf:Description[rdfs:label = $label]/rdf:value"/>
     </xsl:function>
 
     <xsl:function name="fn:getConceptAgencyID">
@@ -232,23 +233,6 @@ FIXME: namespace is not necessarily ?kos
         <xsl:param name="node"/>
 
         <xsl:variable name="ConceptAgencyID">
-            <xsl:variable name="Concept" select="$doc/descendant::structure:Concept[@id = $node/@conceptRef]"/>
-
-            <xsl:if test="count($Concept) = 1">
-                <xsl:choose>
-                    <xsl:when test="$Concept/@agencyID">
-                        <xsl:value-of select="$Concept/@agencyID"/>
-                    </xsl:when>
-                    <xsl:when test="$Concept/ancestor::structure:ConceptScheme[@agencyID]/@agencyID">
-                        <xsl:value-of select="$Concept/ancestor::structure:ConceptScheme[@agencyID]/@agencyID"/>
-                    </xsl:when>
-                    <xsl:otherwise>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </xsl:if>
-        </xsl:variable>
-
-        <xsl:variable name="cAgency">
             <xsl:choose>
                 <xsl:when test="$node/@conceptAgency">
                     <xsl:value-of select="$node/@conceptAgency"/>
@@ -259,25 +243,33 @@ FIXME: namespace is not necessarily ?kos
                 <xsl:when test="$node/@codelistAgency">
                     <xsl:value-of select="$node/@codelistAgency"/>
                 </xsl:when>
+                <!-- Best bet if Concept is in the same document -->
                 <xsl:otherwise>
+                    <xsl:variable name="Concept" select="$doc/Concepts/structure:ConceptScheme/structure:Concept[@id = $node/@conceptRef]"/>
+
+                    <xsl:if test="count($Concept) = 1">
+                        <xsl:choose>
+                            <xsl:when test="$Concept/@agencyID">
+                                <xsl:value-of select="$Concept/@agencyID"/>
+                            </xsl:when>
+                            <xsl:when test="$Concept/../structure:ConceptScheme[@agencyID]/@agencyID">
+                                <xsl:value-of select="$Concept/../structure:ConceptScheme[@agencyID]/@agencyID"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:if>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
 
-        <xsl:variable name="KeyFamilyAgencyID" select="$doc/descendant::structure:KeyFamily/@agencyID"/>
-
         <xsl:choose>
-            <!-- Best bet if Concept is in the same document -->
-            <xsl:when test="$ConceptAgencyID">
+            <xsl:when test="$ConceptAgencyID != ''">
                 <xsl:value-of select="$ConceptAgencyID"/>
-            </xsl:when>
-            <!-- Cheapest -->
-            <xsl:when test="$cAgency">
-                <xsl:value-of select="$cAgency"/>
             </xsl:when>
             <!-- Fallback -->
             <xsl:otherwise>
-                <xsl:value-of select="$KeyFamilyAgencyID"/>
+                <xsl:value-of select="$doc/KeyFamilies/structure:KeyFamily[1]/@agencyID"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>

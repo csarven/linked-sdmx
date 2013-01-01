@@ -39,6 +39,7 @@
     <xsl:output encoding="utf-8" indent="yes" method="xml" omit-xml-declaration="no"/>
 
     <xsl:param name="pathToGenericStructure"/>
+    <xsl:variable name="genericStructure" select="document($pathToGenericStructure)/Structure"/>
 
 <!--
 TODO:
@@ -574,7 +575,7 @@ TODO:
                 </xsl:choose>
             </xsl:variable>
 
-            <xsl:variable name="KeyFamilyAgencyID" select="document($pathToGenericStructure)/Structure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/@agencyID"/>
+            <xsl:variable name="KeyFamilyAgencyID" select="$genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/@agencyID"/>
 
 <!--
 TODO:
@@ -607,7 +608,7 @@ Excluding 'FREQ' is a bit grubby?
 -->
                     <xsl:variable name="Values" select="generic:SeriesKey/generic:Value[@concept != 'FREQ']"/>
                     <xsl:variable name="Concepts" select="$Values/@concept"/>
-                    <xsl:variable name="KeyFamily" select="document($pathToGenericStructure)/Structure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]"/>
+                    <xsl:variable name="KeyFamily" select="$genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]"/>
                     <xsl:variable name="agencyID" select="$KeyFamily/@agencyID"/>
                     <xsl:variable name="Group" select="$KeyFamily/structure:Components/structure:Group"/>
                     <xsl:variable name="DimensionRefs" select="$Group/structure:DimensionRef"/>
@@ -634,14 +635,18 @@ XXX: FIXME:
 Are these supposed to be unique slices?
 -->
                         <xsl:if test="not(contains($hasSlice, 'false'))">
+<xsl:message>
+<xsl:text>slice</xsl:text>
+</xsl:message>
                             <qb:slice>
                                 <rdf:Description>
                                     <rdf:type rdf:resource="{$qb}Slice"/>
                                     <qb:sliceStructure rdf:resource="{fn:getSliceKey($agencyID, $Group)}"/>
                                     <xsl:for-each select="generic:SeriesKey/generic:Value[@concept != 'FREQ']">
+                                        <xsl:variable name="concept" select="@concept"/>
                                         <xsl:call-template name="ObsProperty">
-                                            <xsl:with-param name="KeyFamilyRef" select="$KeyFamilyRef"/>
-                                            <xsl:with-param name="concept" select="@concept"/>
+                                            <xsl:with-param name="Component" select="$genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/structure:Dimension[@conceptRef = $concept]"/>
+                                            <xsl:with-param name="concept" select="$concept"/>
                                             <xsl:with-param name="value" select="@value"/>
                                         </xsl:call-template>
                                     </xsl:for-each>
@@ -672,12 +677,12 @@ TODO:
 This is a one time retrieval but perhaps not necessary for the observations. Revisit.
 
             <xsl:variable name="PrimaryMeasureTextFormattextType">
-                <xsl:value-of select="document($pathToGenericStructure)/Structure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/PrimaryMeasure/TextFormat/@textType"/>
+                <xsl:value-of select="$genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/PrimaryMeasure/TextFormat/@textType"/>
             </xsl:variable>
 -->
 
 
-            <xsl:variable name="TimeDimensionConceptRef" select="document($pathToGenericStructure)/Structure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/structure:TimeDimension/@conceptRef"/>
+            <xsl:variable name="TimeDimensionConceptRef" select="$genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/structure:TimeDimension/@conceptRef"/>
 
             <xsl:for-each select="generic:Series">
 <!--
@@ -705,9 +710,10 @@ This dataset URI needs to be unique
                         <qb:dataSet rdf:resource="{$dataset}{$KeyFamilyAgencyID}/{$KeyFamilyRef}"/>
 
                         <xsl:for-each select="../generic:SeriesKey/generic:Value">
+                            <xsl:variable name="concept" select="@concept"/>
                             <xsl:call-template name="ObsProperty">
-                                <xsl:with-param name="KeyFamilyRef" select="$KeyFamilyRef"/>
-                                <xsl:with-param name="concept" select="@concept"/>
+                                <xsl:with-param name="Component" select="$genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/structure:Dimension[@conceptRef = $concept]"/>
+                                <xsl:with-param name="concept" select="$concept"/>
                                 <xsl:with-param name="value" select="@value"/>
                             </xsl:call-template>
                         </xsl:for-each>
@@ -732,9 +738,10 @@ datatype
                         </xsl:for-each>
 
                         <xsl:for-each select="generic:Attributes/generic:Value">
+                            <xsl:variable name="concept" select="@concept"/>
                             <xsl:call-template name="ObsProperty">
-                                <xsl:with-param name="KeyFamilyRef" select="$KeyFamilyRef"/>
-                                <xsl:with-param name="concept" select="@concept"/>
+                                <xsl:with-param name="Component" select="$genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/structure:Attribute[@conceptRef = $concept]"/>
+                                <xsl:with-param name="concept" select="$concept"/>
                                 <xsl:with-param name="value" select="@value"/>
                             </xsl:call-template>
                         </xsl:for-each>
@@ -746,21 +753,44 @@ datatype
 
 
     <xsl:template name="ObsProperty">
-        <xsl:param name="KeyFamilyRef"/>
+        <xsl:param name="Component"/>
         <xsl:param name="concept"/>
         <xsl:param name="value"/>
 <!--
-FIXME: Needs agencyID in path for property
+FIXME: I think this is insanely expensive
 -->
-        <xsl:element name="property:{$concept}" namespace="{$property}">
-            <xsl:variable name="codelist">
-                <xsl:value-of select="document($pathToGenericStructure)/Structure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/*[@conceptRef = $concept]/@codelist"/>
-            </xsl:variable>
+
+        <xsl:variable name="ConceptAgencyID" select="fn:getConceptAgencyID($genericStructure, $Component)"/>
+
+        <xsl:variable name="ConceptAgencyURI">
+            <xsl:choose>
+                <xsl:when test="$ConceptAgencyID != ''">
+                    <xsl:value-of select="$ConceptAgencyID"/><xsl:value-of select="$uriThingSeparator"/>
+                </xsl:when>
+                <xsl:otherwise>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+
+        <xsl:element name="property:{$concept}" namespace="{$property}{$ConceptAgencyURI}">
+            <xsl:variable name="codelist" select="$Component/@codelist"/>
 
             <xsl:choose>
                 <xsl:when test="$codelist != ''">
+                    <xsl:variable name="codelistAgency" select="$Component/@codelistAgency"/>
+                    <xsl:variable name="codelistURI">
+                        <xsl:choose>
+                            <xsl:when test="$codelistAgency != ''">
+                                <xsl:text>/</xsl:text><xsl:value-of select="$codelist"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="$codelist"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:variable>
+
                     <xsl:attribute name="rdf:resource">
-                        <xsl:value-of select="$code"/><xsl:value-of select="$codelist"/><xsl:value-of select="$uriThingSeparator"/><xsl:value-of select="$value"/>
+                        <xsl:value-of select="$code"/><xsl:value-of select="$codelistAgency"/><xsl:value-of select="$codelistURI"/><xsl:value-of select="$uriThingSeparator"/><xsl:value-of select="$value"/>
                     </xsl:attribute>
                 </xsl:when>
 <!--
