@@ -573,15 +573,18 @@ TODO:
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:variable>
+
+            <xsl:variable name="KeyFamilyAgencyID" select="document($pathToGenericStructure)/Structure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/@agencyID"/>
+
 <!--
 TODO:
 This dataset URI needs to be unique
 
 "ID identifies a data flow definition, which, when combined with time, uniquely identifies the data set." from SDMXMessage
 -->
-            <rdf:Description about="{$dataset}{$KeyFamilyRef}">
+            <rdf:Description about="{$dataset}{$KeyFamilyAgencyID}/{$KeyFamilyRef}">
                 <rdf:type rdf:resource="{$qb}DataSet"/>
-                <qb:structure rdf:resource="{$dataset}{$KeyFamilyRef}/structure"/>
+                <qb:structure rdf:resource="{$dataset}{$KeyFamilyAgencyID}/{$KeyFamilyRef}{$uriThingSeparator}structure"/>
                 <xsl:if test="@datasetID">
                     <skos:notation><xsl:value-of select="@datasetID"/></skos:notation>
                 </xsl:if>
@@ -697,9 +700,9 @@ TODO:
 This dataset URI needs to be unique
 -->
 
-                    <rdf:Description about="{$dataset}{$KeyFamilyRef}{$uriThingSeparator}{$SeriesKeyValues}{$ObsTimeURI}">
+                    <rdf:Description about="{$dataset}{$KeyFamilyAgencyID}/{$KeyFamilyRef}{$uriThingSeparator}{$SeriesKeyValues}{$ObsTimeURI}">
                         <rdf:type rdf:resource="{$qb}Observation"/>
-                        <qb:dataSet rdf:resource="{$dataset}{$KeyFamilyRef}"/>
+                        <qb:dataSet rdf:resource="{$dataset}{$KeyFamilyAgencyID}/{$KeyFamilyRef}"/>
 
                         <xsl:for-each select="../generic:SeriesKey/generic:Value">
                             <xsl:call-template name="ObsProperty">
