@@ -16,6 +16,8 @@
     xmlns:message="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
     xmlns:generic="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/generic"
     xmlns:common="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/common"
+
+    xpath-default-namespace="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
     >
 
     <xsl:output encoding="utf-8" indent="yes" method="xml" omit-xml-declaration="no"/>
@@ -97,19 +99,19 @@ FIXME: namespace is not necessarily ?kos
     </xsl:template>
 
     <xsl:template match="@validFrom">
-        <sdmx-concept:validFrom><xsl:value-of select="."/></sdmx-concept:validFrom>
+        <sdmx-concept:validFrom><xsl:value-of select="normalize-space(.)"/></sdmx-concept:validFrom>
     </xsl:template>
 
     <xsl:template match="@validTo">
-        <sdmx-concept:validTo><xsl:value-of select="."/></sdmx-concept:validTo>
+        <sdmx-concept:validTo><xsl:value-of select="normalize-space(.)"/></sdmx-concept:validTo>
     </xsl:template>
 
     <xsl:template match="@uri">
-        <rdfs:isDefinedBy rdf:resource="normalize-space(.)"/>
+        <rdfs:isDefinedBy rdf:resource="{normalize-space(.)}"/>
     </xsl:template>
 
     <xsl:template match="@urn">
-        <dcterms:identifier rdf:resource="normalize-space(.)"/>
+        <dcterms:identifier rdf:resource="{normalize-space(.)}"/>
     </xsl:template>
 
     <xsl:template name="qbCodeListrdfsRange">
@@ -245,7 +247,7 @@ FIXME: namespace is not necessarily ?kos
                 </xsl:when>
                 <!-- Best bet if Concept is in the same document -->
                 <xsl:otherwise>
-                    <xsl:variable name="Concept" select="$doc/Concepts/structure:ConceptScheme/structure:Concept[@id = $node/@conceptRef]"/>
+                    <xsl:variable name="Concept" select="$doc/Concepts//structure:Concept[@id = $node/@conceptRef]"/>
 
                     <xsl:if test="count($Concept) = 1">
                         <xsl:choose>
@@ -272,5 +274,37 @@ FIXME: namespace is not necessarily ?kos
                 <xsl:value-of select="$doc/KeyFamilies/structure:KeyFamily[1]/@agencyID"/>
             </xsl:otherwise>
         </xsl:choose>
+    </xsl:function>
+
+    <xsl:function name="fn:createSeriesKeyConceptsData">
+        <xsl:param name="concepts"/>
+        <xsl:param name="KeyFamilyRef"/>
+
+        <rdf:RDF>
+            <xsl:for-each select="distinct-values($concepts)">
+                <xsl:variable name="concept" select="."/>
+                <xsl:element name="{$concept}">
+                    <xsl:variable name="Component" select="$genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/*[@conceptRef = $concept]"/>
+
+                    <xsl:variable name="ConceptAgencyID" select="fn:getConceptAgencyID($genericStructure, $Component)"/>
+
+                    <xsl:variable name="codelist" select="$Component/@codelist"/>
+
+                    <xsl:attribute name="conceptAgencyURI">
+                        <xsl:value-of select="$ConceptAgencyID"/><xsl:value-of select="$uriThingSeparator"/>
+                    </xsl:attribute>
+
+                    <xsl:attribute name="codelistURI">
+                        <xsl:choose>
+                            <xsl:when test="$ConceptAgencyID != '' and $codelist != ''">
+                                <xsl:value-of select="$ConceptAgencyID"/><xsl:text>/</xsl:text><xsl:value-of select="$codelist"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:attribute>
+                </xsl:element>
+            </xsl:for-each>
+        </rdf:RDF>
     </xsl:function>
 </xsl:stylesheet>
