@@ -5,62 +5,14 @@
   <rdf:Description rdf:about="file:///var/www/sdmx-to-qb/scripts/config.ttl">
     <rdf:value>
       <rdf:Description>
-        <rdf:value>http://www.w3.org/1999/02/22-rdf-syntax-ns#</rdf:value>
-        <rdfs:label>rdf</rdfs:label>
+        <rdf:value>https://raw.github.com/csarven/sdmx-to-qb/master/scripts/generic.xsl</rdf:value>
+        <rdfs:label>xslDocument</rdfs:label>
       </rdf:Description>
     </rdf:value>
     <rdf:value>
       <rdf:Description>
-        <rdf:value>http://example.org/code/</rdf:value>
-        <rdfs:label>code</rdfs:label>
-      </rdf:Description>
-    </rdf:value>
-    <rdf:value>
-      <rdf:Description>
-        <rdf:value>http://example.org/concept/</rdf:value>
-        <rdfs:label>concept</rdfs:label>
-      </rdf:Description>
-    </rdf:value>
-    <rdf:value>
-      <rdf:Description>
-        <rdf:value>http://example.org/property/</rdf:value>
-        <rdfs:label>property</rdfs:label>
-      </rdf:Description>
-    </rdf:value>
-    <rdf:value>
-      <rdf:Description>
-        <rdf:value>http://example.org/dataset/</rdf:value>
-        <rdfs:label>dataset</rdfs:label>
-      </rdf:Description>
-    </rdf:value>
-    <rdf:value>
-      <rdf:Description>
-        <rdf:value>http://example.org/slice/</rdf:value>
-        <rdfs:label>slice</rdfs:label>
-      </rdf:Description>
-    </rdf:value>
-    <rdf:value>
-      <rdf:Description>
-        <rdf:value>http://www.w3.org/2001/XMLSchema#</rdf:value>
-        <rdfs:label>xsd</rdfs:label>
-      </rdf:Description>
-    </rdf:value>
-    <rdf:value>
-      <rdf:Description>
-        <rdf:value>http://purl.org/linked-data/cube#</rdf:value>
-        <rdfs:label>qb</rdfs:label>
-      </rdf:Description>
-    </rdf:value>
-    <rdf:value>
-      <rdf:Description>
-        <rdf:value>http://www.w3.org/2004/02/skos/core#</rdf:value>
-        <rdfs:label>skos</rdfs:label>
-      </rdf:Description>
-    </rdf:value>
-    <rdf:value>
-      <rdf:Description>
-        <rdf:value>http://purl.org/linked-data/sdmx#</rdf:value>
-        <rdfs:label>sdmx</rdfs:label>
+        <rdf:value>http://www.w3.org/ns/prov#</rdf:value>
+        <rdfs:label>prov</rdfs:label>
       </rdf:Description>
     </rdf:value>
     <rdf:value>
@@ -83,8 +35,104 @@
     </rdf:value>
     <rdf:value>
       <rdf:Description>
+        <rdf:value>http://example.org/#i</rdf:value>
+        <rdfs:label>creator</rdfs:label>
+      </rdf:Description>
+    </rdf:value>
+    <rdf:value>
+      <rdf:Description>
         <rdf:value>http://example.org/</rdf:value>
         <rdfs:label>baseuri</rdfs:label>
+      </rdf:Description>
+    </rdf:value>
+    <rdf:value>
+      <rdf:Description>
+        <rdf:value>http://example.org/prov/</rdf:value>
+        <rdfs:label>provenance</rdfs:label>
+      </rdf:Description>
+    </rdf:value>
+    <rdf:value>
+      <rdf:Description>
+        <rdf:value>http://example.org/class/</rdf:value>
+        <rdfs:label>class</rdfs:label>
+      </rdf:Description>
+    </rdf:value>
+    <rdf:value>
+      <rdf:Description>
+        <rdf:value>http://example.org/code/</rdf:value>
+        <rdfs:label>code</rdfs:label>
+      </rdf:Description>
+    </rdf:value>
+    <rdf:value>
+      <rdf:Description>
+        <rdf:value>http://example.org/concept/</rdf:value>
+        <rdfs:label>concept</rdfs:label>
+      </rdf:Description>
+    </rdf:value>
+    <rdf:value>
+      <rdf:Description>
+        <rdf:value>http://www.w3.org/1999/02/22-rdf-syntax-ns#</rdf:value>
+        <rdfs:label>rdf</rdfs:label>
+      </rdf:Description>
+    </rdf:value>
+    <rdf:value>
+      <rdf:Description>
+        <rdf:value>http://example.org/property/</rdf:value>
+        <rdfs:label>property</rdfs:label>
+      </rdf:Description>
+    </rdf:value>
+    <rdf:value>
+      <rdf:Description>
+        <rdf:value>http://example.org/dataset/</rdf:value>
+        <rdfs:label>dataset</rdfs:label>
+      </rdf:Description>
+    </rdf:value>
+    <rdf:value>
+      <rdf:Description>
+        <rdf:value>http://example.org/slice/</rdf:value>
+        <rdfs:label>slice</rdfs:label>
+      </rdf:Description>
+    </rdf:value>
+    <rdf:value>
+      <rdf:Description>
+        <rdf:value>http://www.w3.org/2000/01/rdf-schema#</rdf:value>
+        <rdfs:label>rdfs</rdfs:label>
+      </rdf:Description>
+    </rdf:value>
+    <rdf:value>
+      <rdf:Description>
+        <rdf:value>http://www.w3.org/2002/07/owl#</rdf:value>
+        <rdfs:label>owl</rdfs:label>
+      </rdf:Description>
+    </rdf:value>
+    <rdf:value>
+      <rdf:Description>
+        <rdf:value>http://www.w3.org/2001/XMLSchema#</rdf:value>
+        <rdfs:label>xsd</rdfs:label>
+      </rdf:Description>
+    </rdf:value>
+    <rdf:value>
+      <rdf:Description>
+        <rdf:value>http://purl.org/linked-data/cube#</rdf:value>
+        <rdfs:label>qb</rdfs:label>
+      </rdf:Description>
+    </rdf:value>
+    <rdf:value>
+      <rdf:Description>
+        <rdf:value>http://www.w3.org/2004/02/skos/core#</rdf:value>
+        <rdfs:label>skos</rdfs:label>
+      </rdf:Description>
+    </rdf:value>
+    <rdf:value>
+      <rdf:Description>
+        <rdf:value>http://purl.org/linked-data/xkos#</rdf:value>
+        <rdfs:label>xkos</rdfs:label>
+      </rdf:Description>
+    </rdf:value>
+    <rdf:value>
+      <rdf:Description>
+        <rdf:value>http://purl.org/linked-data/sdmx#</rdf:value>
+        <rdfs:label>sdmx</rdfs:label>
       </rdf:Description>
     </rdf:value>
   </rdf:Description>

@@ -9,6 +9,7 @@
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:dcterms="http://purl.org/dc/terms/"
     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:prov="http://www.w3.org/ns/prov#"
     xmlns:qb="http://purl.org/linked-data/cube#"
     xmlns:sdmx-concept="http://purl.org/linked-data/sdmx/2009/concept#"
     xmlns:fn="http://270a.info/xpath-function/"
@@ -24,6 +25,8 @@
 
     <xsl:variable name="pathToConfig"><xsl:text>./config.rdf</xsl:text></xsl:variable>
     <xsl:variable name="Config" select="document($pathToConfig)/rdf:RDF"/>
+    <xsl:variable name="xslDocument" select="fn:getConfig('xslDocument')"/>
+    <xsl:variable name="now" select="fn:now()"/>
     <xsl:variable name="rdf" select="fn:getConfig('rdf')"/>
     <xsl:variable name="rdfs" select="fn:getConfig('rdfs')"/>
     <xsl:variable name="owl" select="fn:getConfig('owl')"/>
@@ -32,7 +35,10 @@
     <xsl:variable name="skos" select="fn:getConfig('skos')"/>
     <xsl:variable name="xkos" select="fn:getConfig('xkos')"/>
     <xsl:variable name="sdmx" select="fn:getConfig('sdmx')"/>
+    <xsl:variable name="prov" select="fn:getConfig('prov')"/>
+    <xsl:variable name="provenance" select="fn:getConfig('provenance')"/>
     <xsl:variable name="lang" select="fn:getConfig('lang')"/>
+    <xsl:variable name="creator" select="fn:getConfig('creator')"/>
     <xsl:variable name="baseuri" select="fn:getConfig('baseuri')"/>
     <xsl:variable name="concept" select="fn:getConfig('concept')"/>
     <xsl:variable name="code" select="fn:getConfig('code')"/>
@@ -170,6 +176,33 @@ FIXME: namespace is not necessarily ?kos
         </xsl:attribute>
     </xsl:template>
 
+    <xsl:template name="provActivity">
+        <xsl:param name="provUsedA"/>
+        <xsl:param name="provUsedB"/>
+        <xsl:param name="provGenerated"/>
+
+        <xsl:variable name="now" select="format-dateTime(current-dateTime(), '[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01]Z')"/>
+
+        <rdf:Description rdf:about="{$provenance}activity{$uriThingSeparator}{replace($now, '\D', '')}">
+            <rdf:type rdf:resource="{$prov}Activity"/>
+<!--dcterms:title-->
+            <prov:startedAtTime rdf:datatype="{$xsd}dateTime"><xsl:value-of select="$now"/></prov:startedAtTime>
+            <prov:used rdf:resource="{$provUsedA}"/>
+            <xsl:if test="$provUsedB">
+                <prov:used rdf:resource="{$provUsedB}"/>
+            </xsl:if>
+            <prov:used rdf:resource="{$xslDocument}"/>
+            <prov:generated>
+                <rdf:Description rdf:about="{$provGenerated}">
+                    <prov:wasDerivedFrom rdf:resource="{$provUsedA}"/>
+                </rdf:Description>
+            </prov:generated>
+        </rdf:Description>
+    </xsl:template>
+
+    <xsl:function name="fn:now">
+        <xsl:value-of select="format-dateTime(current-dateTime(), '[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01]Z')"/>
+    </xsl:function>
 
     <xsl:function name="fn:getUriValidFromToSeparator">
         <xsl:param name="validFrom"/>

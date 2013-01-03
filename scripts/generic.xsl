@@ -14,6 +14,7 @@
     xmlns:wgs="http://www.w3.org/2003/01/geo/wgs84_pos#"
     xmlns:dcterms="http://purl.org/dc/terms/"
     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:prov="http://www.w3.org/ns/prov#"
     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
     xmlns:xkos="http://purl.org/linked-data/xkos#"
     xmlns:qb="http://purl.org/linked-data/cube#"
@@ -56,6 +57,10 @@ TODO:
         <rdf:RDF>
             <xsl:namespace name="property" select="$property"/>
 
+            <rdf:Description rdf:about="{$creator}">
+                <rdf:type rdf:resource="{$prov}Agent"/>
+            </rdf:Description>
+
             <xsl:call-template name="KeyFamily"/>
 
             <xsl:call-template name="Concepts"/>
@@ -72,14 +77,33 @@ TODO:
         <xsl:for-each select="Structure/KeyFamilies/structure:KeyFamily">
             <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
             <xsl:variable name="agencyID" select="fn:getAttributeValue(@agencyID)"/>
-
-            <xsl:if test="$agencyID != ''">
+            <xsl:variable name="dsdURI">
+                <xsl:value-of select="$dataset"/>
                 <xsl:value-of select="$agencyID"/>
-            </xsl:if>
+                <xsl:text>/</xsl:text>
+                <xsl:value-of select="$id"/>
+                <xsl:value-of select="$uriThingSeparator"/>
+                <xsl:text>structure</xsl:text>
+            </xsl:variable>
 
-            <rdf:Description rdf:about="{$dataset}{$agencyID}/{$id}{$uriThingSeparator}structure">
+<!--
+FIXME: $pathToGenericStructure should be replaced with an HTTP URI
+-->
+            <xsl:call-template name="provActivity">
+                <xsl:with-param name="provUsedA" select="document-uri(doc($pathToGenericStructure))"/>
+                <xsl:with-param name="provGenerated" select="$dsdURI"/>
+            </xsl:call-template>
+
+            <rdf:Description rdf:about="{document-uri(doc($pathToGenericStructure))}">
+                <rdf:type rdf:resource="{$prov}Entity"/>
+                <prov:wasAttributedTo rdf:resource="{$creator}"/>
+            </rdf:Description>
+
+            <rdf:Description rdf:about="{$dsdURI}">
                 <rdf:type rdf:resource="{$sdmx}DataStructureDefinition"/>
                 <rdf:type rdf:resource="{$qb}DataStructureDefinition"/>
+                <rdf:type rdf:resource="{$prov}Entity"/>
+                <prov:wasAttributedTo rdf:resource="{$creator}"/>
 
 <!-- TODO:
 * Review these properties. Some are close enough to existing SDMX, some I made them up - they should be added to sdmx* vocabs perhpas, so, consider creating sdmx-concept URIs for dsi/mAgency/isFinal/isExternalReference/validFrom/validTo ...?
@@ -597,8 +621,29 @@ This dataset URI needs to be unique
 
 "ID identifies a data flow definition, which, when combined with time, uniquely identifies the data set." from SDMXMessage
 -->
-            <rdf:Description about="{$dataset}{$KeyFamilyAgencyID}/{$KeyFamilyRef}">
+
+            <xsl:variable name="datasetURI">
+                <xsl:value-of select="$dataset"/>
+                <xsl:value-of select="$KeyFamilyAgencyID"/>
+                <xsl:text>/</xsl:text>
+                <xsl:value-of select="$KeyFamilyRef"/>
+            </xsl:variable>
+
+            <xsl:call-template name="provActivity">
+                <xsl:with-param name="provUsedA" select="base-uri()"/>
+                <xsl:with-param name="provUsedB" select="document-uri(doc($pathToGenericStructure))"/>
+                <xsl:with-param name="provGenerated" select="$datasetURI"/>
+            </xsl:call-template>
+
+            <rdf:Description rdf:about="{document-uri(doc($pathToGenericStructure))}">
+                <rdf:type rdf:resource="{$prov}Entity"/>
+                <prov:wasAttributedTo rdf:resource="{$creator}"/>
+            </rdf:Description>
+
+            <rdf:Description about="{$datasetURI}">
                 <rdf:type rdf:resource="{$qb}DataSet"/>
+                <rdf:type rdf:resource="{$prov}Entity"/>
+
                 <qb:structure rdf:resource="{$dataset}{$KeyFamilyAgencyID}/{$KeyFamilyRef}{$uriThingSeparator}structure"/>
                 <xsl:if test="@datasetID">
                     <skos:notation><xsl:value-of select="@datasetID"/></skos:notation>
