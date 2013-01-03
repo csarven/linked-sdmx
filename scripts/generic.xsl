@@ -613,7 +613,7 @@ XXX: Fallback: KeyfamilyRef may not exist.
                 <xsl:sequence select="$PrimaryMeasureConceptRef"/>
             </xsl:variable>
 
-            <xsl:variable name="SeriesKeyConceptsData" select="fn:createSeriesKeyConceptsData($concepts, $KeyFamilyRef)"/>
+            <xsl:variable name="SeriesKeyConceptsData" select="fn:createSeriesKeyComponentData($concepts, $KeyFamilyRef)"/>
 
 <!--
 TODO:
@@ -796,9 +796,9 @@ datatype
 
         <xsl:element name="property:{$concept}" namespace="{$property}{$SeriesKeyConcept/@conceptAgencyURI}">
             <xsl:choose>
-                <xsl:when test="$SeriesKeyConcept/@codelistURI != ''">
+                <xsl:when test="$SeriesKeyConcept/@codelistAgency != ''">
                     <xsl:attribute name="rdf:resource">
-                        <xsl:value-of select="$code"/><xsl:value-of select="$SeriesKeyConcept/@codelistURI"/><xsl:value-of select="$uriThingSeparator"/><xsl:value-of select="$value"/>
+                        <xsl:value-of select="$code"/><xsl:value-of select="$SeriesKeyConcept/@codelistAgency"/><xsl:text>/</xsl:text><xsl:value-of select="$SeriesKeyConcept/@codelist"/><xsl:value-of select="$uriThingSeparator"/><xsl:value-of select="$value"/>
                     </xsl:attribute>
                 </xsl:when>
 <!--

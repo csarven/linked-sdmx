@@ -309,7 +309,39 @@ FIXME: namespace is not necessarily ?kos
         </xsl:choose>
     </xsl:function>
 
-    <xsl:function name="fn:createSeriesKeyConceptsData">
+    <xsl:function name="fn:getCodeListAgencyID">
+        <xsl:param name="doc"/>
+        <xsl:param name="node"/>
+
+        <xsl:variable name="CodeListAgencyID">
+            <xsl:choose>
+                <xsl:when test="$node/@codelistAgency">
+                    <xsl:value-of select="$node/@codelistAgency"/>
+                </xsl:when>
+                <!-- Best bet if Concept is in the same document -->
+                <xsl:otherwise>
+                    <xsl:variable name="CodeList" select="$doc/CodeLists//structure:CodeList[@id = $node/@codelist]"/>
+
+                    <xsl:if test="count($CodeList) = 1">
+                        <xsl:value-of select="$CodeList/@agencyID"/>
+                    </xsl:if>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+
+        <xsl:choose>
+            <xsl:when test="$CodeListAgencyID != ''">
+                <xsl:value-of select="$CodeListAgencyID"/>
+            </xsl:when>
+            <!-- Fallback -->
+            <xsl:otherwise>
+                <xsl:value-of select="$doc/KeyFamilies/structure:KeyFamily[1]/@agencyID"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>
+
+
+    <xsl:function name="fn:createSeriesKeyComponentData">
         <xsl:param name="concepts"/>
         <xsl:param name="KeyFamilyRef"/>
 
@@ -319,22 +351,22 @@ FIXME: namespace is not necessarily ?kos
                 <xsl:element name="{$concept}">
                     <xsl:variable name="Component" select="$genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/*[@conceptRef = $concept]"/>
 
-                    <xsl:variable name="ConceptAgencyID" select="fn:getConceptAgencyID($genericStructure, $Component)"/>
-
                     <xsl:variable name="codelist" select="$Component/@codelist"/>
-
-                    <xsl:attribute name="conceptAgencyURI">
-                        <xsl:value-of select="$ConceptAgencyID"/><xsl:value-of select="$uriThingSeparator"/>
+                    <xsl:attribute name="codelist">
+                        <xsl:value-of select="$codelist"/>
                     </xsl:attribute>
 
-                    <xsl:attribute name="codelistURI">
-                        <xsl:choose>
-                            <xsl:when test="$ConceptAgencyID != '' and $codelist != ''">
-                                <xsl:value-of select="$ConceptAgencyID"/><xsl:text>/</xsl:text><xsl:value-of select="$codelist"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                            </xsl:otherwise>
-                        </xsl:choose>
+                    <xsl:attribute name="codelistAgency">
+                        <xsl:if test="$codelist">
+                            <xsl:value-of select="fn:getCodeListAgencyID($genericStructure, $Component)"/>
+                        </xsl:if>
+                    </xsl:attribute>
+
+                    <xsl:variable name="conceptAgency">
+                        <xsl:value-of select="fn:getConceptAgencyID($genericStructure, $Component)"/>
+                    </xsl:variable>
+                    <xsl:attribute name="conceptAgencyURI">
+                        <xsl:value-of select="$conceptAgency"/><xsl:value-of select="$uriThingSeparator"/><xsl:value-of select="$uriThingSeparator"/>
                     </xsl:attribute>
                 </xsl:element>
             </xsl:for-each>
