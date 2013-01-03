@@ -366,7 +366,7 @@ FIXME: namespace is not necessarily ?kos
                         <xsl:value-of select="fn:getConceptAgencyID($genericStructure, $Component)"/>
                     </xsl:variable>
                     <xsl:attribute name="conceptAgencyURI">
-                        <xsl:value-of select="$conceptAgency"/><xsl:value-of select="$uriThingSeparator"/><xsl:value-of select="$uriThingSeparator"/>
+                        <xsl:value-of select="$conceptAgency"/><xsl:value-of select="$uriThingSeparator"/>
                     </xsl:attribute>
                 </xsl:element>
             </xsl:for-each>
