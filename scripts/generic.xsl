@@ -11,7 +11,6 @@
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:fn="http://270a.info/xpath-function/"
-    xmlns:wgs="http://www.w3.org/2003/01/geo/wgs84_pos#"
     xmlns:dcterms="http://purl.org/dc/terms/"
     xmlns:foaf="http://xmlns.com/foaf/0.1/"
     xmlns:prov="http://www.w3.org/ns/prov#"
@@ -39,6 +38,7 @@
 
     <xsl:output encoding="utf-8" indent="yes" method="xml" omit-xml-declaration="no"/>
 
+    <xsl:param name="xmlDocument"/>
     <xsl:param name="pathToGenericStructure"/>
     <xsl:variable name="genericStructure" select="document($pathToGenericStructure)/Structure"/>
 
@@ -47,7 +47,6 @@ TODO:
 * Default to language when the structure or data doesn't contain xml:lang
 * When agencyID="SDMX", fixed corresponding URIs within the SDMX namespace should be used. Sometimes codelistAgency or conceptSchemeAgency is not mentioned in the KeyFamily but the Codelist uses agencyID="SDMX". A first check might be to see if there is an agencyID set for the conceptRef or codelist
 * Similarly consider what to do for agencyID's that's different than self agency and SDMX. Ideally it should use their full URI - needs to check registry?
-* Consider what to do when the SDMX-ML doesn't follow the schema
 * Consider detecting common datetime patterns and use a URI or datatypes
 * Improve config for URI and thing separator
 * isExternalReference
@@ -90,14 +89,9 @@ TODO:
 FIXME: $pathToGenericStructure should be replaced with an HTTP URI
 -->
             <xsl:call-template name="provActivity">
-                <xsl:with-param name="provUsedA" select="document-uri(doc($pathToGenericStructure))"/>
+                <xsl:with-param name="provUsedA" select="resolve-uri(tokenize($xmlDocument, '/')[last()], $xmlDocumentBaseUri)"/>
                 <xsl:with-param name="provGenerated" select="$dsdURI"/>
             </xsl:call-template>
-
-            <rdf:Description rdf:about="{document-uri(doc($pathToGenericStructure))}">
-                <rdf:type rdf:resource="{$prov}Entity"/>
-                <prov:wasAttributedTo rdf:resource="{$creator}"/>
-            </rdf:Description>
 
             <rdf:Description rdf:about="{$dsdURI}">
                 <rdf:type rdf:resource="{$sdmx}DataStructureDefinition"/>
@@ -122,10 +116,6 @@ FIXME: $pathToGenericStructure should be replaced with an HTTP URI
                 <xsl:if test="@isFinal">
                     <sdmx-concept:isFinal rdf:datatype="{$xsd}boolean"><xsl:value-of select="@isFinal"/></sdmx-concept:isFinal>
                 </xsl:if>
-
-<!--
-XXX: dcterms:valid could be used along with gregorian-interval but 1) we don't know the format of these dates and 2) whether both will be supplied. Probably simpler to leave them separate.
--->
 
                 <xsl:apply-templates select="@validFrom"/>
                 <xsl:apply-templates select="@validTo"/>
@@ -491,7 +481,7 @@ structure:textFormat
         <xsl:for-each select="structure:CodeRef">
 <!--
 XXX:
-"At a minimum, either a URN value (a valid SDMX Registry URN as specified in teh SDMX Registry Specification) must be supplied, or a ColdelistAliasRef and a CodeID must be specified."
+"At a minimum, either a URN value (a valid SDMX Registry URN as specified in teh SDMX Registry Specification) must be supplied, or a CodelistAliasRef and a CodeID must be specified."
 -->
             <xsl:variable name="CodeID" select="structure:CodeID"/>
 
@@ -630,19 +620,15 @@ This dataset URI needs to be unique
             </xsl:variable>
 
             <xsl:call-template name="provActivity">
-                <xsl:with-param name="provUsedA" select="base-uri()"/>
-                <xsl:with-param name="provUsedB" select="document-uri(doc($pathToGenericStructure))"/>
+                <xsl:with-param name="provUsedA" select="resolve-uri(tokenize($xmlDocument, '/')[last()], $xmlDocumentBaseUri)"/>
+                <xsl:with-param name="provUsedB" select="resolve-uri(tokenize($pathToGenericStructure, '/')[last()], $xmlDocumentBaseUri)"/>
                 <xsl:with-param name="provGenerated" select="$datasetURI"/>
             </xsl:call-template>
-
-            <rdf:Description rdf:about="{document-uri(doc($pathToGenericStructure))}">
-                <rdf:type rdf:resource="{$prov}Entity"/>
-                <prov:wasAttributedTo rdf:resource="{$creator}"/>
-            </rdf:Description>
 
             <rdf:Description about="{$datasetURI}">
                 <rdf:type rdf:resource="{$qb}DataSet"/>
                 <rdf:type rdf:resource="{$prov}Entity"/>
+                <prov:wasAttributedTo rdf:resource="{$creator}"/>
 
                 <qb:structure rdf:resource="{$dataset}{$KeyFamilyAgencyID}/{$KeyFamilyRef}{$uriThingSeparator}structure"/>
                 <xsl:if test="@datasetID">

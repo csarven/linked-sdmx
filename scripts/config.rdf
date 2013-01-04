@@ -47,6 +47,12 @@
     </rdf:value>
     <rdf:value>
       <rdf:Description>
+        <rdf:value>http://example.org/sdmx/</rdf:value>
+        <rdfs:label>xmlDocumentBaseUri</rdfs:label>
+      </rdf:Description>
+    </rdf:value>
+    <rdf:value>
+      <rdf:Description>
         <rdf:value>http://example.org/prov/</rdf:value>
         <rdfs:label>provenance</rdfs:label>
       </rdf:Description>
@@ -65,14 +71,14 @@
     </rdf:value>
     <rdf:value>
       <rdf:Description>
-        <rdf:value>http://example.org/concept/</rdf:value>
-        <rdfs:label>concept</rdfs:label>
+        <rdf:value>http://www.w3.org/1999/02/22-rdf-syntax-ns#</rdf:value>
+        <rdfs:label>rdf</rdfs:label>
       </rdf:Description>
     </rdf:value>
     <rdf:value>
       <rdf:Description>
-        <rdf:value>http://www.w3.org/1999/02/22-rdf-syntax-ns#</rdf:value>
-        <rdfs:label>rdf</rdfs:label>
+        <rdf:value>http://example.org/concept/</rdf:value>
+        <rdfs:label>concept</rdfs:label>
       </rdf:Description>
     </rdf:value>
     <rdf:value>
@@ -91,6 +97,25 @@
       <rdf:Description>
         <rdf:value>http://example.org/slice/</rdf:value>
         <rdfs:label>slice</rdfs:label>
+      </rdf:Description>
+    </rdf:value>
+    <rdf:value>
+      <rdf:Description>
+        <rdf:value>
+          <rdf:Description>
+            <rdf:predicate>xkos:hasPart</rdf:predicate>
+            <rdf:type>http://example.org/code/AGENCY/CL_Z</rdf:type>
+            <rdfs:label>X</rdfs:label>
+          </rdf:Description>
+        </rdf:value>
+        <rdf:value>
+          <rdf:Description>
+            <rdf:predicate>xkos:isPartOf</rdf:predicate>
+            <rdf:type>http://example.org/code/AGENCY/CL_Z</rdf:type>
+            <rdfs:label>Y</rdfs:label>
+          </rdf:Description>
+        </rdf:value>
+        <rdfs:label>interlinkAnnotationTypes</rdfs:label>
       </rdf:Description>
     </rdf:value>
     <rdf:value>
