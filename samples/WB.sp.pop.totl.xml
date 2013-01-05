@@ -386,7 +386,7 @@
     <generic:Series>
       <generic:SeriesKey>
         <generic:Value concept="FREQ" value="A"/>
-        <generic:Value concept="SERIES" value="CL_SERIES_WDI"/>
+        <generic:Value concept="SERIES" value="SP_POP_TOTL"/>
         <generic:Value concept="REF_AREA" value="IN"/>
       </generic:SeriesKey>
       <generic:Obs>

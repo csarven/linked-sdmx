@@ -1,442 +1,454 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rdf:RDF xmlns:wgs="http://www.w3.org/2003/01/geo/wgs84_pos#"
-         xmlns:sdmx-metadata="http://purl.org/linked-data/sdmx/2009/metadata#"
+<rdf:RDF xmlns:sdmx-attribute="http://purl.org/linked-data/sdmx/2009/attribute#"
+         xmlns:sdmx-code="http://purl.org/linked-data/sdmx/2009/code#"
+         xmlns:sdmx-concept="http://purl.org/linked-data/sdmx/2009/concept#"
+         xmlns:sdmx-dimension="http://purl.org/linked-data/sdmx/2009/dimension#"
          xmlns:dcterms="http://purl.org/dc/terms/"
-         xmlns:sdmx-subject="http://purl.org/linked-data/sdmx/2009/subject#"
+         xmlns:sdmx-measure="http://purl.org/linked-data/sdmx/2009/measure#"
          xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns:sdmx-metadata="http://purl.org/linked-data/sdmx/2009/metadata#"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:prov="http://www.w3.org/ns/prov#"
+         xmlns:sdmx-subject="http://purl.org/linked-data/sdmx/2009/subject#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
          xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+         xmlns:xkos="http://purl.org/linked-data/xkos#"
          xmlns:qb="http://purl.org/linked-data/cube#"
          xmlns:sdmx="http://purl.org/linked-data/sdmx#"
-         xmlns:property="http://example.org/property/"
-         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-         xmlns:sdmx-attribute="http://purl.org/linked-data/sdmx/2009/attribute#"
-         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-         xmlns:sdmx-code="http://purl.org/linked-data/sdmx/2009/code#"
-         xmlns:owl="http://www.w3.org/2002/07/owl#"
-         xmlns:sdmx-concept="http://purl.org/linked-data/sdmx/2009/concept#"
-         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-         xmlns:sdmx-dimension="http://purl.org/linked-data/sdmx/2009/dimension#"
-         xmlns:sdmx-measure="http://purl.org/linked-data/sdmx/2009/measure#">
+         xmlns:property="http://example.org/property/">
+   <rdf:Description rdf:about="http://example.org/#i">
+      <rdf:type rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+   </rdf:Description>
    <rdf:Description rdf:about="http://example.org/code/FAO/HCL_AREA_SUB_AREA">
-      <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
-      <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.codelist.CodeList=FAO:HCL_AREA_SUB_AREA[0.1]"/>
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Collection"/>
+      <dcterms:identifier xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                          rdf:resource="urn:sdmx:org.sdmx.infomodel.codelist.CodeList=FAO:HCL_AREA_SUB_AREA[0.1]"/>
       <skos:notation>HCL_AREA_SUB_AREA</skos:notation>
-      <skos:prefLabel xml:lang="en">HCL_AREA_SUB_AREA</skos:prefLabel>
-      <dcterms:references rdf:resource="http://example.org/code/FAO/CL_FAO_MAJOR_AREA"/>
-      <dcterms:references rdf:resource="http://example.org/code/FAO/CL_SUB_AREA"/>
-      <skos:narrower>
-         <rdf:Description rdf:about="http://example.org/code/FAO/FAO_MAJOR_AREA/01"/>
-      </skos:narrower>
-      <skos:narrower>
-         <rdf:Description rdf:about="http://example.org/code/FAO/FAO_MAJOR_AREA/02"/>
-      </skos:narrower>
-      <skos:narrower>
-         <rdf:Description rdf:about="http://example.org/code/FAO/FAO_MAJOR_AREA/03"/>
-      </skos:narrower>
-      <skos:narrower>
-         <rdf:Description rdf:about="http://example.org/code/FAO/FAO_MAJOR_AREA/04"/>
-      </skos:narrower>
-      <skos:narrower>
-         <rdf:Description rdf:about="http://example.org/code/FAO/FAO_MAJOR_AREA/05"/>
-      </skos:narrower>
-      <skos:narrower>
-         <rdf:Description rdf:about="http://example.org/code/FAO/FAO_MAJOR_AREA/06"/>
-      </skos:narrower>
-      <skos:narrower>
-         <rdf:Description rdf:about="http://example.org/code/FAO/FAO_MAJOR_AREA/07"/>
-      </skos:narrower>
-      <skos:narrower>
-         <rdf:Description rdf:about="http://example.org/code/FAO/FAO_MAJOR_AREA/18"/>
-      </skos:narrower>
-      <skos:narrower>
-         <rdf:Description rdf:about="http://example.org/code/FAO/FAO_MAJOR_AREA/21">
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/21_2">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/21"/>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">HCL_AREA_SUB_AREA</skos:prefLabel>
+      <dcterms:references rdf:resource="http://example.org/code/FAO/"/>
+      <dcterms:references rdf:resource="http://example.org/code/FAO/"/>
+      <xkos:hasPart>
+         <rdf:Description rdf:about="http://example.org/code/FAO/HCL_AREA_SUB_AREA">
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Collection"/>
+            <skos:notation>HCL_AREA_SUB_AREA</skos:notation>
+            <xkos:isPartOf rdf:resource="http://example.org/code/FAO/HCL_AREA_SUB_AREA"/>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://example.org/code/FAO//01"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://example.org/code/FAO//02"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://example.org/code/FAO//03"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://example.org/code/FAO//04"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://example.org/code/FAO//05"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://example.org/code/FAO//06"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://example.org/code/FAO//07"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://example.org/code/FAO//18"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://example.org/code/FAO//21">
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//21_2">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//21"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//21_3">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//21"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//21_0">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//21"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//21_4">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//21"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//21_1">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//21"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//21_6">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//21"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//21_5">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//21"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
                </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/21_3">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/21"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://example.org/code/FAO//27">
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//27_9">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//27"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//27_8">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//27"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//27_6">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//27"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//27_10">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//27"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//27_4">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//27"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//27_14">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//27"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//27_2">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//27"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//27_1">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//27"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//27_12">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//27"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//27_5">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//27"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//27_3">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//27"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//27_7">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//27"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
                </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/21_0">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/21"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://example.org/code/FAO//31"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://example.org/code/FAO//34">
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//34_2">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//34"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//34_1">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//34"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//34_3">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//34"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//34_4">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//34"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
                </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/21_4">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/21"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://example.org/code/FAO//37">
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//37_3">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//37"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//37_4">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//37"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//37_1">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//37"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//37_2">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//37"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
                </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/21_1">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/21"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://example.org/code/FAO//41">
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//41_2">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//41"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//41_3">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//41"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//41_1">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//41"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
                </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/21_6">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/21"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://example.org/code/FAO//47">
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//47_1">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//47"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//47_2">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//47"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//47_X">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//47"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
                </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/21_5">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/21"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://example.org/code/FAO//48">
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//48_2">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//48"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//48_6">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//48"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//48_5">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//48"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//48_4">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//48"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//48_3">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//48"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//48_1">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//48"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
                </rdf:Description>
-            </skos:narrower>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://example.org/code/FAO//51">
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//51_3">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//51"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//51_4">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//51"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//51_5">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//51"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//51_2">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//51"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//51_1">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//51"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//51_6">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//51"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//51_7">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//51"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//51_8">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//51"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+               </rdf:Description>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://example.org/code/FAO//57">
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//57_1">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//57"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//57_3">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//57"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//57_5">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//57"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//57_6">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//57"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//57_2">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//57"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//57_4">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//57"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+               </rdf:Description>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://example.org/code/FAO//58">
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//58_6">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//58"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//58_4">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//58"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//58_5">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//58"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//58_7">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//58"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+               </rdf:Description>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://example.org/code/FAO//61"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://example.org/code/FAO//67"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://example.org/code/FAO//71"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://example.org/code/FAO//77"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://example.org/code/FAO//81"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://example.org/code/FAO//87">
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//87_2">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//87"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//87_1">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//87"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//87_3">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//87"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+               </rdf:Description>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://example.org/code/FAO//88">
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//88_2">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//88"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//88_1">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//88"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://example.org/code/FAO//88_3">
+                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//88"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+               </rdf:Description>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://example.org/code/FAO//98"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://example.org/code/FAO//99"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://example.org/code/FAO//08"/>
+            </xkos:hasPart>
          </rdf:Description>
-      </skos:narrower>
-      <skos:narrower>
-         <rdf:Description rdf:about="http://example.org/code/FAO/FAO_MAJOR_AREA/27">
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/27_9">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/27"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/27_8">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/27"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/27_6">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/27"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/27_10">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/27"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/27_4">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/27"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/27_14">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/27"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/27_2">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/27"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/27_1">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/27"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/27_12">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/27"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/27_5">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/27"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/27_3">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/27"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/27_7">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/27"/>
-               </rdf:Description>
-            </skos:narrower>
-         </rdf:Description>
-      </skos:narrower>
-      <skos:narrower>
-         <rdf:Description rdf:about="http://example.org/code/FAO/FAO_MAJOR_AREA/31"/>
-      </skos:narrower>
-      <skos:narrower>
-         <rdf:Description rdf:about="http://example.org/code/FAO/FAO_MAJOR_AREA/34">
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/34_2">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/34"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/34_1">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/34"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/34_3">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/34"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/34_4">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/34"/>
-               </rdf:Description>
-            </skos:narrower>
-         </rdf:Description>
-      </skos:narrower>
-      <skos:narrower>
-         <rdf:Description rdf:about="http://example.org/code/FAO/FAO_MAJOR_AREA/37">
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/37_3">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/37"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/37_4">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/37"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/37_1">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/37"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/37_2">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/37"/>
-               </rdf:Description>
-            </skos:narrower>
-         </rdf:Description>
-      </skos:narrower>
-      <skos:narrower>
-         <rdf:Description rdf:about="http://example.org/code/FAO/FAO_MAJOR_AREA/41">
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/41_2">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/41"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/41_3">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/41"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/41_1">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/41"/>
-               </rdf:Description>
-            </skos:narrower>
-         </rdf:Description>
-      </skos:narrower>
-      <skos:narrower>
-         <rdf:Description rdf:about="http://example.org/code/FAO/FAO_MAJOR_AREA/47">
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/47_1">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/47"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/47_2">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/47"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/47_X">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/47"/>
-               </rdf:Description>
-            </skos:narrower>
-         </rdf:Description>
-      </skos:narrower>
-      <skos:narrower>
-         <rdf:Description rdf:about="http://example.org/code/FAO/FAO_MAJOR_AREA/48">
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/48_2">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/48"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/48_6">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/48"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/48_5">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/48"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/48_4">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/48"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/48_3">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/48"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/48_1">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/48"/>
-               </rdf:Description>
-            </skos:narrower>
-         </rdf:Description>
-      </skos:narrower>
-      <skos:narrower>
-         <rdf:Description rdf:about="http://example.org/code/FAO/FAO_MAJOR_AREA/51">
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/51_3">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/51"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/51_4">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/51"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/51_5">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/51"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/51_2">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/51"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/51_1">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/51"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/51_6">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/51"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/51_7">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/51"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/51_8">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/51"/>
-               </rdf:Description>
-            </skos:narrower>
-         </rdf:Description>
-      </skos:narrower>
-      <skos:narrower>
-         <rdf:Description rdf:about="http://example.org/code/FAO/FAO_MAJOR_AREA/57">
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/57_1">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/57"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/57_3">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/57"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/57_5">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/57"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/57_6">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/57"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/57_2">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/57"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/57_4">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/57"/>
-               </rdf:Description>
-            </skos:narrower>
-         </rdf:Description>
-      </skos:narrower>
-      <skos:narrower>
-         <rdf:Description rdf:about="http://example.org/code/FAO/FAO_MAJOR_AREA/58">
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/58_6">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/58"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/58_4">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/58"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/58_5">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/58"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/58_7">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/58"/>
-               </rdf:Description>
-            </skos:narrower>
-         </rdf:Description>
-      </skos:narrower>
-      <skos:narrower>
-         <rdf:Description rdf:about="http://example.org/code/FAO/FAO_MAJOR_AREA/61"/>
-      </skos:narrower>
-      <skos:narrower>
-         <rdf:Description rdf:about="http://example.org/code/FAO/FAO_MAJOR_AREA/67"/>
-      </skos:narrower>
-      <skos:narrower>
-         <rdf:Description rdf:about="http://example.org/code/FAO/FAO_MAJOR_AREA/71"/>
-      </skos:narrower>
-      <skos:narrower>
-         <rdf:Description rdf:about="http://example.org/code/FAO/FAO_MAJOR_AREA/77"/>
-      </skos:narrower>
-      <skos:narrower>
-         <rdf:Description rdf:about="http://example.org/code/FAO/FAO_MAJOR_AREA/81"/>
-      </skos:narrower>
-      <skos:narrower>
-         <rdf:Description rdf:about="http://example.org/code/FAO/FAO_MAJOR_AREA/87">
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/87_2">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/87"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/87_1">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/87"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/87_3">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/87"/>
-               </rdf:Description>
-            </skos:narrower>
-         </rdf:Description>
-      </skos:narrower>
-      <skos:narrower>
-         <rdf:Description rdf:about="http://example.org/code/FAO/FAO_MAJOR_AREA/88">
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/88_2">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/88"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/88_1">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/88"/>
-               </rdf:Description>
-            </skos:narrower>
-            <skos:narrower>
-               <rdf:Description rdf:about="http://example.org/code/FAO/CL_SUB_AREA/88_3">
-                  <skos:broader rdf:resource="http://example.org/code/FAO/FAO_MAJOR_AREA/88"/>
-               </rdf:Description>
-            </skos:narrower>
-         </rdf:Description>
-      </skos:narrower>
-      <skos:narrower>
-         <rdf:Description rdf:about="http://example.org/code/FAO/FAO_MAJOR_AREA/98"/>
-      </skos:narrower>
-      <skos:narrower>
-         <rdf:Description rdf:about="http://example.org/code/FAO/FAO_MAJOR_AREA/99"/>
-      </skos:narrower>
-      <skos:narrower>
-         <rdf:Description rdf:about="http://example.org/code/FAO/FAO_MAJOR_AREA/08"/>
-      </skos:narrower>
+      </xkos:hasPart>
    </rdf:Description>
 </rdf:RDF>

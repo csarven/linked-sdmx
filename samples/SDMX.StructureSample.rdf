@@ -1,37 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rdf:RDF xmlns:wgs="http://www.w3.org/2003/01/geo/wgs84_pos#"
-         xmlns:sdmx-metadata="http://purl.org/linked-data/sdmx/2009/metadata#"
+<rdf:RDF xmlns:sdmx-attribute="http://purl.org/linked-data/sdmx/2009/attribute#"
+         xmlns:sdmx-code="http://purl.org/linked-data/sdmx/2009/code#"
+         xmlns:sdmx-concept="http://purl.org/linked-data/sdmx/2009/concept#"
+         xmlns:sdmx-dimension="http://purl.org/linked-data/sdmx/2009/dimension#"
          xmlns:dcterms="http://purl.org/dc/terms/"
-         xmlns:sdmx-subject="http://purl.org/linked-data/sdmx/2009/subject#"
+         xmlns:sdmx-measure="http://purl.org/linked-data/sdmx/2009/measure#"
          xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns:sdmx-metadata="http://purl.org/linked-data/sdmx/2009/metadata#"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:prov="http://www.w3.org/ns/prov#"
+         xmlns:sdmx-subject="http://purl.org/linked-data/sdmx/2009/subject#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
          xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+         xmlns:xkos="http://purl.org/linked-data/xkos#"
          xmlns:qb="http://purl.org/linked-data/cube#"
          xmlns:sdmx="http://purl.org/linked-data/sdmx#"
-         xmlns:property="http://example.org/property/"
-         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-         xmlns:sdmx-attribute="http://purl.org/linked-data/sdmx/2009/attribute#"
-         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-         xmlns:sdmx-code="http://purl.org/linked-data/sdmx/2009/code#"
-         xmlns:owl="http://www.w3.org/2002/07/owl#"
-         xmlns:sdmx-concept="http://purl.org/linked-data/sdmx/2009/concept#"
-         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-         xmlns:sdmx-dimension="http://purl.org/linked-data/sdmx/2009/dimension#"
-         xmlns:sdmx-measure="http://purl.org/linked-data/sdmx/2009/measure#">
+         xmlns:property="http://example.org/property/">
+   <rdf:Description rdf:about="http://example.org/#i">
+      <rdf:type rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+   </rdf:Description>
+   <rdf:Description xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                    rdf:about="http://example.org/prov/activity/20130105165109">
+      <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-05T16:51:09Z</prov:startedAtTime>
+      <prov:used rdf:resource="http://example.org/data/SDMX.StructureSample.xml"/>
+      <prov:used rdf:resource="https://raw.github.com/csarven/sdmx-to-qb/master/scripts/generic.xsl"/>
+      <prov:generated>
+         <rdf:Description rdf:about="http://example.org/dataset/BIS/BIS_JOINT_DEBT/structure">
+            <prov:wasDerivedFrom rdf:resource="http://example.org/data/SDMX.StructureSample.xml"/>
+         </rdf:Description>
+      </prov:generated>
+   </rdf:Description>
    <rdf:Description rdf:about="http://example.org/dataset/BIS/BIS_JOINT_DEBT/structure">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#DataStructureDefinition"/>
       <rdf:type rdf:resource="http://purl.org/linked-data/cube#DataStructureDefinition"/>
+      <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+      <prov:wasAttributedTo rdf:resource="http://example.org/#i"/>
       <sdmx-concept:dsi>BIS_JOINT_DEBT</sdmx-concept:dsi>
       <sdmx-concept:mAgency>BIS</sdmx-concept:mAgency>
       <sdmx-concept:dataRev>1.0</sdmx-concept:dataRev>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/key_families/JOINT_DEBT.xml"/>
-      <skos:prefLabel xml:lang="en">Joint BIS-IMF-OECD-World Bank stats - external debt</skos:prefLabel>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/key_families/JOINT_DEBT.xml"/>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Joint BIS-IMF-OECD-World Bank stats - external debt</skos:prefLabel>
       <qb:component>
          <qb:ComponentSpecification>
             <qb:dimension>
-               <rdf:Description rdf:about="http://example.org/property/BIS/FREQ/">
+               <rdf:Description rdf:about="http://example.org/property/BIS/FREQ">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/BIS/FREQ"/>
+                  <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                               rdf:resource="http://example.org/code//CL_FREQ"/>
+                  <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                              rdf:resource="http://example.org/class//CL_FREQ"/>
                </rdf:Description>
             </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</qb:order>
@@ -40,10 +63,14 @@
       <qb:component>
          <qb:ComponentSpecification>
             <qb:dimension>
-               <rdf:Description rdf:about="http://example.org/property/BIS/JD_TYPE/">
+               <rdf:Description rdf:about="http://example.org/property/BIS/JD_TYPE">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/BIS/JD_TYPE"/>
+                  <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                               rdf:resource="http://example.org/code//CL_JD_TYPE"/>
+                  <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                              rdf:resource="http://example.org/class//CL_JD_TYPE"/>
                </rdf:Description>
             </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</qb:order>
@@ -52,10 +79,14 @@
       <qb:component>
          <qb:ComponentSpecification>
             <qb:dimension>
-               <rdf:Description rdf:about="http://example.org/property/BIS/JD_CATEGORY/">
+               <rdf:Description rdf:about="http://example.org/property/BIS/JD_CATEGORY">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/BIS/JD_CATEGORY"/>
+                  <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                               rdf:resource="http://example.org/code//CL_JD_CATEGORY"/>
+                  <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                              rdf:resource="http://example.org/class//CL_JD_CATEGORY"/>
                </rdf:Description>
             </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</qb:order>
@@ -64,10 +95,14 @@
       <qb:component>
          <qb:ComponentSpecification>
             <qb:dimension>
-               <rdf:Description rdf:about="http://example.org/property/BIS/VIS_CTY/">
+               <rdf:Description rdf:about="http://example.org/property/BIS/VIS_CTY">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/BIS/VIS_CTY"/>
+                  <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                               rdf:resource="http://example.org/code//CL_BIS_IF_REF_AREA"/>
+                  <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                              rdf:resource="http://example.org/class//CL_BIS_IF_REF_AREA"/>
                </rdf:Description>
             </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</qb:order>
@@ -76,7 +111,7 @@
       <qb:component>
          <qb:ComponentSpecification>
             <qb:dimension>
-               <rdf:Description rdf:about="http://example.org/property/BIS/TIME/">
+               <rdf:Description rdf:about="http://example.org/property/BIS/TIME">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/BIS/TIME"/>
@@ -109,6 +144,10 @@
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/BIS/AVAILABILITY"/>
+                  <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                               rdf:resource="http://example.org/code//CL_AVAILABILITY"/>
+                  <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                              rdf:resource="http://example.org/class//CL_AVAILABILITY"/>
                </rdf:Description>
             </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Slice"/>
@@ -121,6 +160,10 @@
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/BIS/TIME_FORMAT"/>
+                  <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                               rdf:resource="http://example.org/code//CL_TIME_FORMAT"/>
+                  <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                              rdf:resource="http://example.org/class//CL_TIME_FORMAT"/>
                </rdf:Description>
             </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Dimension"/>
@@ -133,6 +176,10 @@
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/BIS/COLLECTION"/>
+                  <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                               rdf:resource="http://example.org/code//CL_COLLECTION"/>
+                  <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                              rdf:resource="http://example.org/class//CL_COLLECTION"/>
                </rdf:Description>
             </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Dimension"/>
@@ -145,6 +192,10 @@
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/BIS/DECIMALS"/>
+                  <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                               rdf:resource="http://example.org/code//CL_DECIMALS"/>
+                  <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                              rdf:resource="http://example.org/class//CL_DECIMALS"/>
                </rdf:Description>
             </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Slice"/>
@@ -157,6 +208,10 @@
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/BIS/OBS_CONF"/>
+                  <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                               rdf:resource="http://example.org/code//CL_BIS_OBS_CONF"/>
+                  <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                              rdf:resource="http://example.org/class//CL_BIS_OBS_CONF"/>
                </rdf:Description>
             </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Observation"/>
@@ -169,6 +224,10 @@
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/BIS/OBS_STATUS"/>
+                  <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                               rdf:resource="http://example.org/code//CL_OBS_STATUS"/>
+                  <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                              rdf:resource="http://example.org/class//CL_OBS_STATUS"/>
                </rdf:Description>
             </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Observation"/>
@@ -193,6 +252,10 @@
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/BIS/BIS_UNIT"/>
+                  <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                               rdf:resource="http://example.org/code//CL_BIS_UNIT"/>
+                  <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                              rdf:resource="http://example.org/class//CL_BIS_UNIT"/>
                </rdf:Description>
             </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Slice"/>
@@ -205,6 +268,10 @@
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/BIS/UNIT_MULT"/>
+                  <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                               rdf:resource="http://example.org/code//CL_UNIT_MULT"/>
+                  <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                              rdf:resource="http://example.org/class//CL_UNIT_MULT"/>
                </rdf:Description>
             </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Slice"/>
@@ -223,950 +290,1099 @@
    <rdf:Description rdf:about="http://example.org/concept/BIS/TIME">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/concepts/VIS_CTY.xml"/>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/concepts/VIS_CTY.xml"/>
       <skos:notation>TIME</skos:notation>
-      <skos:prefLabel xml:lang="en">Time</skos:prefLabel>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Time</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/BIS/FREQ">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/concepts/FREQ.xml"/>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/concepts/FREQ.xml"/>
       <skos:notation>FREQ</skos:notation>
-      <skos:prefLabel xml:lang="en">Frequency</skos:prefLabel>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Frequency</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/BIS/JD_TYPE">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/concepts/JD_TYPE.xml"/>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/concepts/JD_TYPE.xml"/>
       <skos:notation>JD_TYPE</skos:notation>
-      <skos:prefLabel xml:lang="en">Data Type (amounts outstanding, net disbursement or changes)</skos:prefLabel>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Data Type (amounts outstanding, net disbursement or changes)</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/BIS/JD_CATEGORY">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/concepts/JD_CATEGORY.xml"/>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/concepts/JD_CATEGORY.xml"/>
       <skos:notation>JD_CATEGORY</skos:notation>
-      <skos:prefLabel xml:lang="en">Debt category</skos:prefLabel>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Debt category</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/BIS/VIS_CTY">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/concepts/VIS_CTY.xml"/>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/concepts/VIS_CTY.xml"/>
       <skos:notation>VIS_CTY</skos:notation>
-      <skos:prefLabel xml:lang="en">Vis-a-vis country</skos:prefLabel>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Vis-a-vis country</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/BIS/AVAILABILITY">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/concepts/AVAILABILITY.xml"/>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/concepts/AVAILABILITY.xml"/>
       <skos:notation>AVAILABILITY</skos:notation>
-      <skos:prefLabel xml:lang="en">Availability</skos:prefLabel>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Availability</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/BIS/COLLECTION">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/concepts/COLLECTION.xml"/>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/concepts/COLLECTION.xml"/>
       <skos:notation>COLLECTION</skos:notation>
-      <skos:prefLabel xml:lang="en">Collection indicator</skos:prefLabel>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Collection indicator</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/BIS/DECIMALS">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/concepts/DECIMALS.xml"/>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/concepts/DECIMALS.xml"/>
       <skos:notation>DECIMALS</skos:notation>
-      <skos:prefLabel xml:lang="en">Decimals</skos:prefLabel>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Decimals</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/BIS/OBS_CONF">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/concepts/OBS_CONF.xml"/>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/concepts/OBS_CONF.xml"/>
       <skos:notation>OBS_CONF</skos:notation>
-      <skos:prefLabel xml:lang="en">Observation confidentiality</skos:prefLabel>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Observation confidentiality</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/BIS/TIME_FORMAT">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/concepts/TIME_FORMAT.xml"/>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/concepts/TIME_FORMAT.xml"/>
       <skos:notation>TIME_FORMAT</skos:notation>
-      <skos:prefLabel xml:lang="en">Time Format</skos:prefLabel>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Time Format</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/BIS/OBS_STATUS">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/concepts/OBS_STATUS.xml"/>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/concepts/OBS_STATUS.xml"/>
       <skos:notation>OBS_STATUS</skos:notation>
-      <skos:prefLabel xml:lang="en">Observation status</skos:prefLabel>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Observation status</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/BIS/OBS_PRE_BREAK">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/concepts/OBS_PRE_BREAK.xml"/>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/concepts/OBS_PRE_BREAK.xml"/>
       <skos:notation>OBS_PRE_BREAK</skos:notation>
-      <skos:prefLabel xml:lang="en">Pre-break observation</skos:prefLabel>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Pre-break observation</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/BIS/BIS_UNIT">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/concepts/UNIT.xml"/>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/concepts/UNIT.xml"/>
       <skos:notation>BIS_UNIT</skos:notation>
-      <skos:prefLabel xml:lang="en">Unit</skos:prefLabel>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Unit</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/BIS/UNIT_MULT">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/concepts/UNIT_MULT.xml"/>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/concepts/UNIT_MULT.xml"/>
       <skos:notation>UNIT_MULT</skos:notation>
-      <skos:prefLabel xml:lang="en">Unit multiplier</skos:prefLabel>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Unit multiplier</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/BIS/OBS_VALUE">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/concepts/OBS_VALUE.xml"/>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/concepts/OBS_VALUE.xml"/>
       <skos:notation>OBS_VALUE</skos:notation>
-      <skos:prefLabel xml:lang="en">Observation value</skos:prefLabel>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Observation value</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/BIS/STOCKS">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/concepts/STOCKS.xml"/>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/concepts/STOCKS.xml"/>
       <skos:notation>STOCKS</skos:notation>
-      <skos:prefLabel xml:lang="en">Stocks as measure</skos:prefLabel>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Stocks as measure</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/BIS/FLOWS">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/concepts/FLOWS.xml"/>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/concepts/FLOWS.xml"/>
       <skos:notation>FLOWS</skos:notation>
-      <skos:prefLabel xml:lang="en">Flows as measure</skos:prefLabel>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Flows as measure</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/code/BIS/CL_OBS_STATUS">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/codelists/cl_obs_status.xml"/>
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+      <rdfs:seeAlso>
+         <rdf:Description rdf:about="http://example.org/class/BIS/CL_OBS_STATUS">
+            <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+            <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdfs:seeAlso rdf:resource="http://example.org/code/BIS/CL_OBS_STATUS"/>
+            <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Observation Status</skos:prefLabel>
+         </rdf:Description>
+      </rdfs:seeAlso>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/codelists/cl_obs_status.xml"/>
       <skos:notation>CL_OBS_STATUS</skos:notation>
-      <skos:prefLabel xml:lang="en">Observation Status</skos:prefLabel>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Observation Status</skos:prefLabel>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_OBS_STATUS/A">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_OBS_STATUS"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_OBS_STATUS"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_OBS_STATUS"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_OBS_STATUS"/>
             <skos:notation>A</skos:notation>
-            <skos:definition xml:lang="en">Present</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Present</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_OBS_STATUS/M">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_OBS_STATUS"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_OBS_STATUS"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_OBS_STATUS"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_OBS_STATUS"/>
             <skos:notation>M</skos:notation>
-            <skos:definition xml:lang="en">Missing</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Missing</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/code/BIS/CL_FREQ">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/codelists/cl_freq.htm"/>
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+      <rdfs:seeAlso>
+         <rdf:Description rdf:about="http://example.org/class/BIS/CL_FREQ">
+            <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+            <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdfs:seeAlso rdf:resource="http://example.org/code/BIS/CL_FREQ"/>
+            <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Frequency code list (BIS, ECB)</skos:prefLabel>
+         </rdf:Description>
+      </rdfs:seeAlso>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/codelists/cl_freq.htm"/>
       <skos:notation>CL_FREQ</skos:notation>
-      <skos:prefLabel xml:lang="en">Frequency code list (BIS, ECB)</skos:prefLabel>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Frequency code list (BIS, ECB)</skos:prefLabel>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_FREQ/A">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_FREQ"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_FREQ"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_FREQ"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_FREQ"/>
             <skos:notation>A</skos:notation>
-            <skos:definition xml:lang="en">Annual</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Annual</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_FREQ/D">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_FREQ"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_FREQ"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_FREQ"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_FREQ"/>
             <skos:notation>D</skos:notation>
-            <skos:definition xml:lang="en">Daily</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Daily</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_FREQ/H">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_FREQ"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_FREQ"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_FREQ"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_FREQ"/>
             <skos:notation>H</skos:notation>
-            <skos:definition xml:lang="en">Semi-annual</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Semi-annual</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_FREQ/M">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_FREQ"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_FREQ"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_FREQ"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_FREQ"/>
             <skos:notation>M</skos:notation>
-            <skos:definition xml:lang="en">Monthly</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Monthly</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_FREQ/Q">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_FREQ"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_FREQ"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_FREQ"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_FREQ"/>
             <skos:notation>Q</skos:notation>
-            <skos:definition xml:lang="en">Quarterly</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Quarterly</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_FREQ/W">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_FREQ"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_FREQ"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_FREQ"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_FREQ"/>
             <skos:notation>W</skos:notation>
-            <skos:definition xml:lang="en">Weekly</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Weekly</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/code/BIS/CL_JD_TYPE">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/codelists/cl_jd_type.xml"/>
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+      <rdfs:seeAlso>
+         <rdf:Description rdf:about="http://example.org/class/BIS/CL_JD_TYPE">
+            <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+            <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdfs:seeAlso rdf:resource="http://example.org/code/BIS/CL_JD_TYPE"/>
+            <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Data Type (amounts outstanding, net disbursement or changes)</skos:prefLabel>
+         </rdf:Description>
+      </rdfs:seeAlso>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/codelists/cl_jd_type.xml"/>
       <skos:notation>CL_JD_TYPE</skos:notation>
-      <skos:prefLabel xml:lang="en">Data Type (amounts outstanding, net disbursement or changes)</skos:prefLabel>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Data Type (amounts outstanding, net disbursement or changes)</skos:prefLabel>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_JD_TYPE/P">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_JD_TYPE"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_JD_TYPE"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_JD_TYPE"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_JD_TYPE"/>
             <skos:notation>P</skos:notation>
-            <skos:definition xml:lang="en">Amounts outstanding at end of period</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Amounts outstanding at end of period</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_JD_TYPE/Q">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_JD_TYPE"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_JD_TYPE"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_JD_TYPE"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_JD_TYPE"/>
             <skos:notation>Q</skos:notation>
-            <skos:definition xml:lang="en">Net Disbursm.(Cat B,C,E,F) or Val.Adj.Change in stocks(Cat A,D,J,L,M)</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Net Disbursm.(Cat B,C,E,F) or Val.Adj.Change in stocks(Cat A,D,J,L,M)</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/code/BIS/CL_JD_CATEGORY">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/codelists/cl_jd_category.xml"/>
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+      <rdfs:seeAlso>
+         <rdf:Description rdf:about="http://example.org/class/BIS/CL_JD_CATEGORY">
+            <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+            <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdfs:seeAlso rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
+            <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Debt category</skos:prefLabel>
+         </rdf:Description>
+      </rdfs:seeAlso>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/codelists/cl_jd_category.xml"/>
       <skos:notation>CL_JD_CATEGORY</skos:notation>
-      <skos:prefLabel xml:lang="en">Debt category</skos:prefLabel>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Debt category</skos:prefLabel>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_JD_CATEGORY/A">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_JD_CATEGORY"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
             <skos:notation>A</skos:notation>
-            <skos:definition xml:lang="en">External Debt, All Maturities, Bank Loans</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">External Debt, All Maturities, Bank Loans</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_JD_CATEGORY/B">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_JD_CATEGORY"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
             <skos:notation>B</skos:notation>
-            <skos:definition xml:lang="en">External Debt, All Maturities, Debt Securities Issued Abroad</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">External Debt, All Maturities, Debt Securities Issued Abroad</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_JD_CATEGORY/C">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_JD_CATEGORY"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
             <skos:notation>C</skos:notation>
-            <skos:definition xml:lang="en">External Debt, All Maturities, Brady Bonds</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">External Debt, All Maturities, Brady Bonds</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_JD_CATEGORY/D">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_JD_CATEGORY"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
             <skos:notation>D</skos:notation>
-            <skos:definition xml:lang="en">External Debt, All Maturities, Non-Bank Trade Credits</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">External Debt, All Maturities, Non-Bank Trade Credits</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_JD_CATEGORY/E">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_JD_CATEGORY"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
             <skos:notation>E</skos:notation>
-            <skos:definition xml:lang="en">External Debt, All Maturities, Multilateral Claims</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">External Debt, All Maturities, Multilateral Claims</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_JD_CATEGORY/F">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_JD_CATEGORY"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
             <skos:notation>F</skos:notation>
-            <skos:definition xml:lang="en">External Debt, All Maturities, Off. Bilateral Loans (DAC Creditors)</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">External Debt, All Maturities, Off. Bilateral Loans (DAC Creditors)</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_JD_CATEGORY/G">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_JD_CATEGORY"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
             <skos:notation>G</skos:notation>
-            <skos:definition xml:lang="en">Debt due within 1 year, Liabilities To Banks</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Debt due within 1 year, Liabilities To Banks</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_JD_CATEGORY/H">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_JD_CATEGORY"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
             <skos:notation>H</skos:notation>
-            <skos:definition xml:lang="en">Debt due within 1 year, Debt Securities Issued Abroad</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Debt due within 1 year, Debt Securities Issued Abroad</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_JD_CATEGORY/I">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_JD_CATEGORY"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
             <skos:notation>I</skos:notation>
-            <skos:definition xml:lang="en">Debt due within 1 year, Non-Bank Trade Credits</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Debt due within 1 year, Non-Bank Trade Credits</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_JD_CATEGORY/J">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_JD_CATEGORY"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
             <skos:notation>J</skos:notation>
-            <skos:definition xml:lang="en">Memorandum Item, Liabilities to Banks (Locational)</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Memorandum Item, Liabilities to Banks (Locational)</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_JD_CATEGORY/K">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_JD_CATEGORY"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
             <skos:notation>K</skos:notation>
-            <skos:definition xml:lang="en">Memorandum Item, Liabilities to Banks (Consolidated)</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Memorandum Item, Liabilities to Banks (Consolidated)</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_JD_CATEGORY/L">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_JD_CATEGORY"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
             <skos:notation>L</skos:notation>
-            <skos:definition xml:lang="en">Memorandum Item, Total Trade Credits</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Memorandum Item, Total Trade Credits</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_JD_CATEGORY/M">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_JD_CATEGORY"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
             <skos:notation>M</skos:notation>
-            <skos:definition xml:lang="en">Memorandum Item, Total Claims on Banks</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Memorandum Item, Total Claims on Banks</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_JD_CATEGORY/N">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_JD_CATEGORY"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_JD_CATEGORY"/>
             <skos:notation>N</skos:notation>
-            <skos:definition xml:lang="en">Memorandum Item, International Reserve Assets (excl. Gold)</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Memorandum Item, International Reserve Assets (excl. Gold)</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/code/BIS/CL_TIME_FORMAT">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/codelists/cl_time_format.xml"/>
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+      <rdfs:seeAlso>
+         <rdf:Description rdf:about="http://example.org/class/BIS/CL_TIME_FORMAT">
+            <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+            <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdfs:seeAlso rdf:resource="http://example.org/code/BIS/CL_TIME_FORMAT"/>
+            <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Time formats based on ISO 8601.</skos:prefLabel>
+         </rdf:Description>
+      </rdfs:seeAlso>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/codelists/cl_time_format.xml"/>
       <skos:notation>CL_TIME_FORMAT</skos:notation>
-      <skos:prefLabel xml:lang="en">Time formats based on ISO 8601.</skos:prefLabel>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Time formats based on ISO 8601.</skos:prefLabel>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_TIME_FORMAT/P1Y">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_TIME_FORMAT"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_TIME_FORMAT"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_TIME_FORMAT"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_TIME_FORMAT"/>
             <skos:notation>P1Y</skos:notation>
-            <skos:definition xml:lang="en">Annual</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Annual</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_TIME_FORMAT/P6M">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_TIME_FORMAT"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_TIME_FORMAT"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_TIME_FORMAT"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_TIME_FORMAT"/>
             <skos:notation>P6M</skos:notation>
-            <skos:definition xml:lang="en">Semi-annual</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Semi-annual</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_TIME_FORMAT/P3M">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_TIME_FORMAT"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_TIME_FORMAT"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_TIME_FORMAT"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_TIME_FORMAT"/>
             <skos:notation>P3M</skos:notation>
-            <skos:definition xml:lang="en">Quarterly</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Quarterly</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_TIME_FORMAT/P1M">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_TIME_FORMAT"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_TIME_FORMAT"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_TIME_FORMAT"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_TIME_FORMAT"/>
             <skos:notation>P1M</skos:notation>
-            <skos:definition xml:lang="en">Monthly</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Monthly</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_TIME_FORMAT/P7D">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_TIME_FORMAT"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_TIME_FORMAT"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_TIME_FORMAT"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_TIME_FORMAT"/>
             <skos:notation>P7D</skos:notation>
-            <skos:definition xml:lang="en">Weekly</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Weekly</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_TIME_FORMAT/P1D">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_TIME_FORMAT"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_TIME_FORMAT"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_TIME_FORMAT"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_TIME_FORMAT"/>
             <skos:notation>P1D</skos:notation>
-            <skos:definition xml:lang="en">Daily</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Daily</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_TIME_FORMAT/PT1M">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_TIME_FORMAT"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_TIME_FORMAT"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_TIME_FORMAT"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_TIME_FORMAT"/>
             <skos:notation>PT1M</skos:notation>
-            <skos:definition xml:lang="en">Minutely</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Minutely</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/code/BIS/CL_BIS_IF_REF_AREA">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/codelists/cl_bis_if-ref_area.xml"/>
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+      <rdfs:seeAlso>
+         <rdf:Description rdf:about="http://example.org/class/BIS/CL_BIS_IF_REF_AREA">
+            <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+            <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdfs:seeAlso rdf:resource="http://example.org/code/BIS/CL_BIS_IF_REF_AREA"/>
+            <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Reference Area Code for BIS-IFS</skos:prefLabel>
+         </rdf:Description>
+      </rdfs:seeAlso>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/codelists/cl_bis_if-ref_area.xml"/>
       <skos:notation>CL_BIS_IF_REF_AREA</skos:notation>
-      <skos:prefLabel xml:lang="en">Reference Area Code for BIS-IFS</skos:prefLabel>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Reference Area Code for BIS-IFS</skos:prefLabel>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_BIS_IF_REF_AREA/CH">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_BIS_IF_REF_AREA"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_BIS_IF_REF_AREA"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_BIS_IF_REF_AREA"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_BIS_IF_REF_AREA"/>
             <skos:notation>CH</skos:notation>
-            <skos:definition xml:lang="en">Switzerland (includes the Bank for International Settlements)</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Switzerland (includes the Bank for International Settlements)</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_BIS_IF_REF_AREA/DE">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_BIS_IF_REF_AREA"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_BIS_IF_REF_AREA"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_BIS_IF_REF_AREA"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_BIS_IF_REF_AREA"/>
             <skos:notation>DE</skos:notation>
-            <skos:definition xml:lang="en">Germany (includes the European Central Bank)</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Germany (includes the European Central Bank)</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_BIS_IF_REF_AREA/US">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_BIS_IF_REF_AREA"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_BIS_IF_REF_AREA"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_BIS_IF_REF_AREA"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_BIS_IF_REF_AREA"/>
             <skos:notation>US</skos:notation>
-            <skos:definition xml:lang="en">United States (includes American Samoa, Guam, Midway Islands)</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">United States (includes American Samoa, Guam, Midway Islands)</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_BIS_IF_REF_AREA/MX">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_BIS_IF_REF_AREA"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_BIS_IF_REF_AREA"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_BIS_IF_REF_AREA"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_BIS_IF_REF_AREA"/>
             <skos:notation>MX</skos:notation>
-            <skos:definition xml:lang="en">Mexico</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Mexico</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/code/BIS/CL_AVAILABILITY">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/codelists/cl_availability.xml"/>
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+      <rdfs:seeAlso>
+         <rdf:Description rdf:about="http://example.org/class/BIS/CL_AVAILABILITY">
+            <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+            <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdfs:seeAlso rdf:resource="http://example.org/code/BIS/CL_AVAILABILITY"/>
+            <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Availability</skos:prefLabel>
+         </rdf:Description>
+      </rdfs:seeAlso>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/codelists/cl_availability.xml"/>
       <skos:notation>CL_AVAILABILITY</skos:notation>
-      <skos:prefLabel xml:lang="en">Availability</skos:prefLabel>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Availability</skos:prefLabel>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_AVAILABILITY/A">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_AVAILABILITY"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_AVAILABILITY"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_AVAILABILITY"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_AVAILABILITY"/>
             <skos:notation>A</skos:notation>
-            <skos:definition xml:lang="en">Free</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Free</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/code/BIS/CL_COLLECTION">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/codelists/cl_collection.xml"/>
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+      <rdfs:seeAlso>
+         <rdf:Description rdf:about="http://example.org/class/BIS/CL_COLLECTION">
+            <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+            <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdfs:seeAlso rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
+            <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Collection</skos:prefLabel>
+         </rdf:Description>
+      </rdfs:seeAlso>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/codelists/cl_collection.xml"/>
       <skos:notation>CL_COLLECTION</skos:notation>
-      <skos:prefLabel xml:lang="en">Collection</skos:prefLabel>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Collection</skos:prefLabel>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_COLLECTION/A">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_COLLECTION"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
             <skos:notation>A</skos:notation>
-            <skos:definition xml:lang="en">Average of observations through period</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Average of observations through period</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_COLLECTION/B">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_COLLECTION"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
             <skos:notation>B</skos:notation>
-            <skos:definition xml:lang="en">Beginning of period</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Beginning of period</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_COLLECTION/E">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_COLLECTION"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
             <skos:notation>E</skos:notation>
-            <skos:definition xml:lang="en">End of period</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">End of period</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_COLLECTION/H">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_COLLECTION"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
             <skos:notation>H</skos:notation>
-            <skos:definition xml:lang="en">Highest in period</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Highest in period</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_COLLECTION/L">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_COLLECTION"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
             <skos:notation>L</skos:notation>
-            <skos:definition xml:lang="en">Lowest in period</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Lowest in period</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_COLLECTION/M">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_COLLECTION"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
             <skos:notation>M</skos:notation>
-            <skos:definition xml:lang="en">Middle of period</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Middle of period</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_COLLECTION/S">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_COLLECTION"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
             <skos:notation>S</skos:notation>
-            <skos:definition xml:lang="en">Summed through period</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Summed through period</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_COLLECTION/U">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_COLLECTION"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
             <skos:notation>U</skos:notation>
-            <skos:definition xml:lang="en">Unknown</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Unknown</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_COLLECTION/V">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_COLLECTION"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
             <skos:notation>V</skos:notation>
-            <skos:definition xml:lang="en">Other</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Other</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_COLLECTION/Y">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_COLLECTION"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_COLLECTION"/>
             <skos:notation>Y</skos:notation>
-            <skos:definition xml:lang="en">Annualised summed</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Annualised summed</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/code/BIS/CL_DECIMALS">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/codelists/cl_decimals.xml"/>
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+      <rdfs:seeAlso>
+         <rdf:Description rdf:about="http://example.org/class/BIS/CL_DECIMALS">
+            <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+            <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdfs:seeAlso rdf:resource="http://example.org/code/BIS/CL_DECIMALS"/>
+            <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Decimals codelist (BIS, ECB)</skos:prefLabel>
+         </rdf:Description>
+      </rdfs:seeAlso>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/codelists/cl_decimals.xml"/>
       <skos:notation>CL_DECIMALS</skos:notation>
-      <skos:prefLabel xml:lang="en">Decimals codelist (BIS, ECB)</skos:prefLabel>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Decimals codelist (BIS, ECB)</skos:prefLabel>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_DECIMALS/1">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_DECIMALS"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_DECIMALS"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_DECIMALS"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_DECIMALS"/>
             <skos:notation>1</skos:notation>
-            <skos:definition xml:lang="en">one</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">one</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_DECIMALS/2">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_DECIMALS"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_DECIMALS"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_DECIMALS"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_DECIMALS"/>
             <skos:notation>2</skos:notation>
-            <skos:definition xml:lang="en">two</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">two</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_DECIMALS/3">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_DECIMALS"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_DECIMALS"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_DECIMALS"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_DECIMALS"/>
             <skos:notation>3</skos:notation>
-            <skos:definition xml:lang="en">three</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">three</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_DECIMALS/4">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_DECIMALS"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_DECIMALS"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_DECIMALS"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_DECIMALS"/>
             <skos:notation>4</skos:notation>
-            <skos:definition xml:lang="en">four</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">four</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_DECIMALS/5">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_DECIMALS"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_DECIMALS"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_DECIMALS"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_DECIMALS"/>
             <skos:notation>5</skos:notation>
-            <skos:definition xml:lang="en">five</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">five</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_DECIMALS/6">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_DECIMALS"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_DECIMALS"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_DECIMALS"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_DECIMALS"/>
             <skos:notation>6</skos:notation>
-            <skos:definition xml:lang="en">six</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">six</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_DECIMALS/7">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_DECIMALS"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_DECIMALS"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_DECIMALS"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_DECIMALS"/>
             <skos:notation>7</skos:notation>
-            <skos:definition xml:lang="en">seven</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">seven</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_DECIMALS/8">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_DECIMALS"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_DECIMALS"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_DECIMALS"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_DECIMALS"/>
             <skos:notation>8</skos:notation>
-            <skos:definition xml:lang="en">eight</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">eight</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/code/BIS/CL_BIS_OBS_CONF">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/codelists/cl_bis_obs_conf.xml"/>
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+      <rdfs:seeAlso>
+         <rdf:Description rdf:about="http://example.org/class/BIS/CL_BIS_OBS_CONF">
+            <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+            <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdfs:seeAlso rdf:resource="http://example.org/code/BIS/CL_BIS_OBS_CONF"/>
+            <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Observation confidentiality code list</skos:prefLabel>
+         </rdf:Description>
+      </rdfs:seeAlso>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/codelists/cl_bis_obs_conf.xml"/>
       <skos:notation>CL_BIS_OBS_CONF</skos:notation>
-      <skos:prefLabel xml:lang="en">Observation confidentiality code list</skos:prefLabel>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Observation confidentiality code list</skos:prefLabel>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_BIS_OBS_CONF/C">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_BIS_OBS_CONF"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_BIS_OBS_CONF"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_BIS_OBS_CONF"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_BIS_OBS_CONF"/>
             <skos:notation>C</skos:notation>
-            <skos:definition xml:lang="en">Non-publishable and confidential</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Non-publishable and confidential</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_BIS_OBS_CONF/F">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_BIS_OBS_CONF"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_BIS_OBS_CONF"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_BIS_OBS_CONF"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_BIS_OBS_CONF"/>
             <skos:notation>F</skos:notation>
-            <skos:definition xml:lang="en">Free</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Free</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_BIS_OBS_CONF/N">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_BIS_OBS_CONF"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_BIS_OBS_CONF"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_BIS_OBS_CONF"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_BIS_OBS_CONF"/>
             <skos:notation>N</skos:notation>
-            <skos:definition xml:lang="en">Non-publishable, but non-confidential</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Non-publishable, but non-confidential</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_BIS_OBS_CONF/R">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_BIS_OBS_CONF"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_BIS_OBS_CONF"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_BIS_OBS_CONF"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_BIS_OBS_CONF"/>
             <skos:notation>R</skos:notation>
-            <skos:definition xml:lang="en">Confidential statistical information due to identifiable respondents</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Confidential statistical information due to identifiable respondents</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/code/BIS/CL_BIS_UNIT">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/codelists/cl_bis_unit.xml"/>
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+      <rdfs:seeAlso>
+         <rdf:Description rdf:about="http://example.org/class/BIS/CL_BIS_UNIT">
+            <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+            <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdfs:seeAlso rdf:resource="http://example.org/code/BIS/CL_BIS_UNIT"/>
+            <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">BIS Unit</skos:prefLabel>
+         </rdf:Description>
+      </rdfs:seeAlso>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/codelists/cl_bis_unit.xml"/>
       <skos:notation>CL_BIS_UNIT</skos:notation>
-      <skos:prefLabel xml:lang="en">BIS Unit</skos:prefLabel>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">BIS Unit</skos:prefLabel>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_BIS_UNIT/CHF">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_BIS_UNIT"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_BIS_UNIT"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_BIS_UNIT"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_BIS_UNIT"/>
             <skos:notation>CHF</skos:notation>
-            <skos:definition xml:lang="en">Swiss Francs</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Swiss Francs</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_BIS_UNIT/USD">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_BIS_UNIT"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_BIS_UNIT"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_BIS_UNIT"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_BIS_UNIT"/>
             <skos:notation>USD</skos:notation>
-            <skos:definition xml:lang="en">United States Dollars</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">United States Dollars</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_BIS_UNIT/NZD">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_BIS_UNIT"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_BIS_UNIT"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_BIS_UNIT"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_BIS_UNIT"/>
             <skos:notation>NZD</skos:notation>
-            <skos:definition xml:lang="en">New Zealand Dollars</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">New Zealand Dollars</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_BIS_UNIT/EUR">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_BIS_UNIT"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_BIS_UNIT"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_BIS_UNIT"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_BIS_UNIT"/>
             <skos:notation>EUR</skos:notation>
-            <skos:definition xml:lang="en">Euros</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Euros</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/code/BIS/CL_UNIT_MULT">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
-      <rdfs:isDefinedBy rdf:resource="http://www.bis.org/structure/codelists/cl_unit_mult.xml"/>
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+      <rdfs:seeAlso>
+         <rdf:Description rdf:about="http://example.org/class/BIS/CL_UNIT_MULT">
+            <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+            <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdfs:seeAlso rdf:resource="http://example.org/code/BIS/CL_UNIT_MULT"/>
+            <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Unit multiplier</skos:prefLabel>
+         </rdf:Description>
+      </rdfs:seeAlso>
+      <rdfs:isDefinedBy xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                        rdf:resource="http://www.bis.org/structure/codelists/cl_unit_mult.xml"/>
       <skos:notation>CL_UNIT_MULT</skos:notation>
-      <skos:prefLabel xml:lang="en">Unit multiplier</skos:prefLabel>
+      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Unit multiplier</skos:prefLabel>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_UNIT_MULT/0">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_UNIT_MULT"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_UNIT_MULT"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_UNIT_MULT"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_UNIT_MULT"/>
             <skos:notation>0</skos:notation>
-            <skos:definition xml:lang="en">Units</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Units</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_UNIT_MULT/1">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_UNIT_MULT"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_UNIT_MULT"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_UNIT_MULT"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_UNIT_MULT"/>
             <skos:notation>1</skos:notation>
-            <skos:definition xml:lang="en">Tens</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Tens</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_UNIT_MULT/2">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_UNIT_MULT"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_UNIT_MULT"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_UNIT_MULT"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_UNIT_MULT"/>
             <skos:notation>2</skos:notation>
-            <skos:definition xml:lang="en">Hundreds</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Hundreds</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_UNIT_MULT/3">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_UNIT_MULT"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_UNIT_MULT"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_UNIT_MULT"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_UNIT_MULT"/>
             <skos:notation>3</skos:notation>
-            <skos:definition xml:lang="en">Thousands</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Thousands</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_UNIT_MULT/4">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_UNIT_MULT"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_UNIT_MULT"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_UNIT_MULT"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_UNIT_MULT"/>
             <skos:notation>4</skos:notation>
-            <skos:definition xml:lang="en">Ten Thousands</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Ten Thousands</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_UNIT_MULT/5">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_UNIT_MULT"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_UNIT_MULT"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_UNIT_MULT"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_UNIT_MULT"/>
             <skos:notation>5</skos:notation>
-            <skos:definition xml:lang="en">Millions</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Millions</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/BIS/CL_UNIT_MULT/6">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/code/BIS/CL_UNIT_MULT"/>
+            <rdf:type rdf:resource="http://example.org/class/BIS/CL_UNIT_MULT"/>
             <skos:topConceptOf rdf:resource="http://example.org/code/BIS/CL_UNIT_MULT"/>
             <skos:inScheme rdf:resource="http://example.org/code/BIS/CL_UNIT_MULT"/>
             <skos:notation>6</skos:notation>
-            <skos:definition xml:lang="en">Billions</skos:definition>
+            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Billions</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
    </rdf:Description>
