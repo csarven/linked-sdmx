@@ -56,6 +56,9 @@
         <xsl:if test="@xml:lang">
             <xsl:copy-of select="@*[name() = 'xml:lang']"/>
         </xsl:if>
+        <xsl:if test="$lang">
+            <xsl:attribute name="xml:lang" select="$lang"/>
+        </xsl:if>
         <xsl:value-of select="text()"/>
     </xsl:template>
 
