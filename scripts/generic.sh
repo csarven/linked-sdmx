@@ -24,5 +24,5 @@ saxonb-xslt -s ../samples/FAO.CAPTURE_DATASTRUCTURE.xml -xsl generic.xsl xmlDocu
 saxonb-xslt -s ../samples/FAO.CAPTURE.xml -xsl generic.xsl xmlDocument=../samples/FAO.CAPTURE.xml pathToGenericStructure=../samples/FAO.CAPTURE_DATASTRUCTURE.xml > ../samples/FAO.CAPTURE.rdf
 saxonb-xslt -s ../samples/Eurostat.tps00001.sdmx.xml -xsl generic.xsl xmlDocument=../samples/Eurostat.tps00001.sdmx.xml pathToGenericStructure=../samples/Eurostat.tps00001.dsd.xml > ../samples/Eurostat.tps00001.sdmx.rdf
 
-saxonb-xslt -t -tree:linked -s ../samples/CH1_RN+HCL_HGDE_HIST+1.0.xml -xsl generic.xsl xmlDocument=../samples/CH1_RN+HCL_HGDE_HIST+1.0.xml > ../samples/CH1_RN+HCL_HGDE_HIST+1.0.rdf
+saxonb-xslt -t -tree:linked -s ../samples/BFS.CH1_RN+HCL_HGDE_HIST+1.0.xml -xsl generic.xsl xmlDocument=../samples/BFS.CH1_RN+HCL_HGDE_HIST+1.0.xml > ../samples/BFS.CH1_RN+HCL_HGDE_HIST+1.0.rdf
 

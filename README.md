@@ -17,7 +17,7 @@ It comes with scripts and sample data.
 * Bash script that transforms sample data using saxonb-xslt.
 
 ### Samples
-Sample SDMX Message and Structure data retrieved from several organizations like BIS, OECD, UN, WB, IMF, FAO, Eurostat, BFS.
+Sample SDMX Message and Structure data retrieved from several organizations like BIS, OECD, UN, ECB, WB, IMF, FAO, Eurostat, BFS.
 
 ### Requirements
 An XSLT 2.0 processor to transform, and some configuring using the provided config.rdf file.
