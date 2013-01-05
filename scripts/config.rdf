@@ -47,7 +47,7 @@
     </rdf:value>
     <rdf:value>
       <rdf:Description>
-        <rdf:value>http://example.org/sdmx/</rdf:value>
+        <rdf:value>http://example.org/data/</rdf:value>
         <rdfs:label>xmlDocumentBaseUri</rdfs:label>
       </rdf:Description>
     </rdf:value>
@@ -104,14 +104,14 @@
         <rdf:value>
           <rdf:Description>
             <rdf:predicate>xkos:hasPart</rdf:predicate>
-            <rdf:type>http://example.org/code/AGENCY/CL_Z</rdf:type>
+            <rdf:type>http://example.org/code/AGENCY/CODELIST</rdf:type>
             <rdfs:label>X</rdfs:label>
           </rdf:Description>
         </rdf:value>
         <rdf:value>
           <rdf:Description>
             <rdf:predicate>xkos:isPartOf</rdf:predicate>
-            <rdf:type>http://example.org/code/AGENCY/CL_Z</rdf:type>
+            <rdf:type>http://example.org/code/AGENCY/CODELIST</rdf:type>
             <rdfs:label>Y</rdfs:label>
           </rdf:Description>
         </rdf:value>
