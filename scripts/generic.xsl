@@ -660,15 +660,12 @@ XXX:
 Sorting would be tricky as the dimension order in the KeyFamily needs to be preserved.
 -->
                     <xsl:if test="$Group and (count($Concepts) = count($DimensionRefs))">
-<!--
-XXX: FIXME:
-Are these supposed to be unique slices?
--->
                         <qb:slice>
-                            <rdf:Description>
+                            <xsl:variable name="SeriesKeyValues" select="string-join($Values/normalize-space(@value), $uriDimensionSeparator)"/>
+                            <rdf:Description rdf:about="{$slice}{$KeyFamilyRef}{$uriThingSeparator}{$SeriesKeyValues}">
                                 <rdf:type rdf:resource="{$qb}Slice"/>
                                 <qb:sliceStructure rdf:resource="{fn:getSliceKey($agencyID, $Group)}"/>
-                                <xsl:for-each select="generic:SeriesKey/generic:Value[@concept != 'FREQ']">
+                                <xsl:for-each select="$Values">
                                     <xsl:variable name="concept" select="@concept"/>
                                     <xsl:call-template name="ObsProperty">
                                         <xsl:with-param name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[name() = $concept]"/>
@@ -676,8 +673,6 @@ Are these supposed to be unique slices?
                                         <xsl:with-param name="value" select="@value"/>
                                     </xsl:call-template>
                                 </xsl:for-each>
-
-                                <xsl:variable name="SeriesKeyValues" select="string-join($Values/normalize-space(@value), $uriDimensionSeparator)"/>
 
                                 <xsl:for-each select="generic:Obs">
                                     <xsl:variable name="ObsTimeURI">
