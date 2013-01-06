@@ -1,0 +1,758 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GenericData xmlns:generic="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/generic" xmlns="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message">
+  <Header>
+    <ID>WB</ID>
+    <Test>true</Test>
+    <Truncated>false</Truncated>
+    <Name xml:lang="en">The World Bank</Name>
+    <Prepared>2012-10-21T05:26:38.4568439-04:00</Prepared>
+    <Sender id="WB">
+      <Name xml:lang="en">The Worldbank Group</Name>
+    </Sender>
+  </Header>
+  <DataSet>
+    <generic:KeyFamilyRef>WDI</generic:KeyFamilyRef>
+    <generic:Series>
+      <generic:SeriesKey>
+        <generic:Value concept="FREQ" value="A"/>
+        <generic:Value concept="SERIES" value="SP_POP_TOTL"/>
+        <generic:Value concept="REF_AREA" value="CN"/>
+      </generic:SeriesKey>
+      <generic:Obs>
+        <generic:Time>1960</generic:Time>
+        <generic:ObsValue value="667070000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1961</generic:Time>
+        <generic:ObsValue value="660330000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1962</generic:Time>
+        <generic:ObsValue value="665770000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1963</generic:Time>
+        <generic:ObsValue value="682335000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1964</generic:Time>
+        <generic:ObsValue value="698355000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1965</generic:Time>
+        <generic:ObsValue value="715185000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1966</generic:Time>
+        <generic:ObsValue value="735400000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1967</generic:Time>
+        <generic:ObsValue value="754550000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1968</generic:Time>
+        <generic:ObsValue value="774510000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1969</generic:Time>
+        <generic:ObsValue value="796025000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1970</generic:Time>
+        <generic:ObsValue value="818315000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1971</generic:Time>
+        <generic:ObsValue value="841105000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1972</generic:Time>
+        <generic:ObsValue value="862030000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1973</generic:Time>
+        <generic:ObsValue value="881940000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1974</generic:Time>
+        <generic:ObsValue value="900350000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1975</generic:Time>
+        <generic:ObsValue value="916395000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1976</generic:Time>
+        <generic:ObsValue value="930685000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1977</generic:Time>
+        <generic:ObsValue value="943455000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1978</generic:Time>
+        <generic:ObsValue value="956165000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1979</generic:Time>
+        <generic:ObsValue value="969005000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1980</generic:Time>
+        <generic:ObsValue value="981235000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1981</generic:Time>
+        <generic:ObsValue value="993885000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1982</generic:Time>
+        <generic:ObsValue value="1008630000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1983</generic:Time>
+        <generic:ObsValue value="1023310000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1984</generic:Time>
+        <generic:ObsValue value="1036825000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1985</generic:Time>
+        <generic:ObsValue value="1051040000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1986</generic:Time>
+        <generic:ObsValue value="1066790000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1987</generic:Time>
+        <generic:ObsValue value="1084035000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1988</generic:Time>
+        <generic:ObsValue value="1101630000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1989</generic:Time>
+        <generic:ObsValue value="1118650000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1990</generic:Time>
+        <generic:ObsValue value="1135185000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1991</generic:Time>
+        <generic:ObsValue value="1150780000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1992</generic:Time>
+        <generic:ObsValue value="1164970000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1993</generic:Time>
+        <generic:ObsValue value="1178440000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1994</generic:Time>
+        <generic:ObsValue value="1191835000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1995</generic:Time>
+        <generic:ObsValue value="1204855000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1996</generic:Time>
+        <generic:ObsValue value="1217550000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1997</generic:Time>
+        <generic:ObsValue value="1230075000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1998</generic:Time>
+        <generic:ObsValue value="1241935000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1999</generic:Time>
+        <generic:ObsValue value="1252735000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>2000</generic:Time>
+        <generic:ObsValue value="1262645000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>2001</generic:Time>
+        <generic:ObsValue value="1271850000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>2002</generic:Time>
+        <generic:ObsValue value="1280400000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>2003</generic:Time>
+        <generic:ObsValue value="1288400000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>2004</generic:Time>
+        <generic:ObsValue value="1296075000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>2005</generic:Time>
+        <generic:ObsValue value="1303720000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>2006</generic:Time>
+        <generic:ObsValue value="1311020000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>2007</generic:Time>
+        <generic:ObsValue value="1317885000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>2008</generic:Time>
+        <generic:ObsValue value="1324655000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>2009</generic:Time>
+        <generic:ObsValue value="1331380000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>2010</generic:Time>
+        <generic:ObsValue value="1337825000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>2011</generic:Time>
+        <generic:ObsValue value="1344130000"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+    </generic:Series>
+    <generic:Series>
+      <generic:SeriesKey>
+        <generic:Value concept="FREQ" value="A"/>
+        <generic:Value concept="SERIES" value="SP_POP_TOTL"/>
+        <generic:Value concept="REF_AREA" value="IN"/>
+      </generic:SeriesKey>
+      <generic:Obs>
+        <generic:Time>1960</generic:Time>
+        <generic:ObsValue value="447844159"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1961</generic:Time>
+        <generic:ObsValue value="456949783"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1962</generic:Time>
+        <generic:ObsValue value="466337036"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1963</generic:Time>
+        <generic:ObsValue value="476025147"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1964</generic:Time>
+        <generic:ObsValue value="486038945"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1965</generic:Time>
+        <generic:ObsValue value="496400381"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1966</generic:Time>
+        <generic:ObsValue value="507115411"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1967</generic:Time>
+        <generic:ObsValue value="518192403"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1968</generic:Time>
+        <generic:ObsValue value="529658233"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1969</generic:Time>
+        <generic:ObsValue value="541544619"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1970</generic:Time>
+        <generic:ObsValue value="553873890"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1971</generic:Time>
+        <generic:ObsValue value="566651479"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1972</generic:Time>
+        <generic:ObsValue value="579871075"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1973</generic:Time>
+        <generic:ObsValue value="593526633"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1974</generic:Time>
+        <generic:ObsValue value="607606569"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1975</generic:Time>
+        <generic:ObsValue value="622096682"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1976</generic:Time>
+        <generic:ObsValue value="636992593"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1977</generic:Time>
+        <generic:ObsValue value="652279308"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1978</generic:Time>
+        <generic:ObsValue value="667917437"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1979</generic:Time>
+        <generic:ObsValue value="683857312"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1980</generic:Time>
+        <generic:ObsValue value="700058589"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1981</generic:Time>
+        <generic:ObsValue value="716493309"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1982</generic:Time>
+        <generic:ObsValue value="733151769"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1983</generic:Time>
+        <generic:ObsValue value="750033539"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1984</generic:Time>
+        <generic:ObsValue value="767146806"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1985</generic:Time>
+        <generic:ObsValue value="784490842"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1986</generic:Time>
+        <generic:ObsValue value="802051806"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1987</generic:Time>
+        <generic:ObsValue value="819800055"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1988</generic:Time>
+        <generic:ObsValue value="837699675"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1989</generic:Time>
+        <generic:ObsValue value="855707358"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1990</generic:Time>
+        <generic:ObsValue value="873785449"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1991</generic:Time>
+        <generic:ObsValue value="891910180"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1992</generic:Time>
+        <generic:ObsValue value="910064576"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1993</generic:Time>
+        <generic:ObsValue value="928226051"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1994</generic:Time>
+        <generic:ObsValue value="946373316"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1995</generic:Time>
+        <generic:ObsValue value="964486155"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1996</generic:Time>
+        <generic:ObsValue value="982553253"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1997</generic:Time>
+        <generic:ObsValue value="1000558144"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1998</generic:Time>
+        <generic:ObsValue value="1018471141"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>1999</generic:Time>
+        <generic:ObsValue value="1036258683"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>2000</generic:Time>
+        <generic:ObsValue value="1053898107"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>2001</generic:Time>
+        <generic:ObsValue value="1071374264"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>2002</generic:Time>
+        <generic:ObsValue value="1088694080"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>2003</generic:Time>
+        <generic:ObsValue value="1105885689"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>2004</generic:Time>
+        <generic:ObsValue value="1122991192"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>2005</generic:Time>
+        <generic:ObsValue value="1140042863"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>2006</generic:Time>
+        <generic:ObsValue value="1157038539"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>2007</generic:Time>
+        <generic:ObsValue value="1173971629"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>2008</generic:Time>
+        <generic:ObsValue value="1190863679"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>2009</generic:Time>
+        <generic:ObsValue value="1207740408"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>2010</generic:Time>
+        <generic:ObsValue value="1224614327"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+      <generic:Obs>
+        <generic:Time>2011</generic:Time>
+        <generic:ObsValue value="1241491960"/>
+        <generic:Attributes>
+          <generic:Value concept="UNIT_MULT" value="0"/>
+        </generic:Attributes>
+      </generic:Obs>
+    </generic:Series>
+  </DataSet>
+</GenericData>
