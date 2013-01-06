@@ -625,7 +625,7 @@ This dataset URI needs to be unique
                 <xsl:with-param name="provGenerated" select="$datasetURI"/>
             </xsl:call-template>
 
-            <rdf:Description about="{$datasetURI}">
+            <rdf:Description rdf:about="{$datasetURI}">
                 <rdf:type rdf:resource="{$qb}DataSet"/>
                 <rdf:type rdf:resource="{$prov}Entity"/>
                 <prov:wasAttributedTo rdf:resource="{$creator}"/>
@@ -723,7 +723,7 @@ TODO:
 This dataset URI needs to be unique
 -->
 
-                    <rdf:Description about="{$dataset}{$KeyFamilyAgencyID}/{$KeyFamilyRef}{$uriThingSeparator}{$SeriesKeyValues}{$ObsTimeURI}">
+                    <rdf:Description rdf:about="{$dataset}{$KeyFamilyAgencyID}/{$KeyFamilyRef}{$uriThingSeparator}{$SeriesKeyValues}{$ObsTimeURI}">
                         <rdf:type rdf:resource="{$qb}Observation"/>
                         <qb:dataSet rdf:resource="{$dataset}{$KeyFamilyAgencyID}/{$KeyFamilyRef}"/>
 
