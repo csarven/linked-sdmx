@@ -1,5 +1,7 @@
 # SDMX to QB
 
+Brief overview of the project is here. If you want to use it or looking under the hood for additional information, give the [wiki](https://github.com/csarven/sdmx-to-qb/wiki) page a go.
+
 ## What is this?
 
 XSLT 2.0 scripts to transform Generic [SDMX 2.0](http://sdmx.org/?page_id=16#package) data and metadata to RDF/XML using the [RDF Data Cube](http://www.w3.org/TR/vocab-data-cube/) and related vocabularies for statistical Linked Data. Its purpose is:
