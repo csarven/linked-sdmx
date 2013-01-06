@@ -1,6 +1,6 @@
 # SDMX to QB
 
-Brief overview of the project is here. If you want to use it or looking under the hood for additional information, give the [wiki](https://github.com/csarven/sdmx-to-qb/wiki) page a go.
+Brief overview of the project is here. If you want to use it or look under the hood for additional information, give the [wiki](https://github.com/csarven/sdmx-to-qb/wiki) page a go.
 
 ## What is this?
 
