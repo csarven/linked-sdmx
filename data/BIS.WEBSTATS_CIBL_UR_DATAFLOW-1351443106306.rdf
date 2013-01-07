@@ -22,9 +22,9 @@
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Agent"/>
    </rdf:Description>
    <rdf:Description xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                    rdf:about="http://example.org/prov/activity/20130106182530">
+                    rdf:about="http://example.org/prov/activity/20130107221400">
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
-      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-06T18:25:30Z</prov:startedAtTime>
+      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-07T22:14:00Z</prov:startedAtTime>
       <prov:used rdf:resource="http://example.org/data/BIS.WEBSTATS_CIBL_UR_DATAFLOW-1351443106306.xml"/>
       <prov:used rdf:resource="https://raw.github.com/csarven/sdmx-to-qb/master/scripts/generic.xsl"/>
       <prov:generated>
