@@ -591,6 +591,9 @@ XXX: Fallback: KeyfamilyRef may not exist.
 
             <xsl:variable name="KeyFamilyAgencyID" select="$genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/@agencyID"/>
 
+<!--
+XXX: Changing // in XPath might be cheaper.
+-->
             <xsl:variable name="concepts" select="distinct-values(generic:Series//@concept)"/>
 
             <xsl:variable name="TimeDimensionConceptRef" select="distinct-values($genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/structure:TimeDimension/@conceptRef)"/>
@@ -634,38 +637,36 @@ This dataset URI needs to be unique
                 <xsl:if test="@datasetID">
                     <skos:notation><xsl:value-of select="@datasetID"/></skos:notation>
                 </xsl:if>
+            </rdf:Description>
+
 <!--
 XXX:
 Consider getting this value from KeyFamily and adding a suffix e.g., data
                 <skos:prefLabel></skos:prefLabel>
 -->
 
-<!--
-XXX: This is a bit chaotic but, yea, works I guess. Needs to be tested with more samples
--->
-                <xsl:for-each select="generic:Series">
+            <xsl:variable name="KeyFamily" select="$genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]"/>
+            <xsl:variable name="agencyID" select="$KeyFamily/@agencyID"/>
+
+            <xsl:for-each select="generic:Series">
 <!--
 FIXME:
 Excluding 'FREQ' is a bit grubby?
 -->
-                    <xsl:variable name="Values" select="generic:SeriesKey/generic:Value[@concept != 'FREQ']"/>
-                    <xsl:variable name="Concepts" select="$Values/@concept"/>
-                    <xsl:variable name="KeyFamily" select="$genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]"/>
-                    <xsl:variable name="agencyID" select="$KeyFamily/@agencyID"/>
-                    <xsl:variable name="Group" select="$KeyFamily/structure:Components/structure:Group"/>
-                    <xsl:variable name="DimensionRefs" select="$Group/structure:DimensionRef"/>
+                <xsl:variable name="Values" select="generic:SeriesKey/generic:Value"/>
+                <xsl:variable name="ValuesWOFreq" select="$Values[lower-case(@concept) != 'freq']"/>
+                <xsl:variable name="Group" select="$KeyFamily/structure:Components/structure:Group"/>
 
-<!--
-XXX:
-Sorting would be tricky as the dimension order in the KeyFamily needs to be preserved.
--->
-                    <xsl:if test="$Group and (count($Concepts) = count($DimensionRefs))">
+                <xsl:variable name="SeriesKeyValuesURI" select="string-join($Values[lower-case(@concept) != 'freq']/normalize-space(@value), $uriDimensionSeparator)"/>
+                <xsl:variable name="DimensionValuesURI" select="string-join($Values/normalize-space(@value), $uriDimensionSeparator)"/>
+
+                <xsl:if test="count($ValuesWOFreq) = count($Group/structure:DimensionRef)">
+                    <rdf:Description rdf:about="{$datasetURI}">
                         <qb:slice>
-                            <xsl:variable name="SeriesKeyValues" select="string-join($Values/normalize-space(@value), $uriDimensionSeparator)"/>
-                            <rdf:Description rdf:about="{$slice}{$KeyFamilyRef}{$uriThingSeparator}{$SeriesKeyValues}">
+                            <rdf:Description rdf:about="{$slice}{$KeyFamilyRef}{$uriThingSeparator}{$SeriesKeyValuesURI}">
                                 <rdf:type rdf:resource="{$qb}Slice"/>
                                 <qb:sliceStructure rdf:resource="{fn:getSliceKey($agencyID, $Group)}"/>
-                                <xsl:for-each select="$Values">
+                                <xsl:for-each select="$ValuesWOFreq">
                                     <xsl:variable name="concept" select="@concept"/>
                                     <xsl:call-template name="ObsProperty">
                                         <xsl:with-param name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[name() = $concept]"/>
@@ -675,21 +676,22 @@ Sorting would be tricky as the dimension order in the KeyFamily needs to be pres
                                 </xsl:for-each>
 
                                 <xsl:for-each select="generic:Obs">
+                                    <xsl:variable name="ObsTime" select="replace(generic:Time, '\s+', '')"/>
                                     <xsl:variable name="ObsTimeURI">
-                                        <xsl:value-of select="$uriDimensionSeparator"/><xsl:value-of select="replace(generic:Time, '\s+', '')"/>
+                                        <xsl:if test="$ObsTime">
+                                            <xsl:value-of select="$uriDimensionSeparator"/><xsl:value-of select="$ObsTime"/>
+                                        </xsl:if>
                                     </xsl:variable>
                                     <qb:observation>
                                         <xsl:attribute name="rdf:resource">
-                                            <xsl:value-of select="$dataset"/><xsl:value-of select="$KeyFamilyRef"/><xsl:value-of select="$uriThingSeparator"/><xsl:value-of select="$SeriesKeyValues"/><xsl:value-of select="$ObsTimeURI"/>
+                                            <xsl:value-of select="$dataset"/><xsl:value-of select="$KeyFamilyRef"/><xsl:value-of select="$uriThingSeparator"/><xsl:value-of select="$DimensionValuesURI"/><xsl:value-of select="$ObsTimeURI"/>
                                         </xsl:attribute>
                                     </qb:observation>
                                 </xsl:for-each>
                             </rdf:Description>
                         </qb:slice>
-                    </xsl:if>
-                </xsl:for-each>
-            </rdf:Description>
-
+                    </rdf:Description>
+                </xsl:if>
 <!--
 TODO:
 "TextType provides for a set of language-specific alternates to be provided for any human-readable construct in the instance."
@@ -702,32 +704,24 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
 -->
 
 
-            <xsl:for-each select="generic:Series">
-<!--
-TODO:
-Order SeriesKeyValues same as the order in KeyFamily Dimensions
--->
-                <xsl:variable name="SeriesKeyValues" select="string-join(generic:SeriesKey/generic:Value/normalize-space(@value), $uriDimensionSeparator)"/>
-
                 <xsl:for-each select="generic:Obs">
                     <xsl:variable name="ObsTime" select="replace(generic:Time, '\s+', '')"/>
                     <xsl:variable name="ObsTimeURI">
-                        <xsl:value-of select="$uriDimensionSeparator"/><xsl:value-of select="$ObsTime"/>
+                        <xsl:if test="$ObsTime">
+                            <xsl:value-of select="$uriDimensionSeparator"/><xsl:value-of select="$ObsTime"/>
+                        </xsl:if>
                     </xsl:variable>
 <!--
 TODO:
 Create a URI safe function
--->
-<!--
-TODO:
 This dataset URI needs to be unique
 -->
 
-                    <rdf:Description rdf:about="{$dataset}{$KeyFamilyAgencyID}/{$KeyFamilyRef}{$uriThingSeparator}{$SeriesKeyValues}{$ObsTimeURI}">
+                    <rdf:Description rdf:about="{$dataset}{$KeyFamilyAgencyID}/{$KeyFamilyRef}{$uriThingSeparator}{$DimensionValuesURI}{$ObsTimeURI}">
                         <rdf:type rdf:resource="{$qb}Observation"/>
                         <qb:dataSet rdf:resource="{$dataset}{$KeyFamilyAgencyID}/{$KeyFamilyRef}"/>
 
-                        <xsl:for-each select="../generic:SeriesKey/generic:Value">
+                        <xsl:for-each select="$Values">
                             <xsl:variable name="concept" select="@concept"/>
                             <xsl:call-template name="ObsProperty">
                                 <xsl:with-param name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[name() = $concept]"/>
