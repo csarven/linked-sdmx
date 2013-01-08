@@ -675,7 +675,7 @@ Excluding 'FREQ' is a bit grubby?
                                     </xsl:variable>
                                     <qb:observation>
                                         <xsl:attribute name="rdf:resource">
-                                            <xsl:value-of select="$dataset"/><xsl:value-of select="$KeyFamilyRef"/><xsl:value-of select="$uriThingSeparator"/><xsl:value-of select="$DimensionValuesURI"/><xsl:value-of select="$ObsTimeURI"/>
+                                            <xsl:value-of select="$dataset"/><xsl:value-of select="$KeyFamilyAgencyID"/><xsl:text>/</xsl:text><xsl:value-of select="$KeyFamilyRef"/><xsl:value-of select="$uriThingSeparator"/><xsl:value-of select="$DimensionValuesURI"/><xsl:value-of select="$ObsTimeURI"/>
                                         </xsl:attribute>
                                     </qb:observation>
                                 </xsl:for-each>
