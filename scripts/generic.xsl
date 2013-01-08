@@ -573,6 +573,7 @@ XXX:
 <!--
 TODO: DataSets may be sent with message:MessageGroup
 -->
+
         <xsl:for-each select="GenericData/DataSet">
 
             <xsl:variable name="KeyFamilyRef">
@@ -589,22 +590,15 @@ XXX: Fallback: KeyfamilyRef may not exist.
                 </xsl:choose>
             </xsl:variable>
 
+            <xsl:variable name="KeyFamily" select="$genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]"/>
+
             <xsl:variable name="KeyFamilyAgencyID" select="$genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/@agencyID"/>
 
-<!--
-XXX: Changing // in XPath might be cheaper.
--->
-            <xsl:variable name="concepts" select="distinct-values(generic:Series//@concept)"/>
+            <xsl:variable name="concepts" select="distinct-values($KeyFamily/structure:Components/*/@conceptRef)"/>
 
-            <xsl:variable name="TimeDimensionConceptRef" select="distinct-values($genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/structure:TimeDimension/@conceptRef)"/>
+            <xsl:variable name="TimeDimensionConceptRef" select="distinct-values($KeyFamily/structure:Components/structure:TimeDimension/@conceptRef)"/>
 
-            <xsl:variable name="PrimaryMeasureConceptRef" select="distinct-values($genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/structure:PrimaryMeasure/@conceptRef)"/>
-
-            <xsl:variable name="concepts" as="xsd:anyAtomicType*">
-                <xsl:sequence select="$concepts"/>
-                <xsl:sequence select="$TimeDimensionConceptRef"/>
-                <xsl:sequence select="$PrimaryMeasureConceptRef"/>
-            </xsl:variable>
+            <xsl:variable name="PrimaryMeasureConceptRef" select="distinct-values($KeyFamily/structure:Components/structure:PrimaryMeasure/@conceptRef)"/>
 
             <xsl:variable name="SeriesKeyConceptsData" select="fn:createSeriesKeyComponentData($concepts, $KeyFamilyRef)"/>
 
@@ -646,7 +640,6 @@ Consider getting this value from KeyFamily and adding a suffix e.g., data
 -->
 
             <xsl:variable name="KeyFamily" select="$genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]"/>
-            <xsl:variable name="agencyID" select="$KeyFamily/@agencyID"/>
 
             <xsl:for-each select="generic:Series">
 <!--
@@ -665,7 +658,7 @@ Excluding 'FREQ' is a bit grubby?
                         <qb:slice>
                             <rdf:Description rdf:about="{$slice}{$KeyFamilyRef}{$uriThingSeparator}{$SeriesKeyValuesURI}">
                                 <rdf:type rdf:resource="{$qb}Slice"/>
-                                <qb:sliceStructure rdf:resource="{fn:getSliceKey($agencyID, $Group)}"/>
+                                <qb:sliceStructure rdf:resource="{fn:getSliceKey($KeyFamilyAgencyID, $Group)}"/>
                                 <xsl:for-each select="$ValuesWOFreq">
                                     <xsl:variable name="concept" select="@concept"/>
                                     <xsl:call-template name="ObsProperty">
