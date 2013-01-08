@@ -639,8 +639,6 @@ Consider getting this value from KeyFamily and adding a suffix e.g., data
                 <skos:prefLabel></skos:prefLabel>
 -->
 
-            <xsl:variable name="KeyFamily" select="$genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]"/>
-
             <xsl:for-each select="generic:Series">
 <!--
 FIXME:
