@@ -22,9 +22,9 @@
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Agent"/>
    </rdf:Description>
    <rdf:Description xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                    rdf:about="http://example.org/prov/activity/20130108110543">
+                    rdf:about="http://example.org/prov/activity/20130111144505">
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
-      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-08T11:05:43Z</prov:startedAtTime>
+      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-11T14:45:05Z</prov:startedAtTime>
       <prov:used rdf:resource="http://example.org/data/Eurostat.tps00001.dsd.xml"/>
       <prov:used rdf:resource="https://raw.github.com/csarven/sdmx-to-qb/master/scripts/generic.xsl"/>
       <prov:generated>
@@ -50,9 +50,9 @@
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/EUROSTAT/FREQ"/>
                   <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                               rdf:resource="http://example.org/code//CL_FREQ"/>
+                               rdf:resource="http://purl.org/linked-data/sdmx/2009/code#freq"/>
                   <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                              rdf:resource="http://example.org/class//CL_FREQ"/>
+                              rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Freq"/>
                </rdf:Description>
             </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</qb:order>
@@ -66,9 +66,9 @@
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/EUROSTAT/indic_de"/>
                   <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                               rdf:resource="http://example.org/code//CL_INDIC_DE"/>
+                               rdf:resource="http://example.org/code/EUROSTAT/CL_INDIC_DE"/>
                   <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                              rdf:resource="http://example.org/class//CL_INDIC_DE"/>
+                              rdf:resource="http://example.org/class/EUROSTAT/CL_INDIC_DE"/>
                </rdf:Description>
             </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</qb:order>
@@ -82,9 +82,9 @@
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/EUROSTAT/geo"/>
                   <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                               rdf:resource="http://example.org/code//CL_GEO"/>
+                               rdf:resource="http://example.org/code/EUROSTAT/CL_GEO"/>
                   <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                              rdf:resource="http://example.org/class//CL_GEO"/>
+                              rdf:resource="http://example.org/class/EUROSTAT/CL_GEO"/>
                </rdf:Description>
             </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</qb:order>
@@ -121,9 +121,9 @@
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/EUROSTAT/TIME_FORMAT"/>
                   <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                               rdf:resource="http://example.org/code//CL_TIME_FORMAT"/>
+                               rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
                   <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                              rdf:resource="http://example.org/class//CL_TIME_FORMAT"/>
+                              rdf:resource="http://purl.org/linked-data/sdmx/2009/code#TimeFormat"/>
                </rdf:Description>
             </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Dimension"/>
@@ -137,9 +137,9 @@
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/EUROSTAT/OBS_STATUS"/>
                   <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                               rdf:resource="http://example.org/code//CL_OBS_STATUS"/>
+                               rdf:resource="http://example.org/code/EUROSTAT/CL_OBS_STATUS"/>
                   <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                              rdf:resource="http://example.org/class//CL_OBS_STATUS"/>
+                              rdf:resource="http://example.org/class/EUROSTAT/CL_OBS_STATUS"/>
                </rdf:Description>
             </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Observation"/>
@@ -757,212 +757,6 @@
             <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Turkey</skos:definition>
             <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Türkei</skos:definition>
             <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Turquie</skos:definition>
-         </rdf:Description>
-      </skos:hasTopConcept>
-   </rdf:Description>
-   <rdf:Description rdf:about="http://example.org/code/SDMX/CL_TIME_FORMAT">
-      <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
-      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-      <rdfs:seeAlso>
-         <rdf:Description rdf:about="http://example.org/class/SDMX/CL_TIME_FORMAT">
-            <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-            <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdfs:seeAlso rdf:resource="http://example.org/code/SDMX/CL_TIME_FORMAT"/>
-            <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Time Format</skos:prefLabel>
-         </rdf:Description>
-      </rdfs:seeAlso>
-      <skos:notation>CL_TIME_FORMAT</skos:notation>
-      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Time Format</skos:prefLabel>
-      <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/code/SDMX/CL_TIME_FORMAT/P1Y">
-            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
-            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/class/SDMX/CL_TIME_FORMAT"/>
-            <skos:topConceptOf rdf:resource="http://example.org/code/SDMX/CL_TIME_FORMAT"/>
-            <skos:inScheme rdf:resource="http://example.org/code/SDMX/CL_TIME_FORMAT"/>
-            <skos:notation>P1Y</skos:notation>
-            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Annual</skos:definition>
-         </rdf:Description>
-      </skos:hasTopConcept>
-      <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/code/SDMX/CL_TIME_FORMAT/P6M">
-            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
-            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/class/SDMX/CL_TIME_FORMAT"/>
-            <skos:topConceptOf rdf:resource="http://example.org/code/SDMX/CL_TIME_FORMAT"/>
-            <skos:inScheme rdf:resource="http://example.org/code/SDMX/CL_TIME_FORMAT"/>
-            <skos:notation>P6M</skos:notation>
-            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Semi-annual</skos:definition>
-         </rdf:Description>
-      </skos:hasTopConcept>
-      <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/code/SDMX/CL_TIME_FORMAT/P3M">
-            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
-            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/class/SDMX/CL_TIME_FORMAT"/>
-            <skos:topConceptOf rdf:resource="http://example.org/code/SDMX/CL_TIME_FORMAT"/>
-            <skos:inScheme rdf:resource="http://example.org/code/SDMX/CL_TIME_FORMAT"/>
-            <skos:notation>P3M</skos:notation>
-            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Quarterly</skos:definition>
-         </rdf:Description>
-      </skos:hasTopConcept>
-      <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/code/SDMX/CL_TIME_FORMAT/P1M">
-            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
-            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/class/SDMX/CL_TIME_FORMAT"/>
-            <skos:topConceptOf rdf:resource="http://example.org/code/SDMX/CL_TIME_FORMAT"/>
-            <skos:inScheme rdf:resource="http://example.org/code/SDMX/CL_TIME_FORMAT"/>
-            <skos:notation>P1M</skos:notation>
-            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Monthly</skos:definition>
-         </rdf:Description>
-      </skos:hasTopConcept>
-      <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/code/SDMX/CL_TIME_FORMAT/P7D">
-            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
-            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/class/SDMX/CL_TIME_FORMAT"/>
-            <skos:topConceptOf rdf:resource="http://example.org/code/SDMX/CL_TIME_FORMAT"/>
-            <skos:inScheme rdf:resource="http://example.org/code/SDMX/CL_TIME_FORMAT"/>
-            <skos:notation>P7D</skos:notation>
-            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Weekly</skos:definition>
-         </rdf:Description>
-      </skos:hasTopConcept>
-      <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/code/SDMX/CL_TIME_FORMAT/P1D">
-            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
-            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/class/SDMX/CL_TIME_FORMAT"/>
-            <skos:topConceptOf rdf:resource="http://example.org/code/SDMX/CL_TIME_FORMAT"/>
-            <skos:inScheme rdf:resource="http://example.org/code/SDMX/CL_TIME_FORMAT"/>
-            <skos:notation>P1D</skos:notation>
-            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Daily</skos:definition>
-         </rdf:Description>
-      </skos:hasTopConcept>
-      <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/code/SDMX/CL_TIME_FORMAT/PT1M">
-            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
-            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/class/SDMX/CL_TIME_FORMAT"/>
-            <skos:topConceptOf rdf:resource="http://example.org/code/SDMX/CL_TIME_FORMAT"/>
-            <skos:inScheme rdf:resource="http://example.org/code/SDMX/CL_TIME_FORMAT"/>
-            <skos:notation>PT1M</skos:notation>
-            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Minutely</skos:definition>
-         </rdf:Description>
-      </skos:hasTopConcept>
-   </rdf:Description>
-   <rdf:Description rdf:about="http://example.org/code/SDMX/CL_FREQ">
-      <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
-      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-      <rdfs:seeAlso>
-         <rdf:Description rdf:about="http://example.org/class/SDMX/CL_FREQ">
-            <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-            <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdfs:seeAlso rdf:resource="http://example.org/code/SDMX/CL_FREQ"/>
-            <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Frequency code list</skos:prefLabel>
-         </rdf:Description>
-      </rdfs:seeAlso>
-      <skos:notation>CL_FREQ</skos:notation>
-      <skos:prefLabel xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Frequency code list</skos:prefLabel>
-      <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/code/SDMX/CL_FREQ/A">
-            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
-            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/class/SDMX/CL_FREQ"/>
-            <skos:topConceptOf rdf:resource="http://example.org/code/SDMX/CL_FREQ"/>
-            <skos:inScheme rdf:resource="http://example.org/code/SDMX/CL_FREQ"/>
-            <skos:notation>A</skos:notation>
-            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Annual</skos:definition>
-         </rdf:Description>
-      </skos:hasTopConcept>
-      <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/code/SDMX/CL_FREQ/S">
-            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
-            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/class/SDMX/CL_FREQ"/>
-            <skos:topConceptOf rdf:resource="http://example.org/code/SDMX/CL_FREQ"/>
-            <skos:inScheme rdf:resource="http://example.org/code/SDMX/CL_FREQ"/>
-            <skos:notation>S</skos:notation>
-            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Half-yearly, semester</skos:definition>
-         </rdf:Description>
-      </skos:hasTopConcept>
-      <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/code/SDMX/CL_FREQ/Q">
-            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
-            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/class/SDMX/CL_FREQ"/>
-            <skos:topConceptOf rdf:resource="http://example.org/code/SDMX/CL_FREQ"/>
-            <skos:inScheme rdf:resource="http://example.org/code/SDMX/CL_FREQ"/>
-            <skos:notation>Q</skos:notation>
-            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Quarterly</skos:definition>
-         </rdf:Description>
-      </skos:hasTopConcept>
-      <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/code/SDMX/CL_FREQ/M">
-            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
-            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/class/SDMX/CL_FREQ"/>
-            <skos:topConceptOf rdf:resource="http://example.org/code/SDMX/CL_FREQ"/>
-            <skos:inScheme rdf:resource="http://example.org/code/SDMX/CL_FREQ"/>
-            <skos:notation>M</skos:notation>
-            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Monthly</skos:definition>
-         </rdf:Description>
-      </skos:hasTopConcept>
-      <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/code/SDMX/CL_FREQ/W">
-            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
-            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/class/SDMX/CL_FREQ"/>
-            <skos:topConceptOf rdf:resource="http://example.org/code/SDMX/CL_FREQ"/>
-            <skos:inScheme rdf:resource="http://example.org/code/SDMX/CL_FREQ"/>
-            <skos:notation>W</skos:notation>
-            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Weekly</skos:definition>
-         </rdf:Description>
-      </skos:hasTopConcept>
-      <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/code/SDMX/CL_FREQ/B">
-            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
-            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/class/SDMX/CL_FREQ"/>
-            <skos:topConceptOf rdf:resource="http://example.org/code/SDMX/CL_FREQ"/>
-            <skos:inScheme rdf:resource="http://example.org/code/SDMX/CL_FREQ"/>
-            <skos:notation>B</skos:notation>
-            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Business week</skos:definition>
-         </rdf:Description>
-      </skos:hasTopConcept>
-      <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/code/SDMX/CL_FREQ/D">
-            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
-            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/class/SDMX/CL_FREQ"/>
-            <skos:topConceptOf rdf:resource="http://example.org/code/SDMX/CL_FREQ"/>
-            <skos:inScheme rdf:resource="http://example.org/code/SDMX/CL_FREQ"/>
-            <skos:notation>D</skos:notation>
-            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Daily</skos:definition>
-         </rdf:Description>
-      </skos:hasTopConcept>
-      <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/code/SDMX/CL_FREQ/H">
-            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
-            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/class/SDMX/CL_FREQ"/>
-            <skos:topConceptOf rdf:resource="http://example.org/code/SDMX/CL_FREQ"/>
-            <skos:inScheme rdf:resource="http://example.org/code/SDMX/CL_FREQ"/>
-            <skos:notation>H</skos:notation>
-            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Hourly</skos:definition>
-         </rdf:Description>
-      </skos:hasTopConcept>
-      <skos:hasTopConcept>
-         <rdf:Description rdf:about="http://example.org/code/SDMX/CL_FREQ/N">
-            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
-            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdf:type rdf:resource="http://example.org/class/SDMX/CL_FREQ"/>
-            <skos:topConceptOf rdf:resource="http://example.org/code/SDMX/CL_FREQ"/>
-            <skos:inScheme rdf:resource="http://example.org/code/SDMX/CL_FREQ"/>
-            <skos:notation>N</skos:notation>
-            <skos:definition xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:lang="en">Minutely</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
    </rdf:Description>

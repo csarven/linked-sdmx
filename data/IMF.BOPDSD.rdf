@@ -22,9 +22,9 @@
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Agent"/>
    </rdf:Description>
    <rdf:Description xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                    rdf:about="http://example.org/prov/activity/20130108110540">
+                    rdf:about="http://example.org/prov/activity/20130111144544">
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
-      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-08T11:05:40Z</prov:startedAtTime>
+      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-11T14:45:44Z</prov:startedAtTime>
       <prov:used rdf:resource="http://example.org/data/IMF.BOPDSD.xml"/>
       <prov:used rdf:resource="https://raw.github.com/csarven/sdmx-to-qb/master/scripts/generic.xsl"/>
       <prov:generated>
@@ -50,9 +50,9 @@
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/IMF/FREQ"/>
                   <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                               rdf:resource="http://example.org/code/IMF/CL_FREQ"/>
+                               rdf:resource="http://example.org/code//CL_FREQ"/>
                   <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                              rdf:resource="http://example.org/class/IMF/CL_FREQ"/>
+                              rdf:resource="http://example.org/class//CL_FREQ"/>
                </rdf:Description>
             </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</qb:order>
@@ -66,9 +66,9 @@
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/IMF/REF_AREA"/>
                   <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                               rdf:resource="http://example.org/code/IMF/CL_AREA"/>
+                               rdf:resource="http://example.org/code//CL_AREA"/>
                   <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                              rdf:resource="http://example.org/class/IMF/CL_AREA"/>
+                              rdf:resource="http://example.org/class//CL_AREA"/>
                </rdf:Description>
             </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</qb:order>
@@ -82,9 +82,9 @@
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/IMF/ADJUSTMENT"/>
                   <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                               rdf:resource="http://example.org/code/IMF/CL_ADJUSTMENT"/>
+                               rdf:resource="http://example.org/code//CL_ADJUSTMENT"/>
                   <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                              rdf:resource="http://example.org/class/IMF/CL_ADJUSTMENT"/>
+                              rdf:resource="http://example.org/class//CL_ADJUSTMENT"/>
                </rdf:Description>
             </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</qb:order>
@@ -98,9 +98,9 @@
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/IMF/DATA_TYPE_BOP"/>
                   <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                               rdf:resource="http://example.org/code/IMF/CL_DATA_TYPE_BOP"/>
+                               rdf:resource="http://example.org/code//CL_DATA_TYPE_BOP"/>
                   <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                              rdf:resource="http://example.org/class/IMF/CL_DATA_TYPE_BOP"/>
+                              rdf:resource="http://example.org/class//CL_DATA_TYPE_BOP"/>
                </rdf:Description>
             </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</qb:order>
@@ -114,9 +114,9 @@
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/IMF/BOP_ITEM"/>
                   <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                               rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
+                               rdf:resource="http://example.org/code//CL_BOP_ITEM"/>
                   <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                              rdf:resource="http://example.org/class/IMF/CL_BOP_ITEM"/>
+                              rdf:resource="http://example.org/class//CL_BOP_ITEM"/>
                </rdf:Description>
             </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</qb:order>
@@ -130,9 +130,9 @@
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/IMF/CURR_BRKDWN"/>
                   <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                               rdf:resource="http://example.org/code/IMF/CL_CURR_BRKDWN"/>
+                               rdf:resource="http://example.org/code//CL_CURR_BRKDWN"/>
                   <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                              rdf:resource="http://example.org/class/IMF/CL_CURR_BRKDWN"/>
+                              rdf:resource="http://example.org/class//CL_CURR_BRKDWN"/>
                </rdf:Description>
             </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</qb:order>
@@ -146,9 +146,9 @@
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/IMF/COUNT_AREA"/>
                   <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                               rdf:resource="http://example.org/code/IMF/CL_AREA"/>
+                               rdf:resource="http://example.org/code//CL_AREA"/>
                   <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                              rdf:resource="http://example.org/class/IMF/CL_AREA"/>
+                              rdf:resource="http://example.org/class//CL_AREA"/>
                </rdf:Description>
             </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</qb:order>
@@ -162,9 +162,9 @@
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/IMF/SERIES_DENOM"/>
                   <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                               rdf:resource="http://example.org/code/IMF/CL_SERIES_DENOM"/>
+                               rdf:resource="http://example.org/code//CL_SERIES_DENOM"/>
                   <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                              rdf:resource="http://example.org/class/IMF/CL_SERIES_DENOM"/>
+                              rdf:resource="http://example.org/class//CL_SERIES_DENOM"/>
                </rdf:Description>
             </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</qb:order>
@@ -201,9 +201,9 @@
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/IMF/OBS_STATUS"/>
                   <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                               rdf:resource="http://example.org/code/IMF/CL_OBS_STATUS"/>
+                               rdf:resource="http://example.org/code//CL_OBS_STATUS"/>
                   <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                              rdf:resource="http://example.org/class/IMF/CL_OBS_STATUS"/>
+                              rdf:resource="http://example.org/class//CL_OBS_STATUS"/>
                </rdf:Description>
             </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Observation"/>
@@ -217,9 +217,9 @@
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/IMF/OBS_CONF"/>
                   <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                               rdf:resource="http://example.org/code/IMF/CL_OBS_CONF"/>
+                               rdf:resource="http://example.org/code//CL_OBS_CONF"/>
                   <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                              rdf:resource="http://example.org/class/IMF/CL_OBS_CONF"/>
+                              rdf:resource="http://example.org/class//CL_OBS_CONF"/>
                </rdf:Description>
             </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Observation"/>
@@ -257,9 +257,9 @@
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/IMF/UNIT"/>
                   <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                               rdf:resource="http://example.org/code/IMF/CL_UNIT"/>
+                               rdf:resource="http://example.org/code//CL_UNIT"/>
                   <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                              rdf:resource="http://example.org/class/IMF/CL_UNIT"/>
+                              rdf:resource="http://example.org/class//CL_UNIT"/>
                </rdf:Description>
             </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Slice"/>
@@ -273,9 +273,9 @@
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/IMF/UNIT_MULT"/>
                   <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                               rdf:resource="http://example.org/code/IMF/CL_UNIT_MULT"/>
+                               rdf:resource="http://example.org/code//CL_UNIT_MULT"/>
                   <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                              rdf:resource="http://example.org/class/IMF/CL_UNIT_MULT"/>
+                              rdf:resource="http://example.org/class//CL_UNIT_MULT"/>
                </rdf:Description>
             </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Slice"/>
@@ -289,9 +289,9 @@
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/IMF/DECIMALS"/>
                   <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                               rdf:resource="http://example.org/code/IMF/CL_DECIMALS"/>
+                               rdf:resource="http://example.org/code//CL_DECIMALS"/>
                   <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                              rdf:resource="http://example.org/class/IMF/CL_DECIMALS"/>
+                              rdf:resource="http://example.org/class//CL_DECIMALS"/>
                </rdf:Description>
             </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Slice"/>
@@ -305,9 +305,9 @@
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/IMF/COLLECTION"/>
                   <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                               rdf:resource="http://example.org/code/IMF/CL_COLLECTION"/>
+                               rdf:resource="http://example.org/code//CL_COLLECTION"/>
                   <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                              rdf:resource="http://example.org/class/IMF/CL_COLLECTION"/>
+                              rdf:resource="http://example.org/class//CL_COLLECTION"/>
                </rdf:Description>
             </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Dimension"/>
@@ -321,9 +321,9 @@
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/IMF/BOP_BASIS"/>
                   <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                               rdf:resource="http://example.org/code/IMF/CL_BOP_BASIS"/>
+                               rdf:resource="http://example.org/code//CL_BOP_BASIS"/>
                   <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                              rdf:resource="http://example.org/class/IMF/CL_BOP_BASIS"/>
+                              rdf:resource="http://example.org/class//CL_BOP_BASIS"/>
                </rdf:Description>
             </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Dimension"/>

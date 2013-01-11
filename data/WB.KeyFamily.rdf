@@ -22,9 +22,9 @@
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Agent"/>
    </rdf:Description>
    <rdf:Description xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                    rdf:about="http://example.org/prov/activity/20130108110537">
+                    rdf:about="http://example.org/prov/activity/20130111144501">
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
-      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-08T11:05:37Z</prov:startedAtTime>
+      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-11T14:45:01Z</prov:startedAtTime>
       <prov:used rdf:resource="http://example.org/data/WB.KeyFamily.xml"/>
       <prov:used rdf:resource="https://raw.github.com/csarven/sdmx-to-qb/master/scripts/generic.xsl"/>
       <prov:generated>
@@ -50,9 +50,9 @@
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/WB/FREQ"/>
                   <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                               rdf:resource="http://example.org/code//CL_FREQ_WDI"/>
+                               rdf:resource="http://example.org/code/WB/CL_FREQ_WDI"/>
                   <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                              rdf:resource="http://example.org/class//CL_FREQ_WDI"/>
+                              rdf:resource="http://example.org/class/WB/CL_FREQ_WDI"/>
                </rdf:Description>
             </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</qb:order>
@@ -66,9 +66,9 @@
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/WB/SERIES"/>
                   <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                               rdf:resource="http://example.org/code//CL_SERIES_WDI"/>
+                               rdf:resource="http://example.org/code/WB/CL_SERIES_WDI"/>
                   <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                              rdf:resource="http://example.org/class//CL_SERIES_WDI"/>
+                              rdf:resource="http://example.org/class/WB/CL_SERIES_WDI"/>
                </rdf:Description>
             </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</qb:order>
@@ -82,9 +82,9 @@
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/WB/REF_AREA"/>
                   <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                               rdf:resource="http://example.org/code//CL_REF_AREA_WDI"/>
+                               rdf:resource="http://example.org/code/WB/CL_REF_AREA_WDI"/>
                   <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                              rdf:resource="http://example.org/class//CL_REF_AREA_WDI"/>
+                              rdf:resource="http://example.org/class/WB/CL_REF_AREA_WDI"/>
                </rdf:Description>
             </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</qb:order>
@@ -121,9 +121,9 @@
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept rdf:resource="http://example.org/concept/WB/UNIT_MULT"/>
                   <qb:codeList xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                               rdf:resource="http://example.org/code//CL_UNIT_MULT_WDI"/>
+                               rdf:resource="http://example.org/code/WB/CL_UNIT_MULT_WDI"/>
                   <rdfs:range xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                              rdf:resource="http://example.org/class//CL_UNIT_MULT_WDI"/>
+                              rdf:resource="http://example.org/class/WB/CL_UNIT_MULT_WDI"/>
                </rdf:Description>
             </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Observation"/>
