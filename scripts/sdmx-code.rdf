@@ -1,0 +1,804 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:qb="http://purl.org/linked-data/cube#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:scovo="http://purl.org/NET/scovo#"
+   xmlns:sdmx-attribute="http://purl.org/linked-data/sdmx/2009/attribute#"
+   xmlns:sdmx-code="http://purl.org/linked-data/sdmx/2009/code#"
+   xmlns:sdmx-concept="http://purl.org/linked-data/sdmx/2009/concept#"
+   xmlns:sdmx-dimension="http://purl.org/linked-data/sdmx/2009/dimension#"
+   xmlns:sdmx-measure="http://purl.org/linked-data/sdmx/2009/measure#"
+   xmlns:sdmx-metadata="http://purl.org/linked-data/sdmx/2009/metadata#"
+   xmlns:sdmx-subject="http://purl.org/linked-data/sdmx/2009/subject#"
+   xmlns:sdmx="http://purl.org/linked-data/sdmx#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vcard="http://www.w3.org/2006/vcard/ns#"
+   xmlns:void="http://rdfs.org/ns/void#">
+  <rdfs:Class rdf:about="http://purl.org/linked-data/sdmx/2009/code#Area">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment xml:lang="en">: This code list provides code values for geographical areas, defined as areas included within the borders of a country, region, group of countries, etc.</rdfs:comment>
+    <rdfs:label xml:lang="en">Code list for providing values to concepts such as 'Reference area' and/or 'Counterpart area' - codelist class</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://purl.org/linked-data/sdmx/2009/code#area"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://purl.org/linked-data/sdmx/2009/code#ConfStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment xml:lang="en">this code list provides coded information about the sensitivity and confidentiality status of the data.</rdfs:comment>
+    <rdfs:label xml:lang="en">code list for Confidentiality Status (CONF_STATUS) - codelist class</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://purl.org/linked-data/sdmx/2009/code#confStatus"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://purl.org/linked-data/sdmx/2009/code#Currency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment xml:lang="en">This code list provides code values for currencies.</rdfs:comment>
+    <rdfs:label xml:lang="en">code list for Currency (CURRENCY) - codelist class</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://purl.org/linked-data/sdmx/2009/code#currency"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://purl.org/linked-data/sdmx/2009/code#Decimals">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment xml:lang="en">It provides a list of values showing the number of decimal digits used in the data.</rdfs:comment>
+    <rdfs:label xml:lang="en">Code list for Decimals (DECIMALS) - codelist class</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://purl.org/linked-data/sdmx/2009/code#Freq">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment xml:lang="en">It provides a list of values indicating the "frequency" of the data (e.g. monthly) and, thus, indirectly, also implying the type of "time reference" that could be used for identifying the data with respect time.</rdfs:comment>
+    <rdfs:label xml:lang="en">Code list for Frequency (FREQ) - codelist class</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://purl.org/linked-data/sdmx/2009/code#freq"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://purl.org/linked-data/sdmx/2009/code#ObsStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment xml:lang="en">This code list provides coded information about the "status" of an observation (with respect events such as the ones reflected in the codes composing the code list).</rdfs:comment>
+    <rdfs:label xml:lang="en">Observation status - codelist class</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://purl.org/linked-data/sdmx/2009/code#obsStatus"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://purl.org/linked-data/sdmx/2009/code#Sex">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment xml:lang="en">This  code list provides the gender.</rdfs:comment>
+    <rdfs:label xml:lang="en">Code list for Sex (SEX) - codelist class</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://purl.org/linked-data/sdmx/2009/code#sex"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://purl.org/linked-data/sdmx/2009/code#TimeFormat">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment xml:lang="en">These codes (based on the ISO 8601 standard) indicate the type of time references used in the data. The numeric codes below (203, 102,...,702) are used only in the SDMX-EDI messages; and the alphanumeric codes (P1D...PT1M) only in the SDMX-ML messages.</rdfs:comment>
+    <rdfs:label xml:lang="en">Code list for the Time Format as written in the SDMX-EDI and SDMX-ML messages - codelist class</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://purl.org/linked-data/sdmx/2009/code#UnitMult">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment xml:lang="en">it provides code values for indicating the magnitude in the units of measurements.</rdfs:comment>
+    <rdfs:label xml:lang="en">code list for the Unit Multiplier (UNIT_MULT) - codelist class</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://purl.org/linked-data/sdmx/2009/code#unitMult"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </rdfs:Class>
+  <skos:ConceptScheme rdf:about="http://purl.org/linked-data/sdmx/2009/code#area">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
+    <rdfs:label xml:lang="en">Code list for providing values to concepts such as 'Reference area' and/or 'Counterpart area' - codelist scheme</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Area"/>
+    <skos:definition rdf:resource="http://sdmx.org/wp-content/uploads/2009/01/02_sdmx_cog_annex_2_cl_2009.pdf"/>
+    <skos:notation>CL_AREA</skos:notation>
+    <skos:note xml:lang="en">: This code list provides code values for geographical areas, defined as areas included within the borders of a country, region, group of countries, etc.</skos:note>
+    <skos:prefLabel xml:lang="en">Code list for providing values to concepts such as 'Reference area' and/or 'Counterpart area' - codelist scheme</skos:prefLabel>
+  </skos:ConceptScheme>
+  <skos:ConceptScheme rdf:about="http://purl.org/linked-data/sdmx/2009/code#confStatus">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
+    <rdfs:label xml:lang="en">code list for Confidentiality Status (CONF_STATUS) - codelist scheme</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://purl.org/linked-data/sdmx/2009/code#ConfStatus"/>
+    <skos:definition rdf:resource="http://sdmx.org/wp-content/uploads/2009/01/02_sdmx_cog_annex_2_cl_2009.pdf"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#confStatus-C"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#confStatus-D"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#confStatus-F"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#confStatus-N"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#confStatus-S"/>
+    <skos:notation>CL_CONF_STATUS</skos:notation>
+    <skos:note xml:lang="en">this code list provides coded information about the sensitivity and confidentiality status of the data.</skos:note>
+    <skos:prefLabel xml:lang="en">code list for Confidentiality Status (CONF_STATUS) - codelist scheme</skos:prefLabel>
+  </skos:ConceptScheme>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#confStatus-C">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#ConfStatus"/>
+    <skos:definition xml:lang="en">Confidential statistical information (primary confidentiality) due to identifiable respondents.  Measures also should be taken to prevent not only direct access, but also indirect deduction or calculation by other users and parties, probably by considering and treating additional observations as "confidential" (secondary confidentiality management).</skos:definition>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#confStatus"/>
+    <skos:notation>C</skos:notation>
+    <skos:prefLabel xml:lang="en">Confidential statistical information</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#confStatus"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#confStatus-D">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#ConfStatus"/>
+    <skos:definition xml:lang="en">Used by the sender of the data to flag (beyond the confidential statistical information) one or more additional observations of the dataset so that the receiver knows that he/she should suppress these observations in subsequent stages of processing (especially, dissemination) in order to prevent third parties to indirectly deduct (e.g. through accounting identities or other formulas) the observations that are genuinely flagged with "C".</skos:definition>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#confStatus"/>
+    <skos:notation>D</skos:notation>
+    <skos:prefLabel xml:lang="en">Secondary confidentiality set by the sender, not for publication</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#confStatus"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#confStatus-F">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#ConfStatus"/>
+    <skos:definition xml:lang="en">It is used for observations for observations for which there are no special sensitivity considerations and which can be freely shared. Please note:
+In some institutional environments the term "unclassified" is used in a sense that still denotes implied restrictions in the circulation of information. If this is the case, this organisation may probably consider that "free" (value F) is not the appropriate corresponding tag for this kind of "unclassified" category and it may be that "non-publishable / restricted" (value N) may be more appropriate.
+The focus of this code is not to describe and anticipate all potential permissible uses (e.g. permission to re-disseminate). Thus, the use of "F" does not allow safe assumptions with respect to the permission to "re-disseminate" (freely or at a price) the received or accessed information (e.g. on web or paper), especially on a massive and regular basis (legal and copyright constraints may apply). Usually, source organisations provide information and guidance on re-dissemination issues, either on their websites or on their paper publications.</skos:definition>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#confStatus"/>
+    <skos:notation>F</skos:notation>
+    <skos:prefLabel xml:lang="en">Free</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#confStatus"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#confStatus-N">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#ConfStatus"/>
+    <skos:definition xml:lang="en">Used to denote observations that are restricted for internal use only within organisations.</skos:definition>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#confStatus"/>
+    <skos:notation>N</skos:notation>
+    <skos:prefLabel xml:lang="en">Not for publication, restricted for internal use only</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#confStatus"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#confStatus-S">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#ConfStatus"/>
+    <skos:definition xml:lang="en">If senders do not manage the secondary confidentiality in their data and/or there are also other countries' data involved (with the intention to eventually compile a regional-wide aggregate that is going to be published), the value "S" is used by the receiver to flag additional suppressed observations (within sender's data and/or within the datasets of other senders) in subsequent stages of processing (especially, dissemination) in order to prevent third parties to indirectly deduct the observations that were genuinely flagged with "C" by the sender.</skos:definition>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#confStatus"/>
+    <skos:notation>S</skos:notation>
+    <skos:prefLabel xml:lang="en">Secondary confidentiality set and managed by the receiver, not for publication</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#confStatus"/>
+  </skos:Concept>
+  <skos:ConceptScheme rdf:about="http://purl.org/linked-data/sdmx/2009/code#currency">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
+    <rdfs:label xml:lang="en">code list for Currency (CURRENCY) - codelist scheme</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Currency"/>
+    <skos:definition rdf:resource="http://sdmx.org/wp-content/uploads/2009/01/02_sdmx_cog_annex_2_cl_2009.pdf"/>
+    <skos:notation>CL_CURRENCY</skos:notation>
+    <skos:note xml:lang="en">This code list provides code values for currencies.</skos:note>
+    <skos:prefLabel xml:lang="en">code list for Currency (CURRENCY) - codelist scheme</skos:prefLabel>
+  </skos:ConceptScheme>
+  <skos:ConceptScheme rdf:about="http://purl.org/linked-data/sdmx/2009/code#decimals">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
+    <rdfs:label xml:lang="en">Code list for Decimals (DECIMALS) - codelist scheme</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Decimals"/>
+    <skos:definition rdf:resource="http://sdmx.org/wp-content/uploads/2009/01/02_sdmx_cog_annex_2_cl_2009.pdf"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals-0"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals-1"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals-2"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals-3"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals-4"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals-5"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals-6"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals-7"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals-8"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals-9"/>
+    <skos:notation>CL_DECIMALS</skos:notation>
+    <skos:note xml:lang="en">It provides a list of values showing the number of decimal digits used in the data.</skos:note>
+    <skos:prefLabel xml:lang="en">Code list for Decimals (DECIMALS) - codelist scheme</skos:prefLabel>
+  </skos:ConceptScheme>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#decimals-0">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Decimals"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals"/>
+    <skos:notation>0</skos:notation>
+    <skos:prefLabel xml:lang="en">Zero</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#decimals-1">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Decimals"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals"/>
+    <skos:notation>1</skos:notation>
+    <skos:prefLabel xml:lang="en">One</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#decimals-2">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Decimals"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals"/>
+    <skos:notation>2</skos:notation>
+    <skos:prefLabel xml:lang="en">Two</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#decimals-3">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Decimals"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals"/>
+    <skos:notation>3</skos:notation>
+    <skos:prefLabel xml:lang="en">Three</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#decimals-4">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Decimals"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals"/>
+    <skos:notation>4</skos:notation>
+    <skos:prefLabel xml:lang="en">Four</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#decimals-5">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Decimals"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals"/>
+    <skos:notation>5</skos:notation>
+    <skos:prefLabel xml:lang="en">Five</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#decimals-6">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Decimals"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals"/>
+    <skos:notation>6</skos:notation>
+    <skos:prefLabel xml:lang="en">Six</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#decimals-7">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Decimals"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals"/>
+    <skos:notation>7</skos:notation>
+    <skos:prefLabel xml:lang="en">Seven</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#decimals-8">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Decimals"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals"/>
+    <skos:notation>8</skos:notation>
+    <skos:prefLabel xml:lang="en">Eight</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#decimals-9">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Decimals"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals"/>
+    <skos:notation>9</skos:notation>
+    <skos:prefLabel xml:lang="en">Nine</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#decimals"/>
+  </skos:Concept>
+  <skos:ConceptScheme rdf:about="http://purl.org/linked-data/sdmx/2009/code#freq">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
+    <rdfs:label xml:lang="en">Code list for Frequency (FREQ) - codelist scheme</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Freq"/>
+    <skos:definition rdf:resource="http://sdmx.org/wp-content/uploads/2009/01/02_sdmx_cog_annex_2_cl_2009.pdf"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#freq-A"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#freq-B"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#freq-D"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#freq-M"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#freq-N"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#freq-Q"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#freq-S"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#freq-W"/>
+    <skos:notation>CL_FREQ</skos:notation>
+    <skos:note xml:lang="en">It provides a list of values indicating the "frequency" of the data (e.g. monthly) and, thus, indirectly, also implying the type of "time reference" that could be used for identifying the data with respect time.</skos:note>
+    <skos:prefLabel xml:lang="en">Code list for Frequency (FREQ) - codelist scheme</skos:prefLabel>
+  </skos:ConceptScheme>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#freq-A">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Freq"/>
+    <skos:definition xml:lang="en">It is typically used for annual data. This can also serve cases of multi-annual data (data that appear once every two, three or, possibly, five years).  Descriptive information on the multiannual characteristics (e.g. frequency of the series in practice and other methodological information can be provided at the dataflow level, as long as these characteristics are applicable for the entire dataflow).</skos:definition>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#freq"/>
+    <skos:notation>A</skos:notation>
+    <skos:prefLabel xml:lang="en">Annual</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#freq"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#freq-B">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Freq"/>
+    <skos:definition xml:lang="en">Similar to "daily", however there are no observations for Saturday and Sunday (so, neither "missing values" nor "numeric values" should be provided for Saturday and Sunday). This treatment ("business") is one way to deal with such cases, but it is not the only option. Such a time series could alternatively be considered daily ("D"), thus, with missing values in the weekend.</skos:definition>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#freq"/>
+    <skos:notation>B</skos:notation>
+    <skos:prefLabel xml:lang="en">Daily - business week</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#freq"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#freq-D">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Freq"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#freq"/>
+    <skos:notation>D</skos:notation>
+    <skos:prefLabel xml:lang="en">Daily</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#freq"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#freq-M">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Freq"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#freq"/>
+    <skos:notation>M</skos:notation>
+    <skos:prefLabel xml:lang="en">Monthly</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#freq"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#freq-N">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Freq"/>
+    <skos:definition xml:lang="en">While N denotes "minutely", usually, there may be no observations every minute (for several series the frequency is usually "irregular" within a day/days). And though observations may be sparse (not collected every minute), missing values do not need to be given for the minutes when no observations exist: in any case the time stamp determines when an observation is observed.</skos:definition>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#freq"/>
+    <skos:notation>N</skos:notation>
+    <skos:prefLabel xml:lang="en">Minutely</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#freq"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#freq-Q">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Freq"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#freq"/>
+    <skos:notation>Q</skos:notation>
+    <skos:prefLabel xml:lang="en">Quarterly</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#freq"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#freq-S">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Freq"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#freq"/>
+    <skos:notation>S</skos:notation>
+    <skos:prefLabel xml:lang="en">Half Yearly, semester</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#freq"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#freq-W">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Freq"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#freq"/>
+    <skos:notation>W</skos:notation>
+    <skos:prefLabel xml:lang="en">Weekly</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#freq"/>
+  </skos:Concept>
+  <skos:ConceptScheme rdf:about="http://purl.org/linked-data/sdmx/2009/code#obsStatus">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
+    <rdfs:label xml:lang="en">Observation status - codelist scheme</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://purl.org/linked-data/sdmx/2009/code#ObsStatus"/>
+    <skos:definition rdf:resource="http://sdmx.org/wp-content/uploads/2009/01/02_sdmx_cog_annex_2_cl_2009.pdf"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#obsStatus-A"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#obsStatus-B"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#obsStatus-E"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#obsStatus-F"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#obsStatus-I"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#obsStatus-M"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#obsStatus-P"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#obsStatus-S"/>
+    <skos:notation>CL_OBS_STATUS</skos:notation>
+    <skos:note xml:lang="en">This code list provides coded information about the "status" of an observation (with respect events such as the ones reflected in the codes composing the code list).</skos:note>
+    <skos:prefLabel xml:lang="en">Observation status - codelist scheme</skos:prefLabel>
+  </skos:ConceptScheme>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#obsStatus-A">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#ObsStatus"/>
+    <skos:definition xml:lang="en">Normal is the default value (if no value is provided) and is used when no special coded qualification is assumed. Usually, in this case, it can be assumed that the source agency assigns sufficient confidence to the provided observation and/or the value is not expected to be dramatically revised.</skos:definition>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#obsStatus"/>
+    <skos:notation>A</skos:notation>
+    <skos:prefLabel xml:lang="en">Normal</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#obsStatus"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#obsStatus-B">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#ObsStatus"/>
+    <skos:definition xml:lang="en">Break observations are characterised as such when different content exist or a different methodology has been applied to this observation as compared with the preceding one (the one given for the previous period).</skos:definition>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#obsStatus"/>
+    <skos:notation>B</skos:notation>
+    <skos:prefLabel xml:lang="en">Break</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#obsStatus"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#obsStatus-E">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#ObsStatus"/>
+    <skos:definition xml:lang="en">Observation obtained through an estimation methodology (e.g. to produce back-casts) or based on the use of a limited amount of data or ad hoc sampling and through additional calculations (e.g. to produce a value at an early stage of the production stage while not all data are available). It may also be used in case of experimental data (e.g. in the context of a pilot ahead of a full scale production process) or in case of data of (anticipated/assessed) low quality. If needed, additional (uncoded) information can be provided through (free text) "comments" at the observation level or at a higher level.</skos:definition>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#obsStatus"/>
+    <skos:notation>E</skos:notation>
+    <skos:prefLabel xml:lang="en">Estimated value</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#obsStatus"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#obsStatus-F">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#ObsStatus"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#obsStatus"/>
+    <skos:notation>F</skos:notation>
+    <skos:prefLabel xml:lang="en">Forecast value</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#obsStatus"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#obsStatus-I">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#ObsStatus"/>
+    <skos:definition xml:lang="en">Observation imputed by international organisations to replace or fill gaps in national data series, in line with the recommendations of the Committee for the Coordination of Statistical Activities (CCSA).</skos:definition>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#obsStatus"/>
+    <skos:notation>I</skos:notation>
+    <skos:prefLabel xml:lang="en">Imputed value (CCSA definition)</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#obsStatus"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#obsStatus-M">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#ObsStatus"/>
+    <skos:definition xml:lang="en">Data can be missing due to various reasons:  data do not exist, are insignificant (or not collected because they are below a certain threshold), are unreliable, are not relevant for the period, or other reason not elsewhere specified.</skos:definition>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#obsStatus"/>
+    <skos:notation>M</skos:notation>
+    <skos:prefLabel xml:lang="en">Missing value</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#obsStatus"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#obsStatus-P">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#ObsStatus"/>
+    <skos:definition xml:lang="en">An observation is characterised as "provisional" when the source agency - while it bases its calculations on its standard production methodology - considers that the data, almost certainly, are expected to be revised.</skos:definition>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#obsStatus"/>
+    <skos:notation>P</skos:notation>
+    <skos:prefLabel xml:lang="en">Provisional value</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#obsStatus"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#obsStatus-S">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#ObsStatus"/>
+    <skos:definition xml:lang="en">A known strike that occurred in the corresponding period that may have affected the observation or caused a missing value.</skos:definition>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#obsStatus"/>
+    <skos:notation>S</skos:notation>
+    <skos:prefLabel xml:lang="en">Strike</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#obsStatus"/>
+  </skos:Concept>
+  <skos:ConceptScheme rdf:about="http://purl.org/linked-data/sdmx/2009/code#sex">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
+    <rdfs:label xml:lang="en">Code list for Sex (SEX) - codelist scheme</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Sex"/>
+    <skos:definition rdf:resource="http://sdmx.org/wp-content/uploads/2009/01/02_sdmx_cog_annex_2_cl_2009.pdf"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#sex-F"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#sex-M"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#sex-N"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#sex-T"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#sex-U"/>
+    <skos:notation>CL_SEX</skos:notation>
+    <skos:note xml:lang="en">This  code list provides the gender.</skos:note>
+    <skos:prefLabel xml:lang="en">Code list for Sex (SEX) - codelist scheme</skos:prefLabel>
+  </skos:ConceptScheme>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#sex-F">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Sex"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#sex"/>
+    <skos:notation>F</skos:notation>
+    <skos:prefLabel xml:lang="en">Female</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#sex"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#sex-M">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Sex"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#sex"/>
+    <skos:notation>M</skos:notation>
+    <skos:prefLabel xml:lang="en">Male</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#sex"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#sex-N">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Sex"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#sex"/>
+    <skos:notation>N</skos:notation>
+    <skos:prefLabel xml:lang="en">Not applicable</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#sex"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#sex-T">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Sex"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#sex"/>
+    <skos:notation>T</skos:notation>
+    <skos:prefLabel xml:lang="en">Total</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#sex"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#sex-U">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Sex"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#sex"/>
+    <skos:notation>U</skos:notation>
+    <skos:prefLabel xml:lang="en">Not specified or unknown</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#sex"/>
+  </skos:Concept>
+  <skos:ConceptScheme rdf:about="http://purl.org/linked-data/sdmx/2009/code#timeFormat">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
+    <rdfs:label xml:lang="en">Code list for the Time Format as written in the SDMX-EDI and SDMX-ML messages - codelist scheme</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://purl.org/linked-data/sdmx/2009/code#TimeFormat"/>
+    <skos:definition rdf:resource="http://sdmx.org/wp-content/uploads/2009/01/02_sdmx_cog_annex_2_cl_2009.pdf"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat-102"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat-203"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat-602"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat-604"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat-608"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat-610"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat-616"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat-702"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat-704"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat-708"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat-710"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat-711"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat-716"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat-719"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat-P1D"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat-P1M"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat-P1Y"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat-P3M"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat-P6M"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat-P7D"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat-PT1M"/>
+    <skos:notation>CL_TIME_FORMAT</skos:notation>
+    <skos:note xml:lang="en">These codes (based on the ISO 8601 standard) indicate the type of time references used in the data. The numeric codes below (203, 102,...,702) are used only in the SDMX-EDI messages; and the alphanumeric codes (P1D...PT1M) only in the SDMX-ML messages.</skos:note>
+    <skos:prefLabel xml:lang="en">Code list for the Time Format as written in the SDMX-EDI and SDMX-ML messages - codelist scheme</skos:prefLabel>
+  </skos:ConceptScheme>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#timeFormat-102">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#TimeFormat"/>
+    <skos:definition xml:lang="en">(for daily and business series)
+year/month/day</skos:definition>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+    <skos:notation>102</skos:notation>
+    <skos:prefLabel xml:lang="en">CCYYMMDD</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#timeFormat-203">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#TimeFormat"/>
+    <skos:definition xml:lang="en">(for series with freq. higher than daily)
+year/month/day/hours/minutes</skos:definition>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+    <skos:notation>203</skos:notation>
+    <skos:prefLabel xml:lang="en">CCYYMMDDhhmm</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#timeFormat-602">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#TimeFormat"/>
+    <skos:definition xml:lang="en">(for annual series)
+year</skos:definition>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+    <skos:notation>602</skos:notation>
+    <skos:prefLabel xml:lang="en">CCYY</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#timeFormat-604">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#TimeFormat"/>
+    <skos:definition xml:lang="en">(for half yearly series)
+year/semester</skos:definition>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+    <skos:notation>604</skos:notation>
+    <skos:prefLabel xml:lang="en">CCYYS</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#timeFormat-608">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#TimeFormat"/>
+    <skos:definition xml:lang="en">(for quarterly series)
+year/quarter</skos:definition>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+    <skos:notation>608</skos:notation>
+    <skos:prefLabel xml:lang="en">CCYYQ</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#timeFormat-610">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#TimeFormat"/>
+    <skos:definition xml:lang="en">(for monthly series)
+year/month</skos:definition>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+    <skos:notation>610</skos:notation>
+    <skos:prefLabel xml:lang="en">CCYYMM</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#timeFormat-616">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#TimeFormat"/>
+    <skos:definition xml:lang="en">(for weekly series)
+year/ week</skos:definition>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+    <skos:notation>616</skos:notation>
+    <skos:prefLabel xml:lang="en">CCYYWW</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#timeFormat-702">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#TimeFormat"/>
+    <skos:definition xml:lang="en">(for annual series)
+from year to year</skos:definition>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+    <skos:notation>702</skos:notation>
+    <skos:prefLabel xml:lang="en">CCYYCCYY</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#timeFormat-704">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#TimeFormat"/>
+    <skos:definition xml:lang="en">(for half yearly series)
+from half-year to half-year</skos:definition>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+    <skos:notation>704</skos:notation>
+    <skos:prefLabel xml:lang="en">CCYYSCCYYS</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#timeFormat-708">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#TimeFormat"/>
+    <skos:definition xml:lang="en">(for quarterly series)
+from year/quarter to year/quarter</skos:definition>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+    <skos:notation>708</skos:notation>
+    <skos:prefLabel xml:lang="en">CCYYQCCYYQ</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#timeFormat-710">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#TimeFormat"/>
+    <skos:definition xml:lang="en">(for monthly series)
+from year/month to year/month</skos:definition>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+    <skos:notation>710</skos:notation>
+    <skos:prefLabel xml:lang="en">CCYYMMCCYYMM</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#timeFormat-711">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#TimeFormat"/>
+    <skos:definition xml:lang="en">(for daily and business series)
+from year/month/day to year/month/day</skos:definition>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+    <skos:notation>711</skos:notation>
+    <skos:prefLabel xml:lang="en">CCYYMMDDCCYYMMDD</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#timeFormat-716">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#TimeFormat"/>
+    <skos:definition xml:lang="en">(for weekly series)
+from year/week to year/week</skos:definition>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+    <skos:notation>716</skos:notation>
+    <skos:prefLabel xml:lang="en">CCYYWWCCYYWW</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#timeFormat-719">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#TimeFormat"/>
+    <skos:definition xml:lang="en">(for series with freq. higher than daily)
+year/month/day/hours/minutes to year/month/day/hours/minutes.</skos:definition>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+    <skos:notation>719</skos:notation>
+    <skos:prefLabel xml:lang="en">CCYYMMDDhhmmmCCYYMMDDhhmmm</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#timeFormat-P1D">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#TimeFormat"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+    <skos:notation>P1D</skos:notation>
+    <skos:prefLabel xml:lang="en">Daily (or Business)</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#timeFormat-P1M">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#TimeFormat"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+    <skos:notation>P1M</skos:notation>
+    <skos:prefLabel xml:lang="en">Monthly</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#timeFormat-P1Y">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#TimeFormat"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+    <skos:notation>P1Y</skos:notation>
+    <skos:prefLabel xml:lang="en">Annual</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#timeFormat-P3M">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#TimeFormat"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+    <skos:notation>P3M</skos:notation>
+    <skos:prefLabel xml:lang="en">Quarterly</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#timeFormat-P6M">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#TimeFormat"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+    <skos:notation>P6M</skos:notation>
+    <skos:prefLabel xml:lang="en">Half-yearly</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#timeFormat-P7D">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#TimeFormat"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+    <skos:notation>P7D</skos:notation>
+    <skos:prefLabel xml:lang="en">Weekly</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#timeFormat-PT1M">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#TimeFormat"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+    <skos:notation>PT1M</skos:notation>
+    <skos:prefLabel xml:lang="en">Minutely</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+  </skos:Concept>
+  <skos:ConceptScheme rdf:about="http://purl.org/linked-data/sdmx/2009/code#unitMult">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
+    <rdfs:label xml:lang="en">code list for the Unit Multiplier (UNIT_MULT) - codelist scheme</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://purl.org/linked-data/sdmx/2009/code#UnitMult"/>
+    <skos:definition rdf:resource="http://sdmx.org/wp-content/uploads/2009/01/02_sdmx_cog_annex_2_cl_2009.pdf"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#unitMult-0"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#unitMult-1"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#unitMult-12"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#unitMult-15"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#unitMult-2"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#unitMult-3"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#unitMult-4"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#unitMult-6"/>
+    <skos:hasTopConcept rdf:resource="http://purl.org/linked-data/sdmx/2009/code#unitMult-9"/>
+    <skos:notation>CL_UNIT_MULT</skos:notation>
+    <skos:note xml:lang="en">it provides code values for indicating the magnitude in the units of measurements.</skos:note>
+    <skos:prefLabel xml:lang="en">code list for the Unit Multiplier (UNIT_MULT) - codelist scheme</skos:prefLabel>
+  </skos:ConceptScheme>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#unitMult-0">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#UnitMult"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#unitMult"/>
+    <skos:notation>0</skos:notation>
+    <skos:prefLabel xml:lang="en">Units</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#unitMult"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#unitMult-1">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#UnitMult"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#unitMult"/>
+    <skos:notation>1</skos:notation>
+    <skos:prefLabel xml:lang="en">Tens</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#unitMult"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#unitMult-12">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#UnitMult"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#unitMult"/>
+    <skos:notation>12</skos:notation>
+    <skos:prefLabel xml:lang="en">Trillions</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#unitMult"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#unitMult-15">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#UnitMult"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#unitMult"/>
+    <skos:notation>15</skos:notation>
+    <skos:prefLabel xml:lang="en">Quadrillions</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#unitMult"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#unitMult-2">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#UnitMult"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#unitMult"/>
+    <skos:notation>2</skos:notation>
+    <skos:prefLabel xml:lang="en">Hundreds</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#unitMult"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#unitMult-3">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#UnitMult"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#unitMult"/>
+    <skos:notation>3</skos:notation>
+    <skos:prefLabel xml:lang="en">Thousands</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#unitMult"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#unitMult-4">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#UnitMult"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#unitMult"/>
+    <skos:notation>4</skos:notation>
+    <skos:prefLabel xml:lang="en">Tens of thousands</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#unitMult"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#unitMult-6">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#UnitMult"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#unitMult"/>
+    <skos:notation>6</skos:notation>
+    <skos:prefLabel xml:lang="en">Millions</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#unitMult"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/linked-data/sdmx/2009/code#unitMult-9">
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+    <rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#UnitMult"/>
+    <skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#unitMult"/>
+    <skos:notation>9</skos:notation>
+    <skos:prefLabel xml:lang="en">Billions</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#unitMult"/>
+  </skos:Concept>
+</rdf:RDF>

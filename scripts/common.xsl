@@ -24,6 +24,8 @@
 
     <xsl:output encoding="utf-8" indent="yes" method="xml" omit-xml-declaration="no"/>
 
+    <xsl:variable name="pathToSDMXCode"><xsl:text>./sdmx-code.rdf</xsl:text></xsl:variable>
+    <xsl:variable name="SDMXCode" select="document($pathToSDMXCode)/rdf:RDF"/>
     <xsl:variable name="pathToConfig"><xsl:text>./config.rdf</xsl:text></xsl:variable>
     <xsl:variable name="Config" select="document($pathToConfig)/rdf:RDF"/>
     <xsl:variable name="xmlDocumentBaseUri" select="fn:getConfig('xmlDocumentBaseUri')"/>
@@ -126,28 +128,48 @@ FIXME: namespace is not necessarily ?kos
     </xsl:template>
 
     <xsl:template name="qbCodeListrdfsRange">
+        <xsl:param name="SeriesKeyConceptsData" tunnel="yes"/>
+
         <xsl:variable name="codelist" select="@codelist"/>
 
-        <xsl:if test="@codelist">
+        <xsl:if test="$codelist">
             <xsl:variable name="codelistVersion" select="@codelistVersion"/>
-            <xsl:variable name="codelistAgency" select="@codelistAgency"/>
+            <xsl:variable name="codelistAgency" select="$SeriesKeyConceptsData/@codelistAgency"/>
 
-            <xsl:variable name="uriValidFromToSeparator">
-                <xsl:choose>
-                    <xsl:when test="$codelistAgency and $codelistVersion">
-                        <xsl:for-each select="//structure:CodeList[@id = $codelist and @agencyID = $codelistAgency and @version = $codelistVersion and (@validFrom and @validTo)]">
-                            <xsl:value-of select="fn:getUriValidFromToSeparator(@validFrom, @validTo)"/>
-                        </xsl:for-each>
-                    </xsl:when>
-                    <xsl:otherwise>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </xsl:variable>
+            <xsl:choose>
+                <xsl:when test="lower-case(normalize-space($codelistAgency)) = 'sdmx'">
+                    <xsl:variable name="codelistNormalized" select="fn:normalizeSDMXCodeListID($codelist)"/>
 
-            <qb:codeList rdf:resource="{$code}{$codelistAgency}{$uriThingSeparator}{$codelist}{$uriValidFromToSeparator}"/>
-            <rdfs:range rdf:resource="{$class}{$codelistAgency}{$uriThingSeparator}{$codelist}{$uriValidFromToSeparator}"/>
+                    <xsl:variable name="SDMXConceptScheme" select="$SDMXCode/skos:ConceptScheme[skos:notation = $codelistNormalized][1]"/>
+
+                    <qb:codeList rdf:resource="{$SDMXConceptScheme/@rdf:about}"/>
+                    <rdfs:range rdf:resource="{$SDMXConceptScheme/rdfs:seeAlso[1]/@rdf:resource}"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:variable name="uriValidFromToSeparator">
+                        <xsl:choose>
+                            <xsl:when test="$codelistAgency and $codelistVersion">
+                                <xsl:for-each select="//structure:CodeList[@id = $codelist and @agencyID = $codelistAgency and @version = $codelistVersion and (@validFrom and @validTo)]">
+                                    <xsl:value-of select="fn:getUriValidFromToSeparator(@validFrom, @validTo)"/>
+                                </xsl:for-each>
+                            </xsl:when>
+                            <xsl:otherwise>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:variable>
+
+                    <qb:codeList rdf:resource="{$code}{$codelistAgency}{$uriThingSeparator}{$codelist}{$uriValidFromToSeparator}"/>
+                    <rdfs:range rdf:resource="{$class}{$codelistAgency}{$uriThingSeparator}{$codelist}{$uriValidFromToSeparator}"/>
+                </xsl:otherwise>
+            </xsl:choose>
         </xsl:if>
     </xsl:template>
+
+    <xsl:function name="fn:normalizeSDMXCodeListID">
+        <xsl:param name="codelist"/>
+
+        <xsl:value-of select="replace(replace($codelist, '_SDMX', ''), 'CL_OBS_CONF', 'CL_CONF_STATUS')"/>
+    </xsl:function>
 
     <xsl:function name="fn:getAttributeValue">
         <xsl:param name="attributeName"/>
@@ -214,43 +236,6 @@ FIXME: namespace is not necessarily ?kos
         <xsl:param name="validTo"/>
 
         <xsl:text>-</xsl:text><xsl:value-of select="normalize-space($validFrom)"/><xsl:text>-</xsl:text><xsl:value-of select="normalize-space($validTo)"/>
-    </xsl:function>
-
-    <xsl:function name="fn:getSDMXCodeListURI">
-        <xsl:param name="CodeList"/>
-
-        <xsl:choose>
-            <xsl:when test="$CodeList = 'CL_CURRENCY'">
-                <xsl:text>http://purl.org/linked-data/sdmx/2009/code#currency</xsl:text>
-            </xsl:when>
-            <xsl:when test="$CodeList = 'CL_AREA'">
-                <xsl:text>http://purl.org/linked-data/sdmx/2009/code#area</xsl:text>
-            </xsl:when>
-            <xsl:when test="$CodeList = 'CL_DECIMALS'">
-                <xsl:text>http://purl.org/linked-data/sdmx/2009/code#decimals</xsl:text>
-            </xsl:when>
-            <xsl:when test="$CodeList = 'CL_FREQ'">
-                <xsl:text>http://purl.org/linked-data/sdmx/2009/code#freq</xsl:text>
-            </xsl:when>
-            <xsl:when test="$CodeList = 'CL_CONF_STATUS'">
-                <xsl:text>http://purl.org/linked-data/sdmx/2009/code#confStatus</xsl:text>
-            </xsl:when>
-            <xsl:when test="$CodeList = 'CL_OBS_STATUS'">
-                <xsl:text>http://purl.org/linked-data/sdmx/2009/code#obsStatus</xsl:text>
-            </xsl:when>
-            <xsl:when test="$CodeList = 'CL_SEX'">
-                <xsl:text>http://purl.org/linked-data/sdmx/2009/code#sex</xsl:text>
-            </xsl:when>
-            <xsl:when test="$CodeList = 'CL_TIME_FORMAT'">
-                <xsl:text>http://purl.org/linked-data/sdmx/2009/code#timeFormat</xsl:text>
-            </xsl:when>
-            <xsl:when test="$CodeList = 'CL_UNIT_MULT'">
-                <xsl:text>http://purl.org/linked-data/sdmx/2009/code#unitMult</xsl:text>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:text>FIXME: getSDMXCodeListURI probably shouldn't have been called.</xsl:text>
-            </xsl:otherwise>
-        </xsl:choose>
     </xsl:function>
 
 
