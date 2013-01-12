@@ -749,7 +749,7 @@ This dataset URI needs to be unique
                         <xsl:if test="$ObsTime != '' and $TimeDimensionConceptRef != ''">
                             <xsl:element name="property:{$TimeDimensionConceptRef}" namespace="{$property}{$SeriesKeyConceptsData/*[name() = $TimeDimensionConceptRef]/@conceptAgencyURI}">
                                 <xsl:variable name="datatype" select="$SeriesKeyConceptsData/*[name() = $TimeDimensionConceptRef]/@datatype"/>
-                                <xsl:if test="$datatype">
+                                <xsl:if test="$datatype != ''">
                                     <xsl:call-template name="rdfDatatypeXSD">
                                         <xsl:with-param name="type" select="$datatype"/>
                                     </xsl:call-template>
@@ -761,7 +761,7 @@ This dataset URI needs to be unique
                         <xsl:for-each select="generic:ObsValue">
                             <xsl:element name="property:{$PrimaryMeasureConceptRef}" namespace="{$property}{$SeriesKeyConceptsData/*[name() = $PrimaryMeasureConceptRef]/@conceptAgencyURI}">
                                 <xsl:variable name="datatype" select="$SeriesKeyConceptsData/*[name() = $PrimaryMeasureConceptRef]/@datatype"/>
-                                <xsl:if test="$datatype">
+                                <xsl:if test="$datatype != ''">
                                     <xsl:call-template name="rdfDatatypeXSD">
                                         <xsl:with-param name="type" select="$datatype"/>
                                     </xsl:call-template>
