@@ -745,22 +745,27 @@ This dataset URI needs to be unique
                                 <xsl:with-param name="value" select="@value"/>
                             </xsl:call-template>
                         </xsl:for-each>
-<!--
-TODO:
-Revisit datatype or do some smart pattern detection and use a URI if possible
--->
+
                         <xsl:if test="$ObsTime != '' and $TimeDimensionConceptRef != ''">
                             <xsl:element name="property:{$TimeDimensionConceptRef}" namespace="{$property}{$SeriesKeyConceptsData/*[name() = $TimeDimensionConceptRef]/@conceptAgencyURI}">
+                                <xsl:variable name="datatype" select="$SeriesKeyConceptsData/*[name() = $TimeDimensionConceptRef]/@datatype"/>
+                                <xsl:if test="$datatype">
+                                    <xsl:call-template name="rdfDatatypeXSD">
+                                        <xsl:with-param name="type" select="$datatype"/>
+                                    </xsl:call-template>
+                                </xsl:if>
                                 <xsl:value-of select="$ObsTime"/>
                             </xsl:element>
                         </xsl:if>
 
                         <xsl:for-each select="generic:ObsValue">
-<!--
-TODO:
-datatype
--->
                             <xsl:element name="property:{$PrimaryMeasureConceptRef}" namespace="{$property}{$SeriesKeyConceptsData/*[name() = $PrimaryMeasureConceptRef]/@conceptAgencyURI}">
+                                <xsl:variable name="datatype" select="$SeriesKeyConceptsData/*[name() = $PrimaryMeasureConceptRef]/@datatype"/>
+                                <xsl:if test="$datatype">
+                                    <xsl:call-template name="rdfDatatypeXSD">
+                                        <xsl:with-param name="type" select="$datatype"/>
+                                    </xsl:call-template>
+                                </xsl:if>
                                 <xsl:value-of select="@value"/>
                             </xsl:element>
                         </xsl:for-each>
@@ -803,8 +808,7 @@ datatype
                     </xsl:attribute>
                 </xsl:when>
 <!--
-XXX: I think it is okay to leave the value as is if it is not a code. Check this later.
-TODO: datatype 
+XXX: This is probably never used. Consider changing outter choose to if
 -->
                 <xsl:otherwise>
                     <xsl:value-of select="$value"/>
