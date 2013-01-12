@@ -15,7 +15,7 @@ saxonb-xslt -t -tree:linked -s ../data/HDI.DSD.HDR.xml -xsl generic.xsl xmlDocum
 saxonb-xslt -t -tree:linked -s ../data/BIS.WEBSTATS_CIBL_UR_DATAFLOW-1351443106306.xml -xsl generic.xsl xmlDocument=../data/BIS.WEBSTATS_CIBL_UR_DATAFLOW-1351443106306.xml pathToGenericStructure=../data/BIS.WEBSTATS_CIBL_UR_DATAFLOW-1351443106306.xml > ../data/BIS.WEBSTATS_CIBL_UR_DATAFLOW-1351443106306.rdf
 saxonb-xslt -t -tree:linked -s ../data/BIS.WEBSTATS_CIBL_UR_DATAFLOW-1351443131267.xml -xsl generic.xsl xmlDocument=../data/BIS.WEBSTATS_CIBL_UR_DATAFLOW-1351443131267.xml pathToGenericStructure=../data/BIS.WEBSTATS_CIBL_UR_DATAFLOW-1351443106306.xml > ../data/BIS.WEBSTATS_CIBL_UR_DATAFLOW-1351443131267.rdf
 
-saxonb-xslt -t -tree:linked -s ../data/OECD.HEALTH_STAT.xml -xsl generic.xsl xmlDocument=../data/OECD.HEALTH_STAT.xml pathToGenericStructure=./data/OECD.HEALTH_STAT.xml > ../data/OECD.HEALTH_STAT.rdf
+saxonb-xslt -t -tree:linked -s ../data/OECD.HEALTH_STAT.xml -xsl generic.xsl xmlDocument=../data/OECD.HEALTH_STAT.xml pathToGenericStructure=../data/OECD.HEALTH_STAT.xml > ../data/OECD.HEALTH_STAT.rdf
 saxonb-xslt -t -tree:linked -s ../data/OECD.HEALTH_STAT.data.xml -xsl generic.xsl xmlDocument=../data/OECD.HEALTH_STAT.data.xml pathToGenericStructure=../data/OECD.HEALTH_STAT.xml > ../data/OECD.HEALTH_STAT.data.rdf
 
 saxonb-xslt -t -tree:linked -s ../data/FAO.CAPTURE_DATASTRUCTURE.xml -xsl generic.xsl xmlDocument=../data/FAO.CAPTURE_DATASTRUCTURE.xml pathToGenericStructure=../data/FAO.CAPTURE_DATASTRUCTURE.xml > ../data/FAO.CAPTURE_DATASTRUCTURE.rdf
