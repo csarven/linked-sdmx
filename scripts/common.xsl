@@ -380,11 +380,6 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
                     <xsl:attribute name="datatype">
                         <xsl:value-of select="fn:getXSDType($Component/structure:TextFormat/@textType)"/>
                     </xsl:attribute>
-
-<xsl:message>
-<xsl:text>
-concept: </xsl:text><xsl:value-of select="$concept"/><xsl:text>, datatype: </xsl:text><xsl:value-of select="fn:getXSDType($Component/structure:TextFormat/@textType)"/>
-</xsl:message>
                 </xsl:element>
             </xsl:for-each>
         </rdf:RDF>
