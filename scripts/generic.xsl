@@ -106,9 +106,7 @@ FIXME: $pathToGenericStructure should be replaced with an HTTP URI
 
                 <sdmx-concept:mAgency><xsl:value-of select="$agencyID"/></sdmx-concept:mAgency>
 
-                <xsl:if test="@version">
-                    <sdmx-concept:dataRev><xsl:value-of select="@version"/></sdmx-concept:dataRev>
-                </xsl:if>
+                <xsl:apply-templates select="@version"/>
 
                 <xsl:apply-templates select="@uri"/>
                 <xsl:apply-templates select="@urn"/>
@@ -303,6 +301,7 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
 
             <xsl:apply-templates select="@uri"/>
             <xsl:apply-templates select="@urn"/>
+            <xsl:apply-templates select="@version"/>
 
             <skos:notation><xsl:value-of select="$id"/></skos:notation>
 
@@ -349,6 +348,7 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
 
             <xsl:apply-templates select="@uri"/>
             <xsl:apply-templates select="@urn"/>
+            <xsl:apply-templates select="@version"/>
 
             <skos:notation><xsl:value-of select="$id"/></skos:notation>
 
@@ -397,6 +397,7 @@ structure:textFormat
                     <xsl:apply-templates select="@uri"/>
                     <xsl:apply-templates select="@validFrom"/>
                     <xsl:apply-templates select="@validTo"/>
+                    <xsl:apply-templates select="@version"/>
 
                     <skos:notation><xsl:value-of select="$id"/></skos:notation>
                     <xsl:apply-templates select="structure:Name"/>
@@ -449,6 +450,7 @@ structure:textFormat
 
                 <xsl:apply-templates select="@uri"/>
                 <xsl:apply-templates select="@urn"/>
+                <xsl:apply-templates select="@version"/>
 
                 <skos:notation><xsl:value-of select="$id"/></skos:notation>
                 <xsl:apply-templates select="structure:Name"/>
@@ -479,6 +481,7 @@ structure:textFormat
                             <xsl:apply-templates select="@urn"/>
                             <xsl:apply-templates select="@validFrom"/>
                             <xsl:apply-templates select="@validTo"/>
+                            <xsl:apply-templates select="@version"/>
 
                             <xsl:call-template name="CodeRefs">
                                 <xsl:with-param name="HierarchicalCodelistID" select="$id"/>
@@ -576,6 +579,8 @@ XXX:
                     <xsl:if test="structure:ValidTo">
                         <sdmx-concept:validTo><xsl:value-of select="structure:ValidTo"/></sdmx-concept:validTo>
                     </xsl:if>
+
+                    <xsl:apply-templates select="@version"/>
 
                     <xsl:call-template name="CodeRefs">
                         <xsl:with-param name="HierarchicalCodelistID" select="$HierarchicalCodelistID"/>

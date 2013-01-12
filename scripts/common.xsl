@@ -7,6 +7,7 @@
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:dcterms="http://purl.org/dc/terms/"
     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
     xmlns:prov="http://www.w3.org/ns/prov#"
@@ -70,6 +71,10 @@
 
     <xsl:template match="structure:Description">
         <skos:definition><xsl:call-template name="langTextNode"/></skos:definition>
+    </xsl:template>
+
+    <xsl:template match="@version">
+        <owl:versionInfo><xsl:value-of select="."/></owl:versionInfo>
     </xsl:template>
 
     <xsl:template match="structure:Annotations/common:Annotation">
