@@ -184,29 +184,41 @@ FIXME: namespace is not necessarily ?kos
         </xsl:if>
     </xsl:function>
 
-    <xsl:template name="datatype-dateTime">
-        <xsl:attribute name="rdf:datatype">
-            <xsl:text>http://www.w3.org/2001/XMLSchema#dateTime</xsl:text>
-        </xsl:attribute>
+    <xsl:template name="rdfDatatypeXSD">
+        <xsl:param name="type"/>
+
+        <xsl:attribute name="rdf:datatype"><xsl:text>http://www.w3.org/2001/XMLSchema#</xsl:text><xsl:value-of select="$type"/></xsl:attribute>
     </xsl:template>
 
-    <xsl:template name="datatype-date">
-        <xsl:attribute name="rdf:datatype">
-            <xsl:text>http://www.w3.org/2001/XMLSchema#date</xsl:text>
-        </xsl:attribute>
-    </xsl:template>
+    <xsl:function name="fn:getXSDType">
+        <xsl:param name="type"/>
 
-    <xsl:template name="datatype-xsd-decimal">
-        <xsl:attribute name="rdf:datatype">
-            <xsl:text>http://www.w3.org/2001/XMLSchema#decimal</xsl:text>
-        </xsl:attribute>
-    </xsl:template>
-
-    <xsl:template name="datatype-xsd-double">
-        <xsl:attribute name="rdf:datatype">
-            <xsl:text>http://www.w3.org/2001/XMLSchema#double</xsl:text>
-        </xsl:attribute>
-    </xsl:template>
+        <xsl:choose>
+            <xsl:when test="$type = 'String'"><xsl:text>string</xsl:text></xsl:when>
+            <xsl:when test="$type = 'BigInteger'"><xsl:text>integer</xsl:text></xsl:when>
+            <xsl:when test="$type = 'Integer'"><xsl:text>int</xsl:text></xsl:when>
+            <xsl:when test="$type = 'Long'"><xsl:text>long</xsl:text></xsl:when>
+            <xsl:when test="$type = 'Short'"><xsl:text>short</xsl:text></xsl:when>
+            <xsl:when test="$type = 'Decimal'"><xsl:text>decimal</xsl:text></xsl:when>
+            <xsl:when test="$type = 'Float'"><xsl:text>float</xsl:text></xsl:when>
+            <xsl:when test="$type = 'Double'"><xsl:text>double</xsl:text></xsl:when>
+            <xsl:when test="$type = 'Boolean'"><xsl:text>boolean</xsl:text></xsl:when>
+            <xsl:when test="$type = 'DateTime'"><xsl:text>dateTime</xsl:text></xsl:when>
+            <xsl:when test="$type = 'Date'"><xsl:text>date</xsl:text></xsl:when>
+            <xsl:when test="$type = 'Time'"><xsl:text>time</xsl:text></xsl:when>
+            <xsl:when test="$type = 'Year'"><xsl:text>gYear</xsl:text></xsl:when>
+            <xsl:when test="$type = 'Month'"><xsl:text>gMonth</xsl:text></xsl:when>
+            <xsl:when test="$type = 'Day'"><xsl:text>gDay</xsl:text></xsl:when>
+            <xsl:when test="$type = 'MonthDay'"><xsl:text>gMonthDay</xsl:text></xsl:when>
+            <xsl:when test="$type = 'YearMonth'"><xsl:text>gYearMonth</xsl:text></xsl:when>
+            <xsl:when test="$type = 'Duration'"><xsl:text>duration</xsl:text></xsl:when>
+            <xsl:when test="$type = 'URI'"><xsl:text>anyURI</xsl:text></xsl:when>
+<!--
+TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, ObservationalTimePeriod
+-->
+            <xsl:otherwise></xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>
 
     <xsl:template name="provActivity">
         <xsl:param name="provUsedA"/>
@@ -343,6 +355,7 @@ FIXME: namespace is not necessarily ?kos
         <rdf:RDF>
             <xsl:for-each select="distinct-values($concepts)">
                 <xsl:variable name="concept" select="."/>
+
                 <xsl:element name="{$concept}">
                     <xsl:variable name="Component" select="$genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/*[@conceptRef = $concept]"/>
 
@@ -363,6 +376,15 @@ FIXME: namespace is not necessarily ?kos
                     <xsl:attribute name="conceptAgencyURI">
                         <xsl:value-of select="$conceptAgency"/><xsl:value-of select="$uriThingSeparator"/>
                     </xsl:attribute>
+
+                    <xsl:attribute name="datatype">
+                        <xsl:value-of select="fn:getXSDType($Component/structure:TextFormat/@textType)"/>
+                    </xsl:attribute>
+
+<xsl:message>
+<xsl:text>
+concept: </xsl:text><xsl:value-of select="$concept"/><xsl:text>, datatype: </xsl:text><xsl:value-of select="fn:getXSDType($Component/structure:TextFormat/@textType)"/>
+</xsl:message>
                 </xsl:element>
             </xsl:for-each>
         </rdf:RDF>
