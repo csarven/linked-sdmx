@@ -112,7 +112,7 @@ FIXME: namespace is not necessarily ?kos
         </xsl:for-each>
 
         <xsl:for-each select="common:AnnotationURL">
-            <rdfs:seeAlso rdf:resource="{normalize-space(.)}"/>
+            <dcterms:identifier><xsl:value-of select="normalize-space(.)"/></dcterms:identifier>
         </xsl:for-each>
     </xsl:template>
 
