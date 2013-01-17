@@ -27,7 +27,7 @@
 
     <xsl:variable name="pathToSDMXCode"><xsl:text>./sdmx-code.rdf</xsl:text></xsl:variable>
     <xsl:variable name="SDMXCode" select="document($pathToSDMXCode)/rdf:RDF"/>
-    <xsl:variable name="pathToConfig"><xsl:text>./config.rdf</xsl:text></xsl:variable>
+    <xsl:variable name="pathToConfig"><xsl:text>./config.bfs.rdf</xsl:text></xsl:variable>
     <xsl:variable name="Config" select="document($pathToConfig)/rdf:RDF"/>
     <xsl:variable name="xmlDocumentBaseUri" select="fn:getConfig('xmlDocumentBaseUri')"/>
     <xsl:variable name="xslDocument" select="fn:getConfig('xslDocument')"/>
@@ -82,16 +82,16 @@
 
         <xsl:if test="$AnnotationType">
             <xsl:variable name="ConfigInterlinkAnnotationTypes" select="$Config/rdf:Description/rdf:value/rdf:Description[rdfs:label = 'interlinkAnnotationTypes']/rdf:value/rdf:Description[rdfs:label = $AnnotationType]"/>
-<!--
-FIXME: namespace is not necessarily ?kos
--->
+
             <xsl:for-each select="common:AnnotationText">
                 <xsl:variable name="AnnotationText" select="normalize-space(.)"/>
 
                 <xsl:choose>
                     <xsl:when test="string-length($ConfigInterlinkAnnotationTypes) > 0">
                         <xsl:for-each select="$ConfigInterlinkAnnotationTypes">
-                            <xsl:element name="{rdf:predicate}" namespace="{$xkos}">
+                            <xsl:variable name="rdfPredicate" select="rdf:predicate"/>
+
+                            <xsl:element name="{$rdfPredicate}" namespace="{fn:getConfig(tokenize($rdfPredicate, ':')[1])}">
                                 <xsl:attribute name="rdf:resource">
                                     <xsl:value-of select="rdf:type"/><xsl:value-of select="$uriThingSeparator"/><xsl:value-of select="$AnnotationText"/>
                                 </xsl:attribute>
