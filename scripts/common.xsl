@@ -27,7 +27,7 @@
 
     <xsl:variable name="pathToSDMXCode"><xsl:text>./sdmx-code.rdf</xsl:text></xsl:variable>
     <xsl:variable name="SDMXCode" select="document($pathToSDMXCode)/rdf:RDF"/>
-    <xsl:variable name="pathToConfig"><xsl:text>./config.bfs.rdf</xsl:text></xsl:variable>
+    <xsl:variable name="pathToConfig"><xsl:text>./config.rdf</xsl:text></xsl:variable>
     <xsl:variable name="Config" select="document($pathToConfig)/rdf:RDF"/>
     <xsl:variable name="ConfigInterlinkAnnotationTypes" select="$Config/rdf:Description/rdf:value/rdf:Description[rdfs:label = 'interlinkAnnotationTypes']/rdf:value/rdf:Description"/>
     <xsl:variable name="xmlDocumentBaseUri" select="fn:getConfig('xmlDocumentBaseUri')"/>
@@ -57,12 +57,16 @@
     <xsl:variable name="interlinkAnnotationTypes" select="fn:getConfig('interlinkAnnotationTypes')"/>
 
     <xsl:template name="langTextNode">
-        <xsl:if test="@xml:lang">
-            <xsl:copy-of select="@*[name() = 'xml:lang']"/>
-        </xsl:if>
-        <xsl:if test="$lang">
-            <xsl:attribute name="xml:lang" select="$lang"/>
-        </xsl:if>
+        <xsl:choose>
+            <xsl:when test="@xml:lang">
+                <xsl:copy-of select="@*[name() = 'xml:lang']"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:if test="$lang">
+                    <xsl:attribute name="xml:lang" select="$lang"/>
+                </xsl:if>
+            </xsl:otherwise>
+        </xsl:choose>
         <xsl:value-of select="normalize-space(text())"/>
     </xsl:template>
 
