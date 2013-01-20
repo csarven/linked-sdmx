@@ -27,7 +27,7 @@
 
     <xsl:variable name="pathToSDMXCode"><xsl:text>./sdmx-code.rdf</xsl:text></xsl:variable>
     <xsl:variable name="SDMXCode" select="document($pathToSDMXCode)/rdf:RDF"/>
-    <xsl:variable name="pathToConfig"><xsl:text>./config.rdf</xsl:text></xsl:variable>
+    <xsl:variable name="pathToConfig"><xsl:text>./config.bfs.rdf</xsl:text></xsl:variable>
     <xsl:variable name="Config" select="document($pathToConfig)/rdf:RDF"/>
     <xsl:variable name="ConfigInterlinkAnnotationTypes" select="$Config/rdf:Description/rdf:value/rdf:Description[rdfs:label = 'interlinkAnnotationTypes']/rdf:value/rdf:Description"/>
     <xsl:variable name="xmlDocumentBaseUri" select="fn:getConfig('xmlDocumentBaseUri')"/>
@@ -100,15 +100,15 @@
                     </xsl:choose>
                 </xsl:element>
             </xsl:for-each>
+
+            <xsl:for-each select="common:AnnotationTitle">
+                <rdfs:comment><xsl:value-of select="."/></rdfs:comment>
+            </xsl:for-each>
+
+            <xsl:for-each select="common:AnnotationURL">
+                <dcterms:identifier><xsl:value-of select="normalize-space(.)"/></dcterms:identifier>
+            </xsl:for-each>
         </xsl:if>
-
-        <xsl:for-each select="common:AnnotationTitle">
-            <rdfs:comment><xsl:value-of select="."/></rdfs:comment>
-        </xsl:for-each>
-
-        <xsl:for-each select="common:AnnotationURL">
-            <dcterms:identifier><xsl:value-of select="normalize-space(.)"/></dcterms:identifier>
-        </xsl:for-each>
     </xsl:template>
 
     <xsl:template match="@validFrom">
