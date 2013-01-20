@@ -599,8 +599,7 @@ XXX:
 TODO: DataSets may be sent with message:MessageGroup
 -->
 
-        <xsl:for-each select="GenericData/DataSet">
-
+        <xsl:for-each select="*/*[local-name() = 'DataSet']">
             <xsl:variable name="KeyFamilyRef">
                 <xsl:choose>
                     <xsl:when test="generic:KeyFamilyRef">
