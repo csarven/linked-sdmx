@@ -21,9 +21,9 @@
    <rdf:Description rdf:about="http://example.org/#i">
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Agent"/>
    </rdf:Description>
-   <rdf:Description rdf:about="http://example.org/prov/activity/20130112234926">
+   <rdf:Description rdf:about="http://example.org/prov/activity/20130121155445">
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
-      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-12T23:49:26Z</prov:startedAtTime>
+      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-21T15:54:45Z</prov:startedAtTime>
       <prov:used rdf:resource="http://example.org/data/WB.KeyFamily.xml"/>
       <prov:used rdf:resource="https://raw.github.com/csarven/sdmx-to-qb/master/scripts/generic.xsl"/>
       <prov:generated>
@@ -47,7 +47,11 @@
                <rdf:Description rdf:about="http://example.org/property/WB/FREQ">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/WB/FREQ"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/WB/FREQ">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#FrequencyRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code/WB/CL_FREQ_WDI"/>
                   <rdfs:range rdf:resource="http://example.org/class/WB/CL_FREQ_WDI"/>
                </rdf:Description>
@@ -61,7 +65,11 @@
                <rdf:Description rdf:about="http://example.org/property/WB/SERIES">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/WB/SERIES"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/WB/SERIES">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code/WB/CL_SERIES_WDI"/>
                   <rdfs:range rdf:resource="http://example.org/class/WB/CL_SERIES_WDI"/>
                </rdf:Description>
@@ -75,7 +83,11 @@
                <rdf:Description rdf:about="http://example.org/property/WB/REF_AREA">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/WB/REF_AREA"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/WB/REF_AREA">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code/WB/CL_REF_AREA_WDI"/>
                   <rdfs:range rdf:resource="http://example.org/class/WB/CL_REF_AREA_WDI"/>
                </rdf:Description>
@@ -89,7 +101,11 @@
                <rdf:Description rdf:about="http://example.org/property/WB/TIME_PERIOD">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/WB/TIME_PERIOD"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/WB/TIME_PERIOD">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#TimeRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                </rdf:Description>
             </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</qb:order>
@@ -101,7 +117,11 @@
                <rdf:Description rdf:about="http://example.org/property/IAEG/OBS_VALUE">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#MeasureProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/IAEG/OBS_VALUE"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/IAEG/OBS_VALUE">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                </rdf:Description>
             </qb:measure>
          </qb:ComponentSpecification>
@@ -112,7 +132,11 @@
                <rdf:Description rdf:about="http://example.org/property/WB/UNIT_MULT">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/WB/UNIT_MULT"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/WB/UNIT_MULT">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code/WB/CL_UNIT_MULT_WDI"/>
                   <rdfs:range rdf:resource="http://example.org/class/WB/CL_UNIT_MULT_WDI"/>
                </rdf:Description>
@@ -127,8 +151,7 @@
       <owl:versionInfo>1.0</owl:versionInfo>
       <skos:notation>FREQ</skos:notation>
       <skos:prefLabel xml:lang="en">Frequency</skos:prefLabel>
-      <skos:definition xml:lang="en">Indicates rate of recurrence at which observations
-				occur (e.g. monthly, yearly, biannually, etc.).</skos:definition>
+      <skos:definition xml:lang="en">Indicates rate of recurrence at which observations occur (e.g. monthly, yearly, biannually, etc.).</skos:definition>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/WB/REF_AREA">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
@@ -136,10 +159,7 @@
       <owl:versionInfo>1.0</owl:versionInfo>
       <skos:notation>REF_AREA</skos:notation>
       <skos:prefLabel xml:lang="en">Reference Area</skos:prefLabel>
-      <skos:definition xml:lang="en">Reference Area: Specific areas (e.g. Country,
-				Regional Grouping, etc) the observed values refer to. Reference areas can be
-				determined according to different criteria (e.g.: geographical, economic,
-				etc.).</skos:definition>
+      <skos:definition xml:lang="en">Reference Area: Specific areas (e.g. Country, Regional Grouping, etc) the observed values refer to. Reference areas can be determined according to different criteria (e.g.: geographical, economic, etc.).</skos:definition>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/WB/SERIES">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
@@ -147,9 +167,7 @@
       <owl:versionInfo>1.0</owl:versionInfo>
       <skos:notation>SERIES</skos:notation>
       <skos:prefLabel xml:lang="en">Series</skos:prefLabel>
-      <skos:definition xml:lang="en">The phenomenon or phenomena to be measured in the
-				data set. The word SERIES is used for consistency with the term used in the WDI
-				Database. SERIES are 54 key indicators from WDI</skos:definition>
+      <skos:definition xml:lang="en">The phenomenon or phenomena to be measured in the data set. The word SERIES is used for consistency with the term used in the WDI Database. SERIES are 54 key indicators from WDI</skos:definition>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/WB/TIME_PERIOD">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
@@ -157,9 +175,7 @@
       <owl:versionInfo>1.0</owl:versionInfo>
       <skos:notation>TIME_PERIOD</skos:notation>
       <skos:prefLabel xml:lang="en">Time period</skos:prefLabel>
-      <skos:definition xml:lang="en">Reference date - or date range - the observed value
-				refers to (usually different from the dates of data production or dissemination).
-				</skos:definition>
+      <skos:definition xml:lang="en">Reference date - or date range - the observed value refers to (usually different from the dates of data production or dissemination).</skos:definition>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/WB/UNIT_MULT">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
@@ -167,9 +183,7 @@
       <owl:versionInfo>1.0</owl:versionInfo>
       <skos:notation>UNIT_MULT</skos:notation>
       <skos:prefLabel xml:lang="en">Unit multiplier</skos:prefLabel>
-      <skos:definition xml:lang="en">Exponent in base 10 that multiplied by the
-				observation numeric value gives the result expressed in the unit of
-				measure.</skos:definition>
+      <skos:definition xml:lang="en">Exponent in base 10 that multiplied by the observation numeric value gives the result expressed in the unit of measure.</skos:definition>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/IAEG/OBS_VALUE">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
@@ -13016,7 +13030,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/WB/CL_SERIES_WDI"/>
             <skos:inScheme rdf:resource="http://example.org/code/WB/CL_SERIES_WDI"/>
             <skos:notation>SH_VST_OUTP</skos:notation>
-            <skos:definition xml:lang="en">Outpatient visits per capita </skos:definition>
+            <skos:definition xml:lang="en">Outpatient visits per capita</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>

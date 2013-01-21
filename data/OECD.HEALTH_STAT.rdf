@@ -21,9 +21,9 @@
    <rdf:Description rdf:about="http://example.org/#i">
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Agent"/>
    </rdf:Description>
-   <rdf:Description rdf:about="http://example.org/prov/activity/20130112234943">
+   <rdf:Description rdf:about="http://example.org/prov/activity/20130121155503">
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
-      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-12T23:49:43Z</prov:startedAtTime>
+      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-21T15:55:03Z</prov:startedAtTime>
       <prov:used rdf:resource="http://example.org/data/OECD.HEALTH_STAT.xml"/>
       <prov:used rdf:resource="https://raw.github.com/csarven/sdmx-to-qb/master/scripts/generic.xsl"/>
       <prov:generated>
@@ -40,14 +40,18 @@
       <sdmx-concept:dsi>HEALTH_STAT</sdmx-concept:dsi>
       <sdmx-concept:mAgency>OECD</sdmx-concept:mAgency>
       <skos:prefLabel xml:lang="en">Health Status</skos:prefLabel>
-      <skos:prefLabel xml:lang="en">Etat de Santé</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Etat de Santé</skos:prefLabel>
       <qb:component>
          <qb:ComponentSpecification>
             <qb:dimension>
                <rdf:Description rdf:about="http://example.org/property/OECD/VAR">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/OECD/VAR"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/OECD/VAR">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_VAR"/>
                   <rdfs:range rdf:resource="http://example.org/class/OECD/CL_HEALTH_STAT_VAR"/>
                </rdf:Description>
@@ -61,7 +65,11 @@
                <rdf:Description rdf:about="http://example.org/property/OECD/UNIT">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/OECD/UNIT"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/OECD/UNIT">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
                   <rdfs:range rdf:resource="http://example.org/class/OECD/CL_HEALTH_STAT_UNIT"/>
                </rdf:Description>
@@ -75,7 +83,11 @@
                <rdf:Description rdf:about="http://example.org/property/OECD/COU">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/OECD/COU"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/OECD/COU">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
                   <rdfs:range rdf:resource="http://example.org/class/OECD/CL_HEALTH_STAT_LOCATION"/>
                </rdf:Description>
@@ -89,7 +101,11 @@
                <rdf:Description rdf:about="http://example.org/property/OECD/YEA">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/OECD/YEA"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/OECD/YEA">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#TimeRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
                   <rdfs:range rdf:resource="http://example.org/class/OECD/CL_HEALTH_STAT_TIME"/>
                </rdf:Description>
@@ -103,7 +119,11 @@
                <rdf:Description rdf:about="http://example.org/property/OECD/OBS_VALUE">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#MeasureProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/OECD/OBS_VALUE"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/OECD/OBS_VALUE">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                </rdf:Description>
             </qb:measure>
          </qb:ComponentSpecification>
@@ -114,7 +134,11 @@
                <rdf:Description rdf:about="http://example.org/property/OECD/OBS_STATUS">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/OECD/OBS_STATUS"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/OECD/OBS_STATUS">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_OBS_STATUS"/>
                   <rdfs:range rdf:resource="http://example.org/class/OECD/CL_HEALTH_STAT_OBS_STATUS"/>
                </rdf:Description>
@@ -128,7 +152,11 @@
                <rdf:Description rdf:about="http://example.org/property/OECD/UNIT">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/OECD/UNIT"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/OECD/UNIT">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
                   <rdfs:range rdf:resource="http://example.org/class/OECD/CL_HEALTH_STAT_UNIT"/>
                </rdf:Description>
@@ -142,7 +170,11 @@
                <rdf:Description rdf:about="http://example.org/property/OECD/POWERCODE">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/OECD/POWERCODE"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/OECD/POWERCODE">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_POWERCODE"/>
                   <rdfs:range rdf:resource="http://example.org/class/OECD/CL_HEALTH_STAT_POWERCODE"/>
                </rdf:Description>
@@ -156,7 +188,11 @@
                <rdf:Description rdf:about="http://example.org/property/OECD/TIME_FORMAT">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/OECD/TIME_FORMAT"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/OECD/TIME_FORMAT">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#TimeRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME_FORMAT"/>
                   <rdfs:range rdf:resource="http://example.org/class/OECD/CL_HEALTH_STAT_TIME_FORMAT"/>
                </rdf:Description>
@@ -170,84 +206,84 @@
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
       <skos:notation>VAR</skos:notation>
       <skos:prefLabel xml:lang="en">Variable</skos:prefLabel>
-      <skos:prefLabel xml:lang="en">Variable</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Variable</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/OECD/UNIT">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
       <skos:notation>UNIT</skos:notation>
       <skos:prefLabel xml:lang="en">Unit</skos:prefLabel>
-      <skos:prefLabel xml:lang="en">Unité</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Unité</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/OECD/COU">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
       <skos:notation>COU</skos:notation>
       <skos:prefLabel xml:lang="en">Country</skos:prefLabel>
-      <skos:prefLabel xml:lang="en">Pays</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Pays</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/OECD/YEA">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
       <skos:notation>YEA</skos:notation>
       <skos:prefLabel xml:lang="en">Year</skos:prefLabel>
-      <skos:prefLabel xml:lang="en">Année</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Année</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/OECD/UNIT">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
       <skos:notation>UNIT</skos:notation>
       <skos:prefLabel xml:lang="en">Unit</skos:prefLabel>
-      <skos:prefLabel xml:lang="en">Unit</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Unit</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/OECD/POWERCODE">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
       <skos:notation>POWERCODE</skos:notation>
       <skos:prefLabel xml:lang="en">Powercode</skos:prefLabel>
-      <skos:prefLabel xml:lang="en">Powercode</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Powercode</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/OECD/TIME_FORMAT">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
       <skos:notation>TIME_FORMAT</skos:notation>
       <skos:prefLabel xml:lang="en">Time format</skos:prefLabel>
-      <skos:prefLabel xml:lang="en">Time format</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Time format</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/OECD/OBS_STATUS">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
       <skos:notation>OBS_STATUS</skos:notation>
       <skos:prefLabel xml:lang="en">Observation Status</skos:prefLabel>
-      <skos:prefLabel xml:lang="en">Statut d'observation</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Statut d'observation</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/OECD/UNIT">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
       <skos:notation>UNIT</skos:notation>
       <skos:prefLabel xml:lang="en">Unit</skos:prefLabel>
-      <skos:prefLabel xml:lang="en">Unité</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Unité</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/OECD/POWERCODE">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
       <skos:notation>POWERCODE</skos:notation>
       <skos:prefLabel xml:lang="en">Unit multplier</skos:prefLabel>
-      <skos:prefLabel xml:lang="en">Unité multiplicateur</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Unité multiplicateur</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/OECD/TIME_FORMAT">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
       <skos:notation>TIME_FORMAT</skos:notation>
       <skos:prefLabel xml:lang="en">Time Format</skos:prefLabel>
-      <skos:prefLabel xml:lang="en">Format de l'heure</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Format de l'heure</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/concept/OECD/OBS_VALUE">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
       <skos:notation>OBS_VALUE</skos:notation>
       <skos:prefLabel xml:lang="en">Observation Value</skos:prefLabel>
-      <skos:prefLabel xml:lang="en">Valeur d'observation</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Valeur d'observation</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/code/OECD/CL_HEALTH_STAT_OBS_STATUS">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
@@ -259,12 +295,12 @@
             <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
             <rdfs:seeAlso rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_OBS_STATUS"/>
             <skos:prefLabel xml:lang="en">Observation Status</skos:prefLabel>
-            <skos:prefLabel xml:lang="en">Statut d'observation</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Statut d'observation</skos:prefLabel>
          </rdf:Description>
       </rdfs:seeAlso>
       <skos:notation>CL_HEALTH_STAT_OBS_STATUS</skos:notation>
       <skos:prefLabel xml:lang="en">Observation Status</skos:prefLabel>
-      <skos:prefLabel xml:lang="en">Statut d'observation</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Statut d'observation</skos:prefLabel>
       <skos:hasTopConcept>
          <rdf:Description rdf:about="http://example.org/code/OECD/CL_HEALTH_STAT_OBS_STATUS/B">
             <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
@@ -274,7 +310,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_OBS_STATUS"/>
             <skos:notation>B</skos:notation>
             <skos:definition xml:lang="en">Break</skos:definition>
-            <skos:definition xml:lang="en">Rupture</skos:definition>
+            <skos:definition xml:lang="fr">Rupture</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -286,7 +322,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_OBS_STATUS"/>
             <skos:notation>C</skos:notation>
             <skos:definition xml:lang="en">Non-publishable and confidential value</skos:definition>
-            <skos:definition xml:lang="en">Valeur non-publiable et confidentielle</skos:definition>
+            <skos:definition xml:lang="fr">Valeur non-publiable et confidentielle</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -298,7 +334,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_OBS_STATUS"/>
             <skos:notation>D</skos:notation>
             <skos:definition xml:lang="en">Difference in methodology</skos:definition>
-            <skos:definition xml:lang="en">Différence de méthodologie</skos:definition>
+            <skos:definition xml:lang="fr">Différence de méthodologie</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -310,7 +346,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_OBS_STATUS"/>
             <skos:notation>E</skos:notation>
             <skos:definition xml:lang="en">Estimated value</skos:definition>
-            <skos:definition xml:lang="en">Valeur estimée</skos:definition>
+            <skos:definition xml:lang="fr">Valeur estimée</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -322,7 +358,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_OBS_STATUS"/>
             <skos:notation>F</skos:notation>
             <skos:definition xml:lang="en">Forecast value</skos:definition>
-            <skos:definition xml:lang="en">Valeur projetée</skos:definition>
+            <skos:definition xml:lang="fr">Valeur projetée</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -334,7 +370,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_OBS_STATUS"/>
             <skos:notation>H</skos:notation>
             <skos:definition xml:lang="en">Missing value, holiday or weekend</skos:definition>
-            <skos:definition xml:lang="en">Valeur manquante ; jour férié ou fin de semaine</skos:definition>
+            <skos:definition xml:lang="fr">Valeur manquante ; jour férié ou fin de semaine</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -346,7 +382,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_OBS_STATUS"/>
             <skos:notation>L</skos:notation>
             <skos:definition xml:lang="en">Missing value; data exist but were not collected</skos:definition>
-            <skos:definition xml:lang="en">Valeur manquante ; donnée existe mais n'a pas été collecté</skos:definition>
+            <skos:definition xml:lang="fr">Valeur manquante ; donnée existe mais n'a pas été collecté</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -358,7 +394,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_OBS_STATUS"/>
             <skos:notation>M</skos:notation>
             <skos:definition xml:lang="en">Missing value; data cannot exist</skos:definition>
-            <skos:definition xml:lang="en">Valeur manquante ; donnée ne peut pas exister</skos:definition>
+            <skos:definition xml:lang="fr">Valeur manquante ; donnée ne peut pas exister</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -370,7 +406,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_OBS_STATUS"/>
             <skos:notation>N</skos:notation>
             <skos:definition xml:lang="en">Non-publishable, but non-confidential value</skos:definition>
-            <skos:definition xml:lang="en">Valeur non-publiable, mais non-confidentielle</skos:definition>
+            <skos:definition xml:lang="fr">Valeur non-publiable, mais non-confidentielle</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -382,7 +418,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_OBS_STATUS"/>
             <skos:notation>P</skos:notation>
             <skos:definition xml:lang="en">Provisional value</skos:definition>
-            <skos:definition xml:lang="en">Valeur provisoire</skos:definition>
+            <skos:definition xml:lang="fr">Valeur provisoire</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -394,7 +430,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_OBS_STATUS"/>
             <skos:notation>R</skos:notation>
             <skos:definition xml:lang="en">Confidential statistical information due to identifiable</skos:definition>
-            <skos:definition xml:lang="en">Information statistique confidentielle due à identifiable</skos:definition>
+            <skos:definition xml:lang="fr">Information statistique confidentielle due à identifiable</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -406,7 +442,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_OBS_STATUS"/>
             <skos:notation>S</skos:notation>
             <skos:definition xml:lang="en">Strike</skos:definition>
-            <skos:definition xml:lang="en">Grève</skos:definition>
+            <skos:definition xml:lang="fr">Grève</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -418,7 +454,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_OBS_STATUS"/>
             <skos:notation>Z</skos:notation>
             <skos:definition xml:lang="en">Absolute zero observation</skos:definition>
-            <skos:definition xml:lang="en">Observation zéro absolu</skos:definition>
+            <skos:definition xml:lang="fr">Observation zéro absolu</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -430,7 +466,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_OBS_STATUS"/>
             <skos:notation>b</skos:notation>
             <skos:definition xml:lang="en">Break in series</skos:definition>
-            <skos:definition xml:lang="en">Rupture de série</skos:definition>
+            <skos:definition xml:lang="fr">Rupture de série</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -442,7 +478,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_OBS_STATUS"/>
             <skos:notation>d</skos:notation>
             <skos:definition xml:lang="en">Difference in methodology</skos:definition>
-            <skos:definition xml:lang="en">Différence de méthodologie</skos:definition>
+            <skos:definition xml:lang="fr">Différence de méthodologie</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -454,7 +490,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_OBS_STATUS"/>
             <skos:notation>e</skos:notation>
             <skos:definition xml:lang="en">Estimate</skos:definition>
-            <skos:definition xml:lang="en">Estimation</skos:definition>
+            <skos:definition xml:lang="fr">Estimation</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
    </rdf:Description>
@@ -481,7 +517,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_VAR"/>
             <skos:notation>SANT</skos:notation>
             <skos:definition xml:lang="en">Mortality</skos:definition>
-            <skos:definition xml:lang="en">Mortalité</skos:definition>
+            <skos:definition xml:lang="fr">Mortalité</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -498,7 +534,7 @@
             </skos:broader>
             <skos:notation>EVIE</skos:notation>
             <skos:definition xml:lang="en">Life expectancy</skos:definition>
-            <skos:definition xml:lang="en">Espérance de vie</skos:definition>
+            <skos:definition xml:lang="fr">Espérance de vie</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -515,7 +551,7 @@
             </skos:broader>
             <skos:notation>EVIEFE00</skos:notation>
             <skos:definition xml:lang="en">Females at birth</skos:definition>
-            <skos:definition xml:lang="en">Femmes à la naissance</skos:definition>
+            <skos:definition xml:lang="fr">Femmes à la naissance</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -532,7 +568,7 @@
             </skos:broader>
             <skos:notation>EVIEFE40</skos:notation>
             <skos:definition xml:lang="en">Females at age 40</skos:definition>
-            <skos:definition xml:lang="en">Femmes à 40 ans</skos:definition>
+            <skos:definition xml:lang="fr">Femmes à 40 ans</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -549,7 +585,7 @@
             </skos:broader>
             <skos:notation>EVIEFE60</skos:notation>
             <skos:definition xml:lang="en">Females at age 60</skos:definition>
-            <skos:definition xml:lang="en">Femmes à 60 ans</skos:definition>
+            <skos:definition xml:lang="fr">Femmes à 60 ans</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -566,7 +602,7 @@
             </skos:broader>
             <skos:notation>EVIEFE65</skos:notation>
             <skos:definition xml:lang="en">Females at age 65</skos:definition>
-            <skos:definition xml:lang="en">Femmes à 65 ans</skos:definition>
+            <skos:definition xml:lang="fr">Femmes à 65 ans</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -583,7 +619,7 @@
             </skos:broader>
             <skos:notation>EVIEFE80</skos:notation>
             <skos:definition xml:lang="en">Females at age 80</skos:definition>
-            <skos:definition xml:lang="en">Femmes à 80 ans</skos:definition>
+            <skos:definition xml:lang="fr">Femmes à 80 ans</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -600,7 +636,7 @@
             </skos:broader>
             <skos:notation>EVIEHO00</skos:notation>
             <skos:definition xml:lang="en">Males at birth</skos:definition>
-            <skos:definition xml:lang="en">Hommes à la naissance</skos:definition>
+            <skos:definition xml:lang="fr">Hommes à la naissance</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -617,7 +653,7 @@
             </skos:broader>
             <skos:notation>EVIEHO40</skos:notation>
             <skos:definition xml:lang="en">Males at age 40</skos:definition>
-            <skos:definition xml:lang="en">Hommes à 40 ans</skos:definition>
+            <skos:definition xml:lang="fr">Hommes à 40 ans</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -634,7 +670,7 @@
             </skos:broader>
             <skos:notation>EVIEHO60</skos:notation>
             <skos:definition xml:lang="en">Males at age 60</skos:definition>
-            <skos:definition xml:lang="en">Hommes à 60 ans</skos:definition>
+            <skos:definition xml:lang="fr">Hommes à 60 ans</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -651,7 +687,7 @@
             </skos:broader>
             <skos:notation>EVIEHO65</skos:notation>
             <skos:definition xml:lang="en">Males at age 65</skos:definition>
-            <skos:definition xml:lang="en">Hommes à 65 ans</skos:definition>
+            <skos:definition xml:lang="fr">Hommes à 65 ans</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -668,7 +704,7 @@
             </skos:broader>
             <skos:notation>EVIEHO80</skos:notation>
             <skos:definition xml:lang="en">Males at age 80</skos:definition>
-            <skos:definition xml:lang="en">Hommes à 80 ans</skos:definition>
+            <skos:definition xml:lang="fr">Hommes à 80 ans</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -685,7 +721,7 @@
             </skos:broader>
             <skos:notation>EVIETOTA</skos:notation>
             <skos:definition xml:lang="en">Total population at birth</skos:definition>
-            <skos:definition xml:lang="en">Femmes et hommes à la naissance</skos:definition>
+            <skos:definition xml:lang="fr">Femmes et hommes à la naissance</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -702,7 +738,7 @@
             </skos:broader>
             <skos:notation>CICD</skos:notation>
             <skos:definition xml:lang="en">Causes of mortality</skos:definition>
-            <skos:definition xml:lang="en">Causes de mortalité</skos:definition>
+            <skos:definition xml:lang="fr">Causes de mortalité</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -719,7 +755,7 @@
             </skos:broader>
             <skos:notation>CICDALLC</skos:notation>
             <skos:definition xml:lang="en">All causes of death</skos:definition>
-            <skos:definition xml:lang="en">Toutes les causes de décès</skos:definition>
+            <skos:definition xml:lang="fr">Toutes les causes de décès</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -736,7 +772,7 @@
             </skos:broader>
             <skos:notation>CICDINFE</skos:notation>
             <skos:definition xml:lang="en">Certain infectious and parasitic diseases</skos:definition>
-            <skos:definition xml:lang="en">Certaines maladies infectieuses et parasitaires</skos:definition>
+            <skos:definition xml:lang="fr">Certaines maladies infectieuses et parasitaires</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -753,7 +789,7 @@
             </skos:broader>
             <skos:notation>CICDTBLS</skos:notation>
             <skos:definition xml:lang="en">- Tuberculosis</skos:definition>
-            <skos:definition xml:lang="en">- Tuberculose</skos:definition>
+            <skos:definition xml:lang="fr">- Tuberculose</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -770,7 +806,7 @@
             </skos:broader>
             <skos:notation>CICDHIVD</skos:notation>
             <skos:definition xml:lang="en">- HIV-AIDS</skos:definition>
-            <skos:definition xml:lang="en">- VIH/SIDA</skos:definition>
+            <skos:definition xml:lang="fr">- VIH/SIDA</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -787,7 +823,7 @@
             </skos:broader>
             <skos:notation>CICDNEOP</skos:notation>
             <skos:definition xml:lang="en">Neoplasms</skos:definition>
-            <skos:definition xml:lang="en">Tumeurs</skos:definition>
+            <skos:definition xml:lang="fr">Tumeurs</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -804,7 +840,7 @@
             </skos:broader>
             <skos:notation>CICDTUME</skos:notation>
             <skos:definition xml:lang="en">- Malignant neoplasms</skos:definition>
-            <skos:definition xml:lang="en">- Tumeurs malignes</skos:definition>
+            <skos:definition xml:lang="fr">- Tumeurs malignes</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -821,7 +857,7 @@
             </skos:broader>
             <skos:notation>CICDCANC</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of trachea, bronchus, lung</skos:definition>
-            <skos:definition xml:lang="en">-- Tumeurs de la trachée, des bronches et du poumon</skos:definition>
+            <skos:definition xml:lang="fr">-- Tumeurs de la trachée, des bronches et du poumon</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -838,7 +874,7 @@
             </skos:broader>
             <skos:notation>CICDNCRA</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of colon, rectum and anus</skos:definition>
-            <skos:definition xml:lang="en">-- Tumeurs du côlon, du rectum et de l'anus</skos:definition>
+            <skos:definition xml:lang="fr">-- Tumeurs du côlon, du rectum et de l'anus</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -855,7 +891,7 @@
             </skos:broader>
             <skos:notation>CICDMNBR</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of female breast</skos:definition>
-            <skos:definition xml:lang="en">-- Tumeurs du sein chez la femme</skos:definition>
+            <skos:definition xml:lang="fr">-- Tumeurs du sein chez la femme</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -872,7 +908,7 @@
             </skos:broader>
             <skos:notation>CICDSTOM</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of stomach</skos:definition>
-            <skos:definition xml:lang="en">-- Tumeurs de l'estomac</skos:definition>
+            <skos:definition xml:lang="fr">-- Tumeurs de l'estomac</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -889,7 +925,7 @@
             </skos:broader>
             <skos:notation>CICDPANC</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of pancreas</skos:definition>
-            <skos:definition xml:lang="en">-- Tumeurs du pancreas</skos:definition>
+            <skos:definition xml:lang="fr">-- Tumeurs du pancreas</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -906,7 +942,7 @@
             </skos:broader>
             <skos:notation>CICDMNPR</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of prostate</skos:definition>
-            <skos:definition xml:lang="en">-- Tumeurs de la prostate</skos:definition>
+            <skos:definition xml:lang="fr">-- Tumeurs de la prostate</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -922,8 +958,8 @@
                </rdf:Description>
             </skos:broader>
             <skos:notation>CICDLIVR</skos:notation>
-            <skos:definition xml:lang="en">-- Malignant neoplasms of liver </skos:definition>
-            <skos:definition xml:lang="en">-- Tumeurs du foie</skos:definition>
+            <skos:definition xml:lang="en">-- Malignant neoplasms of liver</skos:definition>
+            <skos:definition xml:lang="fr">-- Tumeurs du foie</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -940,7 +976,7 @@
             </skos:broader>
             <skos:notation>CICDCRVX</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of cervix uteri</skos:definition>
-            <skos:definition xml:lang="en">-- Tumeurs du col de l'utérus</skos:definition>
+            <skos:definition xml:lang="fr">-- Tumeurs du col de l'utérus</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -957,7 +993,7 @@
             </skos:broader>
             <skos:notation>CICDOVRY</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of ovary</skos:definition>
-            <skos:definition xml:lang="en">-- Tumeurs de l'ovaire</skos:definition>
+            <skos:definition xml:lang="fr">-- Tumeurs de l'ovaire</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -974,7 +1010,7 @@
             </skos:broader>
             <skos:notation>CICDHODG</skos:notation>
             <skos:definition xml:lang="en">-- Hodgkin’s disease</skos:definition>
-            <skos:definition xml:lang="en">-- Maladie de Hodgkin</skos:definition>
+            <skos:definition xml:lang="fr">-- Maladie de Hodgkin</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -991,7 +1027,7 @@
             </skos:broader>
             <skos:notation>CICDLEUK</skos:notation>
             <skos:definition xml:lang="en">-- Leukemia</skos:definition>
-            <skos:definition xml:lang="en">-- Leucémie</skos:definition>
+            <skos:definition xml:lang="fr">-- Leucémie</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1008,7 +1044,7 @@
             </skos:broader>
             <skos:notation>CICDBLAD</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of bladder</skos:definition>
-            <skos:definition xml:lang="en">-- Tumeurs de la vessie</skos:definition>
+            <skos:definition xml:lang="fr">-- Tumeurs de la vessie</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1025,7 +1061,7 @@
             </skos:broader>
             <skos:notation>CICDSKIN</skos:notation>
             <skos:definition xml:lang="en">-- Malignant melanoma of skin</skos:definition>
-            <skos:definition xml:lang="en">-- Mélanome malin de la peau</skos:definition>
+            <skos:definition xml:lang="fr">-- Mélanome malin de la peau</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1042,7 +1078,7 @@
             </skos:broader>
             <skos:notation>CICDSANG</skos:notation>
             <skos:definition xml:lang="en">Diseases of the blood and blood-forming organs</skos:definition>
-            <skos:definition xml:lang="en">Maladies du sang et des organes hématopoïétiques</skos:definition>
+            <skos:definition xml:lang="fr">Maladies du sang et des organes hématopoïétiques</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1059,7 +1095,7 @@
             </skos:broader>
             <skos:notation>CICDENDO</skos:notation>
             <skos:definition xml:lang="en">Endocrine, nutritional and metabolic diseases</skos:definition>
-            <skos:definition xml:lang="en">Maladies endocriniennes, nutritionnelles et métaboliques</skos:definition>
+            <skos:definition xml:lang="fr">Maladies endocriniennes, nutritionnelles et métaboliques</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1076,7 +1112,7 @@
             </skos:broader>
             <skos:notation>CICDDBTM</skos:notation>
             <skos:definition xml:lang="en">- Diabetes mellitus</skos:definition>
-            <skos:definition xml:lang="en">- Diabète sucré</skos:definition>
+            <skos:definition xml:lang="fr">- Diabète sucré</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1093,7 +1129,7 @@
             </skos:broader>
             <skos:notation>CICDTROU</skos:notation>
             <skos:definition xml:lang="en">Mental and behavioural disorders</skos:definition>
-            <skos:definition xml:lang="en">Troubles mentaux et du comportement</skos:definition>
+            <skos:definition xml:lang="fr">Troubles mentaux et du comportement</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1109,8 +1145,8 @@
                </rdf:Description>
             </skos:broader>
             <skos:notation>CICDDMTA</skos:notation>
-            <skos:definition xml:lang="en">- Dementia </skos:definition>
-            <skos:definition xml:lang="en">- Démence</skos:definition>
+            <skos:definition xml:lang="en">- Dementia</skos:definition>
+            <skos:definition xml:lang="fr">- Démence</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1127,7 +1163,7 @@
             </skos:broader>
             <skos:notation>CICDALCO</skos:notation>
             <skos:definition xml:lang="en">- Alcohol use disorders</skos:definition>
-            <skos:definition xml:lang="en">- Troubles liés à l'utilisation de l'alcool</skos:definition>
+            <skos:definition xml:lang="fr">- Troubles liés à l'utilisation de l'alcool</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1144,7 +1180,7 @@
             </skos:broader>
             <skos:notation>CICDSUBS</skos:notation>
             <skos:definition xml:lang="en">- Drug use disorders</skos:definition>
-            <skos:definition xml:lang="en">- Troubles liés à l'utilisation de drogue</skos:definition>
+            <skos:definition xml:lang="fr">- Troubles liés à l'utilisation de drogue</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1161,7 +1197,7 @@
             </skos:broader>
             <skos:notation>CICDNERV</skos:notation>
             <skos:definition xml:lang="en">Diseases of the nervous system</skos:definition>
-            <skos:definition xml:lang="en">Maladies du système nerveux</skos:definition>
+            <skos:definition xml:lang="fr">Maladies du système nerveux</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1178,7 +1214,7 @@
             </skos:broader>
             <skos:notation>CICDPARK</skos:notation>
             <skos:definition xml:lang="en">- Parkinson's disease</skos:definition>
-            <skos:definition xml:lang="en">- Maladie de Parkinson</skos:definition>
+            <skos:definition xml:lang="fr">- Maladie de Parkinson</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1194,8 +1230,8 @@
                </rdf:Description>
             </skos:broader>
             <skos:notation>CICDALZH</skos:notation>
-            <skos:definition xml:lang="en">- Alzheimer's disease </skos:definition>
-            <skos:definition xml:lang="en">- Maladie d'Alzheimer</skos:definition>
+            <skos:definition xml:lang="en">- Alzheimer's disease</skos:definition>
+            <skos:definition xml:lang="fr">- Maladie d'Alzheimer</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1212,7 +1248,7 @@
             </skos:broader>
             <skos:notation>CICDCIRC</skos:notation>
             <skos:definition xml:lang="en">Diseases of the circulatory system</skos:definition>
-            <skos:definition xml:lang="en">Maladies de l'appareil circulatoire</skos:definition>
+            <skos:definition xml:lang="fr">Maladies de l'appareil circulatoire</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1229,7 +1265,7 @@
             </skos:broader>
             <skos:notation>CICDISCH</skos:notation>
             <skos:definition xml:lang="en">- Ischaemic heart diseases</skos:definition>
-            <skos:definition xml:lang="en">- Cardiopathies ischémiques</skos:definition>
+            <skos:definition xml:lang="fr">- Cardiopathies ischémiques</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1246,7 +1282,7 @@
             </skos:broader>
             <skos:notation>CICDMYOC</skos:notation>
             <skos:definition xml:lang="en">-- Acute myocardial infarction</skos:definition>
-            <skos:definition xml:lang="en">-- Infarctus aigu du myocarde</skos:definition>
+            <skos:definition xml:lang="fr">-- Infarctus aigu du myocarde</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1263,7 +1299,7 @@
             </skos:broader>
             <skos:notation>CICDCERV</skos:notation>
             <skos:definition xml:lang="en">- Cerebrovascular diseases</skos:definition>
-            <skos:definition xml:lang="en">- Maladies cérébrovasculaires</skos:definition>
+            <skos:definition xml:lang="fr">- Maladies cérébrovasculaires</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1280,7 +1316,7 @@
             </skos:broader>
             <skos:notation>CICDREPS</skos:notation>
             <skos:definition xml:lang="en">Diseases of the respiratory system</skos:definition>
-            <skos:definition xml:lang="en">Maladies de l'appareil respiratoire</skos:definition>
+            <skos:definition xml:lang="fr">Maladies de l'appareil respiratoire</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1297,7 +1333,7 @@
             </skos:broader>
             <skos:notation>CICDINPN</skos:notation>
             <skos:definition xml:lang="en">- Influenza</skos:definition>
-            <skos:definition xml:lang="en">- Grippe</skos:definition>
+            <skos:definition xml:lang="fr">- Grippe</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1314,7 +1350,7 @@
             </skos:broader>
             <skos:notation>CICDPNEU</skos:notation>
             <skos:definition xml:lang="en">- Pneumonia</skos:definition>
-            <skos:definition xml:lang="en">- Pneumonie</skos:definition>
+            <skos:definition xml:lang="fr">- Pneumonie</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1331,7 +1367,7 @@
             </skos:broader>
             <skos:notation>CICDBAEM</skos:notation>
             <skos:definition xml:lang="en">- Chronic obstructive pulmonary diseases</skos:definition>
-            <skos:definition xml:lang="en">- Maladies pulmonaires obstructives chroniques</skos:definition>
+            <skos:definition xml:lang="fr">- Maladies pulmonaires obstructives chroniques</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1348,7 +1384,7 @@
             </skos:broader>
             <skos:notation>CICDASMA</skos:notation>
             <skos:definition xml:lang="en">- Asthma</skos:definition>
-            <skos:definition xml:lang="en">- Asthme</skos:definition>
+            <skos:definition xml:lang="fr">- Asthme</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1365,7 +1401,7 @@
             </skos:broader>
             <skos:notation>CICDDIGE</skos:notation>
             <skos:definition xml:lang="en">Diseases of the digestive system</skos:definition>
-            <skos:definition xml:lang="en">Maladies de l'appareil digestif</skos:definition>
+            <skos:definition xml:lang="fr">Maladies de l'appareil digestif</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1382,7 +1418,7 @@
             </skos:broader>
             <skos:notation>CICDPEPT</skos:notation>
             <skos:definition xml:lang="en">- Peptic ulcer</skos:definition>
-            <skos:definition xml:lang="en">- Ulcère gastro-duodénal</skos:definition>
+            <skos:definition xml:lang="fr">- Ulcère gastro-duodénal</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1399,7 +1435,7 @@
             </skos:broader>
             <skos:notation>CICDCIRR</skos:notation>
             <skos:definition xml:lang="en">- Chronic liver diseases and cirrhosis</skos:definition>
-            <skos:definition xml:lang="en">- Maladies chroniques du foie et cirrhose</skos:definition>
+            <skos:definition xml:lang="fr">- Maladies chroniques du foie et cirrhose</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1416,7 +1452,7 @@
             </skos:broader>
             <skos:notation>CICDPEAU</skos:notation>
             <skos:definition xml:lang="en">Diseases of the skin and subcutaneous tissue</skos:definition>
-            <skos:definition xml:lang="en">Maladies de la peau et du tissu cellulaire sous-cutané</skos:definition>
+            <skos:definition xml:lang="fr">Maladies de la peau et du tissu cellulaire sous-cutané</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1433,7 +1469,7 @@
             </skos:broader>
             <skos:notation>CICDOSTE</skos:notation>
             <skos:definition xml:lang="en">Diseases of the musculoskeletal system and connective tissue</skos:definition>
-            <skos:definition xml:lang="en">Maladie du système ostéo-articulaire, des muscles et du tissu conjonctif</skos:definition>
+            <skos:definition xml:lang="fr">Maladie du système ostéo-articulaire, des muscles et du tissu conjonctif</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1450,7 +1486,7 @@
             </skos:broader>
             <skos:notation>CICDGENI</skos:notation>
             <skos:definition xml:lang="en">Diseases of the genitourinary system</skos:definition>
-            <skos:definition xml:lang="en">Maladies de l'appareil génito-urinaire</skos:definition>
+            <skos:definition xml:lang="fr">Maladies de l'appareil génito-urinaire</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1467,7 +1503,7 @@
             </skos:broader>
             <skos:notation>CICDGROS</skos:notation>
             <skos:definition xml:lang="en">Complications of pregnancy, childbirth and the puerperium</skos:definition>
-            <skos:definition xml:lang="en">Complications suite à grossesse, accouchement et puerpéralité</skos:definition>
+            <skos:definition xml:lang="fr">Complications suite à grossesse, accouchement et puerpéralité</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1484,7 +1520,7 @@
             </skos:broader>
             <skos:notation>CICDAFFE</skos:notation>
             <skos:definition xml:lang="en">Certain conditions originating in the perinatal period</skos:definition>
-            <skos:definition xml:lang="en">Certaines affections dont l'origine se situe dans la période périnatale</skos:definition>
+            <skos:definition xml:lang="fr">Certaines affections dont l'origine se situe dans la période périnatale</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1501,7 +1537,7 @@
             </skos:broader>
             <skos:notation>CICDCONG</skos:notation>
             <skos:definition xml:lang="en">Congenital malformations and chromosomal abnormalities</skos:definition>
-            <skos:definition xml:lang="en">Congenital malformations and chromosomal abnormalities</skos:definition>
+            <skos:definition xml:lang="fr">Congenital malformations and chromosomal abnormalities</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1518,7 +1554,7 @@
             </skos:broader>
             <skos:notation>CICDSYMP</skos:notation>
             <skos:definition xml:lang="en">Symptoms, signs, ill-defined causes</skos:definition>
-            <skos:definition xml:lang="en">Symptômes, signes, causes mal-définies</skos:definition>
+            <skos:definition xml:lang="fr">Symptômes, signes, causes mal-définies</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1535,7 +1571,7 @@
             </skos:broader>
             <skos:notation>CICDEXTC</skos:notation>
             <skos:definition xml:lang="en">External causes of mortality</skos:definition>
-            <skos:definition xml:lang="en">Causes externes de mortalité</skos:definition>
+            <skos:definition xml:lang="fr">Causes externes de mortalité</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1552,7 +1588,7 @@
             </skos:broader>
             <skos:notation>CICDACCD</skos:notation>
             <skos:definition xml:lang="en">- Accidents</skos:definition>
-            <skos:definition xml:lang="en">- Accidents</skos:definition>
+            <skos:definition xml:lang="fr">- Accidents</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1569,7 +1605,7 @@
             </skos:broader>
             <skos:notation>CICDTRAC</skos:notation>
             <skos:definition xml:lang="en">-- Transport accidents</skos:definition>
-            <skos:definition xml:lang="en">-- Accidents de transports</skos:definition>
+            <skos:definition xml:lang="fr">-- Accidents de transports</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1586,7 +1622,7 @@
             </skos:broader>
             <skos:notation>CICDCHUT</skos:notation>
             <skos:definition xml:lang="en">-- Accidental falls</skos:definition>
-            <skos:definition xml:lang="en">-- Chutes accidentelles</skos:definition>
+            <skos:definition xml:lang="fr">-- Chutes accidentelles</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1603,7 +1639,7 @@
             </skos:broader>
             <skos:notation>CICDPOSN</skos:notation>
             <skos:definition xml:lang="en">-- Accidental poisoning</skos:definition>
-            <skos:definition xml:lang="en">-- Intoxication accidentelle</skos:definition>
+            <skos:definition xml:lang="fr">-- Intoxication accidentelle</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1620,7 +1656,7 @@
             </skos:broader>
             <skos:notation>CICDHARM</skos:notation>
             <skos:definition xml:lang="en">- Intentional self-harm</skos:definition>
-            <skos:definition xml:lang="en">- Lésions auto-infligées</skos:definition>
+            <skos:definition xml:lang="fr">- Lésions auto-infligées</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1637,7 +1673,7 @@
             </skos:broader>
             <skos:notation>CICDHOCD</skos:notation>
             <skos:definition xml:lang="en">- Assault</skos:definition>
-            <skos:definition xml:lang="en">- Agression</skos:definition>
+            <skos:definition xml:lang="fr">- Agression</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1654,7 +1690,7 @@
             </skos:broader>
             <skos:notation>MATI</skos:notation>
             <skos:definition xml:lang="en">Maternal and infant mortality</skos:definition>
-            <skos:definition xml:lang="en">Mortalité infantile et maternelle</skos:definition>
+            <skos:definition xml:lang="fr">Mortalité infantile et maternelle</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1671,7 +1707,7 @@
             </skos:broader>
             <skos:notation>MATIINFA</skos:notation>
             <skos:definition xml:lang="en">Infant mortality</skos:definition>
-            <skos:definition xml:lang="en">Mortalité infantile</skos:definition>
+            <skos:definition xml:lang="fr">Mortalité infantile</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1688,7 +1724,7 @@
             </skos:broader>
             <skos:notation>MATINEON</skos:notation>
             <skos:definition xml:lang="en">Neonatal mortality</skos:definition>
-            <skos:definition xml:lang="en">Mortalité néonatale</skos:definition>
+            <skos:definition xml:lang="fr">Mortalité néonatale</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1705,7 +1741,7 @@
             </skos:broader>
             <skos:notation>MATIPERI</skos:notation>
             <skos:definition xml:lang="en">Perinatal mortality</skos:definition>
-            <skos:definition xml:lang="en">Mortalité périnatale</skos:definition>
+            <skos:definition xml:lang="fr">Mortalité périnatale</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1722,7 +1758,7 @@
             </skos:broader>
             <skos:notation>MATIMATM</skos:notation>
             <skos:definition xml:lang="en">Maternal mortality</skos:definition>
-            <skos:definition xml:lang="en">Mortalité maternelle</skos:definition>
+            <skos:definition xml:lang="fr">Mortalité maternelle</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1739,7 +1775,7 @@
             </skos:broader>
             <skos:notation>PLYL</skos:notation>
             <skos:definition xml:lang="en">Potential years of life lost</skos:definition>
-            <skos:definition xml:lang="en">Années potentielles de vie perdues</skos:definition>
+            <skos:definition xml:lang="fr">Années potentielles de vie perdues</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1756,7 +1792,7 @@
             </skos:broader>
             <skos:notation>PLYLALLC</skos:notation>
             <skos:definition xml:lang="en">All causes of death</skos:definition>
-            <skos:definition xml:lang="en">Toutes les causes de décès</skos:definition>
+            <skos:definition xml:lang="fr">Toutes les causes de décès</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1773,7 +1809,7 @@
             </skos:broader>
             <skos:notation>PLYLINFE</skos:notation>
             <skos:definition xml:lang="en">Certain infectious and parasitic diseases</skos:definition>
-            <skos:definition xml:lang="en">Certaines maladies infectieuses et parasitaires</skos:definition>
+            <skos:definition xml:lang="fr">Certaines maladies infectieuses et parasitaires</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1790,7 +1826,7 @@
             </skos:broader>
             <skos:notation>PLYLTBLS</skos:notation>
             <skos:definition xml:lang="en">- Tuberculosis</skos:definition>
-            <skos:definition xml:lang="en">- Tuberculose</skos:definition>
+            <skos:definition xml:lang="fr">- Tuberculose</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1807,7 +1843,7 @@
             </skos:broader>
             <skos:notation>PLYLHIVD</skos:notation>
             <skos:definition xml:lang="en">- HIV-AIDS</skos:definition>
-            <skos:definition xml:lang="en">- VIH/SIDA</skos:definition>
+            <skos:definition xml:lang="fr">- VIH/SIDA</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1824,7 +1860,7 @@
             </skos:broader>
             <skos:notation>PLYLNEOP</skos:notation>
             <skos:definition xml:lang="en">Neoplasms</skos:definition>
-            <skos:definition xml:lang="en">Tumeurs</skos:definition>
+            <skos:definition xml:lang="fr">Tumeurs</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1841,7 +1877,7 @@
             </skos:broader>
             <skos:notation>PLYLTUME</skos:notation>
             <skos:definition xml:lang="en">- Malignant neoplasms</skos:definition>
-            <skos:definition xml:lang="en">- Tumeurs malignes</skos:definition>
+            <skos:definition xml:lang="fr">- Tumeurs malignes</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1858,7 +1894,7 @@
             </skos:broader>
             <skos:notation>PLYLCANC</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of trachea, bronchus, lung</skos:definition>
-            <skos:definition xml:lang="en">-- Tumeurs de la trachée, des bronches et du poumon</skos:definition>
+            <skos:definition xml:lang="fr">-- Tumeurs de la trachée, des bronches et du poumon</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1875,7 +1911,7 @@
             </skos:broader>
             <skos:notation>PLYLNCRA</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of colon, rectum and anus</skos:definition>
-            <skos:definition xml:lang="en">-- Tumeurs du côlon, du rectum et de l'anus</skos:definition>
+            <skos:definition xml:lang="fr">-- Tumeurs du côlon, du rectum et de l'anus</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1892,7 +1928,7 @@
             </skos:broader>
             <skos:notation>PLYLMNBR</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of female breast</skos:definition>
-            <skos:definition xml:lang="en">-- Tumeurs du sein chez la femme</skos:definition>
+            <skos:definition xml:lang="fr">-- Tumeurs du sein chez la femme</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1909,7 +1945,7 @@
             </skos:broader>
             <skos:notation>PLYLSTOM</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of stomach</skos:definition>
-            <skos:definition xml:lang="en">-- Tumeurs de l'estomac</skos:definition>
+            <skos:definition xml:lang="fr">-- Tumeurs de l'estomac</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1926,7 +1962,7 @@
             </skos:broader>
             <skos:notation>PLYLPANC</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of pancreas</skos:definition>
-            <skos:definition xml:lang="en">-- Tumeurs du pancreas</skos:definition>
+            <skos:definition xml:lang="fr">-- Tumeurs du pancreas</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1943,7 +1979,7 @@
             </skos:broader>
             <skos:notation>PLYLMNPR</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of prostate</skos:definition>
-            <skos:definition xml:lang="en">-- Tumeurs de la prostate</skos:definition>
+            <skos:definition xml:lang="fr">-- Tumeurs de la prostate</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1959,8 +1995,8 @@
                </rdf:Description>
             </skos:broader>
             <skos:notation>PLYLLIVR</skos:notation>
-            <skos:definition xml:lang="en">-- Malignant neoplasms of liver </skos:definition>
-            <skos:definition xml:lang="en">-- Tumeurs du foie</skos:definition>
+            <skos:definition xml:lang="en">-- Malignant neoplasms of liver</skos:definition>
+            <skos:definition xml:lang="fr">-- Tumeurs du foie</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1977,7 +2013,7 @@
             </skos:broader>
             <skos:notation>PLYLCRVX</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of cervix uteri</skos:definition>
-            <skos:definition xml:lang="en">-- Tumeurs du col de l'utérus</skos:definition>
+            <skos:definition xml:lang="fr">-- Tumeurs du col de l'utérus</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1994,7 +2030,7 @@
             </skos:broader>
             <skos:notation>PLYLOVRY</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of ovary</skos:definition>
-            <skos:definition xml:lang="en">-- Tumeurs de l'ovaire</skos:definition>
+            <skos:definition xml:lang="fr">-- Tumeurs de l'ovaire</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2011,7 +2047,7 @@
             </skos:broader>
             <skos:notation>PLYLHODG</skos:notation>
             <skos:definition xml:lang="en">-- Hodgkin’s disease</skos:definition>
-            <skos:definition xml:lang="en">-- Maladie de Hodgkin</skos:definition>
+            <skos:definition xml:lang="fr">-- Maladie de Hodgkin</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2028,7 +2064,7 @@
             </skos:broader>
             <skos:notation>PLYLLEUK</skos:notation>
             <skos:definition xml:lang="en">-- Leukemia</skos:definition>
-            <skos:definition xml:lang="en">-- Leucémie</skos:definition>
+            <skos:definition xml:lang="fr">-- Leucémie</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2045,7 +2081,7 @@
             </skos:broader>
             <skos:notation>PLYLBLAD</skos:notation>
             <skos:definition xml:lang="en">-- Malignant neoplasms of bladder</skos:definition>
-            <skos:definition xml:lang="en">-- Tumeurs de la vessie</skos:definition>
+            <skos:definition xml:lang="fr">-- Tumeurs de la vessie</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2062,7 +2098,7 @@
             </skos:broader>
             <skos:notation>PLYLSKIN</skos:notation>
             <skos:definition xml:lang="en">-- Malignant melanoma of skin</skos:definition>
-            <skos:definition xml:lang="en">-- Mélanome malin de la peau</skos:definition>
+            <skos:definition xml:lang="fr">-- Mélanome malin de la peau</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2079,7 +2115,7 @@
             </skos:broader>
             <skos:notation>PLYLSANG</skos:notation>
             <skos:definition xml:lang="en">Diseases of the blood and blood-forming organs</skos:definition>
-            <skos:definition xml:lang="en">Maladies du sang et des organes hématopoïétiques</skos:definition>
+            <skos:definition xml:lang="fr">Maladies du sang et des organes hématopoïétiques</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2096,7 +2132,7 @@
             </skos:broader>
             <skos:notation>PLYLENDO</skos:notation>
             <skos:definition xml:lang="en">Endocrine, nutritional and metabolic diseases</skos:definition>
-            <skos:definition xml:lang="en">Maladies endocriniennes, nutritionnelles et métaboliques</skos:definition>
+            <skos:definition xml:lang="fr">Maladies endocriniennes, nutritionnelles et métaboliques</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2113,7 +2149,7 @@
             </skos:broader>
             <skos:notation>PLYLDBTM</skos:notation>
             <skos:definition xml:lang="en">- Diabetes mellitus</skos:definition>
-            <skos:definition xml:lang="en">- Diabète sucré</skos:definition>
+            <skos:definition xml:lang="fr">- Diabète sucré</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2130,7 +2166,7 @@
             </skos:broader>
             <skos:notation>PLYLTROU</skos:notation>
             <skos:definition xml:lang="en">Mental and behavioural disorders</skos:definition>
-            <skos:definition xml:lang="en">Troubles mentaux et du comportement</skos:definition>
+            <skos:definition xml:lang="fr">Troubles mentaux et du comportement</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2146,8 +2182,8 @@
                </rdf:Description>
             </skos:broader>
             <skos:notation>PLYLDMTA</skos:notation>
-            <skos:definition xml:lang="en">- Dementia </skos:definition>
-            <skos:definition xml:lang="en">- Démence</skos:definition>
+            <skos:definition xml:lang="en">- Dementia</skos:definition>
+            <skos:definition xml:lang="fr">- Démence</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2164,7 +2200,7 @@
             </skos:broader>
             <skos:notation>PLYLALCO</skos:notation>
             <skos:definition xml:lang="en">- Alcohol use disorders</skos:definition>
-            <skos:definition xml:lang="en">- Troubles liés à l'utilisation de l'alcool</skos:definition>
+            <skos:definition xml:lang="fr">- Troubles liés à l'utilisation de l'alcool</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2181,7 +2217,7 @@
             </skos:broader>
             <skos:notation>PLYLSUBS</skos:notation>
             <skos:definition xml:lang="en">- Drug use disorders</skos:definition>
-            <skos:definition xml:lang="en">- Troubles liés à l'utilisation de drogue</skos:definition>
+            <skos:definition xml:lang="fr">- Troubles liés à l'utilisation de drogue</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2198,7 +2234,7 @@
             </skos:broader>
             <skos:notation>PLYLNERV</skos:notation>
             <skos:definition xml:lang="en">Diseases of the nervous system</skos:definition>
-            <skos:definition xml:lang="en">Maladies du système nerveux</skos:definition>
+            <skos:definition xml:lang="fr">Maladies du système nerveux</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2215,7 +2251,7 @@
             </skos:broader>
             <skos:notation>PLYLPARK</skos:notation>
             <skos:definition xml:lang="en">- Parkinson's disease</skos:definition>
-            <skos:definition xml:lang="en">- Maladie de Parkinson</skos:definition>
+            <skos:definition xml:lang="fr">- Maladie de Parkinson</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2231,8 +2267,8 @@
                </rdf:Description>
             </skos:broader>
             <skos:notation>PLYLALZH</skos:notation>
-            <skos:definition xml:lang="en">- Alzheimer's disease </skos:definition>
-            <skos:definition xml:lang="en">- Maladie d'Alzheimer</skos:definition>
+            <skos:definition xml:lang="en">- Alzheimer's disease</skos:definition>
+            <skos:definition xml:lang="fr">- Maladie d'Alzheimer</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2249,7 +2285,7 @@
             </skos:broader>
             <skos:notation>PLYLCIRC</skos:notation>
             <skos:definition xml:lang="en">Diseases of the circulatory system</skos:definition>
-            <skos:definition xml:lang="en">Maladies de l'appareil circulatoire</skos:definition>
+            <skos:definition xml:lang="fr">Maladies de l'appareil circulatoire</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2266,7 +2302,7 @@
             </skos:broader>
             <skos:notation>PLYLISCH</skos:notation>
             <skos:definition xml:lang="en">- Ischaemic heart diseases</skos:definition>
-            <skos:definition xml:lang="en">- Cardiopathies ischémiques</skos:definition>
+            <skos:definition xml:lang="fr">- Cardiopathies ischémiques</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2283,7 +2319,7 @@
             </skos:broader>
             <skos:notation>PLYLMYOC</skos:notation>
             <skos:definition xml:lang="en">-- Acute myocardial infarction</skos:definition>
-            <skos:definition xml:lang="en">-- Infarctus aigu du myocarde</skos:definition>
+            <skos:definition xml:lang="fr">-- Infarctus aigu du myocarde</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2300,7 +2336,7 @@
             </skos:broader>
             <skos:notation>PLYLCERV</skos:notation>
             <skos:definition xml:lang="en">- Cerebrovascular diseases</skos:definition>
-            <skos:definition xml:lang="en">- Maladies cérébrovasculaires</skos:definition>
+            <skos:definition xml:lang="fr">- Maladies cérébrovasculaires</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2317,7 +2353,7 @@
             </skos:broader>
             <skos:notation>PLYLREPS</skos:notation>
             <skos:definition xml:lang="en">Diseases of the respiratory system</skos:definition>
-            <skos:definition xml:lang="en">Maladies de l'appareil respiratoire</skos:definition>
+            <skos:definition xml:lang="fr">Maladies de l'appareil respiratoire</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2334,7 +2370,7 @@
             </skos:broader>
             <skos:notation>PLYLINPN</skos:notation>
             <skos:definition xml:lang="en">- Influenza</skos:definition>
-            <skos:definition xml:lang="en">- Grippe</skos:definition>
+            <skos:definition xml:lang="fr">- Grippe</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2351,7 +2387,7 @@
             </skos:broader>
             <skos:notation>PLYLPNEU</skos:notation>
             <skos:definition xml:lang="en">- Pneumonia</skos:definition>
-            <skos:definition xml:lang="en">- Pneumonie</skos:definition>
+            <skos:definition xml:lang="fr">- Pneumonie</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2368,7 +2404,7 @@
             </skos:broader>
             <skos:notation>PLYLBAEM</skos:notation>
             <skos:definition xml:lang="en">- Chronic obstructive pulmonary diseases</skos:definition>
-            <skos:definition xml:lang="en">- Maladies pulmonaires obstructives chroniques</skos:definition>
+            <skos:definition xml:lang="fr">- Maladies pulmonaires obstructives chroniques</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2385,7 +2421,7 @@
             </skos:broader>
             <skos:notation>PLYLASMA</skos:notation>
             <skos:definition xml:lang="en">- Asthma</skos:definition>
-            <skos:definition xml:lang="en">- Asthme</skos:definition>
+            <skos:definition xml:lang="fr">- Asthme</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2402,7 +2438,7 @@
             </skos:broader>
             <skos:notation>PLYLDIGE</skos:notation>
             <skos:definition xml:lang="en">Diseases of the digestive system</skos:definition>
-            <skos:definition xml:lang="en">Maladies de l'appareil digestif</skos:definition>
+            <skos:definition xml:lang="fr">Maladies de l'appareil digestif</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2419,7 +2455,7 @@
             </skos:broader>
             <skos:notation>PLYLPEPT</skos:notation>
             <skos:definition xml:lang="en">- Peptic ulcer</skos:definition>
-            <skos:definition xml:lang="en">- Ulcère gastro-duodénal</skos:definition>
+            <skos:definition xml:lang="fr">- Ulcère gastro-duodénal</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2436,7 +2472,7 @@
             </skos:broader>
             <skos:notation>PLYLCIRR</skos:notation>
             <skos:definition xml:lang="en">- Chronic liver diseases and cirrhosis</skos:definition>
-            <skos:definition xml:lang="en">- Maladies chroniques du foie et cirrhose</skos:definition>
+            <skos:definition xml:lang="fr">- Maladies chroniques du foie et cirrhose</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2453,7 +2489,7 @@
             </skos:broader>
             <skos:notation>PLYLPEAU</skos:notation>
             <skos:definition xml:lang="en">Diseases of the skin and subcutaneous tissue</skos:definition>
-            <skos:definition xml:lang="en">Maladies de la peau et du tissu cellulaire sous-cutané</skos:definition>
+            <skos:definition xml:lang="fr">Maladies de la peau et du tissu cellulaire sous-cutané</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2470,7 +2506,7 @@
             </skos:broader>
             <skos:notation>PLYLOSTE</skos:notation>
             <skos:definition xml:lang="en">Diseases of the musculoskeletal system and connective tissue</skos:definition>
-            <skos:definition xml:lang="en">Maladie du système ostéo-articulaire, des muscles et du tissu conjonctif</skos:definition>
+            <skos:definition xml:lang="fr">Maladie du système ostéo-articulaire, des muscles et du tissu conjonctif</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2487,7 +2523,7 @@
             </skos:broader>
             <skos:notation>PLYLGENI</skos:notation>
             <skos:definition xml:lang="en">Diseases of the genitourinary system</skos:definition>
-            <skos:definition xml:lang="en">Maladies de l'appareil génito-urinaire</skos:definition>
+            <skos:definition xml:lang="fr">Maladies de l'appareil génito-urinaire</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2504,7 +2540,7 @@
             </skos:broader>
             <skos:notation>PLYLGROS</skos:notation>
             <skos:definition xml:lang="en">Complications of pregnancy, childbirth and the puerperium</skos:definition>
-            <skos:definition xml:lang="en">Complications suite à grossesse, accouchement et puerpéralité</skos:definition>
+            <skos:definition xml:lang="fr">Complications suite à grossesse, accouchement et puerpéralité</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2521,7 +2557,7 @@
             </skos:broader>
             <skos:notation>PLYLAFFE</skos:notation>
             <skos:definition xml:lang="en">Certain conditions originating in the perinatal period</skos:definition>
-            <skos:definition xml:lang="en">Certaines affections dont l'origine se situe dans la période périnatale</skos:definition>
+            <skos:definition xml:lang="fr">Certaines affections dont l'origine se situe dans la période périnatale</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2538,7 +2574,7 @@
             </skos:broader>
             <skos:notation>PLYLCONG</skos:notation>
             <skos:definition xml:lang="en">Congenital malformations and chromosomal abnormalities</skos:definition>
-            <skos:definition xml:lang="en">Congenital malformations and chromosomal abnormalities</skos:definition>
+            <skos:definition xml:lang="fr">Congenital malformations and chromosomal abnormalities</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2555,7 +2591,7 @@
             </skos:broader>
             <skos:notation>PLYLSYMP</skos:notation>
             <skos:definition xml:lang="en">Symptoms, signs, ill-defined causes</skos:definition>
-            <skos:definition xml:lang="en">Symptômes, signes, causes mal-définies</skos:definition>
+            <skos:definition xml:lang="fr">Symptômes, signes, causes mal-définies</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2572,7 +2608,7 @@
             </skos:broader>
             <skos:notation>PLYLEXTC</skos:notation>
             <skos:definition xml:lang="en">External causes of mortality</skos:definition>
-            <skos:definition xml:lang="en">Causes externes de mortalité</skos:definition>
+            <skos:definition xml:lang="fr">Causes externes de mortalité</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2589,7 +2625,7 @@
             </skos:broader>
             <skos:notation>PLYLACCD</skos:notation>
             <skos:definition xml:lang="en">- Accidents</skos:definition>
-            <skos:definition xml:lang="en">- Accidents</skos:definition>
+            <skos:definition xml:lang="fr">- Accidents</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2606,7 +2642,7 @@
             </skos:broader>
             <skos:notation>PLYLTRAC</skos:notation>
             <skos:definition xml:lang="en">-- Transport accidents</skos:definition>
-            <skos:definition xml:lang="en">-- Accidents de transports</skos:definition>
+            <skos:definition xml:lang="fr">-- Accidents de transports</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2623,7 +2659,7 @@
             </skos:broader>
             <skos:notation>PLYLCHUT</skos:notation>
             <skos:definition xml:lang="en">-- Accidental falls</skos:definition>
-            <skos:definition xml:lang="en">-- Chutes accidentelles</skos:definition>
+            <skos:definition xml:lang="fr">-- Chutes accidentelles</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2640,7 +2676,7 @@
             </skos:broader>
             <skos:notation>PLYLPOSN</skos:notation>
             <skos:definition xml:lang="en">-- Accidental poisoning</skos:definition>
-            <skos:definition xml:lang="en">-- Intoxication accidentelle</skos:definition>
+            <skos:definition xml:lang="fr">-- Intoxication accidentelle</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2657,7 +2693,7 @@
             </skos:broader>
             <skos:notation>PLYLHARM</skos:notation>
             <skos:definition xml:lang="en">- Intentional self-harm</skos:definition>
-            <skos:definition xml:lang="en">- Lésions auto-infligées</skos:definition>
+            <skos:definition xml:lang="fr">- Lésions auto-infligées</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2674,7 +2710,7 @@
             </skos:broader>
             <skos:notation>PLYLHOCD</skos:notation>
             <skos:definition xml:lang="en">- Assault</skos:definition>
-            <skos:definition xml:lang="en">- Agression</skos:definition>
+            <skos:definition xml:lang="fr">- Agression</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2686,7 +2722,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_VAR"/>
             <skos:notation>MORB</skos:notation>
             <skos:definition xml:lang="en">Morbidity</skos:definition>
-            <skos:definition xml:lang="en">Morbidité</skos:definition>
+            <skos:definition xml:lang="fr">Morbidité</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2703,7 +2739,7 @@
             </skos:broader>
             <skos:notation>SRHS</skos:notation>
             <skos:definition xml:lang="en">Perceived health status</skos:definition>
-            <skos:definition xml:lang="en">Perception de l'état de santé</skos:definition>
+            <skos:definition xml:lang="fr">Perception de l'état de santé</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2720,7 +2756,7 @@
             </skos:broader>
             <skos:notation>SRHSFGHA</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, female, 15-24 years old</skos:definition>
-            <skos:definition xml:lang="en">Santé &gt;= bonne, femmes, 15-24 ans</skos:definition>
+            <skos:definition xml:lang="fr">Santé &gt;= bonne, femmes, 15-24 ans</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2737,7 +2773,7 @@
             </skos:broader>
             <skos:notation>SRHSFGHB</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, female, 25-44 years old</skos:definition>
-            <skos:definition xml:lang="en">Santé &gt;= bonne, femmes, 25-44 ans</skos:definition>
+            <skos:definition xml:lang="fr">Santé &gt;= bonne, femmes, 25-44 ans</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2754,7 +2790,7 @@
             </skos:broader>
             <skos:notation>SRHSFGHC</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, female, 45-64 years old</skos:definition>
-            <skos:definition xml:lang="en">Santé &gt;= bonne, femmes, 45-64 ans</skos:definition>
+            <skos:definition xml:lang="fr">Santé &gt;= bonne, femmes, 45-64 ans</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2771,7 +2807,7 @@
             </skos:broader>
             <skos:notation>SRHSFGHD</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, female, 65 years old and over</skos:definition>
-            <skos:definition xml:lang="en">Santé &gt;= bonne, femmes, 65 ans et plus</skos:definition>
+            <skos:definition xml:lang="fr">Santé &gt;= bonne, femmes, 65 ans et plus</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2788,7 +2824,7 @@
             </skos:broader>
             <skos:notation>SRHSFGHE</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, female, all ages</skos:definition>
-            <skos:definition xml:lang="en">Santé &gt;= bonne, femmes, tous âges</skos:definition>
+            <skos:definition xml:lang="fr">Santé &gt;= bonne, femmes, tous âges</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2805,7 +2841,7 @@
             </skos:broader>
             <skos:notation>SRHSMGHA</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, male, 15-24 years old</skos:definition>
-            <skos:definition xml:lang="en">Santé &gt;= bonne, hommes, 15-24 ans</skos:definition>
+            <skos:definition xml:lang="fr">Santé &gt;= bonne, hommes, 15-24 ans</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2822,7 +2858,7 @@
             </skos:broader>
             <skos:notation>SRHSMGHB</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, male, 25-44 years old</skos:definition>
-            <skos:definition xml:lang="en">Santé &gt;= bonne, hommes, 25-44 ans</skos:definition>
+            <skos:definition xml:lang="fr">Santé &gt;= bonne, hommes, 25-44 ans</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2839,7 +2875,7 @@
             </skos:broader>
             <skos:notation>SRHSMGHC</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, male, 45-64 years old</skos:definition>
-            <skos:definition xml:lang="en">Santé &gt;= bonne, hommes, 45-64 ans</skos:definition>
+            <skos:definition xml:lang="fr">Santé &gt;= bonne, hommes, 45-64 ans</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2856,7 +2892,7 @@
             </skos:broader>
             <skos:notation>SRHSMGHD</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, male, 65 years old and over</skos:definition>
-            <skos:definition xml:lang="en">Santé &gt;= bonne, hommes, 65 ans et plus</skos:definition>
+            <skos:definition xml:lang="fr">Santé &gt;= bonne, hommes, 65 ans et plus</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2873,7 +2909,7 @@
             </skos:broader>
             <skos:notation>SRHSMGHE</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, male, all ages</skos:definition>
-            <skos:definition xml:lang="en">Santé &gt;= bonne, hommes, tous âges</skos:definition>
+            <skos:definition xml:lang="fr">Santé &gt;= bonne, hommes, tous âges</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2890,7 +2926,7 @@
             </skos:broader>
             <skos:notation>SRHSTGHA</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, total, 15-24 years old</skos:definition>
-            <skos:definition xml:lang="en">Santé &gt;= bonne, population, 15-24 ans</skos:definition>
+            <skos:definition xml:lang="fr">Santé &gt;= bonne, population, 15-24 ans</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2907,7 +2943,7 @@
             </skos:broader>
             <skos:notation>SRHSTGHB</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, total, 25-44 years old</skos:definition>
-            <skos:definition xml:lang="en">Santé &gt;= bonne, population, 25-44 ans</skos:definition>
+            <skos:definition xml:lang="fr">Santé &gt;= bonne, population, 25-44 ans</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2924,7 +2960,7 @@
             </skos:broader>
             <skos:notation>SRHSTGHC</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, total, 45-64 years old</skos:definition>
-            <skos:definition xml:lang="en">Santé &gt;= bonne, population, 45-64 ans</skos:definition>
+            <skos:definition xml:lang="fr">Santé &gt;= bonne, population, 45-64 ans</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2941,7 +2977,7 @@
             </skos:broader>
             <skos:notation>SRHSTGHD</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, total, 65 years old and over</skos:definition>
-            <skos:definition xml:lang="en">Santé &gt;= bonne, population, 65 ans et plus</skos:definition>
+            <skos:definition xml:lang="fr">Santé &gt;= bonne, population, 65 ans et plus</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2958,7 +2994,7 @@
             </skos:broader>
             <skos:notation>SRHSTGHE</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, total, all ages</skos:definition>
-            <skos:definition xml:lang="en">Santé &gt;= bonne, population, tous âges</skos:definition>
+            <skos:definition xml:lang="fr">Santé &gt;= bonne, population, tous âges</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2975,7 +3011,7 @@
             </skos:broader>
             <skos:notation>SRHSGHQO</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, total, income quintile 1 (lowest)</skos:definition>
-            <skos:definition xml:lang="en">Santé &gt;= bonne, total, revenus 1er quintile (faibles)</skos:definition>
+            <skos:definition xml:lang="fr">Santé &gt;= bonne, total, revenus 1er quintile (faibles)</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2992,7 +3028,7 @@
             </skos:broader>
             <skos:notation>SRHSGHQV</skos:notation>
             <skos:definition xml:lang="en">Health &gt;= good, total, income quintile 5 (highest)</skos:definition>
-            <skos:definition xml:lang="en">Santé &gt;= bonne, total, revenus 5ème quintile (élevés)</skos:definition>
+            <skos:definition xml:lang="fr">Santé &gt;= bonne, total, revenus 5ème quintile (élevés)</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3009,7 +3045,7 @@
             </skos:broader>
             <skos:notation>INFA</skos:notation>
             <skos:definition xml:lang="en">Infant health</skos:definition>
-            <skos:definition xml:lang="en">Santé du nourrisson</skos:definition>
+            <skos:definition xml:lang="fr">Santé du nourrisson</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3026,7 +3062,7 @@
             </skos:broader>
             <skos:notation>INFAPREM</skos:notation>
             <skos:definition xml:lang="en">Low birthweight</skos:definition>
-            <skos:definition xml:lang="en">Hypotrophie à la naissance</skos:definition>
+            <skos:definition xml:lang="fr">Hypotrophie à la naissance</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3043,7 +3079,7 @@
             </skos:broader>
             <skos:notation>DENT</skos:notation>
             <skos:definition xml:lang="en">Dental health</skos:definition>
-            <skos:definition xml:lang="en">Santé buccale</skos:definition>
+            <skos:definition xml:lang="fr">Santé buccale</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3060,7 +3096,7 @@
             </skos:broader>
             <skos:notation>DENTDMTF</skos:notation>
             <skos:definition xml:lang="en">Decayed-missing-filled teeth (DMFT)</skos:definition>
-            <skos:definition xml:lang="en">Dents cariées, avulsées, obturées (DCAO)</skos:definition>
+            <skos:definition xml:lang="fr">Dents cariées, avulsées, obturées (DCAO)</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3077,7 +3113,7 @@
             </skos:broader>
             <skos:notation>COMD</skos:notation>
             <skos:definition xml:lang="en">Communicable diseases</skos:definition>
-            <skos:definition xml:lang="en">Maladies transmissibles</skos:definition>
+            <skos:definition xml:lang="fr">Maladies transmissibles</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3094,7 +3130,7 @@
             </skos:broader>
             <skos:notation>COMDAIDS</skos:notation>
             <skos:definition xml:lang="en">Acquired immunodeficiency syndrome (AIDS)</skos:definition>
-            <skos:definition xml:lang="en">Syndrôme d'immuno-déficience acquise (SIDA)</skos:definition>
+            <skos:definition xml:lang="fr">Syndrôme d'immuno-déficience acquise (SIDA)</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3111,7 +3147,7 @@
             </skos:broader>
             <skos:notation>COMDIPER</skos:notation>
             <skos:definition xml:lang="en">Incidence of pertussis</skos:definition>
-            <skos:definition xml:lang="en">Incidence de la coqueluche</skos:definition>
+            <skos:definition xml:lang="fr">Incidence de la coqueluche</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3128,7 +3164,7 @@
             </skos:broader>
             <skos:notation>COMDIMEA</skos:notation>
             <skos:definition xml:lang="en">Incidence of measles</skos:definition>
-            <skos:definition xml:lang="en">Incidence de la rougeole</skos:definition>
+            <skos:definition xml:lang="fr">Incidence de la rougeole</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3145,7 +3181,7 @@
             </skos:broader>
             <skos:notation>COMDIHPB</skos:notation>
             <skos:definition xml:lang="en">Incidence of hepatitis B</skos:definition>
-            <skos:definition xml:lang="en">Incidence de l'hépatite B</skos:definition>
+            <skos:definition xml:lang="fr">Incidence de l'hépatite B</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3162,7 +3198,7 @@
             </skos:broader>
             <skos:notation>CANC</skos:notation>
             <skos:definition xml:lang="en">Cancer</skos:definition>
-            <skos:definition xml:lang="en">Cancer</skos:definition>
+            <skos:definition xml:lang="fr">Cancer</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3179,7 +3215,7 @@
             </skos:broader>
             <skos:notation>CANCTOCA</skos:notation>
             <skos:definition xml:lang="en">Malignant neoplasms</skos:definition>
-            <skos:definition xml:lang="en">Tumeurs malignes</skos:definition>
+            <skos:definition xml:lang="fr">Tumeurs malignes</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3196,7 +3232,7 @@
             </skos:broader>
             <skos:notation>CANCCOLC</skos:notation>
             <skos:definition xml:lang="en">Malignant neoplasms of colon</skos:definition>
-            <skos:definition xml:lang="en">Tumeurs malignes du côlon</skos:definition>
+            <skos:definition xml:lang="fr">Tumeurs malignes du côlon</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3213,7 +3249,7 @@
             </skos:broader>
             <skos:notation>CANCLUNC</skos:notation>
             <skos:definition xml:lang="en">Malignant neoplasms of lung</skos:definition>
-            <skos:definition xml:lang="en">Tumeurs malignes du poumon</skos:definition>
+            <skos:definition xml:lang="fr">Tumeurs malignes du poumon</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3230,7 +3266,7 @@
             </skos:broader>
             <skos:notation>CANCBREC</skos:notation>
             <skos:definition xml:lang="en">Malignant neoplasms of female breast</skos:definition>
-            <skos:definition xml:lang="en">Tumeurs malignes du sein (femmes)</skos:definition>
+            <skos:definition xml:lang="fr">Tumeurs malignes du sein (femmes)</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3247,7 +3283,7 @@
             </skos:broader>
             <skos:notation>CANCCEIX</skos:notation>
             <skos:definition xml:lang="en">Malignant neoplasms of cervix</skos:definition>
-            <skos:definition xml:lang="en">Tumeurs malignes du col de l'utérus</skos:definition>
+            <skos:definition xml:lang="fr">Tumeurs malignes du col de l'utérus</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3264,7 +3300,7 @@
             </skos:broader>
             <skos:notation>CANCPROC</skos:notation>
             <skos:definition xml:lang="en">Malignant neoplasms of prostate</skos:definition>
-            <skos:definition xml:lang="en">Tumeurs malignes de la prostate</skos:definition>
+            <skos:definition xml:lang="fr">Tumeurs malignes de la prostate</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
    </rdf:Description>
@@ -3291,7 +3327,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
             <skos:notation>EVIDUREV</skos:notation>
             <skos:definition xml:lang="en">Years</skos:definition>
-            <skos:definition xml:lang="en">Années</skos:definition>
+            <skos:definition xml:lang="fr">Années</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3303,7 +3339,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
             <skos:notation>EVIFHOEV</skos:notation>
             <skos:definition xml:lang="en">Difference female-male (years)</skos:definition>
-            <skos:definition xml:lang="en">Ecart femmes-hommes (années)</skos:definition>
+            <skos:definition xml:lang="fr">Ecart femmes-hommes (années)</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3315,7 +3351,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
             <skos:notation>EVIHFEEV</skos:notation>
             <skos:definition xml:lang="en">Difference male-female (years)</skos:definition>
-            <skos:definition xml:lang="en">Ecart hommes-femmes (années)</skos:definition>
+            <skos:definition xml:lang="fr">Ecart hommes-femmes (années)</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3327,7 +3363,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
             <skos:notation>NBFEMEPF</skos:notation>
             <skos:definition xml:lang="en">Number of female deaths</skos:definition>
-            <skos:definition xml:lang="en">Nombre de décès, femmes</skos:definition>
+            <skos:definition xml:lang="fr">Nombre de décès, femmes</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3339,7 +3375,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
             <skos:notation>NBMALEPH</skos:notation>
             <skos:definition xml:lang="en">Number of male deaths</skos:definition>
-            <skos:definition xml:lang="en">Nombre de décès, hommes</skos:definition>
+            <skos:definition xml:lang="fr">Nombre de décès, hommes</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3351,7 +3387,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
             <skos:notation>NBPOPUPC</skos:notation>
             <skos:definition xml:lang="en">Number of total deaths</skos:definition>
-            <skos:definition xml:lang="en">Nombre total de décès</skos:definition>
+            <skos:definition xml:lang="fr">Nombre total de décès</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3363,7 +3399,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
             <skos:notation>TXCMFETF</skos:notation>
             <skos:definition xml:lang="en">Deaths per 100 000 females (standardised rates)</skos:definition>
-            <skos:definition xml:lang="en">Décès pour 100 000 femmes (taux standardisés)</skos:definition>
+            <skos:definition xml:lang="fr">Décès pour 100 000 femmes (taux standardisés)</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3375,7 +3411,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
             <skos:notation>TXCMHOTH</skos:notation>
             <skos:definition xml:lang="en">Deaths per 100 000 males (standardised rates)</skos:definition>
-            <skos:definition xml:lang="en">Décès pour 100 000 hommes (taux standardisés)</skos:definition>
+            <skos:definition xml:lang="fr">Décès pour 100 000 hommes (taux standardisés)</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3387,7 +3423,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
             <skos:notation>TXCMILTX</skos:notation>
             <skos:definition xml:lang="en">Deaths per 100 000 population (standardised rates)</skos:definition>
-            <skos:definition xml:lang="en">Décès pour 100 000 personnes (taux standardisés)</skos:definition>
+            <skos:definition xml:lang="fr">Décès pour 100 000 personnes (taux standardisés)</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3399,7 +3435,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
             <skos:notation>RATEPTTX</skos:notation>
             <skos:definition xml:lang="en">Deaths per 1 000 live births</skos:definition>
-            <skos:definition xml:lang="en">Décès /1 000 naissances vivantes</skos:definition>
+            <skos:definition xml:lang="fr">Décès /1 000 naissances vivantes</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3411,7 +3447,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
             <skos:notation>TXMILBTH</skos:notation>
             <skos:definition xml:lang="en">Deaths per 1 000 total births</skos:definition>
-            <skos:definition xml:lang="en">Décès /1 000 naissances totales</skos:definition>
+            <skos:definition xml:lang="fr">Décès /1 000 naissances totales</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3423,7 +3459,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
             <skos:notation>TXCMMMTX</skos:notation>
             <skos:definition xml:lang="en">Deaths per 100 000 live births</skos:definition>
-            <skos:definition xml:lang="en">Décès /100 000 naissances vivantes</skos:definition>
+            <skos:definition xml:lang="fr">Décès /100 000 naissances vivantes</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3435,7 +3471,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
             <skos:notation>ANNFEMTF</skos:notation>
             <skos:definition xml:lang="en">Years lost, /100 000 females, aged 0-69 years old</skos:definition>
-            <skos:definition xml:lang="en">Années perdues, /100 000 femmes, âgées 0-69 ans</skos:definition>
+            <skos:definition xml:lang="fr">Années perdues, /100 000 femmes, âgées 0-69 ans</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3447,7 +3483,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
             <skos:notation>ANNHOMTH</skos:notation>
             <skos:definition xml:lang="en">Years lost, /100 000 males, aged 0-69 years old</skos:definition>
-            <skos:definition xml:lang="en">Années perdues, /100 000 hommes, âgés 0-69 ans</skos:definition>
+            <skos:definition xml:lang="fr">Années perdues, /100 000 hommes, âgés 0-69 ans</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3459,7 +3495,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
             <skos:notation>ANNTOTTX</skos:notation>
             <skos:definition xml:lang="en">Years lost, /100 000 population, aged 0-69 years old</skos:definition>
-            <skos:definition xml:lang="en">Années perdues, /100 000 personnes, âgées 0-69 ans</skos:definition>
+            <skos:definition xml:lang="fr">Années perdues, /100 000 personnes, âgées 0-69 ans</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3471,7 +3507,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
             <skos:notation>PERCALEF</skos:notation>
             <skos:definition xml:lang="en">% of population with health &gt;= good, crude rate</skos:definition>
-            <skos:definition xml:lang="en">% population avec santé &gt;= bonne, taux brut</skos:definition>
+            <skos:definition xml:lang="fr">% population avec santé &gt;= bonne, taux brut</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3483,7 +3519,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
             <skos:notation>LIVBRTTX</skos:notation>
             <skos:definition xml:lang="en">% of total live births</skos:definition>
-            <skos:definition xml:lang="en">% des naissances vivantes</skos:definition>
+            <skos:definition xml:lang="fr">% des naissances vivantes</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3495,7 +3531,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
             <skos:notation>DENPERNB</skos:notation>
             <skos:definition xml:lang="en">Average number of DMFT at age 12</skos:definition>
-            <skos:definition xml:lang="en">Nombre moyen à 12 ans</skos:definition>
+            <skos:definition xml:lang="fr">Nombre moyen à 12 ans</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3507,7 +3543,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
             <skos:notation>NOMBRENB</skos:notation>
             <skos:definition xml:lang="en">Number</skos:definition>
-            <skos:definition xml:lang="en">Nombre</skos:definition>
+            <skos:definition xml:lang="fr">Nombre</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3519,7 +3555,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
             <skos:notation>NEWCASTX</skos:notation>
             <skos:definition xml:lang="en">Incidence per million population</skos:definition>
-            <skos:definition xml:lang="en">Nouveaux cas par million de personnes</skos:definition>
+            <skos:definition xml:lang="fr">Nouveaux cas par million de personnes</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3531,7 +3567,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
             <skos:notation>PERCMTTX</skos:notation>
             <skos:definition xml:lang="en">Incidence per 100 000 population</skos:definition>
-            <skos:definition xml:lang="en">Incidence pour 100 000 personnes</skos:definition>
+            <skos:definition xml:lang="fr">Incidence pour 100 000 personnes</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3543,7 +3579,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
             <skos:notation>NBWOMAPF</skos:notation>
             <skos:definition xml:lang="en">Number of female cases</skos:definition>
-            <skos:definition xml:lang="en">Nombre de cas, femmes</skos:definition>
+            <skos:definition xml:lang="fr">Nombre de cas, femmes</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3555,7 +3591,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
             <skos:notation>NBMANYPH</skos:notation>
             <skos:definition xml:lang="en">Number of male cases</skos:definition>
-            <skos:definition xml:lang="en">Nombre de cas, hommes</skos:definition>
+            <skos:definition xml:lang="fr">Nombre de cas, hommes</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3567,7 +3603,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
             <skos:notation>NBPOPIPC</skos:notation>
             <skos:definition xml:lang="en">Number of total cases</skos:definition>
-            <skos:definition xml:lang="en">Nombre total de cas</skos:definition>
+            <skos:definition xml:lang="fr">Nombre total de cas</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3579,7 +3615,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
             <skos:notation>INCITFTF</skos:notation>
             <skos:definition xml:lang="en">Incidence per 100 000 females</skos:definition>
-            <skos:definition xml:lang="en">Incidence pour 100 000 femmes</skos:definition>
+            <skos:definition xml:lang="fr">Incidence pour 100 000 femmes</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3591,7 +3627,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
             <skos:notation>INCITHTH</skos:notation>
             <skos:definition xml:lang="en">Incidence per 100 000 males</skos:definition>
-            <skos:definition xml:lang="en">Incidence pour 100 000 hommes</skos:definition>
+            <skos:definition xml:lang="fr">Incidence pour 100 000 hommes</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
    </rdf:Description>
@@ -3618,7 +3654,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>AUS</skos:notation>
             <skos:definition xml:lang="en">Australia</skos:definition>
-            <skos:definition xml:lang="en">Australie</skos:definition>
+            <skos:definition xml:lang="fr">Australie</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3630,7 +3666,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>AUT</skos:notation>
             <skos:definition xml:lang="en">Austria</skos:definition>
-            <skos:definition xml:lang="en">Autriche</skos:definition>
+            <skos:definition xml:lang="fr">Autriche</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3642,7 +3678,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>BEL</skos:notation>
             <skos:definition xml:lang="en">Belgium</skos:definition>
-            <skos:definition xml:lang="en">Belgique</skos:definition>
+            <skos:definition xml:lang="fr">Belgique</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3654,7 +3690,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>CAN</skos:notation>
             <skos:definition xml:lang="en">Canada</skos:definition>
-            <skos:definition xml:lang="en">Canada</skos:definition>
+            <skos:definition xml:lang="fr">Canada</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3666,7 +3702,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>CHL</skos:notation>
             <skos:definition xml:lang="en">Chile</skos:definition>
-            <skos:definition xml:lang="en">Chili</skos:definition>
+            <skos:definition xml:lang="fr">Chili</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3678,7 +3714,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>CZE</skos:notation>
             <skos:definition xml:lang="en">Czech Republic</skos:definition>
-            <skos:definition xml:lang="en">République tchèque</skos:definition>
+            <skos:definition xml:lang="fr">République tchèque</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3690,7 +3726,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>DNK</skos:notation>
             <skos:definition xml:lang="en">Denmark</skos:definition>
-            <skos:definition xml:lang="en">Danemark</skos:definition>
+            <skos:definition xml:lang="fr">Danemark</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3702,7 +3738,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>EST</skos:notation>
             <skos:definition xml:lang="en">Estonia</skos:definition>
-            <skos:definition xml:lang="en">Estonie</skos:definition>
+            <skos:definition xml:lang="fr">Estonie</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3714,7 +3750,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>FIN</skos:notation>
             <skos:definition xml:lang="en">Finland</skos:definition>
-            <skos:definition xml:lang="en">Finlande</skos:definition>
+            <skos:definition xml:lang="fr">Finlande</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3726,7 +3762,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>FRA</skos:notation>
             <skos:definition xml:lang="en">France</skos:definition>
-            <skos:definition xml:lang="en">France</skos:definition>
+            <skos:definition xml:lang="fr">France</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3738,7 +3774,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>DEU</skos:notation>
             <skos:definition xml:lang="en">Germany</skos:definition>
-            <skos:definition xml:lang="en">Allemagne</skos:definition>
+            <skos:definition xml:lang="fr">Allemagne</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3750,7 +3786,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>GRC</skos:notation>
             <skos:definition xml:lang="en">Greece</skos:definition>
-            <skos:definition xml:lang="en">Grèce</skos:definition>
+            <skos:definition xml:lang="fr">Grèce</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3762,7 +3798,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>HUN</skos:notation>
             <skos:definition xml:lang="en">Hungary</skos:definition>
-            <skos:definition xml:lang="en">Hongrie</skos:definition>
+            <skos:definition xml:lang="fr">Hongrie</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3774,7 +3810,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>ISL</skos:notation>
             <skos:definition xml:lang="en">Iceland</skos:definition>
-            <skos:definition xml:lang="en">Islande</skos:definition>
+            <skos:definition xml:lang="fr">Islande</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3786,7 +3822,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>IRL</skos:notation>
             <skos:definition xml:lang="en">Ireland</skos:definition>
-            <skos:definition xml:lang="en">Irlande</skos:definition>
+            <skos:definition xml:lang="fr">Irlande</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3798,7 +3834,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>ISR</skos:notation>
             <skos:definition xml:lang="en">Israel</skos:definition>
-            <skos:definition xml:lang="en">Israël</skos:definition>
+            <skos:definition xml:lang="fr">Israël</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3810,7 +3846,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>ITA</skos:notation>
             <skos:definition xml:lang="en">Italy</skos:definition>
-            <skos:definition xml:lang="en">Italie</skos:definition>
+            <skos:definition xml:lang="fr">Italie</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3822,7 +3858,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>JPN</skos:notation>
             <skos:definition xml:lang="en">Japan</skos:definition>
-            <skos:definition xml:lang="en">Japon</skos:definition>
+            <skos:definition xml:lang="fr">Japon</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3834,7 +3870,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>KOR</skos:notation>
             <skos:definition xml:lang="en">Korea</skos:definition>
-            <skos:definition xml:lang="en">Corée</skos:definition>
+            <skos:definition xml:lang="fr">Corée</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3846,7 +3882,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>LUX</skos:notation>
             <skos:definition xml:lang="en">Luxembourg</skos:definition>
-            <skos:definition xml:lang="en">Luxembourg</skos:definition>
+            <skos:definition xml:lang="fr">Luxembourg</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3858,7 +3894,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>MEX</skos:notation>
             <skos:definition xml:lang="en">Mexico</skos:definition>
-            <skos:definition xml:lang="en">Mexique</skos:definition>
+            <skos:definition xml:lang="fr">Mexique</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3870,7 +3906,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>NLD</skos:notation>
             <skos:definition xml:lang="en">Netherlands</skos:definition>
-            <skos:definition xml:lang="en">Pays-Bas</skos:definition>
+            <skos:definition xml:lang="fr">Pays-Bas</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3882,7 +3918,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>NZL</skos:notation>
             <skos:definition xml:lang="en">New Zealand</skos:definition>
-            <skos:definition xml:lang="en">Nouvelle-Zélande</skos:definition>
+            <skos:definition xml:lang="fr">Nouvelle-Zélande</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3894,7 +3930,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>NOR</skos:notation>
             <skos:definition xml:lang="en">Norway</skos:definition>
-            <skos:definition xml:lang="en">Norvège</skos:definition>
+            <skos:definition xml:lang="fr">Norvège</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3906,7 +3942,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>POL</skos:notation>
             <skos:definition xml:lang="en">Poland</skos:definition>
-            <skos:definition xml:lang="en">Pologne</skos:definition>
+            <skos:definition xml:lang="fr">Pologne</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3918,7 +3954,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>PRT</skos:notation>
             <skos:definition xml:lang="en">Portugal</skos:definition>
-            <skos:definition xml:lang="en">Portugal</skos:definition>
+            <skos:definition xml:lang="fr">Portugal</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3930,7 +3966,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>SVK</skos:notation>
             <skos:definition xml:lang="en">Slovak Republic</skos:definition>
-            <skos:definition xml:lang="en">République slovaque</skos:definition>
+            <skos:definition xml:lang="fr">République slovaque</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3942,7 +3978,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>SVN</skos:notation>
             <skos:definition xml:lang="en">Slovenia</skos:definition>
-            <skos:definition xml:lang="en">Slovénie</skos:definition>
+            <skos:definition xml:lang="fr">Slovénie</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3954,7 +3990,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>ESP</skos:notation>
             <skos:definition xml:lang="en">Spain</skos:definition>
-            <skos:definition xml:lang="en">Espagne</skos:definition>
+            <skos:definition xml:lang="fr">Espagne</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3966,7 +4002,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>SWE</skos:notation>
             <skos:definition xml:lang="en">Sweden</skos:definition>
-            <skos:definition xml:lang="en">Suède</skos:definition>
+            <skos:definition xml:lang="fr">Suède</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3978,7 +4014,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>CHE</skos:notation>
             <skos:definition xml:lang="en">Switzerland</skos:definition>
-            <skos:definition xml:lang="en">Suisse</skos:definition>
+            <skos:definition xml:lang="fr">Suisse</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3990,7 +4026,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>TUR</skos:notation>
             <skos:definition xml:lang="en">Turkey</skos:definition>
-            <skos:definition xml:lang="en">Turquie</skos:definition>
+            <skos:definition xml:lang="fr">Turquie</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4002,7 +4038,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>GBR</skos:notation>
             <skos:definition xml:lang="en">United Kingdom</skos:definition>
-            <skos:definition xml:lang="en">Royaume-Uni</skos:definition>
+            <skos:definition xml:lang="fr">Royaume-Uni</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4014,7 +4050,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>USA</skos:notation>
             <skos:definition xml:lang="en">United States</skos:definition>
-            <skos:definition xml:lang="en">États-Unis</skos:definition>
+            <skos:definition xml:lang="fr">États-Unis</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4026,7 +4062,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_LOCATION"/>
             <skos:notation>NMEC</skos:notation>
             <skos:definition xml:lang="en">Non-OECD Member Economies</skos:definition>
-            <skos:definition xml:lang="en">Économies non-membres de l'OCDE</skos:definition>
+            <skos:definition xml:lang="fr">Économies non-membres de l'OCDE</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4043,7 +4079,7 @@
             </skos:broader>
             <skos:notation>BRA</skos:notation>
             <skos:definition xml:lang="en">Brazil</skos:definition>
-            <skos:definition xml:lang="en">Brésil</skos:definition>
+            <skos:definition xml:lang="fr">Brésil</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4060,7 +4096,7 @@
             </skos:broader>
             <skos:notation>CHN</skos:notation>
             <skos:definition xml:lang="en">China</skos:definition>
-            <skos:definition xml:lang="en">Chine</skos:definition>
+            <skos:definition xml:lang="fr">Chine</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4077,7 +4113,7 @@
             </skos:broader>
             <skos:notation>IND</skos:notation>
             <skos:definition xml:lang="en">India</skos:definition>
-            <skos:definition xml:lang="en">Inde</skos:definition>
+            <skos:definition xml:lang="fr">Inde</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4094,7 +4130,7 @@
             </skos:broader>
             <skos:notation>IDN</skos:notation>
             <skos:definition xml:lang="en">Indonesia</skos:definition>
-            <skos:definition xml:lang="en">Indonésie</skos:definition>
+            <skos:definition xml:lang="fr">Indonésie</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4111,7 +4147,7 @@
             </skos:broader>
             <skos:notation>RUS</skos:notation>
             <skos:definition xml:lang="en">Russian Federation</skos:definition>
-            <skos:definition xml:lang="en">Fédération de Russie</skos:definition>
+            <skos:definition xml:lang="fr">Fédération de Russie</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4128,7 +4164,7 @@
             </skos:broader>
             <skos:notation>ZAF</skos:notation>
             <skos:definition xml:lang="en">South Africa</skos:definition>
-            <skos:definition xml:lang="en">Afrique du Sud</skos:definition>
+            <skos:definition xml:lang="fr">Afrique du Sud</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
    </rdf:Description>
@@ -4155,7 +4191,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1960</skos:notation>
             <skos:definition xml:lang="en">1960</skos:definition>
-            <skos:definition xml:lang="en">1960</skos:definition>
+            <skos:definition xml:lang="fr">1960</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4167,7 +4203,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1961</skos:notation>
             <skos:definition xml:lang="en">1961</skos:definition>
-            <skos:definition xml:lang="en">1961</skos:definition>
+            <skos:definition xml:lang="fr">1961</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4179,7 +4215,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1962</skos:notation>
             <skos:definition xml:lang="en">1962</skos:definition>
-            <skos:definition xml:lang="en">1962</skos:definition>
+            <skos:definition xml:lang="fr">1962</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4191,7 +4227,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1963</skos:notation>
             <skos:definition xml:lang="en">1963</skos:definition>
-            <skos:definition xml:lang="en">1963</skos:definition>
+            <skos:definition xml:lang="fr">1963</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4203,7 +4239,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1964</skos:notation>
             <skos:definition xml:lang="en">1964</skos:definition>
-            <skos:definition xml:lang="en">1964</skos:definition>
+            <skos:definition xml:lang="fr">1964</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4215,7 +4251,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1965</skos:notation>
             <skos:definition xml:lang="en">1965</skos:definition>
-            <skos:definition xml:lang="en">1965</skos:definition>
+            <skos:definition xml:lang="fr">1965</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4227,7 +4263,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1966</skos:notation>
             <skos:definition xml:lang="en">1966</skos:definition>
-            <skos:definition xml:lang="en">1966</skos:definition>
+            <skos:definition xml:lang="fr">1966</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4239,7 +4275,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1967</skos:notation>
             <skos:definition xml:lang="en">1967</skos:definition>
-            <skos:definition xml:lang="en">1967</skos:definition>
+            <skos:definition xml:lang="fr">1967</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4251,7 +4287,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1968</skos:notation>
             <skos:definition xml:lang="en">1968</skos:definition>
-            <skos:definition xml:lang="en">1968</skos:definition>
+            <skos:definition xml:lang="fr">1968</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4263,7 +4299,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1969</skos:notation>
             <skos:definition xml:lang="en">1969</skos:definition>
-            <skos:definition xml:lang="en">1969</skos:definition>
+            <skos:definition xml:lang="fr">1969</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4275,7 +4311,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1970</skos:notation>
             <skos:definition xml:lang="en">1970</skos:definition>
-            <skos:definition xml:lang="en">1970</skos:definition>
+            <skos:definition xml:lang="fr">1970</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4287,7 +4323,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1971</skos:notation>
             <skos:definition xml:lang="en">1971</skos:definition>
-            <skos:definition xml:lang="en">1971</skos:definition>
+            <skos:definition xml:lang="fr">1971</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4299,7 +4335,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1972</skos:notation>
             <skos:definition xml:lang="en">1972</skos:definition>
-            <skos:definition xml:lang="en">1972</skos:definition>
+            <skos:definition xml:lang="fr">1972</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4311,7 +4347,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1973</skos:notation>
             <skos:definition xml:lang="en">1973</skos:definition>
-            <skos:definition xml:lang="en">1973</skos:definition>
+            <skos:definition xml:lang="fr">1973</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4323,7 +4359,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1974</skos:notation>
             <skos:definition xml:lang="en">1974</skos:definition>
-            <skos:definition xml:lang="en">1974</skos:definition>
+            <skos:definition xml:lang="fr">1974</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4335,7 +4371,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1975</skos:notation>
             <skos:definition xml:lang="en">1975</skos:definition>
-            <skos:definition xml:lang="en">1975</skos:definition>
+            <skos:definition xml:lang="fr">1975</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4347,7 +4383,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1976</skos:notation>
             <skos:definition xml:lang="en">1976</skos:definition>
-            <skos:definition xml:lang="en">1976</skos:definition>
+            <skos:definition xml:lang="fr">1976</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4359,7 +4395,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1977</skos:notation>
             <skos:definition xml:lang="en">1977</skos:definition>
-            <skos:definition xml:lang="en">1977</skos:definition>
+            <skos:definition xml:lang="fr">1977</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4371,7 +4407,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1978</skos:notation>
             <skos:definition xml:lang="en">1978</skos:definition>
-            <skos:definition xml:lang="en">1978</skos:definition>
+            <skos:definition xml:lang="fr">1978</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4383,7 +4419,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1979</skos:notation>
             <skos:definition xml:lang="en">1979</skos:definition>
-            <skos:definition xml:lang="en">1979</skos:definition>
+            <skos:definition xml:lang="fr">1979</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4395,7 +4431,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1980</skos:notation>
             <skos:definition xml:lang="en">1980</skos:definition>
-            <skos:definition xml:lang="en">1980</skos:definition>
+            <skos:definition xml:lang="fr">1980</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4407,7 +4443,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1981</skos:notation>
             <skos:definition xml:lang="en">1981</skos:definition>
-            <skos:definition xml:lang="en">1981</skos:definition>
+            <skos:definition xml:lang="fr">1981</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4419,7 +4455,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1982</skos:notation>
             <skos:definition xml:lang="en">1982</skos:definition>
-            <skos:definition xml:lang="en">1982</skos:definition>
+            <skos:definition xml:lang="fr">1982</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4431,7 +4467,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1983</skos:notation>
             <skos:definition xml:lang="en">1983</skos:definition>
-            <skos:definition xml:lang="en">1983</skos:definition>
+            <skos:definition xml:lang="fr">1983</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4443,7 +4479,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1984</skos:notation>
             <skos:definition xml:lang="en">1984</skos:definition>
-            <skos:definition xml:lang="en">1984</skos:definition>
+            <skos:definition xml:lang="fr">1984</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4455,7 +4491,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1985</skos:notation>
             <skos:definition xml:lang="en">1985</skos:definition>
-            <skos:definition xml:lang="en">1985</skos:definition>
+            <skos:definition xml:lang="fr">1985</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4467,7 +4503,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1986</skos:notation>
             <skos:definition xml:lang="en">1986</skos:definition>
-            <skos:definition xml:lang="en">1986</skos:definition>
+            <skos:definition xml:lang="fr">1986</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4479,7 +4515,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1987</skos:notation>
             <skos:definition xml:lang="en">1987</skos:definition>
-            <skos:definition xml:lang="en">1987</skos:definition>
+            <skos:definition xml:lang="fr">1987</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4491,7 +4527,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1988</skos:notation>
             <skos:definition xml:lang="en">1988</skos:definition>
-            <skos:definition xml:lang="en">1988</skos:definition>
+            <skos:definition xml:lang="fr">1988</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4503,7 +4539,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1989</skos:notation>
             <skos:definition xml:lang="en">1989</skos:definition>
-            <skos:definition xml:lang="en">1989</skos:definition>
+            <skos:definition xml:lang="fr">1989</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4515,7 +4551,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1990</skos:notation>
             <skos:definition xml:lang="en">1990</skos:definition>
-            <skos:definition xml:lang="en">1990</skos:definition>
+            <skos:definition xml:lang="fr">1990</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4527,7 +4563,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1991</skos:notation>
             <skos:definition xml:lang="en">1991</skos:definition>
-            <skos:definition xml:lang="en">1991</skos:definition>
+            <skos:definition xml:lang="fr">1991</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4539,7 +4575,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1992</skos:notation>
             <skos:definition xml:lang="en">1992</skos:definition>
-            <skos:definition xml:lang="en">1992</skos:definition>
+            <skos:definition xml:lang="fr">1992</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4551,7 +4587,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1993</skos:notation>
             <skos:definition xml:lang="en">1993</skos:definition>
-            <skos:definition xml:lang="en">1993</skos:definition>
+            <skos:definition xml:lang="fr">1993</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4563,7 +4599,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1994</skos:notation>
             <skos:definition xml:lang="en">1994</skos:definition>
-            <skos:definition xml:lang="en">1994</skos:definition>
+            <skos:definition xml:lang="fr">1994</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4575,7 +4611,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1995</skos:notation>
             <skos:definition xml:lang="en">1995</skos:definition>
-            <skos:definition xml:lang="en">1995</skos:definition>
+            <skos:definition xml:lang="fr">1995</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4587,7 +4623,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1996</skos:notation>
             <skos:definition xml:lang="en">1996</skos:definition>
-            <skos:definition xml:lang="en">1996</skos:definition>
+            <skos:definition xml:lang="fr">1996</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4599,7 +4635,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1997</skos:notation>
             <skos:definition xml:lang="en">1997</skos:definition>
-            <skos:definition xml:lang="en">1997</skos:definition>
+            <skos:definition xml:lang="fr">1997</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4611,7 +4647,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1998</skos:notation>
             <skos:definition xml:lang="en">1998</skos:definition>
-            <skos:definition xml:lang="en">1998</skos:definition>
+            <skos:definition xml:lang="fr">1998</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4623,7 +4659,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>1999</skos:notation>
             <skos:definition xml:lang="en">1999</skos:definition>
-            <skos:definition xml:lang="en">1999</skos:definition>
+            <skos:definition xml:lang="fr">1999</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4635,7 +4671,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>2000</skos:notation>
             <skos:definition xml:lang="en">2000</skos:definition>
-            <skos:definition xml:lang="en">2000</skos:definition>
+            <skos:definition xml:lang="fr">2000</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4647,7 +4683,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>2001</skos:notation>
             <skos:definition xml:lang="en">2001</skos:definition>
-            <skos:definition xml:lang="en">2001</skos:definition>
+            <skos:definition xml:lang="fr">2001</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4659,7 +4695,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>2002</skos:notation>
             <skos:definition xml:lang="en">2002</skos:definition>
-            <skos:definition xml:lang="en">2002</skos:definition>
+            <skos:definition xml:lang="fr">2002</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4671,7 +4707,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>2003</skos:notation>
             <skos:definition xml:lang="en">2003</skos:definition>
-            <skos:definition xml:lang="en">2003</skos:definition>
+            <skos:definition xml:lang="fr">2003</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4683,7 +4719,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>2004</skos:notation>
             <skos:definition xml:lang="en">2004</skos:definition>
-            <skos:definition xml:lang="en">2004</skos:definition>
+            <skos:definition xml:lang="fr">2004</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4695,7 +4731,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>2005</skos:notation>
             <skos:definition xml:lang="en">2005</skos:definition>
-            <skos:definition xml:lang="en">2005</skos:definition>
+            <skos:definition xml:lang="fr">2005</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4707,7 +4743,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>2006</skos:notation>
             <skos:definition xml:lang="en">2006</skos:definition>
-            <skos:definition xml:lang="en">2006</skos:definition>
+            <skos:definition xml:lang="fr">2006</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4719,7 +4755,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>2007</skos:notation>
             <skos:definition xml:lang="en">2007</skos:definition>
-            <skos:definition xml:lang="en">2007</skos:definition>
+            <skos:definition xml:lang="fr">2007</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4731,7 +4767,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>2008</skos:notation>
             <skos:definition xml:lang="en">2008</skos:definition>
-            <skos:definition xml:lang="en">2008</skos:definition>
+            <skos:definition xml:lang="fr">2008</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4743,7 +4779,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>2009</skos:notation>
             <skos:definition xml:lang="en">2009</skos:definition>
-            <skos:definition xml:lang="en">2009</skos:definition>
+            <skos:definition xml:lang="fr">2009</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4755,7 +4791,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>2010</skos:notation>
             <skos:definition xml:lang="en">2010</skos:definition>
-            <skos:definition xml:lang="en">2010</skos:definition>
+            <skos:definition xml:lang="fr">2010</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4767,7 +4803,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME"/>
             <skos:notation>2011</skos:notation>
             <skos:definition xml:lang="en">2011</skos:definition>
-            <skos:definition xml:lang="en">2011</skos:definition>
+            <skos:definition xml:lang="fr">2011</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
    </rdf:Description>
@@ -4794,7 +4830,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
             <skos:notation>CURRENCY</skos:notation>
             <skos:definition xml:lang="en">USD</skos:definition>
-            <skos:definition xml:lang="en">USD</skos:definition>
+            <skos:definition xml:lang="fr">USD</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4806,7 +4842,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_UNIT"/>
             <skos:notation>PCNT</skos:notation>
             <skos:definition xml:lang="en">Percentage</skos:definition>
-            <skos:definition xml:lang="en">Percentage</skos:definition>
+            <skos:definition xml:lang="fr">Percentage</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
    </rdf:Description>
@@ -4833,7 +4869,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_POWERCODE"/>
             <skos:notation>HUN</skos:notation>
             <skos:definition xml:lang="en">hundreds</skos:definition>
-            <skos:definition xml:lang="en">centaines</skos:definition>
+            <skos:definition xml:lang="fr">centaines</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4845,7 +4881,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_POWERCODE"/>
             <skos:notation>THO</skos:notation>
             <skos:definition xml:lang="en">thousands</skos:definition>
-            <skos:definition xml:lang="en">milliers</skos:definition>
+            <skos:definition xml:lang="fr">milliers</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4857,7 +4893,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_POWERCODE"/>
             <skos:notation>MIL</skos:notation>
             <skos:definition xml:lang="en">millions</skos:definition>
-            <skos:definition xml:lang="en">millions</skos:definition>
+            <skos:definition xml:lang="fr">millions</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4869,7 +4905,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_POWERCODE"/>
             <skos:notation>BIL</skos:notation>
             <skos:definition xml:lang="en">billions</skos:definition>
-            <skos:definition xml:lang="en">milliards</skos:definition>
+            <skos:definition xml:lang="fr">milliards</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4881,7 +4917,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_POWERCODE"/>
             <skos:notation>TRI</skos:notation>
             <skos:definition xml:lang="en">trillions</skos:definition>
-            <skos:definition xml:lang="en">milliers de milliards</skos:definition>
+            <skos:definition xml:lang="fr">milliers de milliards</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
    </rdf:Description>
@@ -4908,7 +4944,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME_FORMAT"/>
             <skos:notation>P1Y</skos:notation>
             <skos:definition xml:lang="en">Annual</skos:definition>
-            <skos:definition xml:lang="en">Annual</skos:definition>
+            <skos:definition xml:lang="fr">Annual</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4920,7 +4956,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME_FORMAT"/>
             <skos:notation>P1M</skos:notation>
             <skos:definition xml:lang="en">Monthly</skos:definition>
-            <skos:definition xml:lang="en">Monthly</skos:definition>
+            <skos:definition xml:lang="fr">Monthly</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4932,7 +4968,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME_FORMAT"/>
             <skos:notation>P3M</skos:notation>
             <skos:definition xml:lang="en">Quarterly</skos:definition>
-            <skos:definition xml:lang="en">Quarterly</skos:definition>
+            <skos:definition xml:lang="fr">Quarterly</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -4944,7 +4980,7 @@
             <skos:inScheme rdf:resource="http://example.org/code/OECD/CL_HEALTH_STAT_TIME_FORMAT"/>
             <skos:notation>P6M</skos:notation>
             <skos:definition xml:lang="en">Half-yearly</skos:definition>
-            <skos:definition xml:lang="en">Half-yearly</skos:definition>
+            <skos:definition xml:lang="fr">Half-yearly</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
    </rdf:Description>

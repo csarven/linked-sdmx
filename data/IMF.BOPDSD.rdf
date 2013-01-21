@@ -21,9 +21,9 @@
    <rdf:Description rdf:about="http://example.org/#i">
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Agent"/>
    </rdf:Description>
-   <rdf:Description rdf:about="http://example.org/prov/activity/20130112235005">
+   <rdf:Description rdf:about="http://example.org/prov/activity/20130121155559">
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
-      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-12T23:50:05Z</prov:startedAtTime>
+      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-21T15:55:59Z</prov:startedAtTime>
       <prov:used rdf:resource="http://example.org/data/IMF.BOPDSD.xml"/>
       <prov:used rdf:resource="https://raw.github.com/csarven/sdmx-to-qb/master/scripts/generic.xsl"/>
       <prov:generated>
@@ -47,7 +47,11 @@
                <rdf:Description rdf:about="http://example.org/property/IMF/FREQ">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/IMF/FREQ"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/IMF/FREQ">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#FrequencyRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code//CL_FREQ"/>
                   <rdfs:range rdf:resource="http://example.org/class//CL_FREQ"/>
                </rdf:Description>
@@ -61,7 +65,11 @@
                <rdf:Description rdf:about="http://example.org/property/IMF/REF_AREA">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/IMF/REF_AREA"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/IMF/REF_AREA">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code//CL_AREA"/>
                   <rdfs:range rdf:resource="http://example.org/class//CL_AREA"/>
                </rdf:Description>
@@ -75,7 +83,11 @@
                <rdf:Description rdf:about="http://example.org/property/IMF/ADJUSTMENT">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/IMF/ADJUSTMENT"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/IMF/ADJUSTMENT">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code//CL_ADJUSTMENT"/>
                   <rdfs:range rdf:resource="http://example.org/class//CL_ADJUSTMENT"/>
                </rdf:Description>
@@ -89,7 +101,11 @@
                <rdf:Description rdf:about="http://example.org/property/IMF/DATA_TYPE_BOP">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/IMF/DATA_TYPE_BOP"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/IMF/DATA_TYPE_BOP">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code//CL_DATA_TYPE_BOP"/>
                   <rdfs:range rdf:resource="http://example.org/class//CL_DATA_TYPE_BOP"/>
                </rdf:Description>
@@ -103,7 +119,11 @@
                <rdf:Description rdf:about="http://example.org/property/IMF/BOP_ITEM">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/IMF/BOP_ITEM"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/IMF/BOP_ITEM">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code//CL_BOP_ITEM"/>
                   <rdfs:range rdf:resource="http://example.org/class//CL_BOP_ITEM"/>
                </rdf:Description>
@@ -117,7 +137,11 @@
                <rdf:Description rdf:about="http://example.org/property/IMF/CURR_BRKDWN">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/IMF/CURR_BRKDWN"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/IMF/CURR_BRKDWN">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code//CL_CURR_BRKDWN"/>
                   <rdfs:range rdf:resource="http://example.org/class//CL_CURR_BRKDWN"/>
                </rdf:Description>
@@ -131,7 +155,11 @@
                <rdf:Description rdf:about="http://example.org/property/IMF/COUNT_AREA">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/IMF/COUNT_AREA"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/IMF/COUNT_AREA">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code//CL_AREA"/>
                   <rdfs:range rdf:resource="http://example.org/class//CL_AREA"/>
                </rdf:Description>
@@ -145,7 +173,11 @@
                <rdf:Description rdf:about="http://example.org/property/IMF/SERIES_DENOM">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/IMF/SERIES_DENOM"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/IMF/SERIES_DENOM">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code//CL_SERIES_DENOM"/>
                   <rdfs:range rdf:resource="http://example.org/class//CL_SERIES_DENOM"/>
                </rdf:Description>
@@ -159,7 +191,11 @@
                <rdf:Description rdf:about="http://example.org/property/IMF/TIME_PERIOD">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/IMF/TIME_PERIOD"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/IMF/TIME_PERIOD">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#TimeRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                </rdf:Description>
             </qb:dimension>
             <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</qb:order>
@@ -171,7 +207,11 @@
                <rdf:Description rdf:about="http://example.org/property/IMF/OBS_VALUE">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#MeasureProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/IMF/OBS_VALUE"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/IMF/OBS_VALUE">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                </rdf:Description>
             </qb:measure>
          </qb:ComponentSpecification>
@@ -182,7 +222,11 @@
                <rdf:Description rdf:about="http://example.org/property/IMF/OBS_STATUS">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/IMF/OBS_STATUS"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/IMF/OBS_STATUS">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code//CL_OBS_STATUS"/>
                   <rdfs:range rdf:resource="http://example.org/class//CL_OBS_STATUS"/>
                </rdf:Description>
@@ -196,7 +240,11 @@
                <rdf:Description rdf:about="http://example.org/property/IMF/OBS_CONF">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/IMF/OBS_CONF"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/IMF/OBS_CONF">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code//CL_OBS_CONF"/>
                   <rdfs:range rdf:resource="http://example.org/class//CL_OBS_CONF"/>
                </rdf:Description>
@@ -210,7 +258,11 @@
                <rdf:Description rdf:about="http://example.org/property/IMF/OBS_PRE_BREAK">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/IMF/OBS_PRE_BREAK"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/IMF/OBS_PRE_BREAK">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                </rdf:Description>
             </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Observation"/>
@@ -222,7 +274,11 @@
                <rdf:Description rdf:about="http://example.org/property/IMF/TITLE">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/IMF/TITLE"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/IMF/TITLE">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                </rdf:Description>
             </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Slice"/>
@@ -234,7 +290,11 @@
                <rdf:Description rdf:about="http://example.org/property/IMF/UNIT">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/IMF/UNIT"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/IMF/UNIT">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code//CL_UNIT"/>
                   <rdfs:range rdf:resource="http://example.org/class//CL_UNIT"/>
                </rdf:Description>
@@ -248,7 +308,11 @@
                <rdf:Description rdf:about="http://example.org/property/IMF/UNIT_MULT">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/IMF/UNIT_MULT"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/IMF/UNIT_MULT">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code//CL_UNIT_MULT"/>
                   <rdfs:range rdf:resource="http://example.org/class//CL_UNIT_MULT"/>
                </rdf:Description>
@@ -262,7 +326,11 @@
                <rdf:Description rdf:about="http://example.org/property/IMF/DECIMALS">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/IMF/DECIMALS"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/IMF/DECIMALS">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code//CL_DECIMALS"/>
                   <rdfs:range rdf:resource="http://example.org/class//CL_DECIMALS"/>
                </rdf:Description>
@@ -276,7 +344,11 @@
                <rdf:Description rdf:about="http://example.org/property/IMF/COLLECTION">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/IMF/COLLECTION"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/IMF/COLLECTION">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code//CL_COLLECTION"/>
                   <rdfs:range rdf:resource="http://example.org/class//CL_COLLECTION"/>
                </rdf:Description>
@@ -290,7 +362,11 @@
                <rdf:Description rdf:about="http://example.org/property/IMF/BOP_BASIS">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/IMF/BOP_BASIS"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/IMF/BOP_BASIS">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code//CL_BOP_BASIS"/>
                   <rdfs:range rdf:resource="http://example.org/class//CL_BOP_BASIS"/>
                </rdf:Description>
@@ -304,7 +380,11 @@
                <rdf:Description rdf:about="http://example.org/property/IMF/TITLE_COMPL">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/IMF/TITLE_COMPL"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/IMF/TITLE_COMPL">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                </rdf:Description>
             </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Slice"/>
@@ -316,7 +396,11 @@
                <rdf:Description rdf:about="http://example.org/property/IMF/COMPILATION">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/IMF/COMPILATION"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/IMF/COMPILATION">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                </rdf:Description>
             </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Slice"/>
@@ -328,7 +412,11 @@
                <rdf:Description rdf:about="http://example.org/property/IMF/BREAKS">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/IMF/BREAKS"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/IMF/BREAKS">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                </rdf:Description>
             </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Dimension"/>
@@ -340,7 +428,11 @@
                <rdf:Description rdf:about="http://example.org/property/IMF/AGG_EQUN">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/IMF/AGG_EQUN"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/IMF/AGG_EQUN">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                </rdf:Description>
             </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Slice"/>
@@ -352,7 +444,11 @@
                <rdf:Description rdf:about="http://example.org/property/IMF/OBS_COM">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/IMF/OBS_COM"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/IMF/OBS_COM">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                </rdf:Description>
             </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Observation"/>
@@ -364,7 +460,11 @@
                <rdf:Description rdf:about="http://example.org/property/IMF/PUBL_PUBLIC">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/IMF/PUBL_PUBLIC"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/IMF/PUBL_PUBLIC">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                </rdf:Description>
             </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Dimension"/>
@@ -376,7 +476,11 @@
                <rdf:Description rdf:about="http://example.org/property/IMF/PUBL_ECB">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/IMF/PUBL_ECB"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/IMF/PUBL_ECB">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                </rdf:Description>
             </qb:attribute>
             <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Dimension"/>
@@ -388,7 +492,11 @@
                <rdf:Description rdf:about="http://example.org/property/IMF/TIME_FORMAT">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/IMF/TIME_FORMAT"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/IMF/TIME_FORMAT">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#TimeRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code//CL_TIME_FORMAT"/>
                   <rdfs:range rdf:resource="http://example.org/class//CL_TIME_FORMAT"/>
                </rdf:Description>
@@ -432,7 +540,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/concept/IMF/IMF_DSD_CONCEPTS"/>
             <skos:inScheme rdf:resource="http://example.org/concept/IMF/IMF_DSD_CONCEPTS"/>
             <skos:notation>REF_AREA</skos:notation>
-            <skos:prefLabel xml:lang="en">Reference area </skos:prefLabel>
+            <skos:prefLabel xml:lang="en">Reference area</skos:prefLabel>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -5746,7 +5854,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_AREA"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_AREA"/>
             <skos:notation>VG</skos:notation>
-            <skos:definition xml:lang="en">Virgin Islands, British </skos:definition>
+            <skos:definition xml:lang="en">Virgin Islands, British</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -6410,7 +6518,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>170</skos:notation>
-            <skos:definition xml:lang="en">Current account, Goods, Goods procured  in ports by carriers </skos:definition>
+            <skos:definition xml:lang="en">Current account, Goods, Goods procured in ports by carriers</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -6421,7 +6529,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>171</skos:notation>
-            <skos:definition xml:lang="en">Current account, Goods;  Goods procured in ports by carriers; In seaports</skos:definition>
+            <skos:definition xml:lang="en">Current account, Goods; Goods procured in ports by carriers; In seaports</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -6432,7 +6540,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>172</skos:notation>
-            <skos:definition xml:lang="en">Current account, Goods;  Goods procured in ports by carriers; In airports</skos:definition>
+            <skos:definition xml:lang="en">Current account, Goods; Goods procured in ports by carriers; In airports</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -6443,7 +6551,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>173</skos:notation>
-            <skos:definition xml:lang="en">Current account, Goods;  Goods procured in ports by carriers; In other ports</skos:definition>
+            <skos:definition xml:lang="en">Current account, Goods; Goods procured in ports by carriers; In other ports</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -6520,7 +6628,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>207</skos:notation>
-            <skos:definition xml:lang="en">Current account, Services, Transportation, Sea transport, Passenger </skos:definition>
+            <skos:definition xml:lang="en">Current account, Services, Transportation, Sea transport, Passenger</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -6531,7 +6639,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>208</skos:notation>
-            <skos:definition xml:lang="en">Current account, Services, Transportation, Sea transport, Freight </skos:definition>
+            <skos:definition xml:lang="en">Current account, Services, Transportation, Sea transport, Freight</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -6575,7 +6683,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>212</skos:notation>
-            <skos:definition xml:lang="en">Current account, Services, Transportation, Air transport, Freight </skos:definition>
+            <skos:definition xml:lang="en">Current account, Services, Transportation, Air transport, Freight</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -6608,7 +6716,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>215</skos:notation>
-            <skos:definition xml:lang="en">Current account, Services, Transportation, Other transport (other than sea and air), Passenger </skos:definition>
+            <skos:definition xml:lang="en">Current account, Services, Transportation, Other transport (other than sea and air), Passenger</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -6619,7 +6727,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>216</skos:notation>
-            <skos:definition xml:lang="en">Current account, Services, Transportation, Other transport, Freight </skos:definition>
+            <skos:definition xml:lang="en">Current account, Services, Transportation, Other transport, Freight</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -6630,7 +6738,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>217</skos:notation>
-            <skos:definition xml:lang="en">Current account, Services, Transportation, Other transport, Other </skos:definition>
+            <skos:definition xml:lang="en">Current account, Services, Transportation, Other transport, Other</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -6641,7 +6749,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>218</skos:notation>
-            <skos:definition xml:lang="en">Current account, Services, Transportation, Other transport,  Space transport</skos:definition>
+            <skos:definition xml:lang="en">Current account, Services, Transportation, Other transport, Space transport</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -6663,7 +6771,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>220</skos:notation>
-            <skos:definition xml:lang="en">Current account, Services, Transportation, Other transport, Rail transport, Passenger </skos:definition>
+            <skos:definition xml:lang="en">Current account, Services, Transportation, Other transport, Rail transport, Passenger</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -6674,7 +6782,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>221</skos:notation>
-            <skos:definition xml:lang="en">Current account, Services, Transportation, Other transport, Rail transport, Freight </skos:definition>
+            <skos:definition xml:lang="en">Current account, Services, Transportation, Other transport, Rail transport, Freight</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -6905,7 +7013,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>246</skos:notation>
-            <skos:definition xml:lang="en">Current Account,  Services; Communications services; Postal and courier services</skos:definition>
+            <skos:definition xml:lang="en">Current Account, Services; Communications services; Postal and courier services</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -7400,7 +7508,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>330</skos:notation>
-            <skos:definition xml:lang="en">Current account, Income, Investment income, Direct investment </skos:definition>
+            <skos:definition xml:lang="en">Current account, Income, Investment income, Direct investment</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -7455,7 +7563,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>339</skos:notation>
-            <skos:definition xml:lang="en">Current account, Income, Investment income, Portfolio investment </skos:definition>
+            <skos:definition xml:lang="en">Current account, Income, Investment income, Portfolio investment</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -7477,7 +7585,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>341</skos:notation>
-            <skos:definition xml:lang="en">Current account, Income, Investment income, Portfolio investment, Income on equity (dividends), Monetary authorities </skos:definition>
+            <skos:definition xml:lang="en">Current account, Income, Investment income, Portfolio investment, Income on equity (dividends), Monetary authorities</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -7521,7 +7629,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>349</skos:notation>
-            <skos:definition xml:lang="en">Current account, Income, Investment income, Portfolio investment, Income on debt (interest) </skos:definition>
+            <skos:definition xml:lang="en">Current account, Income, Investment income, Portfolio investment, Income on debt (interest)</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -7543,7 +7651,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>351</skos:notation>
-            <skos:definition xml:lang="en">Current account, Income, Investment income, Portfolio investment, Income on debt (interest), Bonds and notes, Monetary authorities </skos:definition>
+            <skos:definition xml:lang="en">Current account, Income, Investment income, Portfolio investment, Income on debt (interest), Bonds and notes, Monetary authorities</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -7587,7 +7695,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>360</skos:notation>
-            <skos:definition xml:lang="en">Current account, Income, Investment income, Portfolio investment, Income on debt (interest), Money-market instruments </skos:definition>
+            <skos:definition xml:lang="en">Current account, Income, Investment income, Portfolio investment, Income on debt (interest), Money-market instruments</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -7609,7 +7717,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>362</skos:notation>
-            <skos:definition xml:lang="en">Current account, Income, Investment income, Portfolio investment, Income on debt (interest), Money-market instruments, General government </skos:definition>
+            <skos:definition xml:lang="en">Current account, Income, Investment income, Portfolio investment, Income on debt (interest), Money-market instruments, General government</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -7620,7 +7728,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>363</skos:notation>
-            <skos:definition xml:lang="en">Current account, Income, Investment income, Portfolio investment, Income on debt (interest), Money-market instruments, Banks </skos:definition>
+            <skos:definition xml:lang="en">Current account, Income, Investment income, Portfolio investment, Income on debt (interest), Money-market instruments, Banks</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -7631,7 +7739,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>364</skos:notation>
-            <skos:definition xml:lang="en">Current account, Income, Investment income, Portfolio investment, Income on debt (interest), Money-market instruments, Other sectors </skos:definition>
+            <skos:definition xml:lang="en">Current account, Income, Investment income, Portfolio investment, Income on debt (interest), Money-market instruments, Other sectors</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -7642,7 +7750,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>370</skos:notation>
-            <skos:definition xml:lang="en">Current account, Income, Investment income, Other investment </skos:definition>
+            <skos:definition xml:lang="en">Current account, Income, Investment income, Other investment</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -7653,7 +7761,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>371</skos:notation>
-            <skos:definition xml:lang="en">Current account, Income, Investment income, Other investment, Monetary authorities </skos:definition>
+            <skos:definition xml:lang="en">Current account, Income, Investment income, Other investment, Monetary authorities</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -7763,7 +7871,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>401</skos:notation>
-            <skos:definition xml:lang="en">Capital account, Capital transfers, General government </skos:definition>
+            <skos:definition xml:lang="en">Capital account, Capital transfers, General government</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -7829,7 +7937,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>440</skos:notation>
-            <skos:definition xml:lang="en">Capital account, Capital transfers, Other sectors, Other </skos:definition>
+            <skos:definition xml:lang="en">Capital account, Capital transfers, Other sectors, Other</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -7840,7 +7948,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>480</skos:notation>
-            <skos:definition xml:lang="en">Capital account, Acquisition disposal of non-produced non-financial assets </skos:definition>
+            <skos:definition xml:lang="en">Capital account, Acquisition disposal of non-produced non-financial assets</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -7884,7 +7992,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>507</skos:notation>
-            <skos:definition xml:lang="en">Financial account, Direct investment, Abroad, Equity capital and reinvested earnings, Claims on affiliated enterprises </skos:definition>
+            <skos:definition xml:lang="en">Financial account, Direct investment, Abroad, Equity capital and reinvested earnings, Claims on affiliated enterprises</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -9237,7 +9345,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>775</skos:notation>
-            <skos:definition xml:lang="en">Financial account, Other investment, Liabilities, Loans, Other sectors </skos:definition>
+            <skos:definition xml:lang="en">Financial account, Other investment, Liabilities, Loans, Other sectors</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -9490,7 +9598,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>803</skos:notation>
-            <skos:definition xml:lang="en"> Official Reserve Assets; Foreign exchange  (including financial derivatives)</skos:definition>
+            <skos:definition xml:lang="en">Official Reserve Assets; Foreign exchange (including financial derivatives)</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -9512,7 +9620,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>806</skos:notation>
-            <skos:definition xml:lang="en"> Official Reserve Assets; Foreign exchange; Securities</skos:definition>
+            <skos:definition xml:lang="en">Official Reserve Assets; Foreign exchange; Securities</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -9567,7 +9675,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>813</skos:notation>
-            <skos:definition xml:lang="en"> Official Reserve Assets; Other claims</skos:definition>
+            <skos:definition xml:lang="en">Official Reserve Assets; Other claims</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -9787,7 +9895,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>858</skos:notation>
-            <skos:definition xml:lang="en">Transportation-Memorandum Items; Freight transport on merchandise, valued on a transaction basis; Other freight; </skos:definition>
+            <skos:definition xml:lang="en">Transportation-Memorandum Items; Freight transport on merchandise, valued on a transaction basis; Other freight;</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -9875,7 +9983,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>889</skos:notation>
-            <skos:definition xml:lang="en"> Services; Computer and information services; Information services; News agency services</skos:definition>
+            <skos:definition xml:lang="en">Services; Computer and information services; Information services; News agency services</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -9886,7 +9994,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>890</skos:notation>
-            <skos:definition xml:lang="en"> Services; Computer and information services; Information services; Other information provision services</skos:definition>
+            <skos:definition xml:lang="en">Services; Computer and information services; Information services; Other information provision services</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -10865,7 +10973,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>110C</skos:notation>
-            <skos:definition xml:lang="en">Current account,  Goods; General merchandise; Adjustments to trade statistics</skos:definition>
+            <skos:definition xml:lang="en">Current account, Goods; General merchandise; Adjustments to trade statistics</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -10876,7 +10984,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>110CA</skos:notation>
-            <skos:definition xml:lang="en">Current account,  Goods; General merchandise; Adjustments; For coverage</skos:definition>
+            <skos:definition xml:lang="en">Current account, Goods; General merchandise; Adjustments; For coverage</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -10920,7 +11028,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>380EC</skos:notation>
-            <skos:definition xml:lang="en">Current account, Current transfers; General government;  EF - Intergovernmental grants</skos:definition>
+            <skos:definition xml:lang="en">Current account, Current transfers; General government; EF - Intergovernmental grants</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -10942,7 +11050,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>380Z</skos:notation>
-            <skos:definition xml:lang="en">Current account, Current transfers; General government;  Other</skos:definition>
+            <skos:definition xml:lang="en">Current account, Current transfers; General government; Other</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -10953,7 +11061,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>402EB</skos:notation>
-            <skos:definition xml:lang="en">Capital account, Capital  transfers; General government; Debt forgiveness; EF</skos:definition>
+            <skos:definition xml:lang="en">Capital account, Capital transfers; General government; Debt forgiveness; EF</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -10964,7 +11072,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>402Z</skos:notation>
-            <skos:definition xml:lang="en">Capital account, Capital transfers; General government; Debt forgiveness;  Other</skos:definition>
+            <skos:definition xml:lang="en">Capital account, Capital transfers; General government; Debt forgiveness; Other</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11063,7 +11171,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>602G</skos:notation>
-            <skos:definition xml:lang="en">Financial account, Portfolio investment,  Assets, General government</skos:definition>
+            <skos:definition xml:lang="en">Financial account, Portfolio investment, Assets, General government</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11140,7 +11248,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>614F</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Equity securities, Other sectors, Other Financial Institutions</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Equity securities, Other sectors, Other Financial Institutions</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11151,7 +11259,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>614FI</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Equity securities, Other sectors, Other Financial Institutions, Insurance</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Equity securities, Other sectors, Other Financial Institutions, Insurance</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11162,7 +11270,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>614FM</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Equity securities, Other sectors, Other Financial Institutions, Mutual Funds</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Equity securities, Other sectors, Other Financial Institutions, Mutual Funds</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11173,7 +11281,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>614FO</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Equity securities, Other sectors, Other Financial Institutions, Other</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Equity securities, Other sectors, Other Financial Institutions, Other</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11184,7 +11292,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>614NF</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Equity securities, Other sectors, Nonfinancial Sector</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Equity securities, Other sectors, Nonfinancial Sector</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11195,7 +11303,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>614NFC</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Equity securities, Other sectors, Nonfinancial Sector, Nonfinancial Companies</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Equity securities, Other sectors, Nonfinancial Sector, Nonfinancial Companies</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11206,7 +11314,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>614NFH</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Equity securities, Other sectors, Nonfinancial Sector, Households</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Equity securities, Other sectors, Nonfinancial Sector, Households</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11217,7 +11325,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>614NFO</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Equity securities, Other sectors, Nonfinancial Sector, Other</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Equity securities, Other sectors, Nonfinancial Sector, Other</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11228,7 +11336,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>619B</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Assets, Debt Securities, MFIs</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Assets, Debt Securities, MFIs</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11239,7 +11347,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>619F</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Assets, Debt Securities, Other sectors, Other Financial Institutions</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Assets, Debt Securities, Other sectors, Other Financial Institutions</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11250,7 +11358,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>619FI</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Assets, Debt Securities, Other sectors, Other Financial Institutions, Insurance</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Assets, Debt Securities, Other sectors, Other Financial Institutions, Insurance</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11261,7 +11369,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>619FM</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Assets, Debt Securities, Other sectors, Other Financial Institutions, Mutual Funds</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Assets, Debt Securities, Other sectors, Other Financial Institutions, Mutual Funds</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11272,7 +11380,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>619FO</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Assets, Debt Securities, Other sectors, Other Financial Institutions, Other</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Assets, Debt Securities, Other sectors, Other Financial Institutions, Other</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11283,7 +11391,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>619G</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment,  Assets, Debt Securities, General government</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Assets, Debt Securities, General government</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11294,7 +11402,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>619M</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Assets, Debt Securities, Monetary authorities</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Assets, Debt Securities, Monetary authorities</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11305,7 +11413,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>619NF</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Assets, Debt Securities, Other sectors, Nonfinancial Sector</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Assets, Debt Securities, Other sectors, Nonfinancial Sector</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11316,7 +11424,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>619NFC</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Assets, Debt Securities, Other sectors, Nonfinancial Sector, Nonfinancial Companies</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Assets, Debt Securities, Other sectors, Nonfinancial Sector, Nonfinancial Companies</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11327,7 +11435,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>619NFH</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Assets, Debt Securities, Other sectors, Nonfinancial Sector, Households</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Assets, Debt Securities, Other sectors, Nonfinancial Sector, Households</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11338,7 +11446,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>619NFO</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Assets, Debt Securities, Other sectors, Nonfinancial Sector, Other</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Assets, Debt Securities, Other sectors, Nonfinancial Sector, Other</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11349,7 +11457,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>619R</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Assets, Debt Securities, Other sectors</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Assets, Debt Securities, Other sectors</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11360,7 +11468,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>624F</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Assets, Debt Securities, Bonds and notes, Other sectors, Other Financial Institutions</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Assets, Debt Securities, Bonds and notes, Other sectors, Other Financial Institutions</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11371,7 +11479,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>624FI</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Assets, Debt Securities, Bonds and notes, Other sectors, Other Financial Institutions, Insurance</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Assets, Debt Securities, Bonds and notes, Other sectors, Other Financial Institutions, Insurance</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11382,7 +11490,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>624FM</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Assets, Debt Securities, Bonds and notes, Other sectors, Other Financial Institutions, Mutual Funds</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Assets, Debt Securities, Bonds and notes, Other sectors, Other Financial Institutions, Mutual Funds</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11393,7 +11501,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>624FO</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Assets, Debt Securities, Bonds and notes, Other sectors, Other Financial Institutions, Other</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Assets, Debt Securities, Bonds and notes, Other sectors, Other Financial Institutions, Other</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11404,7 +11512,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>624NF</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Assets, Debt Securities, Bonds and notes, Other sectors, Nonfinancial Sector</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Assets, Debt Securities, Bonds and notes, Other sectors, Nonfinancial Sector</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11415,7 +11523,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>624NFC</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Assets, Debt Securities, Bonds and notes, Other sectors, Nonfinancial Sector, Nonfinancial Companies</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Assets, Debt Securities, Bonds and notes, Other sectors, Nonfinancial Sector, Nonfinancial Companies</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11426,7 +11534,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>624NFH</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Assets, Debt Securities, Bonds and notes, Other sectors, Nonfinancial Sector, Households</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Assets, Debt Securities, Bonds and notes, Other sectors, Nonfinancial Sector, Households</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11437,7 +11545,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>624NFO</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Assets, Debt Securities, Bonds and notes, Other sectors, Nonfinancial Sector, Other</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Assets, Debt Securities, Bonds and notes, Other sectors, Nonfinancial Sector, Other</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11448,7 +11556,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>634F</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Assets, Debt Securities, Money market instruments, Other sectors, Other Financial Institutions</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Assets, Debt Securities, Money market instruments, Other sectors, Other Financial Institutions</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11459,7 +11567,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>634FI</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Assets, Debt Securities, Money market instruments, Other sectors, Other Financial Institutions, Insurance</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Assets, Debt Securities, Money market instruments, Other sectors, Other Financial Institutions, Insurance</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11470,7 +11578,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>634FM</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Assets, Debt Securities, Money market instruments, Other sectors, Other Financial Institutions, Mutual Funds</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Assets, Debt Securities, Money market instruments, Other sectors, Other Financial Institutions, Mutual Funds</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11481,7 +11589,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>634FO</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Assets, Debt Securities, Money market instruments, Other sectors, Other Financial Institutions, Other</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Assets, Debt Securities, Money market instruments, Other sectors, Other Financial Institutions, Other</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11492,7 +11600,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>634NF</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Assets, Debt Securities, Money market instruments, Other sectors, Nonfinancial Sector</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Assets, Debt Securities, Money market instruments, Other sectors, Nonfinancial Sector</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11503,7 +11611,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>634NFC</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Assets, Debt Securities, Money market instruments, Other sectors, Nonfinancial Sector, Nonfinancial Companies</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Assets, Debt Securities, Money market instruments, Other sectors, Nonfinancial Sector, Nonfinancial Companies</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11514,7 +11622,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>634NFH</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Assets, Debt Securities, Money market instruments, Other sectors, Nonfinancial Sector, Households</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Assets, Debt Securities, Money market instruments, Other sectors, Nonfinancial Sector, Households</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11525,7 +11633,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>634NFO</skos:notation>
-            <skos:definition xml:lang="en"> Portfolio investment, Assets, Debt Securities, Money market instruments, Other sectors, Nonfinancial Sector, Other</skos:definition>
+            <skos:definition xml:lang="en">Portfolio investment, Assets, Debt Securities, Money market instruments, Other sectors, Nonfinancial Sector, Other</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11789,7 +11897,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>767Z</skos:notation>
-            <skos:definition xml:lang="en">Financial account, Other investment; Liabilities; Loans; Monetary authorities; Other long-term;  Other</skos:definition>
+            <skos:definition xml:lang="en">Financial account, Other investment; Liabilities; Loans; Monetary authorities; Other long-term; Other</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -11877,7 +11985,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>770Z</skos:notation>
-            <skos:definition xml:lang="en">Financial account, Other investment; Liabilities; Loans; General government; Long-term;  Other</skos:definition>
+            <skos:definition xml:lang="en">Financial account, Other investment; Liabilities; Loans; General government; Long-term; Other</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -12823,7 +12931,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>806S</skos:notation>
-            <skos:definition xml:lang="en"> Official Reserve Assets; Foreign exchange; Securities; Equities</skos:definition>
+            <skos:definition xml:lang="en">Official Reserve Assets; Foreign exchange; Securities; Equities</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -12834,7 +12942,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>806T</skos:notation>
-            <skos:definition xml:lang="en"> Official Reserve Assets; Foreign exchange; Securities; Bonds and notes</skos:definition>
+            <skos:definition xml:lang="en">Official Reserve Assets; Foreign exchange; Securities; Bonds and notes</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -12845,7 +12953,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>806U</skos:notation>
-            <skos:definition xml:lang="en"> Official Reserve Assets; Foreign exchange; Securities; Money market instruments</skos:definition>
+            <skos:definition xml:lang="en">Official Reserve Assets; Foreign exchange; Securities; Money market instruments</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -12867,7 +12975,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>808B</skos:notation>
-            <skos:definition xml:lang="en"> Official Reserve Assets; Foreign exchange; Currency and deposits; With banks</skos:definition>
+            <skos:definition xml:lang="en">Official Reserve Assets; Foreign exchange; Currency and deposits; With banks</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -12933,7 +13041,7 @@
             <skos:topConceptOf rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:inScheme rdf:resource="http://example.org/code/IMF/CL_BOP_ITEM"/>
             <skos:notation>814A</skos:notation>
-            <skos:definition xml:lang="en"> Official Reserve Assets; Foreign exchange; Financial Accountancial derivatives ,net</skos:definition>
+            <skos:definition xml:lang="en">Official Reserve Assets; Foreign exchange; Financial Accountancial derivatives ,net</skos:definition>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>

@@ -21,9 +21,9 @@
    <rdf:Description rdf:about="http://example.org/#i">
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Agent"/>
    </rdf:Description>
-   <rdf:Description rdf:about="http://example.org/prov/activity/20130112234933">
+   <rdf:Description rdf:about="http://example.org/prov/activity/20130121155452">
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
-      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-12T23:49:33Z</prov:startedAtTime>
+      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-21T15:54:52Z</prov:startedAtTime>
       <prov:used rdf:resource="http://example.org/data/HDI.DSD.HDR.xml"/>
       <prov:used rdf:resource="https://raw.github.com/csarven/sdmx-to-qb/master/scripts/generic.xsl"/>
       <prov:generated>
@@ -48,7 +48,11 @@
                <rdf:Description rdf:about="http://example.org/property/UNDP-HDRO/COUNTRY">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/UNDP-HDRO/COUNTRY"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/UNDP-HDRO/COUNTRY">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
                   <rdfs:range rdf:resource="http://example.org/class/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
                </rdf:Description>
@@ -62,7 +66,11 @@
                <rdf:Description rdf:about="http://example.org/property/UNDP-HDRO/FREQUENCY">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/UNDP-HDRO/FREQUENCY"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/UNDP-HDRO/FREQUENCY">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#FrequencyRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://purl.org/linked-data/sdmx/2009/code#freq"/>
                   <rdfs:range rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Freq"/>
                </rdf:Description>
@@ -76,7 +84,11 @@
                <rdf:Description rdf:about="http://example.org/property/UNDP-HDRO/INDICATOR">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/UNDP-HDRO/INDICATOR"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/UNDP-HDRO/INDICATOR">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
                   <rdfs:range rdf:resource="http://example.org/class/UNDP-HDRO/CL_INDICATOR"/>
                </rdf:Description>
@@ -90,7 +102,11 @@
                <rdf:Description rdf:about="http://example.org/property/UNDP-HDRO/SOURCE">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/UNDP-HDRO/SOURCE"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/UNDP-HDRO/SOURCE">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_SOURCE"/>
                   <rdfs:range rdf:resource="http://example.org/class/UNDP-HDRO/CL_HDRO_SOURCE"/>
                </rdf:Description>
@@ -104,7 +120,11 @@
                <rdf:Description rdf:about="http://example.org/property/UNDP-HDRO/TIME">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/UNDP-HDRO/TIME"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/UNDP-HDRO/TIME">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#TimeRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code/UNDP-HDRO/CL_TIME"/>
                   <rdfs:range rdf:resource="http://example.org/class/UNDP-HDRO/CL_TIME"/>
                </rdf:Description>
@@ -118,7 +138,11 @@
                <rdf:Description rdf:about="http://example.org/property/UNDP-HDRO/OBS_VALUE">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#MeasureProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/UNDP-HDRO/OBS_VALUE"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/UNDP-HDRO/OBS_VALUE">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                </rdf:Description>
             </qb:measure>
          </qb:ComponentSpecification>
@@ -129,7 +153,11 @@
                <rdf:Description rdf:about="http://example.org/property/UNDP-HDRO/OBS_STATUS">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/UNDP-HDRO/OBS_STATUS"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/UNDP-HDRO/OBS_STATUS">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://purl.org/linked-data/sdmx/2009/code#obsStatus"/>
                   <rdfs:range rdf:resource="http://purl.org/linked-data/sdmx/2009/code#ObsStatus"/>
                </rdf:Description>
@@ -143,7 +171,11 @@
                <rdf:Description rdf:about="http://example.org/property/UNDP-HDRO/OBS_CONF">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/UNDP-HDRO/OBS_CONF"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/UNDP-HDRO/OBS_CONF">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://purl.org/linked-data/sdmx/2009/code#confStatus"/>
                   <rdfs:range rdf:resource="http://purl.org/linked-data/sdmx/2009/code#ConfStatus"/>
                </rdf:Description>
@@ -157,7 +189,11 @@
                <rdf:Description rdf:about="http://example.org/property/UNDP-HDRO/FOOTNOTE_1">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/UNDP-HDRO/FOOTNOTE_1"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/UNDP-HDRO/FOOTNOTE_1">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code/UNDP-HDRO/CL_FOOTNOTES"/>
                   <rdfs:range rdf:resource="http://example.org/class/UNDP-HDRO/CL_FOOTNOTES"/>
                </rdf:Description>
@@ -171,7 +207,11 @@
                <rdf:Description rdf:about="http://example.org/property/UNDP-HDRO/FOOTNOTE_2">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/UNDP-HDRO/FOOTNOTE_2"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/UNDP-HDRO/FOOTNOTE_2">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code/UNDP-HDRO/CL_FOOTNOTES"/>
                   <rdfs:range rdf:resource="http://example.org/class/UNDP-HDRO/CL_FOOTNOTES"/>
                </rdf:Description>
@@ -185,7 +225,11 @@
                <rdf:Description rdf:about="http://example.org/property/UNDP-HDRO/FOOTNOTE_3">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-                  <qb:concept rdf:resource="http://example.org/concept/UNDP-HDRO/FOOTNOTE_3"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://example.org/concept/UNDP-HDRO/FOOTNOTE_3">
+                        <rdf:type resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
                   <qb:codeList rdf:resource="http://example.org/code/UNDP-HDRO/CL_FOOTNOTES"/>
                   <rdfs:range rdf:resource="http://example.org/class/UNDP-HDRO/CL_FOOTNOTES"/>
                </rdf:Description>
@@ -298,9 +342,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>AFG</skos:notation>
             <skos:definition xml:lang="en">Afghanistan</skos:definition>
-            <rdfs:comment>AF</rdfs:comment>
-            <rdfs:comment>Afghanistan</rdfs:comment>
-            <rdfs:comment>Afganistán</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -312,9 +353,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>ALB</skos:notation>
             <skos:definition xml:lang="en">Albania</skos:definition>
-            <rdfs:comment>AL</rdfs:comment>
-            <rdfs:comment>Albanie</rdfs:comment>
-            <rdfs:comment>Albania</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -326,9 +364,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>DZA</skos:notation>
             <skos:definition xml:lang="en">Algeria</skos:definition>
-            <rdfs:comment>DZ</rdfs:comment>
-            <rdfs:comment>Algérie</rdfs:comment>
-            <rdfs:comment>Algeria</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -340,9 +375,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>AND</skos:notation>
             <skos:definition xml:lang="en">Andorra</skos:definition>
-            <rdfs:comment>AD</rdfs:comment>
-            <rdfs:comment>Andorre</rdfs:comment>
-            <rdfs:comment>Andorra</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -354,9 +386,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>AGO</skos:notation>
             <skos:definition xml:lang="en">Angola</skos:definition>
-            <rdfs:comment>AO</rdfs:comment>
-            <rdfs:comment>Angola</rdfs:comment>
-            <rdfs:comment>Angola</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -368,9 +397,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>ATG</skos:notation>
             <skos:definition xml:lang="en">Antigua and Barbuda</skos:definition>
-            <rdfs:comment>AG</rdfs:comment>
-            <rdfs:comment>Antigua-et-Barbuda</rdfs:comment>
-            <rdfs:comment>Antigua y Barbuda</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -382,9 +408,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>ARG</skos:notation>
             <skos:definition xml:lang="en">Argentina</skos:definition>
-            <rdfs:comment>AR</rdfs:comment>
-            <rdfs:comment>Argentine</rdfs:comment>
-            <rdfs:comment>Argentina</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -396,9 +419,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>ARM</skos:notation>
             <skos:definition xml:lang="en">Armenia</skos:definition>
-            <rdfs:comment>AM</rdfs:comment>
-            <rdfs:comment>Arménie</rdfs:comment>
-            <rdfs:comment>Armenia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -410,9 +430,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>AUS</skos:notation>
             <skos:definition xml:lang="en">Australia</skos:definition>
-            <rdfs:comment>AU</rdfs:comment>
-            <rdfs:comment>Australie</rdfs:comment>
-            <rdfs:comment>Australia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -424,9 +441,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>AUT</skos:notation>
             <skos:definition xml:lang="en">Austria</skos:definition>
-            <rdfs:comment>AT</rdfs:comment>
-            <rdfs:comment>Autriche</rdfs:comment>
-            <rdfs:comment>Austria</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -438,9 +452,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>AZE</skos:notation>
             <skos:definition xml:lang="en">Azerbaijan</skos:definition>
-            <rdfs:comment>AZ</rdfs:comment>
-            <rdfs:comment>Azerbaïdjan</rdfs:comment>
-            <rdfs:comment>Azerbaiyán</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -452,9 +463,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>BHS</skos:notation>
             <skos:definition xml:lang="en">Bahamas</skos:definition>
-            <rdfs:comment>BS</rdfs:comment>
-            <rdfs:comment>Bahamas</rdfs:comment>
-            <rdfs:comment>Bahamas</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -466,9 +474,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>BHR</skos:notation>
             <skos:definition xml:lang="en">Bahrain</skos:definition>
-            <rdfs:comment>BH</rdfs:comment>
-            <rdfs:comment>Bahreïn</rdfs:comment>
-            <rdfs:comment>Bahrein</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -480,9 +485,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>BGD</skos:notation>
             <skos:definition xml:lang="en">Bangladesh</skos:definition>
-            <rdfs:comment>BD</rdfs:comment>
-            <rdfs:comment>Bangladesh</rdfs:comment>
-            <rdfs:comment>Bangladesh</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -494,9 +496,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>BRB</skos:notation>
             <skos:definition xml:lang="en">Barbados</skos:definition>
-            <rdfs:comment>BB</rdfs:comment>
-            <rdfs:comment>Barbade</rdfs:comment>
-            <rdfs:comment>Barbados</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -508,9 +507,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>BLR</skos:notation>
             <skos:definition xml:lang="en">Belarus</skos:definition>
-            <rdfs:comment>BY</rdfs:comment>
-            <rdfs:comment>Bélarusse</rdfs:comment>
-            <rdfs:comment>Belarús</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -522,9 +518,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>BEL</skos:notation>
             <skos:definition xml:lang="en">Belgium</skos:definition>
-            <rdfs:comment>BE</rdfs:comment>
-            <rdfs:comment>Belgique</rdfs:comment>
-            <rdfs:comment>Bélgica</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -536,9 +529,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>BLZ</skos:notation>
             <skos:definition xml:lang="en">Belize</skos:definition>
-            <rdfs:comment>BZ</rdfs:comment>
-            <rdfs:comment>Belize</rdfs:comment>
-            <rdfs:comment>Belice</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -550,9 +540,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>BEN</skos:notation>
             <skos:definition xml:lang="en">Benin</skos:definition>
-            <rdfs:comment>BJ</rdfs:comment>
-            <rdfs:comment>Bénin</rdfs:comment>
-            <rdfs:comment>Benin</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -564,9 +551,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>BTN</skos:notation>
             <skos:definition xml:lang="en">Bhutan</skos:definition>
-            <rdfs:comment>BT</rdfs:comment>
-            <rdfs:comment>Bhoutan</rdfs:comment>
-            <rdfs:comment>Bhután</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -578,9 +562,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>BOL</skos:notation>
             <skos:definition xml:lang="en">Bolivia (Plurinational State of)</skos:definition>
-            <rdfs:comment>BO</rdfs:comment>
-            <rdfs:comment>Bolivie</rdfs:comment>
-            <rdfs:comment>Bolivia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -592,9 +573,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>BIH</skos:notation>
             <skos:definition xml:lang="en">Bosnia and Herzegovina</skos:definition>
-            <rdfs:comment>BA</rdfs:comment>
-            <rdfs:comment>Bosnie et Herzégovine</rdfs:comment>
-            <rdfs:comment>Bosnia y Herzegovina</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -606,9 +584,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>BWA</skos:notation>
             <skos:definition xml:lang="en">Botswana</skos:definition>
-            <rdfs:comment>BW</rdfs:comment>
-            <rdfs:comment>Botswana</rdfs:comment>
-            <rdfs:comment>Botswana</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -620,9 +595,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>BRA</skos:notation>
             <skos:definition xml:lang="en">Brazil</skos:definition>
-            <rdfs:comment>BR</rdfs:comment>
-            <rdfs:comment>Brésil</rdfs:comment>
-            <rdfs:comment>Brasil</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -634,9 +606,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>BRN</skos:notation>
             <skos:definition xml:lang="en">Brunei Darussalam</skos:definition>
-            <rdfs:comment>BN</rdfs:comment>
-            <rdfs:comment>Brunei Darussalam</rdfs:comment>
-            <rdfs:comment>Brunei Darussalam</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -648,9 +617,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>BGR</skos:notation>
             <skos:definition xml:lang="en">Bulgaria</skos:definition>
-            <rdfs:comment>BG</rdfs:comment>
-            <rdfs:comment>Bulgarie</rdfs:comment>
-            <rdfs:comment>Bulgaria</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -662,9 +628,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>BFA</skos:notation>
             <skos:definition xml:lang="en">Burkina Faso</skos:definition>
-            <rdfs:comment>BF</rdfs:comment>
-            <rdfs:comment>Burkina Faso</rdfs:comment>
-            <rdfs:comment>Burkina Faso</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -676,9 +639,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>BDI</skos:notation>
             <skos:definition xml:lang="en">Burundi</skos:definition>
-            <rdfs:comment>BI</rdfs:comment>
-            <rdfs:comment>Burundi</rdfs:comment>
-            <rdfs:comment>Burundi</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -690,9 +650,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>KHM</skos:notation>
             <skos:definition xml:lang="en">Cambodia</skos:definition>
-            <rdfs:comment>KH</rdfs:comment>
-            <rdfs:comment>Cambodge</rdfs:comment>
-            <rdfs:comment>Cambodia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -704,9 +661,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>CMR</skos:notation>
             <skos:definition xml:lang="en">Cameroon</skos:definition>
-            <rdfs:comment>CM</rdfs:comment>
-            <rdfs:comment>Cameroun</rdfs:comment>
-            <rdfs:comment>Camerún</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -718,9 +672,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>CAN</skos:notation>
             <skos:definition xml:lang="en">Canada</skos:definition>
-            <rdfs:comment>CA</rdfs:comment>
-            <rdfs:comment>Canada</rdfs:comment>
-            <rdfs:comment>Canadá</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -732,9 +683,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>CPV</skos:notation>
             <skos:definition xml:lang="en">Cape Verde</skos:definition>
-            <rdfs:comment>CV</rdfs:comment>
-            <rdfs:comment>Cap-Vert</rdfs:comment>
-            <rdfs:comment>Cabo Verde</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -746,9 +694,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>CAF</skos:notation>
             <skos:definition xml:lang="en">Central African Republic</skos:definition>
-            <rdfs:comment>CF</rdfs:comment>
-            <rdfs:comment>République centrafricaine</rdfs:comment>
-            <rdfs:comment>República Centroafricana</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -760,9 +705,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>TCD</skos:notation>
             <skos:definition xml:lang="en">Chad</skos:definition>
-            <rdfs:comment>TD</rdfs:comment>
-            <rdfs:comment>Tchad</rdfs:comment>
-            <rdfs:comment>Chad</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -774,9 +716,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>CHL</skos:notation>
             <skos:definition xml:lang="en">Chile</skos:definition>
-            <rdfs:comment>CL</rdfs:comment>
-            <rdfs:comment>Chili</rdfs:comment>
-            <rdfs:comment>Chile</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -788,9 +727,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>CHN</skos:notation>
             <skos:definition xml:lang="en">China</skos:definition>
-            <rdfs:comment>CN</rdfs:comment>
-            <rdfs:comment>Chine</rdfs:comment>
-            <rdfs:comment>China</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -802,9 +738,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>COL</skos:notation>
             <skos:definition xml:lang="en">Colombia</skos:definition>
-            <rdfs:comment>CO</rdfs:comment>
-            <rdfs:comment>Colombie</rdfs:comment>
-            <rdfs:comment>Colombia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -816,9 +749,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>COM</skos:notation>
             <skos:definition xml:lang="en">Comoros</skos:definition>
-            <rdfs:comment>KM</rdfs:comment>
-            <rdfs:comment>Comores</rdfs:comment>
-            <rdfs:comment>Comoras</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -830,9 +760,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>COG</skos:notation>
             <skos:definition xml:lang="en">Congo</skos:definition>
-            <rdfs:comment>CG</rdfs:comment>
-            <rdfs:comment>Congo</rdfs:comment>
-            <rdfs:comment>Congo</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -844,9 +771,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>COD</skos:notation>
             <skos:definition xml:lang="en">Congo (Democratic Republic of the)</skos:definition>
-            <rdfs:comment>CD</rdfs:comment>
-            <rdfs:comment>Congo, Rép. dém. du Congo</rdfs:comment>
-            <rdfs:comment>República Democrática del</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -858,9 +782,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>CRI</skos:notation>
             <skos:definition xml:lang="en">Costa Rica</skos:definition>
-            <rdfs:comment>CR</rdfs:comment>
-            <rdfs:comment>Costa Rica</rdfs:comment>
-            <rdfs:comment>Costa Rica</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -872,9 +793,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>HRV</skos:notation>
             <skos:definition xml:lang="en">Croatia</skos:definition>
-            <rdfs:comment>HR</rdfs:comment>
-            <rdfs:comment>Croatie</rdfs:comment>
-            <rdfs:comment>Croacia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -886,9 +804,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>CUB</skos:notation>
             <skos:definition xml:lang="en">Cuba</skos:definition>
-            <rdfs:comment>CU</rdfs:comment>
-            <rdfs:comment>Cuba</rdfs:comment>
-            <rdfs:comment>Cuba</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -900,9 +815,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>CYP</skos:notation>
             <skos:definition xml:lang="en">Cyprus</skos:definition>
-            <rdfs:comment>CY</rdfs:comment>
-            <rdfs:comment>Chypres</rdfs:comment>
-            <rdfs:comment>Chipre</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -914,9 +826,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>CZE</skos:notation>
             <skos:definition xml:lang="en">Czech Republic</skos:definition>
-            <rdfs:comment>CZ</rdfs:comment>
-            <rdfs:comment>République tchèque</rdfs:comment>
-            <rdfs:comment>República Checa</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -928,9 +837,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>CIV</skos:notation>
             <skos:definition xml:lang="en">Côte d'Ivoire</skos:definition>
-            <rdfs:comment>CI</rdfs:comment>
-            <rdfs:comment>Côte d'Ivoire</rdfs:comment>
-            <rdfs:comment>Côte d'Ivoire</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -942,9 +848,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>DNK</skos:notation>
             <skos:definition xml:lang="en">Denmark</skos:definition>
-            <rdfs:comment>DK</rdfs:comment>
-            <rdfs:comment>Danemark</rdfs:comment>
-            <rdfs:comment>Dinamarca</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -956,9 +859,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>DJI</skos:notation>
             <skos:definition xml:lang="en">Djibouti</skos:definition>
-            <rdfs:comment>DJ</rdfs:comment>
-            <rdfs:comment>Djibouti</rdfs:comment>
-            <rdfs:comment>Djibouti</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -970,9 +870,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>DMA</skos:notation>
             <skos:definition xml:lang="en">Dominica</skos:definition>
-            <rdfs:comment>DM</rdfs:comment>
-            <rdfs:comment>Dominique</rdfs:comment>
-            <rdfs:comment>Dominica</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -984,9 +881,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>DOM</skos:notation>
             <skos:definition xml:lang="en">Dominican Republic</skos:definition>
-            <rdfs:comment>DO</rdfs:comment>
-            <rdfs:comment>République dominicaine</rdfs:comment>
-            <rdfs:comment>República Dominicana</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -998,9 +892,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>ECU</skos:notation>
             <skos:definition xml:lang="en">Ecuador</skos:definition>
-            <rdfs:comment>EC</rdfs:comment>
-            <rdfs:comment>Équateur</rdfs:comment>
-            <rdfs:comment>Ecuador</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1012,9 +903,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>EGY</skos:notation>
             <skos:definition xml:lang="en">Egypt</skos:definition>
-            <rdfs:comment>EG</rdfs:comment>
-            <rdfs:comment>Égypte</rdfs:comment>
-            <rdfs:comment>Egipto</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1026,9 +914,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>SLV</skos:notation>
             <skos:definition xml:lang="en">El Salvador</skos:definition>
-            <rdfs:comment>SV</rdfs:comment>
-            <rdfs:comment>El Salvador</rdfs:comment>
-            <rdfs:comment>El Salvador</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1040,9 +925,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>GNQ</skos:notation>
             <skos:definition xml:lang="en">Equatorial Guinea</skos:definition>
-            <rdfs:comment>GQ</rdfs:comment>
-            <rdfs:comment>Guinée équatoriale</rdfs:comment>
-            <rdfs:comment>Guinea Ecuatorial</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1054,9 +936,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>ERI</skos:notation>
             <skos:definition xml:lang="en">Eritrea</skos:definition>
-            <rdfs:comment>ER</rdfs:comment>
-            <rdfs:comment>Érythrée</rdfs:comment>
-            <rdfs:comment>Eritrea</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1068,9 +947,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>EST</skos:notation>
             <skos:definition xml:lang="en">Estonia</skos:definition>
-            <rdfs:comment>EE</rdfs:comment>
-            <rdfs:comment>Estonie</rdfs:comment>
-            <rdfs:comment>Estonia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1082,9 +958,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>ETH</skos:notation>
             <skos:definition xml:lang="en">Ethiopia</skos:definition>
-            <rdfs:comment>ET</rdfs:comment>
-            <rdfs:comment>Éthiopie</rdfs:comment>
-            <rdfs:comment>Etiopía</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1096,9 +969,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>FJI</skos:notation>
             <skos:definition xml:lang="en">Fiji</skos:definition>
-            <rdfs:comment>FJ</rdfs:comment>
-            <rdfs:comment>Fidji</rdfs:comment>
-            <rdfs:comment>Fiji</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1110,9 +980,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>FIN</skos:notation>
             <skos:definition xml:lang="en">Finland</skos:definition>
-            <rdfs:comment>FI</rdfs:comment>
-            <rdfs:comment>Finlande</rdfs:comment>
-            <rdfs:comment>Finlandia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1124,9 +991,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>FRA</skos:notation>
             <skos:definition xml:lang="en">France</skos:definition>
-            <rdfs:comment>FR</rdfs:comment>
-            <rdfs:comment>France</rdfs:comment>
-            <rdfs:comment>Francia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1138,9 +1002,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>GAB</skos:notation>
             <skos:definition xml:lang="en">Gabon</skos:definition>
-            <rdfs:comment>GA</rdfs:comment>
-            <rdfs:comment>Gabon</rdfs:comment>
-            <rdfs:comment>Gabón</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1152,9 +1013,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>GMB</skos:notation>
             <skos:definition xml:lang="en">Gambia</skos:definition>
-            <rdfs:comment>GM</rdfs:comment>
-            <rdfs:comment>Gambie</rdfs:comment>
-            <rdfs:comment>Gambia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1166,9 +1024,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>GEO</skos:notation>
             <skos:definition xml:lang="en">Georgia</skos:definition>
-            <rdfs:comment>GE</rdfs:comment>
-            <rdfs:comment>Géorgie</rdfs:comment>
-            <rdfs:comment>Georgia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1180,9 +1035,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>DEU</skos:notation>
             <skos:definition xml:lang="en">Germany</skos:definition>
-            <rdfs:comment>DE</rdfs:comment>
-            <rdfs:comment>Allemagne</rdfs:comment>
-            <rdfs:comment>Alemania</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1194,9 +1046,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>GHA</skos:notation>
             <skos:definition xml:lang="en">Ghana</skos:definition>
-            <rdfs:comment>GH</rdfs:comment>
-            <rdfs:comment>Ghana</rdfs:comment>
-            <rdfs:comment>Ghana</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1208,9 +1057,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>GRC</skos:notation>
             <skos:definition xml:lang="en">Greece</skos:definition>
-            <rdfs:comment>GR</rdfs:comment>
-            <rdfs:comment>Grèce</rdfs:comment>
-            <rdfs:comment>Grecia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1222,9 +1068,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>GRD</skos:notation>
             <skos:definition xml:lang="en">Grenada</skos:definition>
-            <rdfs:comment>GD</rdfs:comment>
-            <rdfs:comment>Grenade</rdfs:comment>
-            <rdfs:comment>Granada</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1236,9 +1079,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>GTM</skos:notation>
             <skos:definition xml:lang="en">Guatemala</skos:definition>
-            <rdfs:comment>GT</rdfs:comment>
-            <rdfs:comment>Guatemala</rdfs:comment>
-            <rdfs:comment>Guatemala</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1250,9 +1090,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>GIN</skos:notation>
             <skos:definition xml:lang="en">Guinea</skos:definition>
-            <rdfs:comment>GN</rdfs:comment>
-            <rdfs:comment>Guinée</rdfs:comment>
-            <rdfs:comment>Guinea</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1264,9 +1101,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>GNB</skos:notation>
             <skos:definition xml:lang="en">Guinea-Bissau</skos:definition>
-            <rdfs:comment>GW</rdfs:comment>
-            <rdfs:comment>Guinée Bissau</rdfs:comment>
-            <rdfs:comment>Guinea-Bissau</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1278,9 +1112,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>GUY</skos:notation>
             <skos:definition xml:lang="en">Guyana</skos:definition>
-            <rdfs:comment>GY</rdfs:comment>
-            <rdfs:comment>Guyana</rdfs:comment>
-            <rdfs:comment>Guyana</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1292,9 +1123,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>HTI</skos:notation>
             <skos:definition xml:lang="en">Haiti</skos:definition>
-            <rdfs:comment>HT</rdfs:comment>
-            <rdfs:comment>Haïti</rdfs:comment>
-            <rdfs:comment>Haití</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1306,9 +1134,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>HND</skos:notation>
             <skos:definition xml:lang="en">Honduras</skos:definition>
-            <rdfs:comment>HN</rdfs:comment>
-            <rdfs:comment>Honduras</rdfs:comment>
-            <rdfs:comment>Honduras</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1320,9 +1145,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>HKG</skos:notation>
             <skos:definition xml:lang="en">Hong Kong, China (SAR)</skos:definition>
-            <rdfs:comment>HK</rdfs:comment>
-            <rdfs:comment>Hong Kong, Chine (RAS)</rdfs:comment>
-            <rdfs:comment>Hong Kong, China (RAE)</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1334,9 +1156,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>HUN</skos:notation>
             <skos:definition xml:lang="en">Hungary</skos:definition>
-            <rdfs:comment>HU</rdfs:comment>
-            <rdfs:comment>Hongrie</rdfs:comment>
-            <rdfs:comment>Hungría</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1348,9 +1167,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>ISL</skos:notation>
             <skos:definition xml:lang="en">Iceland</skos:definition>
-            <rdfs:comment>IS</rdfs:comment>
-            <rdfs:comment>Islande</rdfs:comment>
-            <rdfs:comment>Islandia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1362,9 +1178,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>IND</skos:notation>
             <skos:definition xml:lang="en">India</skos:definition>
-            <rdfs:comment>IN</rdfs:comment>
-            <rdfs:comment>Inde</rdfs:comment>
-            <rdfs:comment>India</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1376,9 +1189,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>IDN</skos:notation>
             <skos:definition xml:lang="en">Indonesia</skos:definition>
-            <rdfs:comment>ID</rdfs:comment>
-            <rdfs:comment>Indonésie</rdfs:comment>
-            <rdfs:comment>Indonesia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1390,9 +1200,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>IRN</skos:notation>
             <skos:definition xml:lang="en">Iran (Islamic Republic of)</skos:definition>
-            <rdfs:comment>IR</rdfs:comment>
-            <rdfs:comment>Iran, Rép. islamique d’Irán</rdfs:comment>
-            <rdfs:comment>República Islámica del</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1404,9 +1211,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>IRQ</skos:notation>
             <skos:definition xml:lang="en">Iraq</skos:definition>
-            <rdfs:comment>IQ</rdfs:comment>
-            <rdfs:comment>Iraq</rdfs:comment>
-            <rdfs:comment>Iraq</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1418,9 +1222,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>IRL</skos:notation>
             <skos:definition xml:lang="en">Ireland</skos:definition>
-            <rdfs:comment>IE</rdfs:comment>
-            <rdfs:comment>Irlande</rdfs:comment>
-            <rdfs:comment>Irlanda</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1432,9 +1233,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>ISR</skos:notation>
             <skos:definition xml:lang="en">Israel</skos:definition>
-            <rdfs:comment>IL</rdfs:comment>
-            <rdfs:comment>Israël</rdfs:comment>
-            <rdfs:comment>Israel</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1446,9 +1244,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>ITA</skos:notation>
             <skos:definition xml:lang="en">Italy</skos:definition>
-            <rdfs:comment>IT</rdfs:comment>
-            <rdfs:comment>Italie</rdfs:comment>
-            <rdfs:comment>Italia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1460,9 +1255,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>JAM</skos:notation>
             <skos:definition xml:lang="en">Jamaica</skos:definition>
-            <rdfs:comment>JM</rdfs:comment>
-            <rdfs:comment>Jamaïque</rdfs:comment>
-            <rdfs:comment>Jamaica</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1474,9 +1266,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>JPN</skos:notation>
             <skos:definition xml:lang="en">Japan</skos:definition>
-            <rdfs:comment>JP</rdfs:comment>
-            <rdfs:comment>Japon</rdfs:comment>
-            <rdfs:comment>Japón</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1488,9 +1277,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>JOR</skos:notation>
             <skos:definition xml:lang="en">Jordan</skos:definition>
-            <rdfs:comment>JO</rdfs:comment>
-            <rdfs:comment>Jordanie</rdfs:comment>
-            <rdfs:comment>Jordania</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1502,9 +1288,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>KAZ</skos:notation>
             <skos:definition xml:lang="en">Kazakhstan</skos:definition>
-            <rdfs:comment>KZ</rdfs:comment>
-            <rdfs:comment>Kazakhstan</rdfs:comment>
-            <rdfs:comment>Kazajstán</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1516,9 +1299,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>KEN</skos:notation>
             <skos:definition xml:lang="en">Kenya</skos:definition>
-            <rdfs:comment>KE</rdfs:comment>
-            <rdfs:comment>Kenya</rdfs:comment>
-            <rdfs:comment>Kenya</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1530,9 +1310,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>KIR</skos:notation>
             <skos:definition xml:lang="en">Kiribati</skos:definition>
-            <rdfs:comment>KI</rdfs:comment>
-            <rdfs:comment>Kiribati</rdfs:comment>
-            <rdfs:comment>Kiribati</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1544,9 +1321,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>PRK</skos:notation>
             <skos:definition xml:lang="en">Korea (Democratic People's Rep. of)</skos:definition>
-            <rdfs:comment>KP</rdfs:comment>
-            <rdfs:comment>Corée, Rép. dém. de</rdfs:comment>
-            <rdfs:comment>Corea, Rep. Popular Democrática de</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1558,9 +1332,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>KOR</skos:notation>
             <skos:definition xml:lang="en">Korea (Republic of)</skos:definition>
-            <rdfs:comment>KR</rdfs:comment>
-            <rdfs:comment>Corée, Rép. de</rdfs:comment>
-            <rdfs:comment>Corea, Rep. de</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1572,9 +1343,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>KWT</skos:notation>
             <skos:definition xml:lang="en">Kuwait</skos:definition>
-            <rdfs:comment>KW</rdfs:comment>
-            <rdfs:comment>Koweït</rdfs:comment>
-            <rdfs:comment>Kuwait</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1586,9 +1354,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>KGZ</skos:notation>
             <skos:definition xml:lang="en">Kyrgyzstan</skos:definition>
-            <rdfs:comment>KG</rdfs:comment>
-            <rdfs:comment>Kirghizstan</rdfs:comment>
-            <rdfs:comment>Kirguistán</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1600,9 +1365,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>LAO</skos:notation>
             <skos:definition xml:lang="en">Lao People's Democratic Republic</skos:definition>
-            <rdfs:comment>LA</rdfs:comment>
-            <rdfs:comment>Lao, Rép. dém. pop.</rdfs:comment>
-            <rdfs:comment>Lao, República Democrática Popular</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1614,9 +1376,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>LVA</skos:notation>
             <skos:definition xml:lang="en">Latvia</skos:definition>
-            <rdfs:comment>LV</rdfs:comment>
-            <rdfs:comment>Lettonie</rdfs:comment>
-            <rdfs:comment>Letonia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1628,9 +1387,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>LBN</skos:notation>
             <skos:definition xml:lang="en">Lebanon</skos:definition>
-            <rdfs:comment>LB</rdfs:comment>
-            <rdfs:comment>Liban</rdfs:comment>
-            <rdfs:comment>Líbano</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1642,9 +1398,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>LSO</skos:notation>
             <skos:definition xml:lang="en">Lesotho</skos:definition>
-            <rdfs:comment>LS</rdfs:comment>
-            <rdfs:comment>Lesotho</rdfs:comment>
-            <rdfs:comment>Lesotho</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1656,9 +1409,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>LBR</skos:notation>
             <skos:definition xml:lang="en">Liberia</skos:definition>
-            <rdfs:comment>LR</rdfs:comment>
-            <rdfs:comment>Liberia</rdfs:comment>
-            <rdfs:comment>Liberia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1670,9 +1420,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>LBY</skos:notation>
             <skos:definition xml:lang="en">Libyan Arab Jamahiriya</skos:definition>
-            <rdfs:comment>LY</rdfs:comment>
-            <rdfs:comment>Libye</rdfs:comment>
-            <rdfs:comment>Jamahiriya Árabe Libia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1684,9 +1431,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>LIE</skos:notation>
             <skos:definition xml:lang="en">Liechtenstein</skos:definition>
-            <rdfs:comment>LI</rdfs:comment>
-            <rdfs:comment>Liechtenstein</rdfs:comment>
-            <rdfs:comment>Liechtenstein</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1698,9 +1442,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>LTU</skos:notation>
             <skos:definition xml:lang="en">Lithuania</skos:definition>
-            <rdfs:comment>LT</rdfs:comment>
-            <rdfs:comment>Lituanie</rdfs:comment>
-            <rdfs:comment>Lituania</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1712,9 +1453,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>LUX</skos:notation>
             <skos:definition xml:lang="en">Luxembourg</skos:definition>
-            <rdfs:comment>LU</rdfs:comment>
-            <rdfs:comment>Luxembourg</rdfs:comment>
-            <rdfs:comment>Luxemburgo</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1726,9 +1464,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>MDG</skos:notation>
             <skos:definition xml:lang="en">Madagascar</skos:definition>
-            <rdfs:comment>MG</rdfs:comment>
-            <rdfs:comment>Madagascar</rdfs:comment>
-            <rdfs:comment>Madagascar</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1740,9 +1475,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>MWI</skos:notation>
             <skos:definition xml:lang="en">Malawi</skos:definition>
-            <rdfs:comment>MW</rdfs:comment>
-            <rdfs:comment>Malawi</rdfs:comment>
-            <rdfs:comment>Malawi</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1754,9 +1486,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>MYS</skos:notation>
             <skos:definition xml:lang="en">Malaysia</skos:definition>
-            <rdfs:comment>MY</rdfs:comment>
-            <rdfs:comment>Malaisie</rdfs:comment>
-            <rdfs:comment>Malasia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1768,9 +1497,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>MDV</skos:notation>
             <skos:definition xml:lang="en">Maldives</skos:definition>
-            <rdfs:comment>MV</rdfs:comment>
-            <rdfs:comment>Maldives</rdfs:comment>
-            <rdfs:comment>Maldivas</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1782,9 +1508,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>MLI</skos:notation>
             <skos:definition xml:lang="en">Mali</skos:definition>
-            <rdfs:comment>ML</rdfs:comment>
-            <rdfs:comment>Mali</rdfs:comment>
-            <rdfs:comment>Malí</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1796,9 +1519,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>MLT</skos:notation>
             <skos:definition xml:lang="en">Malta</skos:definition>
-            <rdfs:comment>MT</rdfs:comment>
-            <rdfs:comment>Malte</rdfs:comment>
-            <rdfs:comment>Malta</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1810,9 +1530,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>MHL</skos:notation>
             <skos:definition xml:lang="en">Marshall Islands</skos:definition>
-            <rdfs:comment>MH</rdfs:comment>
-            <rdfs:comment>Îles Marshall</rdfs:comment>
-            <rdfs:comment>Islas Marshall</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1824,9 +1541,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>MRT</skos:notation>
             <skos:definition xml:lang="en">Mauritania</skos:definition>
-            <rdfs:comment>MR</rdfs:comment>
-            <rdfs:comment>Mauritanie</rdfs:comment>
-            <rdfs:comment>Mauritania</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1838,9 +1552,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>MUS</skos:notation>
             <skos:definition xml:lang="en">Mauritius</skos:definition>
-            <rdfs:comment>MU</rdfs:comment>
-            <rdfs:comment>Maurice</rdfs:comment>
-            <rdfs:comment>Mauricio</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1852,9 +1563,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>MEX</skos:notation>
             <skos:definition xml:lang="en">Mexico</skos:definition>
-            <rdfs:comment>MX</rdfs:comment>
-            <rdfs:comment>Mexique</rdfs:comment>
-            <rdfs:comment>México</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1866,9 +1574,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>FSM</skos:notation>
             <skos:definition xml:lang="en">Micronesia (Federated States of)</skos:definition>
-            <rdfs:comment>FM</rdfs:comment>
-            <rdfs:comment>Micronésie, États féd. de</rdfs:comment>
-            <rdfs:comment>Micronesia, Estados Federados de</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1880,9 +1585,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>MDA</skos:notation>
             <skos:definition xml:lang="en">Moldova (Republic of)</skos:definition>
-            <rdfs:comment>MD</rdfs:comment>
-            <rdfs:comment>Moldavie, Rép. de</rdfs:comment>
-            <rdfs:comment>Moldova, Rep. de</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1894,9 +1596,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>MCO</skos:notation>
             <skos:definition xml:lang="en">Monaco</skos:definition>
-            <rdfs:comment>MC</rdfs:comment>
-            <rdfs:comment>Monaco</rdfs:comment>
-            <rdfs:comment>Mónaco</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1908,9 +1607,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>MNG</skos:notation>
             <skos:definition xml:lang="en">Mongolia</skos:definition>
-            <rdfs:comment>MN</rdfs:comment>
-            <rdfs:comment>Mongolie</rdfs:comment>
-            <rdfs:comment>Mongolia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1922,9 +1618,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>MNE</skos:notation>
             <skos:definition xml:lang="en">Montenegro</skos:definition>
-            <rdfs:comment>ME</rdfs:comment>
-            <rdfs:comment>Monténégro</rdfs:comment>
-            <rdfs:comment>Montenegro</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1936,9 +1629,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>MAR</skos:notation>
             <skos:definition xml:lang="en">Morocco</skos:definition>
-            <rdfs:comment>MA</rdfs:comment>
-            <rdfs:comment>Maroc</rdfs:comment>
-            <rdfs:comment>Marruecos</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1950,9 +1640,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>MOZ</skos:notation>
             <skos:definition xml:lang="en">Mozambique</skos:definition>
-            <rdfs:comment>MZ</rdfs:comment>
-            <rdfs:comment>Mozambique</rdfs:comment>
-            <rdfs:comment>Mozambique</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1964,9 +1651,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>MMR</skos:notation>
             <skos:definition xml:lang="en">Myanmar</skos:definition>
-            <rdfs:comment>MM</rdfs:comment>
-            <rdfs:comment>Myanmar</rdfs:comment>
-            <rdfs:comment>Myanmar</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1978,9 +1662,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>NAM</skos:notation>
             <skos:definition xml:lang="en">Namibia</skos:definition>
-            <rdfs:comment>NA</rdfs:comment>
-            <rdfs:comment>Namibie</rdfs:comment>
-            <rdfs:comment>Namibia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -1992,9 +1673,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>NRU</skos:notation>
             <skos:definition xml:lang="en">Nauru</skos:definition>
-            <rdfs:comment>NR</rdfs:comment>
-            <rdfs:comment>Nauru</rdfs:comment>
-            <rdfs:comment>Nauru</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2006,9 +1684,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>NPL</skos:notation>
             <skos:definition xml:lang="en">Nepal</skos:definition>
-            <rdfs:comment>NP</rdfs:comment>
-            <rdfs:comment>Népal</rdfs:comment>
-            <rdfs:comment>Nepal</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2020,9 +1695,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>NLD</skos:notation>
             <skos:definition xml:lang="en">Netherlands</skos:definition>
-            <rdfs:comment>NL</rdfs:comment>
-            <rdfs:comment>Pays-Bas</rdfs:comment>
-            <rdfs:comment>Países Bajos</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2034,9 +1706,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>NZL</skos:notation>
             <skos:definition xml:lang="en">New Zealand</skos:definition>
-            <rdfs:comment>NZ</rdfs:comment>
-            <rdfs:comment>Nouvelle-Zélande</rdfs:comment>
-            <rdfs:comment>Nueva Zelandia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2048,9 +1717,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>NIC</skos:notation>
             <skos:definition xml:lang="en">Nicaragua</skos:definition>
-            <rdfs:comment>NI</rdfs:comment>
-            <rdfs:comment>Nicaragua</rdfs:comment>
-            <rdfs:comment>Nicaragua</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2062,9 +1728,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>NER</skos:notation>
             <skos:definition xml:lang="en">Niger</skos:definition>
-            <rdfs:comment>NE</rdfs:comment>
-            <rdfs:comment>Niger</rdfs:comment>
-            <rdfs:comment>Níger</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2076,9 +1739,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>NGA</skos:notation>
             <skos:definition xml:lang="en">Nigeria</skos:definition>
-            <rdfs:comment>NG</rdfs:comment>
-            <rdfs:comment>Nigeria</rdfs:comment>
-            <rdfs:comment>Nigeria</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2090,9 +1750,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>NOR</skos:notation>
             <skos:definition xml:lang="en">Norway</skos:definition>
-            <rdfs:comment>NO</rdfs:comment>
-            <rdfs:comment>Norvège</rdfs:comment>
-            <rdfs:comment>Noruega</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2104,9 +1761,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>PSE</skos:notation>
             <skos:definition xml:lang="en">Occupied Palestinian Territory</skos:definition>
-            <rdfs:comment>PS</rdfs:comment>
-            <rdfs:comment>Territoire palestinien occupé</rdfs:comment>
-            <rdfs:comment>Territorio Palestino Ocupado</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2118,9 +1772,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>OMN</skos:notation>
             <skos:definition xml:lang="en">Oman</skos:definition>
-            <rdfs:comment>OM</rdfs:comment>
-            <rdfs:comment>Oman</rdfs:comment>
-            <rdfs:comment>Omán</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2132,9 +1783,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>PAK</skos:notation>
             <skos:definition xml:lang="en">Pakistan</skos:definition>
-            <rdfs:comment>PK</rdfs:comment>
-            <rdfs:comment>Pakistan</rdfs:comment>
-            <rdfs:comment>Pakistán</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2146,9 +1794,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>PLW</skos:notation>
             <skos:definition xml:lang="en">Palau</skos:definition>
-            <rdfs:comment>PW</rdfs:comment>
-            <rdfs:comment>Palau</rdfs:comment>
-            <rdfs:comment>Palau</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2160,9 +1805,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>PAN</skos:notation>
             <skos:definition xml:lang="en">Panama</skos:definition>
-            <rdfs:comment>PA</rdfs:comment>
-            <rdfs:comment>Panama</rdfs:comment>
-            <rdfs:comment>Panamá</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2174,9 +1816,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>PNG</skos:notation>
             <skos:definition xml:lang="en">Papua New Guinea</skos:definition>
-            <rdfs:comment>PG</rdfs:comment>
-            <rdfs:comment>Papouasie-Nouvelle-Guinée</rdfs:comment>
-            <rdfs:comment>Papua Nueva Guinea</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2188,9 +1827,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>PRY</skos:notation>
             <skos:definition xml:lang="en">Paraguay</skos:definition>
-            <rdfs:comment>PY</rdfs:comment>
-            <rdfs:comment>Paraguay</rdfs:comment>
-            <rdfs:comment>Paraguay</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2202,9 +1838,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>PER</skos:notation>
             <skos:definition xml:lang="en">Peru</skos:definition>
-            <rdfs:comment>PE</rdfs:comment>
-            <rdfs:comment>Pérou</rdfs:comment>
-            <rdfs:comment>Perú</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2216,9 +1849,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>PHL</skos:notation>
             <skos:definition xml:lang="en">Philippines</skos:definition>
-            <rdfs:comment>PH</rdfs:comment>
-            <rdfs:comment>Philippines</rdfs:comment>
-            <rdfs:comment>Filipinas</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2230,9 +1860,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>POL</skos:notation>
             <skos:definition xml:lang="en">Poland</skos:definition>
-            <rdfs:comment>PL</rdfs:comment>
-            <rdfs:comment>Pologne</rdfs:comment>
-            <rdfs:comment>Polonia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2244,9 +1871,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>PRT</skos:notation>
             <skos:definition xml:lang="en">Portugal</skos:definition>
-            <rdfs:comment>PT</rdfs:comment>
-            <rdfs:comment>Portugal</rdfs:comment>
-            <rdfs:comment>Portugal</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2258,9 +1882,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>QAT</skos:notation>
             <skos:definition xml:lang="en">Qatar</skos:definition>
-            <rdfs:comment>QA</rdfs:comment>
-            <rdfs:comment>Qatar</rdfs:comment>
-            <rdfs:comment>Qatar</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2272,9 +1893,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>ROU</skos:notation>
             <skos:definition xml:lang="en">Romania</skos:definition>
-            <rdfs:comment>RO</rdfs:comment>
-            <rdfs:comment>Roumanie</rdfs:comment>
-            <rdfs:comment>Rumania</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2286,9 +1904,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>RUS</skos:notation>
             <skos:definition xml:lang="en">Russian Federation</skos:definition>
-            <rdfs:comment>RU</rdfs:comment>
-            <rdfs:comment>Fédération de Russie</rdfs:comment>
-            <rdfs:comment>Rusia, Federación de</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2300,9 +1915,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>RWA</skos:notation>
             <skos:definition xml:lang="en">Rwanda</skos:definition>
-            <rdfs:comment>RW</rdfs:comment>
-            <rdfs:comment>Rwanda</rdfs:comment>
-            <rdfs:comment>Rwanda</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2314,9 +1926,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>KNA</skos:notation>
             <skos:definition xml:lang="en">Saint Kitts and Nevis</skos:definition>
-            <rdfs:comment>KN</rdfs:comment>
-            <rdfs:comment>Saint-Kitts-et-Nevis</rdfs:comment>
-            <rdfs:comment>Saint Kitts y Nevis</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2328,9 +1937,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>LCA</skos:notation>
             <skos:definition xml:lang="en">Saint Lucia</skos:definition>
-            <rdfs:comment>LC</rdfs:comment>
-            <rdfs:comment>Sainte Lucie</rdfs:comment>
-            <rdfs:comment>Santa Lucía</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2342,9 +1948,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>VCT</skos:notation>
             <skos:definition xml:lang="en">Saint Vincent and the Grenadines</skos:definition>
-            <rdfs:comment>VC</rdfs:comment>
-            <rdfs:comment>Saint-Vincent-et-les Grenadines</rdfs:comment>
-            <rdfs:comment>San Vicente y las Granadinas</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2356,9 +1959,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>WSM</skos:notation>
             <skos:definition xml:lang="en">Samoa</skos:definition>
-            <rdfs:comment>WS</rdfs:comment>
-            <rdfs:comment>Samoa</rdfs:comment>
-            <rdfs:comment>Samoa (Occidental)</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2370,9 +1970,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>SMR</skos:notation>
             <skos:definition xml:lang="en">San Marino</skos:definition>
-            <rdfs:comment>SM</rdfs:comment>
-            <rdfs:comment>Saint-Marin</rdfs:comment>
-            <rdfs:comment>San Marino</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2384,9 +1981,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>STP</skos:notation>
             <skos:definition xml:lang="en">Sao Tome and Principe</skos:definition>
-            <rdfs:comment>ST</rdfs:comment>
-            <rdfs:comment>Sao Tomé-et-Principe</rdfs:comment>
-            <rdfs:comment>Santo Tomé y Príncipe</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2398,9 +1992,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>SAU</skos:notation>
             <skos:definition xml:lang="en">Saudi Arabia</skos:definition>
-            <rdfs:comment>SA</rdfs:comment>
-            <rdfs:comment>Arabie Saoudite</rdfs:comment>
-            <rdfs:comment>Arabia Saudita</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2412,9 +2003,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>SEN</skos:notation>
             <skos:definition xml:lang="en">Senegal</skos:definition>
-            <rdfs:comment>SN</rdfs:comment>
-            <rdfs:comment>Sénégal</rdfs:comment>
-            <rdfs:comment>Senegal</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2426,9 +2014,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>SRB</skos:notation>
             <skos:definition xml:lang="en">Serbia</skos:definition>
-            <rdfs:comment>RS</rdfs:comment>
-            <rdfs:comment>Serbie</rdfs:comment>
-            <rdfs:comment>Serbia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2440,9 +2025,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>SYC</skos:notation>
             <skos:definition xml:lang="en">Seychelles</skos:definition>
-            <rdfs:comment>SC</rdfs:comment>
-            <rdfs:comment>Seychelles</rdfs:comment>
-            <rdfs:comment>Seychelles</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2454,9 +2036,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>SLE</skos:notation>
             <skos:definition xml:lang="en">Sierra Leone</skos:definition>
-            <rdfs:comment>SL</rdfs:comment>
-            <rdfs:comment>Sierra Leone</rdfs:comment>
-            <rdfs:comment>Sierra Leona</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2468,9 +2047,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>SGP</skos:notation>
             <skos:definition xml:lang="en">Singapore</skos:definition>
-            <rdfs:comment>SG</rdfs:comment>
-            <rdfs:comment>Singapour</rdfs:comment>
-            <rdfs:comment>Singapur</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2482,9 +2058,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>SVK</skos:notation>
             <skos:definition xml:lang="en">Slovakia</skos:definition>
-            <rdfs:comment>SK</rdfs:comment>
-            <rdfs:comment>Slovaquie</rdfs:comment>
-            <rdfs:comment>Eslovaquia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2496,9 +2069,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>SVN</skos:notation>
             <skos:definition xml:lang="en">Slovenia</skos:definition>
-            <rdfs:comment>SI</rdfs:comment>
-            <rdfs:comment>Slovénie</rdfs:comment>
-            <rdfs:comment>Eslovenia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2510,9 +2080,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>SLB</skos:notation>
             <skos:definition xml:lang="en">Solomon Islands</skos:definition>
-            <rdfs:comment>SB</rdfs:comment>
-            <rdfs:comment>Îles Salomon</rdfs:comment>
-            <rdfs:comment>Islas Salomón</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2524,9 +2091,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>SOM</skos:notation>
             <skos:definition xml:lang="en">Somalia</skos:definition>
-            <rdfs:comment>SO</rdfs:comment>
-            <rdfs:comment>Somalie</rdfs:comment>
-            <rdfs:comment>Somalía</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2538,9 +2102,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>ZAF</skos:notation>
             <skos:definition xml:lang="en">South Africa</skos:definition>
-            <rdfs:comment>ZA</rdfs:comment>
-            <rdfs:comment>Afrique du Sud</rdfs:comment>
-            <rdfs:comment>Sudáfrica</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2552,9 +2113,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>ESP</skos:notation>
             <skos:definition xml:lang="en">Spain</skos:definition>
-            <rdfs:comment>ES</rdfs:comment>
-            <rdfs:comment>Espagne</rdfs:comment>
-            <rdfs:comment>España</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2566,9 +2124,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>LKA</skos:notation>
             <skos:definition xml:lang="en">Sri Lanka</skos:definition>
-            <rdfs:comment>LK</rdfs:comment>
-            <rdfs:comment>Sri Lanka</rdfs:comment>
-            <rdfs:comment>Sri Lanka</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2580,9 +2135,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>SDN</skos:notation>
             <skos:definition xml:lang="en">Sudan*</skos:definition>
-            <rdfs:comment>SD</rdfs:comment>
-            <rdfs:comment>Soudan*</rdfs:comment>
-            <rdfs:comment>Sudán*</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2594,9 +2146,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>SUR</skos:notation>
             <skos:definition xml:lang="en">Suriname</skos:definition>
-            <rdfs:comment>SR</rdfs:comment>
-            <rdfs:comment>Suriname</rdfs:comment>
-            <rdfs:comment>Suriname</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2608,9 +2157,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>SWZ</skos:notation>
             <skos:definition xml:lang="en">Swaziland</skos:definition>
-            <rdfs:comment>SZ</rdfs:comment>
-            <rdfs:comment>Swaziland</rdfs:comment>
-            <rdfs:comment>Swazilandia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2622,9 +2168,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>SWE</skos:notation>
             <skos:definition xml:lang="en">Sweden</skos:definition>
-            <rdfs:comment>SE</rdfs:comment>
-            <rdfs:comment>Suède</rdfs:comment>
-            <rdfs:comment>Suecia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2636,9 +2179,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>CHE</skos:notation>
             <skos:definition xml:lang="en">Switzerland</skos:definition>
-            <rdfs:comment>CH</rdfs:comment>
-            <rdfs:comment>Suisse</rdfs:comment>
-            <rdfs:comment>Suiza</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2650,9 +2190,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>SYR</skos:notation>
             <skos:definition xml:lang="en">Syrian Arab Republic</skos:definition>
-            <rdfs:comment>SY</rdfs:comment>
-            <rdfs:comment>syrienne, Rép. arabe.</rdfs:comment>
-            <rdfs:comment>Siria, República Árabe</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2664,9 +2201,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>TJK</skos:notation>
             <skos:definition xml:lang="en">Tajikistan</skos:definition>
-            <rdfs:comment>TJ</rdfs:comment>
-            <rdfs:comment>Tadjikistan</rdfs:comment>
-            <rdfs:comment>Tayikistán</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2678,9 +2212,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>TZA</skos:notation>
             <skos:definition xml:lang="en">Tanzania (United Republic of)</skos:definition>
-            <rdfs:comment>TZ</rdfs:comment>
-            <rdfs:comment>Tanzanie, Rép.-Unie de</rdfs:comment>
-            <rdfs:comment>Tanzanía, República Unida de</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2692,9 +2223,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>THA</skos:notation>
             <skos:definition xml:lang="en">Thailand</skos:definition>
-            <rdfs:comment>TH</rdfs:comment>
-            <rdfs:comment>Thaïlande</rdfs:comment>
-            <rdfs:comment>Tailandia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2706,9 +2234,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>MKD</skos:notation>
             <skos:definition xml:lang="en">The former Yugoslav Republic of Macedonia</skos:definition>
-            <rdfs:comment>MK</rdfs:comment>
-            <rdfs:comment>Macédoine, ERY</rdfs:comment>
-            <rdfs:comment>Macedonia (ERY)</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2720,9 +2245,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>TLS</skos:notation>
             <skos:definition xml:lang="en">Timor-Leste</skos:definition>
-            <rdfs:comment>TL</rdfs:comment>
-            <rdfs:comment>Timor-Leste</rdfs:comment>
-            <rdfs:comment>Timor-Leste</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2734,9 +2256,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>TGO</skos:notation>
             <skos:definition xml:lang="en">Togo</skos:definition>
-            <rdfs:comment>TG</rdfs:comment>
-            <rdfs:comment>Togo</rdfs:comment>
-            <rdfs:comment>Togo</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2748,9 +2267,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>TON</skos:notation>
             <skos:definition xml:lang="en">Tonga</skos:definition>
-            <rdfs:comment>TO</rdfs:comment>
-            <rdfs:comment>Tonga</rdfs:comment>
-            <rdfs:comment>Tonga</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2762,9 +2278,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>TTO</skos:notation>
             <skos:definition xml:lang="en">Trinidad and Tobago</skos:definition>
-            <rdfs:comment>TT</rdfs:comment>
-            <rdfs:comment>Trinidad-et-Tobago</rdfs:comment>
-            <rdfs:comment>Trinidad y Tobago</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2776,9 +2289,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>TUN</skos:notation>
             <skos:definition xml:lang="en">Tunisia</skos:definition>
-            <rdfs:comment>TN</rdfs:comment>
-            <rdfs:comment>Tunisie</rdfs:comment>
-            <rdfs:comment>Túnez</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2790,9 +2300,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>TUR</skos:notation>
             <skos:definition xml:lang="en">Turkey</skos:definition>
-            <rdfs:comment>TR</rdfs:comment>
-            <rdfs:comment>Turquie</rdfs:comment>
-            <rdfs:comment>Turquía</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2804,9 +2311,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>TKM</skos:notation>
             <skos:definition xml:lang="en">Turkmenistan</skos:definition>
-            <rdfs:comment>TM</rdfs:comment>
-            <rdfs:comment>Turkménistan</rdfs:comment>
-            <rdfs:comment>Turkmenistán</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2818,9 +2322,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>TUV</skos:notation>
             <skos:definition xml:lang="en">Tuvalu</skos:definition>
-            <rdfs:comment>TV</rdfs:comment>
-            <rdfs:comment>Tuvalu</rdfs:comment>
-            <rdfs:comment>Tuvalu</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2832,9 +2333,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>UGA</skos:notation>
             <skos:definition xml:lang="en">Uganda</skos:definition>
-            <rdfs:comment>UG</rdfs:comment>
-            <rdfs:comment>Ouganda</rdfs:comment>
-            <rdfs:comment>Uganda</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2846,9 +2344,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>UKR</skos:notation>
             <skos:definition xml:lang="en">Ukraine</skos:definition>
-            <rdfs:comment>UA</rdfs:comment>
-            <rdfs:comment>Ukraine</rdfs:comment>
-            <rdfs:comment>Ucrania</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2860,9 +2355,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>ARE</skos:notation>
             <skos:definition xml:lang="en">United Arab Emirates</skos:definition>
-            <rdfs:comment>AE</rdfs:comment>
-            <rdfs:comment>Émirats arabes unis</rdfs:comment>
-            <rdfs:comment>Emiratos Árabes Unidos</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2874,9 +2366,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>GBR</skos:notation>
             <skos:definition xml:lang="en">United Kingdom</skos:definition>
-            <rdfs:comment>GB</rdfs:comment>
-            <rdfs:comment>Royaume-Uni</rdfs:comment>
-            <rdfs:comment>Reino Unido</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2888,9 +2377,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>USA</skos:notation>
             <skos:definition xml:lang="en">United States</skos:definition>
-            <rdfs:comment>US</rdfs:comment>
-            <rdfs:comment>États-Unis</rdfs:comment>
-            <rdfs:comment>Estados Unidos</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2902,9 +2388,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>URY</skos:notation>
             <skos:definition xml:lang="en">Uruguay</skos:definition>
-            <rdfs:comment>UY</rdfs:comment>
-            <rdfs:comment>Uruguay</rdfs:comment>
-            <rdfs:comment>Uruguay</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2916,9 +2399,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>UZB</skos:notation>
             <skos:definition xml:lang="en">Uzbekistan</skos:definition>
-            <rdfs:comment>UZ</rdfs:comment>
-            <rdfs:comment>Ouzbékistan</rdfs:comment>
-            <rdfs:comment>Uzbekistán</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2930,9 +2410,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>VUT</skos:notation>
             <skos:definition xml:lang="en">Vanuatu</skos:definition>
-            <rdfs:comment>VU</rdfs:comment>
-            <rdfs:comment>Vanuatu</rdfs:comment>
-            <rdfs:comment>Vanuatu</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2944,9 +2421,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>VEN</skos:notation>
             <skos:definition xml:lang="en">Venezuela (Bolivarian Republic of)</skos:definition>
-            <rdfs:comment>VE</rdfs:comment>
-            <rdfs:comment>Venezuela, Rép. bol. du</rdfs:comment>
-            <rdfs:comment>Venezuela, República Bolivariana de</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2958,9 +2432,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>VNM</skos:notation>
             <skos:definition xml:lang="en">Viet Nam</skos:definition>
-            <rdfs:comment>VN</rdfs:comment>
-            <rdfs:comment>Vietnam</rdfs:comment>
-            <rdfs:comment>Viet Nam</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2972,9 +2443,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>YEM</skos:notation>
             <skos:definition xml:lang="en">Yemen</skos:definition>
-            <rdfs:comment>YE</rdfs:comment>
-            <rdfs:comment>Yémen</rdfs:comment>
-            <rdfs:comment>Yemen</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -2986,9 +2454,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>ZMB</skos:notation>
             <skos:definition xml:lang="en">Zambia</skos:definition>
-            <rdfs:comment>ZM</rdfs:comment>
-            <rdfs:comment>Zambie</rdfs:comment>
-            <rdfs:comment>Zambia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3000,9 +2465,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_HDRO_COUNTRY_NAME"/>
             <skos:notation>ZWE</skos:notation>
             <skos:definition xml:lang="en">Zimbabwe</skos:definition>
-            <rdfs:comment>ZW</rdfs:comment>
-            <rdfs:comment>Zimbabwe</rdfs:comment>
-            <rdfs:comment>Zimbabwe</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
    </rdf:Description>
@@ -3078,11 +2540,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>66706</skos:notation>
             <skos:definition xml:lang="en">Adjusted net savings</skos:definition>
-            <rdfs:comment>1</rdfs:comment>
-            <rdfs:comment>18204</rdfs:comment>
-            <rdfs:comment>6605</rdfs:comment>
-            <rdfs:comment>Taux d'épargne net ajustée</rdfs:comment>
-            <rdfs:comment>Ahorro neto ajustado</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3094,12 +2551,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>36806</skos:notation>
             <skos:definition xml:lang="en">Adolescent fertility rate (women aged 15-19 years)</skos:definition>
-            <rdfs:comment>82706</rdfs:comment>
-            <rdfs:comment>1</rdfs:comment>
-            <rdfs:comment>4</rdfs:comment>
-            <rdfs:comment>4605</rdfs:comment>
-            <rdfs:comment>Taux de fécondité, chez les adolescentes (femmes âgées de 15 à 19 ans)</rdfs:comment>
-            <rdfs:comment>Tasa de fecundidad entre adolescentes (mujeres de entre 15 y 19 años)</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3111,12 +2562,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>101406</skos:notation>
             <skos:definition xml:lang="en">Adult literacy rate, both sexes</skos:definition>
-            <rdfs:comment>75706</rdfs:comment>
-            <rdfs:comment>1</rdfs:comment>
-            <rdfs:comment>104</rdfs:comment>
-            <rdfs:comment>605</rdfs:comment>
-            <rdfs:comment>Taux d'alphabétisation des adultes</rdfs:comment>
-            <rdfs:comment>Tasas de alfabetización de adultos</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3128,12 +2573,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>105806</skos:notation>
             <skos:definition xml:lang="en">Carbon Dioxide Emissions per capita</skos:definition>
-            <rdfs:comment>84606</rdfs:comment>
-            <rdfs:comment>1</rdfs:comment>
-            <rdfs:comment>18604</rdfs:comment>
-            <rdfs:comment>3105</rdfs:comment>
-            <rdfs:comment>Émissions de dioxyde de carbone par habitant</rdfs:comment>
-            <rdfs:comment>Emisiones per cápita de dióxido de carbono</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3145,11 +2584,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>97406</skos:notation>
             <skos:definition xml:lang="en">Carbon dioxide per capita emission (growth 1970-2008)</skos:definition>
-            <rdfs:comment>1</rdfs:comment>
-            <rdfs:comment>18604</rdfs:comment>
-            <rdfs:comment>205</rdfs:comment>
-            <rdfs:comment>Émissions de dioxyde de carbone (taux de croissance annuel moyen 1970-2008)</rdfs:comment>
-            <rdfs:comment>Emisiones per cápita de dióxido de carbono (% de crecimiento promedio annual 1970-2008)</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3161,11 +2595,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>98106</skos:notation>
             <skos:definition xml:lang="en">Change in forest area</skos:definition>
-            <rdfs:comment>1</rdfs:comment>
-            <rdfs:comment>19004</rdfs:comment>
-            <rdfs:comment>205</rdfs:comment>
-            <rdfs:comment>Évolution de la surface forestière</rdfs:comment>
-            <rdfs:comment>Variación de la superficie forestal</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3177,12 +2606,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>105906</skos:notation>
             <skos:definition xml:lang="en">Combined gross enrolment in education (both sexes)</skos:definition>
-            <rdfs:comment>106606</rdfs:comment>
-            <rdfs:comment>1</rdfs:comment>
-            <rdfs:comment>204</rdfs:comment>
-            <rdfs:comment>205</rdfs:comment>
-            <rdfs:comment>Taux brut de scolarisation</rdfs:comment>
-            <rdfs:comment>Tasa bruta de matriculación</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3194,11 +2617,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>66006</skos:notation>
             <skos:definition xml:lang="en">Ecological footprint of consumption</skos:definition>
-            <rdfs:comment>1</rdfs:comment>
-            <rdfs:comment>18304</rdfs:comment>
-            <rdfs:comment>9405</rdfs:comment>
-            <rdfs:comment>Empreinte écologique</rdfs:comment>
-            <rdfs:comment>Huella ecológica de consumo</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3210,11 +2628,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>30406</skos:notation>
             <skos:definition xml:lang="en">Endangered species</skos:definition>
-            <rdfs:comment>0</rdfs:comment>
-            <rdfs:comment>19104</rdfs:comment>
-            <rdfs:comment>7105</rdfs:comment>
-            <rdfs:comment>Espèces menacée</rdfs:comment>
-            <rdfs:comment>Especies amenazadas</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3226,10 +2639,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>100506</skos:notation>
             <skos:definition xml:lang="en">Environmental performance index (EPI)</skos:definition>
-            <rdfs:comment>1</rdfs:comment>
-            <rdfs:comment>18404</rdfs:comment>
-            <rdfs:comment>Indice de performance environnementale</rdfs:comment>
-            <rdfs:comment>Índice de desempeño ecológico</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3241,12 +2650,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>53906</skos:notation>
             <skos:definition xml:lang="en">Expenditure on health, public (% of GDP)</skos:definition>
-            <rdfs:comment>79406</rdfs:comment>
-            <rdfs:comment>1</rdfs:comment>
-            <rdfs:comment>304</rdfs:comment>
-            <rdfs:comment>205</rdfs:comment>
-            <rdfs:comment>Dépenses en santé (% du PIB)</rdfs:comment>
-            <rdfs:comment>Gasto público en salud (% del PIB)</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3258,11 +2661,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>97906</skos:notation>
             <skos:definition xml:lang="en">Forest area</skos:definition>
-            <rdfs:comment>0</rdfs:comment>
-            <rdfs:comment>10504</rdfs:comment>
-            <rdfs:comment>4205</rdfs:comment>
-            <rdfs:comment>Surface forestière</rdfs:comment>
-            <rdfs:comment>Superficie forestal</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3274,11 +2672,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>100806</skos:notation>
             <skos:definition xml:lang="en">Forest area (% of total land area)</skos:definition>
-            <rdfs:comment>1</rdfs:comment>
-            <rdfs:comment>19004</rdfs:comment>
-            <rdfs:comment>4105</rdfs:comment>
-            <rdfs:comment>Surface forestière (pourcentage de la surface des sols)</rdfs:comment>
-            <rdfs:comment>Superficie forestal (% de superficie terrestre)</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3290,11 +2683,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>97106</skos:notation>
             <skos:definition xml:lang="en">Fresh water withdrawals</skos:definition>
-            <rdfs:comment>1</rdfs:comment>
-            <rdfs:comment>18904</rdfs:comment>
-            <rdfs:comment>11705</rdfs:comment>
-            <rdfs:comment>Prélèvements d'eau douce</rdfs:comment>
-            <rdfs:comment>Extracción de agua dulce</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3306,11 +2694,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>68606</skos:notation>
             <skos:definition xml:lang="en">GII: Gender Inequality Index, value</skos:definition>
-            <rdfs:comment>68706</rdfs:comment>
-            <rdfs:comment>3</rdfs:comment>
-            <rdfs:comment>17404</rdfs:comment>
-            <rdfs:comment>Indice d’inégalité de genre</rdfs:comment>
-            <rdfs:comment>Índice de desigualdad de género</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3322,11 +2705,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>96606</skos:notation>
             <skos:definition xml:lang="en">Greenhouse gases per capita</skos:definition>
-            <rdfs:comment>1</rdfs:comment>
-            <rdfs:comment>18704</rdfs:comment>
-            <rdfs:comment>11305</rdfs:comment>
-            <rdfs:comment>Émissions de gaz à effet de serre par habitant </rdfs:comment>
-            <rdfs:comment>Efecto invernadero per cápita</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3338,12 +2716,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>103706</skos:notation>
             <skos:definition xml:lang="en">HDI: Education index</skos:definition>
-            <rdfs:comment>EDUC_INDEX</rdfs:comment>
-            <rdfs:comment>79906</rdfs:comment>
-            <rdfs:comment>3</rdfs:comment>
-            <rdfs:comment>2504</rdfs:comment>
-            <rdfs:comment>IDH: Index de l'éducation</rdfs:comment>
-            <rdfs:comment>IDH: Índice de educación</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3355,13 +2727,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>69706</skos:notation>
             <skos:definition xml:lang="en">HDI: Expected Years of Schooling (of children)</skos:definition>
-            <rdfs:comment>EYS</rdfs:comment>
-            <rdfs:comment>75906</rdfs:comment>
-            <rdfs:comment>1</rdfs:comment>
-            <rdfs:comment>20104</rdfs:comment>
-            <rdfs:comment>505</rdfs:comment>
-            <rdfs:comment>IDH: Durée attendue de scolarisation</rdfs:comment>
-            <rdfs:comment>IDH: Años esperados de instrucción</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3373,11 +2738,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>20206</skos:notation>
             <skos:definition xml:lang="en">HDI: GDP per capita in PPP terms (constant 2005 international $)</skos:definition>
-            <rdfs:comment>78806</rdfs:comment>
-            <rdfs:comment>0</rdfs:comment>
-            <rdfs:comment>304</rdfs:comment>
-            <rdfs:comment>PIB par habitant (en PPA en $ 2005)</rdfs:comment>
-            <rdfs:comment>PIB per cápita (PPA en US$ de 2005)</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3389,13 +2749,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>100106</skos:notation>
             <skos:definition xml:lang="en">HDI: GNI per capita in PPP terms (constant 2005 international $)</skos:definition>
-            <rdfs:comment>GNI_CAPITA</rdfs:comment>
-            <rdfs:comment>107806</rdfs:comment>
-            <rdfs:comment>0</rdfs:comment>
-            <rdfs:comment>17004</rdfs:comment>
-            <rdfs:comment>12005</rdfs:comment>
-            <rdfs:comment>Revenu national brut (RNB) par habitant ($ constants de 2005)</rdfs:comment>
-            <rdfs:comment>Ingreso nacional bruto  (INB) per cápita</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3407,12 +2760,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>72206</skos:notation>
             <skos:definition xml:lang="en">HDI: Health index</skos:definition>
-            <rdfs:comment>HEALTH_INDEX</rdfs:comment>
-            <rdfs:comment>86806</rdfs:comment>
-            <rdfs:comment>3</rdfs:comment>
-            <rdfs:comment>2504</rdfs:comment>
-            <rdfs:comment>IDH: Index de la santé</rdfs:comment>
-            <rdfs:comment>IDH: Índice de salud</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3424,12 +2771,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>103106</skos:notation>
             <skos:definition xml:lang="en">HDI: Human Development Index (HDI) value</skos:definition>
-            <rdfs:comment>HDI</rdfs:comment>
-            <rdfs:comment>104506</rdfs:comment>
-            <rdfs:comment>3</rdfs:comment>
-            <rdfs:comment>17604</rdfs:comment>
-            <rdfs:comment>Indice de développement humain (IDH)</rdfs:comment>
-            <rdfs:comment>Índice de Desarrollo Humano (IDH)</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3441,12 +2782,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>103606</skos:notation>
             <skos:definition xml:lang="en">HDI: Income index</skos:definition>
-            <rdfs:comment>INCOME_INDEX</rdfs:comment>
-            <rdfs:comment>86706</rdfs:comment>
-            <rdfs:comment>3</rdfs:comment>
-            <rdfs:comment>2504</rdfs:comment>
-            <rdfs:comment>IDH: Indice de revenue</rdfs:comment>
-            <rdfs:comment>IDH: Índice de ingresos</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3458,13 +2793,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>69206</skos:notation>
             <skos:definition xml:lang="en">HDI: Life expectancy at birth</skos:definition>
-            <rdfs:comment>LEB</rdfs:comment>
-            <rdfs:comment>78406</rdfs:comment>
-            <rdfs:comment>1</rdfs:comment>
-            <rdfs:comment>4</rdfs:comment>
-            <rdfs:comment>505</rdfs:comment>
-            <rdfs:comment>IDH: Espérance de vie à la naissance.</rdfs:comment>
-            <rdfs:comment>IDH: Esperanza de vida al nacer.</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3476,13 +2804,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>103006</skos:notation>
             <skos:definition xml:lang="en">HDI: Mean years of schooling (of adults)</skos:definition>
-            <rdfs:comment>MYS</rdfs:comment>
-            <rdfs:comment>87006</rdfs:comment>
-            <rdfs:comment>1</rdfs:comment>
-            <rdfs:comment>17104</rdfs:comment>
-            <rdfs:comment>505</rdfs:comment>
-            <rdfs:comment>Durée moyenne de scolarisation</rdfs:comment>
-            <rdfs:comment>Años de educación promedio</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3494,11 +2815,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>67106</skos:notation>
             <skos:definition xml:lang="en">IHDI: Income Gini coefficient</skos:definition>
-            <rdfs:comment>80506</rdfs:comment>
-            <rdfs:comment>1</rdfs:comment>
-            <rdfs:comment>18204</rdfs:comment>
-            <rdfs:comment>Indice de Gini, revenu</rdfs:comment>
-            <rdfs:comment>Coeficiente de Gini, ingresos</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3510,11 +2826,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>73206</skos:notation>
             <skos:definition xml:lang="en">IHDI: Inequality-adjusted HDI value</skos:definition>
-            <rdfs:comment>73306</rdfs:comment>
-            <rdfs:comment>3</rdfs:comment>
-            <rdfs:comment>16004</rdfs:comment>
-            <rdfs:comment>Indice de développement humain (IDH) ajusté aux inégalités</rdfs:comment>
-            <rdfs:comment>Índice de Desarrollo Humano, ajustado por la igualdad</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3526,10 +2837,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>71406</skos:notation>
             <skos:definition xml:lang="en">IHDI: Inequality-adjusted education index</skos:definition>
-            <rdfs:comment>3</rdfs:comment>
-            <rdfs:comment>12404</rdfs:comment>
-            <rdfs:comment>Indice du niveau d'instruction ajusté aux inégalités</rdfs:comment>
-            <rdfs:comment>Índice de educación ajustado por la desigualdad</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3541,12 +2848,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>71206</skos:notation>
             <skos:definition xml:lang="en">IHDI: Loss due to inequality in education</skos:definition>
-            <rdfs:comment>88006</rdfs:comment>
-            <rdfs:comment>1</rdfs:comment>
-            <rdfs:comment>21004</rdfs:comment>
-            <rdfs:comment>205</rdfs:comment>
-            <rdfs:comment>IDH-I: Perte dû à l'inégalité de la scolarisation (Atkinson)</rdfs:comment>
-            <rdfs:comment>IDH-D: pérdida debida a la desigualdad en la distribución de educación (Atkinson)</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3558,10 +2859,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>71606</skos:notation>
             <skos:definition xml:lang="en">IHDI: Inequality-adjusted income index</skos:definition>
-            <rdfs:comment>3</rdfs:comment>
-            <rdfs:comment>12504</rdfs:comment>
-            <rdfs:comment>Indice de revenu ajusté aux inégalités</rdfs:comment>
-            <rdfs:comment>Índice de ingresos ajustado por la desigualdad</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3573,10 +2870,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>104506</skos:notation>
             <skos:definition xml:lang="en">HDI: Human Development Index (HDI) value rank</skos:definition>
-            <rdfs:comment>HDI_RANK</rdfs:comment>
-            <rdfs:comment>0</rdfs:comment>
-            <rdfs:comment>fr-HDI: Human Development Index (HDI) value rank</rdfs:comment>
-            <rdfs:comment>es-HDI: Human Development Index (HDI) value rank</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3588,12 +2881,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>71306</skos:notation>
             <skos:definition xml:lang="en">IHDI: Loss due to inequality in income</skos:definition>
-            <rdfs:comment>80306</rdfs:comment>
-            <rdfs:comment>1</rdfs:comment>
-            <rdfs:comment>12504</rdfs:comment>
-            <rdfs:comment>205</rdfs:comment>
-            <rdfs:comment>IDH-I: Perte dû à l'inégalité des revenues (Atkinson)</rdfs:comment>
-            <rdfs:comment>IDH-D: pérdida debida a la desigualdad en los ingresos (Atkinson)</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3605,12 +2892,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>71106</skos:notation>
             <skos:definition xml:lang="en">IHDI: Loss due to inequality in life expectancy</skos:definition>
-            <rdfs:comment>87906</rdfs:comment>
-            <rdfs:comment>1</rdfs:comment>
-            <rdfs:comment>20904</rdfs:comment>
-            <rdfs:comment>205</rdfs:comment>
-            <rdfs:comment>IDH-I: Perte dû à l'inégalité de l'espérance de vie (Atkinson)</rdfs:comment>
-            <rdfs:comment>IDH-D: pérdida debida a la desigualdad en la esperanza de vida (Atkinson)</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3622,12 +2903,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>98606</skos:notation>
             <skos:definition xml:lang="en">Impact of natural disasters: number of deaths (average per year/million)</skos:definition>
-            <rdfs:comment>107606</rdfs:comment>
-            <rdfs:comment>0</rdfs:comment>
-            <rdfs:comment>19304</rdfs:comment>
-            <rdfs:comment>9305</rdfs:comment>
-            <rdfs:comment>Nombre de décès dus aux catastrophes naturelles</rdfs:comment>
-            <rdfs:comment>Número de muertes como resultado de desastres naturales</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3639,11 +2914,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>80406</skos:notation>
             <skos:definition xml:lang="en">Income Gini Index</skos:definition>
-            <rdfs:comment>80506</rdfs:comment>
-            <rdfs:comment>3</rdfs:comment>
-            <rdfs:comment>2504</rdfs:comment>
-            <rdfs:comment>Indice de Gini, revenu </rdfs:comment>
-            <rdfs:comment>Coeficiente de Gini de ingresos</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3655,12 +2925,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>48906</skos:notation>
             <skos:definition xml:lang="en">Labour force participation rate, female-male ratio</skos:definition>
-            <rdfs:comment>83006</rdfs:comment>
-            <rdfs:comment>3</rdfs:comment>
-            <rdfs:comment>4304</rdfs:comment>
-            <rdfs:comment>4805</rdfs:comment>
-            <rdfs:comment>Taux d'activité de la population active (Ratio femmes/ hommes)</rdfs:comment>
-            <rdfs:comment>Tasa de participación en la fuerza de trabajo (Relación tasa de mujeres-tasa de hombres)</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3672,12 +2936,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>38606</skos:notation>
             <skos:definition xml:lang="en">MPI: Headcount ( k greater than or equal to 3), percentage population in poverty</skos:definition>
-            <rdfs:comment>80806</rdfs:comment>
-            <rdfs:comment>1</rdfs:comment>
-            <rdfs:comment>4404</rdfs:comment>
-            <rdfs:comment>5205</rdfs:comment>
-            <rdfs:comment>Pauvreté multidimensionnelle, dénombrement</rdfs:comment>
-            <rdfs:comment>Pobreza multidimensional, incidencia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3689,11 +2947,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>38506</skos:notation>
             <skos:definition xml:lang="en">MPI: Intensity of deprivation</skos:definition>
-            <rdfs:comment>81106</rdfs:comment>
-            <rdfs:comment>1</rdfs:comment>
-            <rdfs:comment>4404</rdfs:comment>
-            <rdfs:comment>Intensité de la déprivation</rdfs:comment>
-            <rdfs:comment>Intensidad de la carencia</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3705,12 +2958,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>38406</skos:notation>
             <skos:definition xml:lang="en">MPI: Multidimensional poverty index (k greater than or equal to 3)</skos:definition>
-            <rdfs:comment>38806</rdfs:comment>
-            <rdfs:comment>3</rdfs:comment>
-            <rdfs:comment>18104</rdfs:comment>
-            <rdfs:comment>205</rdfs:comment>
-            <rdfs:comment>Indice de pauvreté multidimensionnelle</rdfs:comment>
-            <rdfs:comment>Índice de pobreza multidimensional</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3722,12 +2969,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>38906</skos:notation>
             <skos:definition xml:lang="en">MPI: Population living below $1.25 PPP per day</skos:definition>
-            <rdfs:comment>88306</rdfs:comment>
-            <rdfs:comment>1</rdfs:comment>
-            <rdfs:comment>18204</rdfs:comment>
-            <rdfs:comment>205</rdfs:comment>
-            <rdfs:comment>Population vivant sous le seuil de pauvreté</rdfs:comment>
-            <rdfs:comment>Población bajo la línea de pobreza de ingresos</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3739,12 +2980,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>89006</skos:notation>
             <skos:definition xml:lang="en">Maternal mortality ratio</skos:definition>
-            <rdfs:comment>82806</rdfs:comment>
-            <rdfs:comment>0</rdfs:comment>
-            <rdfs:comment>17704</rdfs:comment>
-            <rdfs:comment>4705</rdfs:comment>
-            <rdfs:comment>Taux de mortalité maternelle</rdfs:comment>
-            <rdfs:comment>Tasa de mortalidad maternal</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3756,11 +2991,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>97306</skos:notation>
             <skos:definition xml:lang="en">Natural resource depletion</skos:definition>
-            <rdfs:comment>1</rdfs:comment>
-            <rdfs:comment>18804</rdfs:comment>
-            <rdfs:comment>6605</rdfs:comment>
-            <rdfs:comment>Épuisement des ressources naturelles</rdfs:comment>
-            <rdfs:comment>Agotamiento de los recursos naturales</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3772,12 +3002,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>24806</skos:notation>
             <skos:definition xml:lang="en">Population with at least secondary education, female/male ratio</skos:definition>
-            <rdfs:comment>88706</rdfs:comment>
-            <rdfs:comment>3</rdfs:comment>
-            <rdfs:comment>7504</rdfs:comment>
-            <rdfs:comment>7605</rdfs:comment>
-            <rdfs:comment>Population ayant au moins une éducation secondaire, rapport femme/homme</rdfs:comment>
-            <rdfs:comment>Población con al menos educación secundaria completa, relación mujer/hombre</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3789,11 +3013,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>68006</skos:notation>
             <skos:definition xml:lang="en">Population, female (thousands)</skos:definition>
-            <rdfs:comment>2</rdfs:comment>
-            <rdfs:comment>4</rdfs:comment>
-            <rdfs:comment>5</rdfs:comment>
-            <rdfs:comment>Population, femmes (en milliers)</rdfs:comment>
-            <rdfs:comment>Población, mujeres (en miles)</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3805,12 +3024,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>38006</skos:notation>
             <skos:definition xml:lang="en">Public expenditure on education (% of GDP)</skos:definition>
-            <rdfs:comment>76406</rdfs:comment>
-            <rdfs:comment>1</rdfs:comment>
-            <rdfs:comment>304</rdfs:comment>
-            <rdfs:comment>205</rdfs:comment>
-            <rdfs:comment>Dépenses en éducation (% du PIB)</rdfs:comment>
-            <rdfs:comment>Gasto en educación (% del PIB)</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3822,11 +3035,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>83506</skos:notation>
             <skos:definition xml:lang="en">Shares in parliament, female-male ratio</skos:definition>
-            <rdfs:comment>83706</rdfs:comment>
-            <rdfs:comment>3</rdfs:comment>
-            <rdfs:comment>3604</rdfs:comment>
-            <rdfs:comment>Nombre de sièges au Parlement, rapport femme/homme</rdfs:comment>
-            <rdfs:comment>Proporción en escaños en el parlamento: relación mujer/hombre.</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3838,12 +3046,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>57506</skos:notation>
             <skos:definition xml:lang="en">Under-five mortality rate</skos:definition>
-            <rdfs:comment>75306</rdfs:comment>
-            <rdfs:comment>0</rdfs:comment>
-            <rdfs:comment>18004</rdfs:comment>
-            <rdfs:comment>2405</rdfs:comment>
-            <rdfs:comment>Taux de mortalité chez les moins de cinq ans</rdfs:comment>
-            <rdfs:comment>Tasa de mortalidad de niños menores de cinco años</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3855,11 +3057,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>68106</skos:notation>
             <skos:definition xml:lang="en">Population, male (thousands)</skos:definition>
-            <rdfs:comment>2</rdfs:comment>
-            <rdfs:comment>4</rdfs:comment>
-            <rdfs:comment>5</rdfs:comment>
-            <rdfs:comment>Population, hommes (en milliers)</rdfs:comment>
-            <rdfs:comment>Población, hombres (en miles)</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3871,11 +3068,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>306</skos:notation>
             <skos:definition xml:lang="en">Population, total both sexes (thousands)</skos:definition>
-            <rdfs:comment>1</rdfs:comment>
-            <rdfs:comment>4</rdfs:comment>
-            <rdfs:comment>5</rdfs:comment>
-            <rdfs:comment>Population, total des deux sexes (en milliers)</rdfs:comment>
-            <rdfs:comment>Población, total considerando ambos sexos (en miles)</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3887,11 +3079,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>45106</skos:notation>
             <skos:definition xml:lang="en">Population, urban (%)</skos:definition>
-            <rdfs:comment>1</rdfs:comment>
-            <rdfs:comment>20004</rdfs:comment>
-            <rdfs:comment>5205</rdfs:comment>
-            <rdfs:comment>Population urbaine (%)</rdfs:comment>
-            <rdfs:comment>Población urbana (%)</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
@@ -3903,11 +3090,6 @@
             <skos:inScheme rdf:resource="http://example.org/code/UNDP-HDRO/CL_INDICATOR"/>
             <skos:notation>98706</skos:notation>
             <skos:definition xml:lang="en">Impact of natural disasters: population affected (average per year/million)</skos:definition>
-            <rdfs:comment>0</rdfs:comment>
-            <rdfs:comment>19304</rdfs:comment>
-            <rdfs:comment>9305</rdfs:comment>
-            <rdfs:comment>Population victime de catastrophes naturelles </rdfs:comment>
-            <rdfs:comment>Población afectada por desastres naturales</rdfs:comment>
          </rdf:Description>
       </skos:hasTopConcept>
    </rdf:Description>
