@@ -383,4 +383,35 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
             </xsl:for-each>
         </rdf:RDF>
     </xsl:function>
+
+    <xsl:function name="fn:getConceptRole">
+        <xsl:param name="node"/>
+
+        <xsl:choose>
+            <xsl:when test="$node/local-name() = 'TimeDimension' or $node/@isTimeFormat">
+                <rdf:type rdf:resource="{$sdmx}TimeRole"/>
+            </xsl:when>
+            <xsl:when test="$node/@isFrequencyDimension = 'true' or $node/@isFrequencyAttribute = 'true'">
+                <rdf:type rdf:resource="{$sdmx}FrequencyRole"/>
+            </xsl:when>
+            <xsl:when test="$node/@isMeasureDimension = 'true'">
+                <rdf:type rdf:resource="{$sdmx}MeasureTypeRole"/>
+            </xsl:when>
+            <xsl:when test="$node/@isNonObservationalTimeDimension = 'true' or $node/@isNonObservationalTimeAttribute = 'true'">
+                <rdf:type rdf:resource="{$sdmx}NonObsTimeRole"/>
+            </xsl:when>
+            <xsl:when test="$node/@isEntityDimension = 'true' or $node/@isEntityAttribute = 'true'">
+                <rdf:type rdf:resource="{$sdmx}EntityRole"/>
+            </xsl:when>
+            <xsl:when test="$node/@isIdentityDimension = 'true' or $node/@isIdentityAttribute = 'true'">
+                <rdf:type rdf:resource="{$sdmx}IdentityRole"/>
+            </xsl:when>
+            <xsl:when test="$node/@isCountDimension = 'true' or $node/@isCountAttribute = 'true'">
+                <rdf:type rdf:resource="{$sdmx}CountRole"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <rdf:type rdf:resource="{$sdmx}ConceptRole"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>
 </xsl:stylesheet>

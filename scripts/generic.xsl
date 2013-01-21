@@ -156,7 +156,11 @@ Should we give any special treatment to TimeDimension even though qb currently d
                                 <rdf:Description rdf:about="{$property}{$agencyID}{$uriThingSeparator}{$conceptRef}">
                                     <rdf:type rdf:resource="{$qb}DimensionProperty"/>
                                     <rdf:type rdf:resource="{$rdf}Property"/>
-                                    <qb:concept rdf:resource="{$concept}{$agencyID}{$uriThingSeparator}{$conceptRef}"/>
+                                    <qb:concept>
+                                        <rdf:Description rdf:about="{$concept}{$agencyID}{$uriThingSeparator}{$conceptRef}">
+                                            <xsl:value-of select="fn:getConceptRole(.)"/>
+                                        </rdf:Description>
+                                    </qb:concept>
                                     <xsl:call-template name="qbCodeListrdfsRange">
                                         <xsl:with-param name="SeriesKeyConceptsData" select="$SeriesKeyConceptsData/*[name() = $conceptRef]" tunnel="yes"/>
                                     </xsl:call-template>
@@ -183,7 +187,11 @@ Consider what to do with optional <TextFormat textType="Double"/> or whatever. P
                                 <rdf:Description rdf:about="{$property}{$agencyID}{$uriThingSeparator}{@conceptRef}">
                                     <rdf:type rdf:resource="{$qb}MeasureProperty"/>
                                     <rdf:type rdf:resource="{$rdf}Property"/>
-                                    <qb:concept rdf:resource="{$concept}{$agencyID}{$uriThingSeparator}{@conceptRef}"/>
+                                    <qb:concept>
+                                        <rdf:Description rdf:about="{$concept}{$agencyID}{$uriThingSeparator}{$conceptRef}">
+                                                <rdf:type rdf:resource="{$sdmx}PrimaryMeasureRole"/>
+                                        </rdf:Description>
+                                    </qb:concept>
                                     <xsl:call-template name="qbCodeListrdfsRange">
                                         <xsl:with-param name="SeriesKeyConceptsData" select="$SeriesKeyConceptsData/*[name() = $conceptRef]" tunnel="yes"/>
                                     </xsl:call-template>
@@ -204,7 +212,11 @@ Multiple measures
                                 <rdf:Description rdf:about="{$property}{$agencyID}{$uriThingSeparator}{@conceptRef}">
                                     <rdf:type rdf:resource="{$qb}AttributeProperty"/>
                                     <rdf:type rdf:resource="{$rdf}Property"/>
-                                    <qb:concept rdf:resource="{$concept}{$agencyID}{$uriThingSeparator}{@conceptRef}"/>
+                                    <qb:concept>
+                                        <rdf:Description rdf:about="{$concept}{$agencyID}{$uriThingSeparator}{$conceptRef}">
+                                            <xsl:value-of select="fn:getConceptRole(.)"/>
+                                        </rdf:Description>
+                                    </qb:concept>
                                     <xsl:call-template name="qbCodeListrdfsRange">
                                         <xsl:with-param name="SeriesKeyConceptsData" select="$SeriesKeyConceptsData/*[name() = $conceptRef]" tunnel="yes"/>
                                     </xsl:call-template>
@@ -237,9 +249,6 @@ FIXME: Is this somehow for qb:Dimension?
                         </xsl:when>
 
                         <xsl:otherwise>
-                            <xsl:message>
-                                <xsl:text>FIXME: Unknown local-name() = '</xsl:text><xsl:value-of select="local-name()"/><xsl:text>' to use for qb:component.</xsl:text>
-                            </xsl:message>
                         </xsl:otherwise>
                     </xsl:choose>
                 </qb:ComponentSpecification>
@@ -595,10 +604,6 @@ XXX:
 
 
     <xsl:template name="DataSets">
-<!--
-TODO: DataSets may be sent with message:MessageGroup
--->
-
         <xsl:for-each select="*/*[local-name() = 'DataSet']">
             <xsl:variable name="KeyFamilyRef">
                 <xsl:choose>
@@ -606,7 +611,7 @@ TODO: DataSets may be sent with message:MessageGroup
                         <xsl:value-of select="generic:KeyFamilyRef"/>
                     </xsl:when>
 <!--
-XXX: Fallback: KeyfamilyRef may not exist.
+XXX: Fallback: KeyfamilyRef may not exist. But this is inaccurate if there are multiple KeyFamilies
 -->
                     <xsl:otherwise>
                         <xsl:value-of select="$genericStructure/KeyFamilies/structure:KeyFamily[1]/@id"/>
@@ -655,6 +660,10 @@ This dataset URI needs to be unique
                 <xsl:if test="@datasetID">
                     <skos:notation><xsl:value-of select="@datasetID"/></skos:notation>
                 </xsl:if>
+
+<!--
+XXX: do something about @keyFamilyURI?
+-->
             </rdf:Description>
 
 <!--
