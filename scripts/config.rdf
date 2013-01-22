@@ -110,8 +110,8 @@
         </rdf:value>
         <rdf:value>
           <rdf:Description>
-            <rdf:predicate>xkos:isPartOf</rdf:predicate>
-            <rdf:type>http://example.org/code/AGENCY/CODELIST</rdf:type>
+            <rdf:predicate>skos:altLabel</rdf:predicate>
+            <rdf:type>XMLLiteral</rdf:type>
             <rdfs:label>Y</rdfs:label>
           </rdf:Description>
         </rdf:value>
