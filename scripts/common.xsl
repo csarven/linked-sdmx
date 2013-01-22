@@ -93,7 +93,7 @@
             <xsl:for-each select="common:AnnotationText">
                 <xsl:element name="{$rdfPredicate}" namespace="{fn:getConfig(tokenize($rdfPredicate, ':')[1])}">
                     <xsl:choose>
-                        <xsl:when test="$rdfType = 'XMLLiteral'">
+                        <xsl:when test="$rdfType = 'Literal'">
                             <xsl:call-template name="langTextNode"/>
                         </xsl:when>
                         <xsl:otherwise>
