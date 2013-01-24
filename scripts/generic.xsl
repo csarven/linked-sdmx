@@ -727,7 +727,6 @@ Excluding 'FREQ' is a bit grubby?
                                 <xsl:variable name="concept" select="@concept"/>
                                 <xsl:call-template name="ObsProperty">
                                     <xsl:with-param name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[name() = $concept]"/>
-                                    <xsl:with-param name="concept" select="$concept"/>
                                     <xsl:with-param name="value" select="@value"/>
                                 </xsl:call-template>
                             </xsl:for-each>
@@ -765,7 +764,6 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
                     <xsl:variable name="concept" select="@concept"/>
                     <xsl:call-template name="ObsProperty">
                         <xsl:with-param name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[name() = $concept]"/>
-                        <xsl:with-param name="concept" select="$concept"/>
                         <xsl:with-param name="value" select="@value"/>
                     </xsl:call-template>
                 </xsl:for-each>
@@ -787,7 +785,6 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
                         <xsl:variable name="concept" select="@concept"/>
                         <xsl:call-template name="ObsProperty">
                             <xsl:with-param name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[name() = $concept]"/>
-                            <xsl:with-param name="concept" select="$concept"/>
                             <xsl:with-param name="value" select="@value"/>
                         </xsl:call-template>
                     </xsl:for-each>
@@ -820,7 +817,6 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
                         <xsl:variable name="concept" select="@concept"/>
                         <xsl:call-template name="ObsProperty">
                             <xsl:with-param name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[name() = $concept]"/>
-                            <xsl:with-param name="concept" select="$concept"/>
                             <xsl:with-param name="value" select="@value"/>
                         </xsl:call-template>
                     </xsl:for-each>
@@ -834,8 +830,9 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
 
     <xsl:template name="ObsProperty">
         <xsl:param name="SeriesKeyConcept"/>
-        <xsl:param name="concept"/>
         <xsl:param name="value"/>
+
+        <xsl:variable name="concept" select="$SeriesKeyConcept/name()"/>
 
         <xsl:element name="property:{$concept}" namespace="{$property}{$SeriesKeyConcept/@conceptAgencyURI}">
             <xsl:choose>
