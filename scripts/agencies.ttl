@@ -27,5 +27,5 @@
 <http://ESTAT.270a.info/>
     skos:notation "ESTAT", "EUROSTAT" .
 <http://CH1.270a.info/>
-    skos:notation "CH1" , "OFS" , "FSO" , "UST" , "OFS" .
+    skos:notation "CH1" , "FSO" , "BFS", "OFS" , "UST" .
 
