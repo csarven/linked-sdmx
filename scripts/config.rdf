@@ -41,7 +41,7 @@
     </rdf:value>
     <rdf:value>
       <rdf:Description>
-        <rdf:value>EUROSTAT</rdf:value>
+        <rdf:value>EXAMPLE</rdf:value>
         <rdfs:label>agency</rdfs:label>
       </rdf:Description>
     </rdf:value>
