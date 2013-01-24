@@ -29,31 +29,35 @@
     <xsl:variable name="SDMXCode" select="document($pathToSDMXCode)/rdf:RDF"/>
     <xsl:variable name="pathToConfig"><xsl:text>./config.rdf</xsl:text></xsl:variable>
     <xsl:variable name="Config" select="document($pathToConfig)/rdf:RDF"/>
+    <xsl:variable name="pathToAgencies"><xsl:text>./agencies.rdf</xsl:text></xsl:variable>
+    <xsl:variable name="Agencies" select="document($pathToAgencies)/rdf:RDF"/>
+    <xsl:variable name="agency" select="fn:getConfig('agency')"/>
+    <xsl:variable name="agencyURI" select="$Agencies/rdf:Description[skos:notation = $agency]/@rdf:about"/>
     <xsl:variable name="ConfigInterlinkAnnotationTypes" select="$Config/rdf:Description/rdf:value/rdf:Description[rdfs:label = 'interlinkAnnotationTypes']/rdf:value/rdf:Description"/>
     <xsl:variable name="xmlDocumentBaseUri" select="fn:getConfig('xmlDocumentBaseUri')"/>
     <xsl:variable name="xslDocument" select="fn:getConfig('xslDocument')"/>
     <xsl:variable name="now" select="fn:now()"/>
-    <xsl:variable name="rdf" select="fn:getConfig('rdf')"/>
-    <xsl:variable name="rdfs" select="fn:getConfig('rdfs')"/>
-    <xsl:variable name="owl" select="fn:getConfig('owl')"/>
-    <xsl:variable name="xsd" select="fn:getConfig('xsd')"/>
-    <xsl:variable name="qb" select="fn:getConfig('qb')"/>
-    <xsl:variable name="skos" select="fn:getConfig('skos')"/>
-    <xsl:variable name="xkos" select="fn:getConfig('xkos')"/>
-    <xsl:variable name="sdmx" select="fn:getConfig('sdmx')"/>
-    <xsl:variable name="prov" select="fn:getConfig('prov')"/>
-    <xsl:variable name="provenance" select="fn:getConfig('provenance')"/>
-    <xsl:variable name="lang" select="fn:getConfig('lang')"/>
+    <xsl:variable name="rdf" select="'http://www.w3.org/1999/02/22-rdf-syntax-ns#'"/>
+    <xsl:variable name="rdfs" select="'http://www.w3.org/2000/01/rdf-schema#'"/>
+    <xsl:variable name="owl" select="'http://www.w3.org/2002/07/owl#'"/>
+    <xsl:variable name="xsd" select="'http://www.w3.org/2001/XMLSchema#'"/>
+    <xsl:variable name="qb" select="'http://purl.org/linked-data/cube#'"/>
+    <xsl:variable name="skos" select="'http://www.w3.org/2004/02/skos/core#'"/>
+    <xsl:variable name="xkos" select="'http://purl.org/linked-data/xkos#'"/>
+    <xsl:variable name="sdmx" select="'http://purl.org/linked-data/sdmx#'"/>
+    <xsl:variable name="prov" select="'http://www.w3.org/ns/prov#'"/>
     <xsl:variable name="creator" select="fn:getConfig('creator')"/>
-    <xsl:variable name="baseuri" select="fn:getConfig('baseuri')"/>
-    <xsl:variable name="concept" select="fn:getConfig('concept')"/>
-    <xsl:variable name="code" select="fn:getConfig('code')"/>
-    <xsl:variable name="class" select="fn:getConfig('class')"/>
-    <xsl:variable name="property" select="fn:getConfig('property')"/>
-    <xsl:variable name="dataset" select="fn:getConfig('dataset')"/>
-    <xsl:variable name="slice" select="fn:getConfig('slice')"/>
+    <xsl:variable name="lang" select="fn:getConfig('lang')"/>
     <xsl:variable name="uriThingSeparator" select="fn:getConfig('uriThingSeparator')"/>
     <xsl:variable name="uriDimensionSeparator" select="fn:getConfig('uriDimensionSeparator')"/>
+    <xsl:variable name="provenance" select="concat($agencyURI, 'prov', $uriThingSeparator)"/>
+    <xsl:variable name="concept" select="concat($agencyURI, 'concept', $uriThingSeparator)"/>
+    <xsl:variable name="code" select="concat($agencyURI, 'code')"/>
+    <xsl:variable name="class" select="concat($agencyURI, 'class', $uriThingSeparator)"/>
+    <xsl:variable name="property" select="concat($agencyURI, 'property', $uriThingSeparator)"/>
+    <xsl:variable name="dataset" select="concat($agencyURI, 'dataset')"/>
+    <xsl:variable name="slice" select="concat($agencyURI, 'slice', $uriThingSeparator)"/>
+
     <xsl:variable name="interlinkAnnotationTypes" select="fn:getConfig('interlinkAnnotationTypes')"/>
 
     <xsl:template name="langTextNode">
@@ -162,12 +166,33 @@
                         </xsl:choose>
                     </xsl:variable>
 
-                    <qb:codeList rdf:resource="{$code}{$codelistAgency}{$uriThingSeparator}{$codelist}{$uriValidFromToSeparator}"/>
-                    <rdfs:range rdf:resource="{$class}{$codelistAgency}{$uriThingSeparator}{$codelist}{$uriValidFromToSeparator}"/>
+                    <qb:codeList rdf:resource="{fn:getComponentURI('code', $codelistAgency)}{$codelist}{$uriValidFromToSeparator}"/>
+                    <rdfs:range rdf:resource="{fn:getComponentURI('class', $codelistAgency)}{$codelist}{$uriValidFromToSeparator}"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:if>
     </xsl:template>
+
+    <xsl:function name="fn:getAgencyURI">
+        <xsl:param name="agency"/>
+
+        <xsl:value-of select="$Agencies/rdf:Description[skos:notation = $agency]/@rdf:about"/>
+    </xsl:function>
+
+    <xsl:function name="fn:getComponentURI">
+        <xsl:param name="component"/>
+        <xsl:param name="agency"/>
+
+        <xsl:variable name="uri" select="fn:getAgencyURI($agency)"/>
+        <xsl:choose>
+            <xsl:when test="$uri">
+                <xsl:value-of select="concat($uri, $component, $uriThingSeparator)"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="concat($agencyURI, $component, $uriThingSeparator)"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>
 
     <xsl:function name="fn:normalizeSDMXCodeListID">
         <xsl:param name="codelist"/>

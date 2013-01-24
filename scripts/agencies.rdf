@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+  <rdf:Description rdf:about="http://1C0.270a.info/">
+    <skos:notation>1C0</skos:notation>
+    <skos:notation>IMF</skos:notation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://1J0.270a.info/">
+    <skos:notation>1J0</skos:notation>
+    <skos:notation>FAO</skos:notation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://4F0.270a.info/">
+    <skos:notation>4F0</skos:notation>
+    <skos:notation>ECB</skos:notation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://5A0.270a.info/">
+    <skos:notation>5A0</skos:notation>
+    <skos:notation>OECD</skos:notation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://5B0.270a.info/">
+    <skos:notation>5B0</skos:notation>
+    <skos:notation>BIS</skos:notation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://CH1.270a.info/">
+    <skos:notation>CH1</skos:notation>
+    <skos:notation>FSO</skos:notation>
+    <skos:notation>OFS</skos:notation>
+    <skos:notation>UST</skos:notation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ESTAT.270a.info/">
+    <skos:notation>ESTAT</skos:notation>
+    <skos:notation>EUROSTAT</skos:notation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://WB.270a.info/">
+    <skos:notation>WB</skos:notation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/">
+    <skos:notation>EXAMPLE</skos:notation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://un.270a.info/">
+    <skos:notation>UN</skos:notation>
+  </rdf:Description>
+</rdf:RDF>

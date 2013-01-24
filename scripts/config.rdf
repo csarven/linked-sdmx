@@ -35,14 +35,14 @@
     </rdf:value>
     <rdf:value>
       <rdf:Description>
-        <rdf:value>http://example.org/#i</rdf:value>
+        <rdf:value>http://csarven.ca/#i</rdf:value>
         <rdfs:label>creator</rdfs:label>
       </rdf:Description>
     </rdf:value>
     <rdf:value>
       <rdf:Description>
-        <rdf:value>http://example.org/</rdf:value>
-        <rdfs:label>baseuri</rdfs:label>
+        <rdf:value>EUROSTAT</rdf:value>
+        <rdfs:label>agency</rdfs:label>
       </rdf:Description>
     </rdf:value>
     <rdf:value>
@@ -53,69 +53,27 @@
     </rdf:value>
     <rdf:value>
       <rdf:Description>
-        <rdf:value>http://example.org/prov/</rdf:value>
-        <rdfs:label>provenance</rdfs:label>
-      </rdf:Description>
-    </rdf:value>
-    <rdf:value>
-      <rdf:Description>
-        <rdf:value>http://example.org/class/</rdf:value>
-        <rdfs:label>class</rdfs:label>
-      </rdf:Description>
-    </rdf:value>
-    <rdf:value>
-      <rdf:Description>
-        <rdf:value>http://example.org/code/</rdf:value>
-        <rdfs:label>code</rdfs:label>
-      </rdf:Description>
-    </rdf:value>
-    <rdf:value>
-      <rdf:Description>
-        <rdf:value>http://www.w3.org/1999/02/22-rdf-syntax-ns#</rdf:value>
-        <rdfs:label>rdf</rdfs:label>
-      </rdf:Description>
-    </rdf:value>
-    <rdf:value>
-      <rdf:Description>
-        <rdf:value>http://example.org/concept/</rdf:value>
-        <rdfs:label>concept</rdfs:label>
-      </rdf:Description>
-    </rdf:value>
-    <rdf:value>
-      <rdf:Description>
-        <rdf:value>http://example.org/property/</rdf:value>
-        <rdfs:label>property</rdfs:label>
-      </rdf:Description>
-    </rdf:value>
-    <rdf:value>
-      <rdf:Description>
-        <rdf:value>http://example.org/dataset/</rdf:value>
-        <rdfs:label>dataset</rdfs:label>
-      </rdf:Description>
-    </rdf:value>
-    <rdf:value>
-      <rdf:Description>
-        <rdf:value>http://example.org/slice/</rdf:value>
-        <rdfs:label>slice</rdfs:label>
-      </rdf:Description>
-    </rdf:value>
-    <rdf:value>
-      <rdf:Description>
         <rdf:value>
           <rdf:Description>
             <rdf:predicate>xkos:hasPart</rdf:predicate>
-            <rdf:type>http://example.org/code/AGENCY/CODELIST</rdf:type>
+            <rdf:type>http://example.org/code/CODELIST</rdf:type>
             <rdfs:label>X</rdfs:label>
           </rdf:Description>
         </rdf:value>
         <rdf:value>
           <rdf:Description>
             <rdf:predicate>skos:altLabel</rdf:predicate>
-            <rdf:type>XMLLiteral</rdf:type>
-            <rdfs:label>Y</rdfs:label>
+            <rdf:type>Literal</rdf:type>
+            <rdfs:label>ABBREV</rdfs:label>
           </rdf:Description>
         </rdf:value>
         <rdfs:label>interlinkAnnotationTypes</rdfs:label>
+      </rdf:Description>
+    </rdf:value>
+    <rdf:value>
+      <rdf:Description>
+        <rdf:value>http://www.w3.org/1999/02/22-rdf-syntax-ns#</rdf:value>
+        <rdfs:label>rdf</rdfs:label>
       </rdf:Description>
     </rdf:value>
     <rdf:value>
