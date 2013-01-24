@@ -239,7 +239,7 @@ structure:AttachmentGroup is "to indicate which declared group or groups the att
 <!--
 FIXME: Is this somehow for qb:Dimension?
 -->
-                                    <qb:componentAttachment rdf:resource="{$qb}Dimension"/>
+                                    <qb:componentAttachment rdf:resource="{$qb}Observation"/>
                                 </xsl:when>
 
                                 <xsl:otherwise>
@@ -670,7 +670,7 @@ XXX: do something about @keyFamilyURI?
 <!--
 XXX: This is currently a flat version. Needs to be reviewed.
 
-TODO: generic:Attributes
+TODO: generic:Attributes - this is apparently repeated in the Series says the spec. In that case it is already being treated like a attachmentLevel at Observation.
 -->
                 <xsl:call-template name="GenericSeries">
                     <xsl:with-param name="KeyFamily" select="$KeyFamily" tunnel="yes"/>
@@ -760,6 +760,16 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
         </xsl:variable>
 -->
 
+            <xsl:variable name="GenericAttributes">
+                <xsl:for-each select="generic:Attributes/generic:Value">
+                    <xsl:variable name="concept" select="@concept"/>
+                    <xsl:call-template name="ObsProperty">
+                        <xsl:with-param name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[name() = $concept]"/>
+                        <xsl:with-param name="concept" select="$concept"/>
+                        <xsl:with-param name="value" select="@value"/>
+                    </xsl:call-template>
+                </xsl:for-each>
+            </xsl:variable>
 
             <xsl:for-each select="generic:Obs">
                 <xsl:variable name="ObsTime" select="replace(generic:Time, '\s+', '')"/>
@@ -814,6 +824,8 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
                             <xsl:with-param name="value" select="@value"/>
                         </xsl:call-template>
                     </xsl:for-each>
+
+                    <xsl:copy-of select="$GenericAttributes/*"/>
                 </rdf:Description>
             </xsl:for-each>
         </xsl:for-each>
