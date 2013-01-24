@@ -832,9 +832,7 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
         <xsl:param name="SeriesKeyConcept"/>
         <xsl:param name="value"/>
 
-        <xsl:variable name="concept" select="$SeriesKeyConcept/name()"/>
-
-        <xsl:element name="property:{$concept}" namespace="{$property}{$SeriesKeyConcept/@conceptAgencyURI}">
+        <xsl:element name="property:{$SeriesKeyConcept/name()}" namespace="{$property}{$SeriesKeyConcept/@conceptAgencyURI}">
             <xsl:choose>
                 <xsl:when test="$SeriesKeyConcept/@codelistAgency != ''">
                     <xsl:attribute name="rdf:resource">
