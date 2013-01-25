@@ -13,7 +13,7 @@ XSLT 2.0 templates and scripts to transform Generic [SDMX 2.0](http://sdmx.org/?
 ## What can it do?
 * Transforms SDMX KeyFamilies, ConceptSchemes and Concepts, CodeLists and Codes, Hierarchical CodeLists, DataSets.
 * Configurability for SDMX publisher's needs.
-* Reuse of CodeLists and Codes of external agencies (SDMX-RDF).
+* Reuse of CodeLists and Codes from external agencies.
 * A way to interlink AnnotationTypes.
 * Provides basic provenance data using PROV-O.
 
