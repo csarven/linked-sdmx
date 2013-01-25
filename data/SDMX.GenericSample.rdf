@@ -18,25 +18,242 @@
          xmlns:sdmx-concept="http://purl.org/linked-data/sdmx/2009/concept#"
          xmlns:sdmx-dimension="http://purl.org/linked-data/sdmx/2009/dimension#"
          xmlns:property="http://example.org/property/">
-   <rdf:Description rdf:about="http://example.org/#i">
+   <rdf:Description rdf:about="http://csarven.ca/#i">
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Agent"/>
    </rdf:Description>
-   <rdf:Description rdf:about="http://example.org/prov/activity/20130121155611">
+   <rdf:Description rdf:about="http://example.org/prov/activity/20130125132659">
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
-      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-21T15:56:11Z</prov:startedAtTime>
+      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-25T13:26:59Z</prov:startedAtTime>
       <prov:used rdf:resource="http://example.org/data/SDMX.GenericSample.xml"/>
       <prov:used rdf:resource="http://example.org/data/SDMX.StructureSample.xml"/>
       <prov:used rdf:resource="https://raw.github.com/csarven/sdmx-to-qb/master/scripts/generic.xsl"/>
       <prov:generated>
-         <rdf:Description rdf:about="http://example.org/dataset/BIS/BIS_JOINT_DEBT">
+         <rdf:Description rdf:about="http://example.org/dataset/BIS_JOINT_DEBT">
             <prov:wasDerivedFrom rdf:resource="http://example.org/data/SDMX.GenericSample.xml"/>
          </rdf:Description>
       </prov:generated>
    </rdf:Description>
-   <rdf:Description rdf:about="http://example.org/dataset/BIS/BIS_JOINT_DEBT">
+   <rdf:Description rdf:about="http://example.org/dataset/BIS_JOINT_DEBT">
       <rdf:type rdf:resource="http://purl.org/linked-data/cube#DataSet"/>
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-      <prov:wasAttributedTo rdf:resource="http://example.org/#i"/>
-      <qb:structure rdf:resource="http://example.org/dataset/BIS/BIS_JOINT_DEBT/structure"/>
+      <prov:wasAttributedTo rdf:resource="http://csarven.ca/#i"/>
+      <qb:structure rdf:resource="http://example.org/datasetBIS/BIS_JOINT_DEBT/structure"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.org/dataset/BIS_JOINT_DEBT">
+      <qb:slice>
+         <rdf:Description rdf:about="http://example.org/slice/BIS_JOINT_DEBT/P/A/MX">
+            <rdf:type rdf:resource="http://purl.org/linked-data/cube#Slice"/>
+            <qb:sliceStructure rdf:resource="http://example.org/slice/BIS/SiblingGroup"/>
+            <property:JD_TYPE rdf:resource="http://5B0.270a.info/code/CL_JD_TYPE/P"/>
+            <property:JD_CATEGORY rdf:resource="http://5B0.270a.info/code/CL_JD_CATEGORY/A"/>
+            <property:VIS_CTY rdf:resource="http://5B0.270a.info/code/CL_BIS_IF_REF_AREA/MX"/>
+            <qb:observation rdf:resource="http://example.org/dataset/BIS_JOINT_DEBT/M/P/A/MX/2000-01"/>
+            <qb:observation rdf:resource="http://example.org/dataset/BIS_JOINT_DEBT/M/P/A/MX/2000-02"/>
+            <qb:observation rdf:resource="http://example.org/dataset/BIS_JOINT_DEBT/M/P/A/MX/2000-03"/>
+            <qb:observation rdf:resource="http://example.org/dataset/BIS_JOINT_DEBT/M/P/A/MX/2000-04"/>
+            <qb:observation rdf:resource="http://example.org/dataset/BIS_JOINT_DEBT/M/P/A/MX/2000-05"/>
+            <qb:observation rdf:resource="http://example.org/dataset/BIS_JOINT_DEBT/M/P/A/MX/2000-06"/>
+            <qb:observation rdf:resource="http://example.org/dataset/BIS_JOINT_DEBT/M/P/A/MX/2000-07"/>
+            <qb:observation rdf:resource="http://example.org/dataset/BIS_JOINT_DEBT/M/P/A/MX/2000-08"/>
+            <qb:observation rdf:resource="http://example.org/dataset/BIS_JOINT_DEBT/M/P/A/MX/2000-09"/>
+            <qb:observation rdf:resource="http://example.org/dataset/BIS_JOINT_DEBT/M/P/A/MX/2000-10"/>
+            <qb:observation rdf:resource="http://example.org/dataset/BIS_JOINT_DEBT/M/P/A/MX/2000-11"/>
+            <qb:observation rdf:resource="http://example.org/dataset/BIS_JOINT_DEBT/M/P/A/MX/2000-12"/>
+         </rdf:Description>
+      </qb:slice>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.org/dataset/BIS_JOINT_DEBT/M/P/A/MX/2000-01">
+      <rdf:type rdf:resource="http://purl.org/linked-data/cube#Observation"/>
+      <qb:dataSet rdf:resource="http://example.org/dataset/BIS_JOINT_DEBT"/>
+      <property:FREQ rdf:resource="http://5B0.270a.info/code/CL_FREQ/M"/>
+      <property:JD_TYPE rdf:resource="http://5B0.270a.info/code/CL_JD_TYPE/P"/>
+      <property:JD_CATEGORY rdf:resource="http://5B0.270a.info/code/CL_JD_CATEGORY/A"/>
+      <property:VIS_CTY rdf:resource="http://5B0.270a.info/code/CL_BIS_IF_REF_AREA/MX"/>
+      <property:TIME xmlns:property="http://example.org/property/BIS/">2000-01</property:TIME>
+      <property:OBS_VALUE xmlns:property="http://example.org/property/BIS/"
+                          rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.14</property:OBS_VALUE>
+      <property:OBS_STATUS rdf:resource="http://5B0.270a.info/code/CL_OBS_STATUS/A"/>
+      <property:COLLECTION rdf:resource="http://5B0.270a.info/code/CL_COLLECTION/B"/>
+      <property:TIME_FORMAT rdf:resource="http://5B0.270a.info/code/CL_TIME_FORMAT/P1M"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.org/dataset/BIS_JOINT_DEBT/M/P/A/MX/2000-02">
+      <rdf:type rdf:resource="http://purl.org/linked-data/cube#Observation"/>
+      <qb:dataSet rdf:resource="http://example.org/dataset/BIS_JOINT_DEBT"/>
+      <property:FREQ rdf:resource="http://5B0.270a.info/code/CL_FREQ/M"/>
+      <property:JD_TYPE rdf:resource="http://5B0.270a.info/code/CL_JD_TYPE/P"/>
+      <property:JD_CATEGORY rdf:resource="http://5B0.270a.info/code/CL_JD_CATEGORY/A"/>
+      <property:VIS_CTY rdf:resource="http://5B0.270a.info/code/CL_BIS_IF_REF_AREA/MX"/>
+      <property:TIME xmlns:property="http://example.org/property/BIS/">2000-02</property:TIME>
+      <property:OBS_VALUE xmlns:property="http://example.org/property/BIS/"
+                          rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.14</property:OBS_VALUE>
+      <property:OBS_STATUS rdf:resource="http://5B0.270a.info/code/CL_OBS_STATUS/A"/>
+      <property:COLLECTION rdf:resource="http://5B0.270a.info/code/CL_COLLECTION/B"/>
+      <property:TIME_FORMAT rdf:resource="http://5B0.270a.info/code/CL_TIME_FORMAT/P1M"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.org/dataset/BIS_JOINT_DEBT/M/P/A/MX/2000-03">
+      <rdf:type rdf:resource="http://purl.org/linked-data/cube#Observation"/>
+      <qb:dataSet rdf:resource="http://example.org/dataset/BIS_JOINT_DEBT"/>
+      <property:FREQ rdf:resource="http://5B0.270a.info/code/CL_FREQ/M"/>
+      <property:JD_TYPE rdf:resource="http://5B0.270a.info/code/CL_JD_TYPE/P"/>
+      <property:JD_CATEGORY rdf:resource="http://5B0.270a.info/code/CL_JD_CATEGORY/A"/>
+      <property:VIS_CTY rdf:resource="http://5B0.270a.info/code/CL_BIS_IF_REF_AREA/MX"/>
+      <property:TIME xmlns:property="http://example.org/property/BIS/">2000-03</property:TIME>
+      <property:OBS_VALUE xmlns:property="http://example.org/property/BIS/"
+                          rdf:datatype="http://www.w3.org/2001/XMLSchema#double">4.29</property:OBS_VALUE>
+      <property:OBS_STATUS rdf:resource="http://5B0.270a.info/code/CL_OBS_STATUS/A"/>
+      <property:COLLECTION rdf:resource="http://5B0.270a.info/code/CL_COLLECTION/B"/>
+      <property:TIME_FORMAT rdf:resource="http://5B0.270a.info/code/CL_TIME_FORMAT/P1M"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.org/dataset/BIS_JOINT_DEBT/M/P/A/MX/2000-04">
+      <rdf:type rdf:resource="http://purl.org/linked-data/cube#Observation"/>
+      <qb:dataSet rdf:resource="http://example.org/dataset/BIS_JOINT_DEBT"/>
+      <property:FREQ rdf:resource="http://5B0.270a.info/code/CL_FREQ/M"/>
+      <property:JD_TYPE rdf:resource="http://5B0.270a.info/code/CL_JD_TYPE/P"/>
+      <property:JD_CATEGORY rdf:resource="http://5B0.270a.info/code/CL_JD_CATEGORY/A"/>
+      <property:VIS_CTY rdf:resource="http://5B0.270a.info/code/CL_BIS_IF_REF_AREA/MX"/>
+      <property:TIME xmlns:property="http://example.org/property/BIS/">2000-04</property:TIME>
+      <property:OBS_VALUE xmlns:property="http://example.org/property/BIS/"
+                          rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.04</property:OBS_VALUE>
+      <property:OBS_STATUS rdf:resource="http://5B0.270a.info/code/CL_OBS_STATUS/A"/>
+      <property:COLLECTION rdf:resource="http://5B0.270a.info/code/CL_COLLECTION/B"/>
+      <property:TIME_FORMAT rdf:resource="http://5B0.270a.info/code/CL_TIME_FORMAT/P1M"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.org/dataset/BIS_JOINT_DEBT/M/P/A/MX/2000-05">
+      <rdf:type rdf:resource="http://purl.org/linked-data/cube#Observation"/>
+      <qb:dataSet rdf:resource="http://example.org/dataset/BIS_JOINT_DEBT"/>
+      <property:FREQ rdf:resource="http://5B0.270a.info/code/CL_FREQ/M"/>
+      <property:JD_TYPE rdf:resource="http://5B0.270a.info/code/CL_JD_TYPE/P"/>
+      <property:JD_CATEGORY rdf:resource="http://5B0.270a.info/code/CL_JD_CATEGORY/A"/>
+      <property:VIS_CTY rdf:resource="http://5B0.270a.info/code/CL_BIS_IF_REF_AREA/MX"/>
+      <property:TIME xmlns:property="http://example.org/property/BIS/">2000-05</property:TIME>
+      <property:OBS_VALUE xmlns:property="http://example.org/property/BIS/"
+                          rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5.18</property:OBS_VALUE>
+      <property:OBS_STATUS rdf:resource="http://5B0.270a.info/code/CL_OBS_STATUS/A"/>
+      <property:COLLECTION rdf:resource="http://5B0.270a.info/code/CL_COLLECTION/B"/>
+      <property:TIME_FORMAT rdf:resource="http://5B0.270a.info/code/CL_TIME_FORMAT/P1M"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.org/dataset/BIS_JOINT_DEBT/M/P/A/MX/2000-06">
+      <rdf:type rdf:resource="http://purl.org/linked-data/cube#Observation"/>
+      <qb:dataSet rdf:resource="http://example.org/dataset/BIS_JOINT_DEBT"/>
+      <property:FREQ rdf:resource="http://5B0.270a.info/code/CL_FREQ/M"/>
+      <property:JD_TYPE rdf:resource="http://5B0.270a.info/code/CL_JD_TYPE/P"/>
+      <property:JD_CATEGORY rdf:resource="http://5B0.270a.info/code/CL_JD_CATEGORY/A"/>
+      <property:VIS_CTY rdf:resource="http://5B0.270a.info/code/CL_BIS_IF_REF_AREA/MX"/>
+      <property:TIME xmlns:property="http://example.org/property/BIS/">2000-06</property:TIME>
+      <property:OBS_VALUE xmlns:property="http://example.org/property/BIS/"
+                          rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5.07</property:OBS_VALUE>
+      <property:OBS_STATUS rdf:resource="http://5B0.270a.info/code/CL_OBS_STATUS/A"/>
+      <property:COLLECTION rdf:resource="http://5B0.270a.info/code/CL_COLLECTION/B"/>
+      <property:TIME_FORMAT rdf:resource="http://5B0.270a.info/code/CL_TIME_FORMAT/P1M"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.org/dataset/BIS_JOINT_DEBT/M/P/A/MX/2000-07">
+      <rdf:type rdf:resource="http://purl.org/linked-data/cube#Observation"/>
+      <qb:dataSet rdf:resource="http://example.org/dataset/BIS_JOINT_DEBT"/>
+      <property:FREQ rdf:resource="http://5B0.270a.info/code/CL_FREQ/M"/>
+      <property:JD_TYPE rdf:resource="http://5B0.270a.info/code/CL_JD_TYPE/P"/>
+      <property:JD_CATEGORY rdf:resource="http://5B0.270a.info/code/CL_JD_CATEGORY/A"/>
+      <property:VIS_CTY rdf:resource="http://5B0.270a.info/code/CL_BIS_IF_REF_AREA/MX"/>
+      <property:TIME xmlns:property="http://example.org/property/BIS/">2000-07</property:TIME>
+      <property:OBS_VALUE xmlns:property="http://example.org/property/BIS/"
+                          rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.13</property:OBS_VALUE>
+      <property:OBS_STATUS rdf:resource="http://5B0.270a.info/code/CL_OBS_STATUS/A"/>
+      <property:COLLECTION rdf:resource="http://5B0.270a.info/code/CL_COLLECTION/B"/>
+      <property:TIME_FORMAT rdf:resource="http://5B0.270a.info/code/CL_TIME_FORMAT/P1M"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.org/dataset/BIS_JOINT_DEBT/M/P/A/MX/2000-08">
+      <rdf:type rdf:resource="http://purl.org/linked-data/cube#Observation"/>
+      <qb:dataSet rdf:resource="http://example.org/dataset/BIS_JOINT_DEBT"/>
+      <property:FREQ rdf:resource="http://5B0.270a.info/code/CL_FREQ/M"/>
+      <property:JD_TYPE rdf:resource="http://5B0.270a.info/code/CL_JD_TYPE/P"/>
+      <property:JD_CATEGORY rdf:resource="http://5B0.270a.info/code/CL_JD_CATEGORY/A"/>
+      <property:VIS_CTY rdf:resource="http://5B0.270a.info/code/CL_BIS_IF_REF_AREA/MX"/>
+      <property:TIME xmlns:property="http://example.org/property/BIS/">2000-08</property:TIME>
+      <property:OBS_VALUE xmlns:property="http://example.org/property/BIS/"
+                          rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.17</property:OBS_VALUE>
+      <property:OBS_STATUS rdf:resource="http://5B0.270a.info/code/CL_OBS_STATUS/A"/>
+      <property:COLLECTION rdf:resource="http://5B0.270a.info/code/CL_COLLECTION/B"/>
+      <property:TIME_FORMAT rdf:resource="http://5B0.270a.info/code/CL_TIME_FORMAT/P1M"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.org/dataset/BIS_JOINT_DEBT/M/P/A/MX/2000-09">
+      <rdf:type rdf:resource="http://purl.org/linked-data/cube#Observation"/>
+      <qb:dataSet rdf:resource="http://example.org/dataset/BIS_JOINT_DEBT"/>
+      <property:FREQ rdf:resource="http://5B0.270a.info/code/CL_FREQ/M"/>
+      <property:JD_TYPE rdf:resource="http://5B0.270a.info/code/CL_JD_TYPE/P"/>
+      <property:JD_CATEGORY rdf:resource="http://5B0.270a.info/code/CL_JD_CATEGORY/A"/>
+      <property:VIS_CTY rdf:resource="http://5B0.270a.info/code/CL_BIS_IF_REF_AREA/MX"/>
+      <property:TIME xmlns:property="http://example.org/property/BIS/">2000-09</property:TIME>
+      <property:OBS_VALUE xmlns:property="http://example.org/property/BIS/"
+                          rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.14</property:OBS_VALUE>
+      <property:OBS_STATUS rdf:resource="http://5B0.270a.info/code/CL_OBS_STATUS/A"/>
+      <property:COLLECTION rdf:resource="http://5B0.270a.info/code/CL_COLLECTION/B"/>
+      <property:TIME_FORMAT rdf:resource="http://5B0.270a.info/code/CL_TIME_FORMAT/P1M"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.org/dataset/BIS_JOINT_DEBT/M/P/A/MX/2000-10">
+      <rdf:type rdf:resource="http://purl.org/linked-data/cube#Observation"/>
+      <qb:dataSet rdf:resource="http://example.org/dataset/BIS_JOINT_DEBT"/>
+      <property:FREQ rdf:resource="http://5B0.270a.info/code/CL_FREQ/M"/>
+      <property:JD_TYPE rdf:resource="http://5B0.270a.info/code/CL_JD_TYPE/P"/>
+      <property:JD_CATEGORY rdf:resource="http://5B0.270a.info/code/CL_JD_CATEGORY/A"/>
+      <property:VIS_CTY rdf:resource="http://5B0.270a.info/code/CL_BIS_IF_REF_AREA/MX"/>
+      <property:TIME xmlns:property="http://example.org/property/BIS/">2000-10</property:TIME>
+      <property:OBS_VALUE xmlns:property="http://example.org/property/BIS/"
+                          rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.04</property:OBS_VALUE>
+      <property:OBS_STATUS rdf:resource="http://5B0.270a.info/code/CL_OBS_STATUS/A"/>
+      <property:COLLECTION rdf:resource="http://5B0.270a.info/code/CL_COLLECTION/B"/>
+      <property:TIME_FORMAT rdf:resource="http://5B0.270a.info/code/CL_TIME_FORMAT/P1M"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.org/dataset/BIS_JOINT_DEBT/M/P/A/MX/2000-11">
+      <rdf:type rdf:resource="http://purl.org/linked-data/cube#Observation"/>
+      <qb:dataSet rdf:resource="http://example.org/dataset/BIS_JOINT_DEBT"/>
+      <property:FREQ rdf:resource="http://5B0.270a.info/code/CL_FREQ/M"/>
+      <property:JD_TYPE rdf:resource="http://5B0.270a.info/code/CL_JD_TYPE/P"/>
+      <property:JD_CATEGORY rdf:resource="http://5B0.270a.info/code/CL_JD_CATEGORY/A"/>
+      <property:VIS_CTY rdf:resource="http://5B0.270a.info/code/CL_BIS_IF_REF_AREA/MX"/>
+      <property:TIME xmlns:property="http://example.org/property/BIS/">2000-11</property:TIME>
+      <property:OBS_VALUE xmlns:property="http://example.org/property/BIS/"
+                          rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.14</property:OBS_VALUE>
+      <property:OBS_STATUS rdf:resource="http://5B0.270a.info/code/CL_OBS_STATUS/A"/>
+      <property:COLLECTION rdf:resource="http://5B0.270a.info/code/CL_COLLECTION/B"/>
+      <property:TIME_FORMAT rdf:resource="http://5B0.270a.info/code/CL_TIME_FORMAT/P1M"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.org/dataset/BIS_JOINT_DEBT/M/P/A/MX/2000-12">
+      <rdf:type rdf:resource="http://purl.org/linked-data/cube#Observation"/>
+      <qb:dataSet rdf:resource="http://example.org/dataset/BIS_JOINT_DEBT"/>
+      <property:FREQ rdf:resource="http://5B0.270a.info/code/CL_FREQ/M"/>
+      <property:JD_TYPE rdf:resource="http://5B0.270a.info/code/CL_JD_TYPE/P"/>
+      <property:JD_CATEGORY rdf:resource="http://5B0.270a.info/code/CL_JD_CATEGORY/A"/>
+      <property:VIS_CTY rdf:resource="http://5B0.270a.info/code/CL_BIS_IF_REF_AREA/MX"/>
+      <property:TIME xmlns:property="http://example.org/property/BIS/">2000-12</property:TIME>
+      <property:OBS_VALUE xmlns:property="http://example.org/property/BIS/"
+                          rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.24</property:OBS_VALUE>
+      <property:OBS_STATUS rdf:resource="http://5B0.270a.info/code/CL_OBS_STATUS/A"/>
+      <property:COLLECTION rdf:resource="http://5B0.270a.info/code/CL_COLLECTION/B"/>
+      <property:TIME_FORMAT rdf:resource="http://5B0.270a.info/code/CL_TIME_FORMAT/P1M"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.org/dataset/BIS_JOINT_DEBT">
+      <qb:slice>
+         <rdf:Description rdf:about="http://example.org/slice/BIS_JOINT_DEBT/P/A/MX">
+            <rdf:type rdf:resource="http://purl.org/linked-data/cube#Slice"/>
+            <qb:sliceStructure rdf:resource="http://example.org/slice/BIS/SiblingGroup"/>
+            <property:JD_TYPE rdf:resource="http://5B0.270a.info/code/CL_JD_TYPE/P"/>
+            <property:JD_CATEGORY rdf:resource="http://5B0.270a.info/code/CL_JD_CATEGORY/A"/>
+            <property:VIS_CTY rdf:resource="http://5B0.270a.info/code/CL_BIS_IF_REF_AREA/MX"/>
+            <qb:observation rdf:resource="http://example.org/dataset/BIS_JOINT_DEBT/A/P/A/MX/2000-01"/>
+         </rdf:Description>
+      </qb:slice>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://example.org/dataset/BIS_JOINT_DEBT/A/P/A/MX/2000-01">
+      <rdf:type rdf:resource="http://purl.org/linked-data/cube#Observation"/>
+      <qb:dataSet rdf:resource="http://example.org/dataset/BIS_JOINT_DEBT"/>
+      <property:FREQ rdf:resource="http://5B0.270a.info/code/CL_FREQ/A"/>
+      <property:JD_TYPE rdf:resource="http://5B0.270a.info/code/CL_JD_TYPE/P"/>
+      <property:JD_CATEGORY rdf:resource="http://5B0.270a.info/code/CL_JD_CATEGORY/A"/>
+      <property:VIS_CTY rdf:resource="http://5B0.270a.info/code/CL_BIS_IF_REF_AREA/MX"/>
+      <property:TIME xmlns:property="http://example.org/property/BIS/">2000-01</property:TIME>
+      <property:OBS_VALUE xmlns:property="http://example.org/property/BIS/"
+                          rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.14</property:OBS_VALUE>
+      <property:OBS_STATUS rdf:resource="http://5B0.270a.info/code/CL_OBS_STATUS/A"/>
+      <property:COLLECTION rdf:resource="http://5B0.270a.info/code/CL_COLLECTION/B"/>
+      <property:TIME_FORMAT rdf:resource="http://5B0.270a.info/code/CL_TIME_FORMAT/P1Y"/>
    </rdf:Description>
 </rdf:RDF>

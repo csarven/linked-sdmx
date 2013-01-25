@@ -17,437 +17,437 @@
          xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
          xmlns:sdmx-concept="http://purl.org/linked-data/sdmx/2009/concept#"
          xmlns:sdmx-dimension="http://purl.org/linked-data/sdmx/2009/dimension#"
-         xmlns:property="http://example.org/property/">
-   <rdf:Description rdf:about="http://example.org/#i">
+         xmlns:property="http://1J0.270a.info/property/">
+   <rdf:Description rdf:about="http://csarven.ca/#i">
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Agent"/>
    </rdf:Description>
-   <rdf:Description rdf:about="http://example.org/code/FAO/HCL_AREA_SUB_AREA">
+   <rdf:Description rdf:about="http://1J0.270a.info/codeHCL_AREA_SUB_AREA">
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Collection"/>
       <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.codelist.CodeList=FAO:HCL_AREA_SUB_AREA[0.1]"/>
       <owl:versionInfo>0.1</owl:versionInfo>
       <skos:notation>HCL_AREA_SUB_AREA</skos:notation>
       <skos:prefLabel xml:lang="en">HCL_AREA_SUB_AREA</skos:prefLabel>
-      <dcterms:references rdf:resource="http://example.org/code/FAO/"/>
-      <dcterms:references rdf:resource="http://example.org/code/FAO/"/>
+      <dcterms:references rdf:resource="http://1J0.270a.info/code"/>
+      <dcterms:references rdf:resource="http://1J0.270a.info/code"/>
       <xkos:hasPart>
-         <rdf:Description rdf:about="http://example.org/code/FAO/HCL_AREA_SUB_AREA">
+         <rdf:Description rdf:about="http://1J0.270a.info/code/HCL_AREA_SUB_AREA">
             <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Collection"/>
             <skos:notation>HCL_AREA_SUB_AREA</skos:notation>
-            <xkos:isPartOf rdf:resource="http://example.org/code/FAO/HCL_AREA_SUB_AREA"/>
+            <xkos:isPartOf rdf:resource="http://1J0.270a.info/codeHCL_AREA_SUB_AREA"/>
             <owl:versionInfo>0.1</owl:versionInfo>
             <xkos:hasPart>
-               <rdf:Description rdf:about="http://example.org/code/FAO//01"/>
+               <rdf:Description rdf:about="http://1J0.270a.info/code//01"/>
             </xkos:hasPart>
             <xkos:hasPart>
-               <rdf:Description rdf:about="http://example.org/code/FAO//02"/>
+               <rdf:Description rdf:about="http://1J0.270a.info/code//02"/>
             </xkos:hasPart>
             <xkos:hasPart>
-               <rdf:Description rdf:about="http://example.org/code/FAO//03"/>
+               <rdf:Description rdf:about="http://1J0.270a.info/code//03"/>
             </xkos:hasPart>
             <xkos:hasPart>
-               <rdf:Description rdf:about="http://example.org/code/FAO//04"/>
+               <rdf:Description rdf:about="http://1J0.270a.info/code//04"/>
             </xkos:hasPart>
             <xkos:hasPart>
-               <rdf:Description rdf:about="http://example.org/code/FAO//05"/>
+               <rdf:Description rdf:about="http://1J0.270a.info/code//05"/>
             </xkos:hasPart>
             <xkos:hasPart>
-               <rdf:Description rdf:about="http://example.org/code/FAO//06"/>
+               <rdf:Description rdf:about="http://1J0.270a.info/code//06"/>
             </xkos:hasPart>
             <xkos:hasPart>
-               <rdf:Description rdf:about="http://example.org/code/FAO//07"/>
+               <rdf:Description rdf:about="http://1J0.270a.info/code//07"/>
             </xkos:hasPart>
             <xkos:hasPart>
-               <rdf:Description rdf:about="http://example.org/code/FAO//18"/>
+               <rdf:Description rdf:about="http://1J0.270a.info/code//18"/>
             </xkos:hasPart>
             <xkos:hasPart>
-               <rdf:Description rdf:about="http://example.org/code/FAO//21">
+               <rdf:Description rdf:about="http://1J0.270a.info/code//21">
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//21_2">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//21"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//21_2">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//21"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//21_3">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//21"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//21_3">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//21"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//21_0">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//21"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//21_0">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//21"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//21_4">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//21"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//21_4">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//21"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//21_1">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//21"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//21_1">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//21"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//21_6">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//21"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//21_6">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//21"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//21_5">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//21"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//21_5">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//21"/>
                      </rdf:Description>
                   </xkos:hasPart>
                </rdf:Description>
             </xkos:hasPart>
             <xkos:hasPart>
-               <rdf:Description rdf:about="http://example.org/code/FAO//27">
+               <rdf:Description rdf:about="http://1J0.270a.info/code//27">
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//27_9">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//27"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//27_9">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//27"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//27_8">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//27"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//27_8">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//27"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//27_6">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//27"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//27_6">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//27"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//27_10">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//27"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//27_10">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//27"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//27_4">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//27"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//27_4">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//27"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//27_14">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//27"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//27_14">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//27"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//27_2">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//27"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//27_2">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//27"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//27_1">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//27"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//27_1">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//27"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//27_12">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//27"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//27_12">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//27"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//27_5">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//27"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//27_5">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//27"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//27_3">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//27"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//27_3">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//27"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//27_7">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//27"/>
-                     </rdf:Description>
-                  </xkos:hasPart>
-               </rdf:Description>
-            </xkos:hasPart>
-            <xkos:hasPart>
-               <rdf:Description rdf:about="http://example.org/code/FAO//31"/>
-            </xkos:hasPart>
-            <xkos:hasPart>
-               <rdf:Description rdf:about="http://example.org/code/FAO//34">
-                  <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//34_2">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//34"/>
-                     </rdf:Description>
-                  </xkos:hasPart>
-                  <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//34_1">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//34"/>
-                     </rdf:Description>
-                  </xkos:hasPart>
-                  <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//34_3">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//34"/>
-                     </rdf:Description>
-                  </xkos:hasPart>
-                  <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//34_4">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//34"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//27_7">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//27"/>
                      </rdf:Description>
                   </xkos:hasPart>
                </rdf:Description>
             </xkos:hasPart>
             <xkos:hasPart>
-               <rdf:Description rdf:about="http://example.org/code/FAO//37">
+               <rdf:Description rdf:about="http://1J0.270a.info/code//31"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://1J0.270a.info/code//34">
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//37_3">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//37"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//34_2">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//34"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//37_4">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//37"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//34_1">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//34"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//37_1">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//37"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//34_3">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//34"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//37_2">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//37"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//34_4">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//34"/>
                      </rdf:Description>
                   </xkos:hasPart>
                </rdf:Description>
             </xkos:hasPart>
             <xkos:hasPart>
-               <rdf:Description rdf:about="http://example.org/code/FAO//41">
+               <rdf:Description rdf:about="http://1J0.270a.info/code//37">
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//41_2">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//41"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//37_3">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//37"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//41_3">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//41"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//37_4">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//37"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//41_1">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//41"/>
-                     </rdf:Description>
-                  </xkos:hasPart>
-               </rdf:Description>
-            </xkos:hasPart>
-            <xkos:hasPart>
-               <rdf:Description rdf:about="http://example.org/code/FAO//47">
-                  <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//47_1">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//47"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//37_1">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//37"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//47_2">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//47"/>
-                     </rdf:Description>
-                  </xkos:hasPart>
-                  <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//47_X">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//47"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//37_2">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//37"/>
                      </rdf:Description>
                   </xkos:hasPart>
                </rdf:Description>
             </xkos:hasPart>
             <xkos:hasPart>
-               <rdf:Description rdf:about="http://example.org/code/FAO//48">
+               <rdf:Description rdf:about="http://1J0.270a.info/code//41">
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//48_2">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//48"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//41_2">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//41"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//48_6">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//48"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//41_3">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//41"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//48_5">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//48"/>
-                     </rdf:Description>
-                  </xkos:hasPart>
-                  <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//48_4">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//48"/>
-                     </rdf:Description>
-                  </xkos:hasPart>
-                  <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//48_3">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//48"/>
-                     </rdf:Description>
-                  </xkos:hasPart>
-                  <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//48_1">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//48"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//41_1">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//41"/>
                      </rdf:Description>
                   </xkos:hasPart>
                </rdf:Description>
             </xkos:hasPart>
             <xkos:hasPart>
-               <rdf:Description rdf:about="http://example.org/code/FAO//51">
+               <rdf:Description rdf:about="http://1J0.270a.info/code//47">
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//51_3">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//51"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//47_1">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//47"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//51_4">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//51"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//47_2">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//47"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//51_5">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//51"/>
-                     </rdf:Description>
-                  </xkos:hasPart>
-                  <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//51_2">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//51"/>
-                     </rdf:Description>
-                  </xkos:hasPart>
-                  <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//51_1">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//51"/>
-                     </rdf:Description>
-                  </xkos:hasPart>
-                  <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//51_6">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//51"/>
-                     </rdf:Description>
-                  </xkos:hasPart>
-                  <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//51_7">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//51"/>
-                     </rdf:Description>
-                  </xkos:hasPart>
-                  <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//51_8">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//51"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//47_X">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//47"/>
                      </rdf:Description>
                   </xkos:hasPart>
                </rdf:Description>
             </xkos:hasPart>
             <xkos:hasPart>
-               <rdf:Description rdf:about="http://example.org/code/FAO//57">
+               <rdf:Description rdf:about="http://1J0.270a.info/code//48">
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//57_1">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//57"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//48_2">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//48"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//57_3">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//57"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//48_6">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//48"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//57_5">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//57"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//48_5">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//48"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//57_6">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//57"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//48_4">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//48"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//57_2">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//57"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//48_3">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//48"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//57_4">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//57"/>
-                     </rdf:Description>
-                  </xkos:hasPart>
-               </rdf:Description>
-            </xkos:hasPart>
-            <xkos:hasPart>
-               <rdf:Description rdf:about="http://example.org/code/FAO//58">
-                  <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//58_6">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//58"/>
-                     </rdf:Description>
-                  </xkos:hasPart>
-                  <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//58_4">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//58"/>
-                     </rdf:Description>
-                  </xkos:hasPart>
-                  <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//58_5">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//58"/>
-                     </rdf:Description>
-                  </xkos:hasPart>
-                  <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//58_7">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//58"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//48_1">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//48"/>
                      </rdf:Description>
                   </xkos:hasPart>
                </rdf:Description>
             </xkos:hasPart>
             <xkos:hasPart>
-               <rdf:Description rdf:about="http://example.org/code/FAO//61"/>
-            </xkos:hasPart>
-            <xkos:hasPart>
-               <rdf:Description rdf:about="http://example.org/code/FAO//67"/>
-            </xkos:hasPart>
-            <xkos:hasPart>
-               <rdf:Description rdf:about="http://example.org/code/FAO//71"/>
-            </xkos:hasPart>
-            <xkos:hasPart>
-               <rdf:Description rdf:about="http://example.org/code/FAO//77"/>
-            </xkos:hasPart>
-            <xkos:hasPart>
-               <rdf:Description rdf:about="http://example.org/code/FAO//81"/>
-            </xkos:hasPart>
-            <xkos:hasPart>
-               <rdf:Description rdf:about="http://example.org/code/FAO//87">
+               <rdf:Description rdf:about="http://1J0.270a.info/code//51">
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//87_2">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//87"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//51_3">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//51"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//87_1">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//87"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//51_4">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//51"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//87_3">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//87"/>
-                     </rdf:Description>
-                  </xkos:hasPart>
-               </rdf:Description>
-            </xkos:hasPart>
-            <xkos:hasPart>
-               <rdf:Description rdf:about="http://example.org/code/FAO//88">
-                  <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//88_2">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//88"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//51_5">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//51"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//88_1">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//88"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//51_2">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//51"/>
                      </rdf:Description>
                   </xkos:hasPart>
                   <xkos:hasPart>
-                     <rdf:Description rdf:about="http://example.org/code/FAO//88_3">
-                        <xkos:isPartOf rdf:resource="http://example.org/code/FAO//88"/>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//51_1">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//51"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//51_6">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//51"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//51_7">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//51"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//51_8">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//51"/>
                      </rdf:Description>
                   </xkos:hasPart>
                </rdf:Description>
             </xkos:hasPart>
             <xkos:hasPart>
-               <rdf:Description rdf:about="http://example.org/code/FAO//98"/>
+               <rdf:Description rdf:about="http://1J0.270a.info/code//57">
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//57_1">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//57"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//57_3">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//57"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//57_5">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//57"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//57_6">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//57"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//57_2">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//57"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//57_4">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//57"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+               </rdf:Description>
             </xkos:hasPart>
             <xkos:hasPart>
-               <rdf:Description rdf:about="http://example.org/code/FAO//99"/>
+               <rdf:Description rdf:about="http://1J0.270a.info/code//58">
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//58_6">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//58"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//58_4">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//58"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//58_5">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//58"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//58_7">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//58"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+               </rdf:Description>
             </xkos:hasPart>
             <xkos:hasPart>
-               <rdf:Description rdf:about="http://example.org/code/FAO//08"/>
+               <rdf:Description rdf:about="http://1J0.270a.info/code//61"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://1J0.270a.info/code//67"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://1J0.270a.info/code//71"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://1J0.270a.info/code//77"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://1J0.270a.info/code//81"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://1J0.270a.info/code//87">
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//87_2">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//87"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//87_1">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//87"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//87_3">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//87"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+               </rdf:Description>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://1J0.270a.info/code//88">
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//88_2">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//88"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//88_1">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//88"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+                  <xkos:hasPart>
+                     <rdf:Description rdf:about="http://1J0.270a.info/code//88_3">
+                        <xkos:isPartOf rdf:resource="http://1J0.270a.info/code//88"/>
+                     </rdf:Description>
+                  </xkos:hasPart>
+               </rdf:Description>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://1J0.270a.info/code//98"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://1J0.270a.info/code//99"/>
+            </xkos:hasPart>
+            <xkos:hasPart>
+               <rdf:Description rdf:about="http://1J0.270a.info/code//08"/>
             </xkos:hasPart>
          </rdf:Description>
       </xkos:hasPart>
