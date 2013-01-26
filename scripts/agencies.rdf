@@ -23,6 +23,7 @@
     <skos:notation>BIS</skos:notation>
   </rdf:Description>
   <rdf:Description rdf:about="http://CH1.270a.info/">
+    <skos:notation>BFS</skos:notation>
     <skos:notation>CH1</skos:notation>
     <skos:notation>FSO</skos:notation>
     <skos:notation>OFS</skos:notation>
@@ -32,13 +33,17 @@
     <skos:notation>ESTAT</skos:notation>
     <skos:notation>EUROSTAT</skos:notation>
   </rdf:Description>
+  <rdf:Description rdf:about="http://IAEG.270a.info/">
+    <skos:notation>IAEG</skos:notation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://UN.270a.info/">
+    <skos:notation>UN</skos:notation>
+    <skos:notation>UNDP-HDRO</skos:notation>
+  </rdf:Description>
   <rdf:Description rdf:about="http://WB.270a.info/">
     <skos:notation>WB</skos:notation>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/">
     <skos:notation>EXAMPLE</skos:notation>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://un.270a.info/">
-    <skos:notation>UN</skos:notation>
   </rdf:Description>
 </rdf:RDF>
