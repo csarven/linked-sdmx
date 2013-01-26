@@ -96,6 +96,7 @@ FIXME: $pathToGenericStructure should be replaced with an HTTP URI
                 <rdf:type rdf:resource="{$qb}DataStructureDefinition"/>
                 <rdf:type rdf:resource="{$prov}Entity"/>
                 <prov:wasAttributedTo rdf:resource="{$creator}"/>
+                <prov:generatedAtTime rdf:datatype="{$xsd}dateTime"><xsl:value-of select="fn:now()"/></prov:generatedAtTime>
 
 <!-- TODO:
 * Review these properties. Some are close enough to existing SDMX, some I made them up - they should be added to sdmx* vocabs perhpas, so, consider creating sdmx-concept URIs for isFinal/isExternalReference/validFrom/validTo ...?
@@ -644,6 +645,7 @@ XXX: Fallback: KeyfamilyRef may not exist. But this is inaccurate if there are m
                 <rdf:type rdf:resource="{$qb}DataSet"/>
                 <rdf:type rdf:resource="{$prov}Entity"/>
                 <prov:wasAttributedTo rdf:resource="{$creator}"/>
+                <prov:generatedAtTime rdf:datatype="{$xsd}dateTime"><xsl:value-of select="fn:now()"/></prov:generatedAtTime>
 
                 <qb:structure rdf:resource="{$dataset}{$KeyFamilyAgencyID}/{$KeyFamilyRef}{$uriThingSeparator}structure"/>
                 <xsl:if test="@datasetID">
@@ -778,7 +780,7 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
                     </xsl:for-each>
 
                     <xsl:if test="$ObsTime != '' and $TimeDimensionConceptRef != ''">
-                        <xsl:element name="property:{$TimeDimensionConceptRef}" namespace="{$property}{$SeriesKeyConceptsData/*[name() = $TimeDimensionConceptRef]/@conceptAgencyURI}">
+                        <xsl:element name="property:{$TimeDimensionConceptRef}" namespace="{$property}{$SeriesKeyConceptsData/*[name() = $TimeDimensionConceptRef]}">
                             <xsl:variable name="datatype" select="$SeriesKeyConceptsData/*[name() = $TimeDimensionConceptRef]/@datatype"/>
                             <xsl:if test="$datatype != ''">
                                 <xsl:call-template name="rdfDatatypeXSD">
@@ -790,7 +792,7 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
                     </xsl:if>
 
                     <xsl:for-each select="generic:ObsValue">
-                        <xsl:element name="property:{$PrimaryMeasureConceptRef}" namespace="{$property}{$SeriesKeyConceptsData/*[name() = $PrimaryMeasureConceptRef]/@conceptAgencyURI}">
+                        <xsl:element name="property:{$PrimaryMeasureConceptRef}" namespace="{$property}{$SeriesKeyConceptsData/*[name() = $PrimaryMeasureConceptRef]}">
                             <xsl:variable name="datatype" select="$SeriesKeyConceptsData/*[name() = $PrimaryMeasureConceptRef]/@datatype"/>
                             <xsl:if test="$datatype != ''">
                                 <xsl:call-template name="rdfDatatypeXSD">
@@ -833,7 +835,7 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
 FIXME: $urithingSeparator is already used in getComponentURI
 -->
                     <xsl:otherwise>
-                        <xsl:value-of select="fn:getComponentURI('code', $SeriesKeyConcept/@codelistAgency)"/><xsl:value-of select="$SeriesKeyConcept/@codelist"/><xsl:value-of select="$uriThingSeparator"/><xsl:value-of select="$value"/>
+                        <xsl:value-of select="fn:getComponentURI('code', $SeriesKeyConcept/@codelistAgency)"/><xsl:value-of select="$SeriesKeyConcept/@codelist"/><xsl:value-of select="$uriThingSeparator"/><xsl:value-of select="normalize-space($value)"/>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:attribute>
