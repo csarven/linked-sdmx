@@ -376,9 +376,8 @@ structure:textFormat
 
     <xsl:template name="CodeLists">
         <xsl:for-each select="Structure/CodeLists/structure:CodeList">
-            <xsl:variable name="agencyID" select="lower-case(normalize-space(fn:getAttributeValue(@agencyID)))"/>
-
-            <xsl:if test="$agencyID = lower-case(normalize-space($agency))">
+            <xsl:if test="starts-with(@agencyID, $agency) or
+                          fn:getAgencyURI(@agencyID) = fn:getAgencyURI($agency)">
                 <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
 
                 <xsl:variable name="uriValidFromToSeparator">
@@ -632,7 +631,6 @@ XXX: Fallback: KeyfamilyRef may not exist. But this is inaccurate if there are m
 
             <xsl:variable name="datasetURI">
                 <xsl:value-of select="$dataset"/>
-                <xsl:text>/</xsl:text>
                 <xsl:value-of select="$KeyFamilyRef"/>
             </xsl:variable>
 

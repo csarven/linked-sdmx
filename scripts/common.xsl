@@ -55,7 +55,7 @@
     <xsl:variable name="code" select="concat($agencyURI, 'code')"/>
     <xsl:variable name="class" select="concat($agencyURI, 'class', $uriThingSeparator)"/>
     <xsl:variable name="property" select="concat($agencyURI, 'property', $uriThingSeparator)"/>
-    <xsl:variable name="dataset" select="concat($agencyURI, 'dataset')"/>
+    <xsl:variable name="dataset" select="concat($agencyURI, 'dataset/')"/>
     <xsl:variable name="slice" select="concat($agencyURI, 'slice', $uriThingSeparator)"/>
 
     <xsl:variable name="interlinkAnnotationTypes" select="fn:getConfig('interlinkAnnotationTypes')"/>
