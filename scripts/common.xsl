@@ -255,6 +255,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
             <rdf:type rdf:resource="{$prov}Activity"/>
 <!--dcterms:title-->
             <prov:startedAtTime rdf:datatype="{$xsd}dateTime"><xsl:value-of select="$now"/></prov:startedAtTime>
+            <prov:wasAssociatedWith rdf:resource="{$creator}"/>
             <prov:used rdf:resource="{$provUsedA}"/>
             <xsl:if test="$provUsedB">
                 <prov:used rdf:resource="{$provUsedB}"/>
