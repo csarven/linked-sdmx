@@ -50,7 +50,7 @@
     <xsl:variable name="lang" select="fn:getConfig('lang')"/>
     <xsl:variable name="uriThingSeparator" select="fn:getConfig('uriThingSeparator')"/>
     <xsl:variable name="uriDimensionSeparator" select="fn:getConfig('uriDimensionSeparator')"/>
-    <xsl:variable name="provenance" select="concat($agencyURI, 'prov', $uriThingSeparator)"/>
+    <xsl:variable name="provenance" select="concat($agencyURI, 'provenance', $uriThingSeparator)"/>
     <xsl:variable name="concept" select="concat($agencyURI, 'concept', $uriThingSeparator)"/>
     <xsl:variable name="code" select="concat($agencyURI, 'code')"/>
     <xsl:variable name="class" select="concat($agencyURI, 'class', $uriThingSeparator)"/>
