@@ -23,7 +23,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="http://1J0.270a.info/codeHCL_AREA_SUB_AREA">
       <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Collection"/>
-      <dcterms:identifier rdf:resource="urn:sdmx:org.sdmx.infomodel.codelist.CodeList=FAO:HCL_AREA_SUB_AREA[0.1]"/>
+      <dcterms:identifier>urn:sdmx:org.sdmx.infomodel.codelist.CodeList=FAO:HCL_AREA_SUB_AREA[0.1]</dcterms:identifier>
       <owl:versionInfo>0.1</owl:versionInfo>
       <skos:notation>HCL_AREA_SUB_AREA</skos:notation>
       <skos:prefLabel xml:lang="en">HCL_AREA_SUB_AREA</skos:prefLabel>

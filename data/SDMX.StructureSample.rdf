@@ -21,22 +21,24 @@
    <rdf:Description rdf:about="http://csarven.ca/#i">
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Agent"/>
    </rdf:Description>
-   <rdf:Description rdf:about="http://example.org/prov/activity/20130125132657">
+   <rdf:Description rdf:about="http://example.org/provenance/activity/20130127135117">
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
-      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-25T13:26:57Z</prov:startedAtTime>
+      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-27T13:51:17Z</prov:startedAtTime>
+      <prov:wasAssociatedWith rdf:resource="http://csarven.ca/#i"/>
       <prov:used rdf:resource="http://example.org/data/SDMX.StructureSample.xml"/>
       <prov:used rdf:resource="https://raw.github.com/csarven/sdmx-to-qb/master/scripts/generic.xsl"/>
       <prov:generated>
-         <rdf:Description rdf:about="http://example.org/datasetBIS_JOINT_DEBT/structure">
+         <rdf:Description rdf:about="http://example.org/dataset/BIS_JOINT_DEBT/structure">
             <prov:wasDerivedFrom rdf:resource="http://example.org/data/SDMX.StructureSample.xml"/>
          </rdf:Description>
       </prov:generated>
    </rdf:Description>
-   <rdf:Description rdf:about="http://example.org/datasetBIS_JOINT_DEBT/structure">
+   <rdf:Description rdf:about="http://example.org/dataset/BIS_JOINT_DEBT/structure">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#DataStructureDefinition"/>
       <rdf:type rdf:resource="http://purl.org/linked-data/cube#DataStructureDefinition"/>
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
       <prov:wasAttributedTo rdf:resource="http://csarven.ca/#i"/>
+      <prov:generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-27T13:51:17Z</prov:generatedAtTime>
       <sdmx-concept:dsi>BIS_JOINT_DEBT</sdmx-concept:dsi>
       <sdmx-concept:mAgency>BIS</sdmx-concept:mAgency>
       <owl:versionInfo>1.0</owl:versionInfo>
@@ -47,6 +49,7 @@
             <qb:dimension>
                <rdf:Description rdf:about="http://example.org/property/FREQ">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#CodedProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept>
                      <rdf:Description rdf:about="http://example.org/concept/FREQ">
@@ -65,6 +68,7 @@
             <qb:dimension>
                <rdf:Description rdf:about="http://example.org/property/JD_TYPE">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#CodedProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept>
                      <rdf:Description rdf:about="http://example.org/concept/JD_TYPE">
@@ -83,6 +87,7 @@
             <qb:dimension>
                <rdf:Description rdf:about="http://example.org/property/JD_CATEGORY">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#CodedProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept>
                      <rdf:Description rdf:about="http://example.org/concept/JD_CATEGORY">
@@ -101,6 +106,7 @@
             <qb:dimension>
                <rdf:Description rdf:about="http://example.org/property/VIS_CTY">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#CodedProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept>
                      <rdf:Description rdf:about="http://example.org/concept/VIS_CTY">
@@ -119,6 +125,7 @@
             <qb:dimension>
                <rdf:Description rdf:about="http://example.org/property/TIME">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#CodedProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept>
                      <rdf:Description rdf:about="http://example.org/concept/TIME">
@@ -135,6 +142,7 @@
             <qb:measure>
                <rdf:Description rdf:about="http://example.org/property/OBS_VALUE">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#MeasureProperty"/>
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#CodedProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept>
                      <rdf:Description rdf:about="http://example.org/concept/OBS_VALUE">
@@ -156,6 +164,7 @@
             <qb:attribute>
                <rdf:Description rdf:about="http://example.org/property/AVAILABILITY">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#CodedProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept>
                      <rdf:Description rdf:about="http://example.org/concept/AVAILABILITY">
@@ -174,6 +183,7 @@
             <qb:attribute>
                <rdf:Description rdf:about="http://example.org/property/TIME_FORMAT">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#CodedProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept>
                      <rdf:Description rdf:about="http://example.org/concept/TIME_FORMAT">
@@ -192,6 +202,7 @@
             <qb:attribute>
                <rdf:Description rdf:about="http://example.org/property/COLLECTION">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#CodedProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept>
                      <rdf:Description rdf:about="http://example.org/concept/COLLECTION">
@@ -210,6 +221,7 @@
             <qb:attribute>
                <rdf:Description rdf:about="http://example.org/property/DECIMALS">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#CodedProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept>
                      <rdf:Description rdf:about="http://example.org/concept/DECIMALS">
@@ -228,6 +240,7 @@
             <qb:attribute>
                <rdf:Description rdf:about="http://example.org/property/OBS_CONF">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#CodedProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept>
                      <rdf:Description rdf:about="http://example.org/concept/OBS_CONF">
@@ -246,6 +259,7 @@
             <qb:attribute>
                <rdf:Description rdf:about="http://example.org/property/OBS_STATUS">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#CodedProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept>
                      <rdf:Description rdf:about="http://example.org/concept/OBS_STATUS">
@@ -264,6 +278,7 @@
             <qb:attribute>
                <rdf:Description rdf:about="http://example.org/property/OBS_PRE_BREAK">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#CodedProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept>
                      <rdf:Description rdf:about="http://example.org/concept/OBS_PRE_BREAK">
@@ -280,6 +295,7 @@
             <qb:attribute>
                <rdf:Description rdf:about="http://example.org/property/BIS_UNIT">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#CodedProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept>
                      <rdf:Description rdf:about="http://example.org/concept/BIS_UNIT">
@@ -298,6 +314,7 @@
             <qb:attribute>
                <rdf:Description rdf:about="http://example.org/property/UNIT_MULT">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#CodedProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept>
                      <rdf:Description rdf:about="http://example.org/concept/UNIT_MULT">

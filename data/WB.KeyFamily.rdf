@@ -21,22 +21,24 @@
    <rdf:Description rdf:about="http://csarven.ca/#i">
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Agent"/>
    </rdf:Description>
-   <rdf:Description rdf:about="http://WB.270a.info/prov/activity/20130125132352">
+   <rdf:Description rdf:about="http://WB.270a.info/provenance/activity/20130127134620">
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
-      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-25T13:23:52Z</prov:startedAtTime>
+      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-27T13:46:20Z</prov:startedAtTime>
+      <prov:wasAssociatedWith rdf:resource="http://csarven.ca/#i"/>
       <prov:used rdf:resource="http://example.org/data/WB.KeyFamily.xml"/>
       <prov:used rdf:resource="https://raw.github.com/csarven/sdmx-to-qb/master/scripts/generic.xsl"/>
       <prov:generated>
-         <rdf:Description rdf:about="http://WB.270a.info/datasetWDI/structure">
+         <rdf:Description rdf:about="http://WB.270a.info/dataset/WDI/structure">
             <prov:wasDerivedFrom rdf:resource="http://example.org/data/WB.KeyFamily.xml"/>
          </rdf:Description>
       </prov:generated>
    </rdf:Description>
-   <rdf:Description rdf:about="http://WB.270a.info/datasetWDI/structure">
+   <rdf:Description rdf:about="http://WB.270a.info/dataset/WDI/structure">
       <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#DataStructureDefinition"/>
       <rdf:type rdf:resource="http://purl.org/linked-data/cube#DataStructureDefinition"/>
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
       <prov:wasAttributedTo rdf:resource="http://csarven.ca/#i"/>
+      <prov:generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-27T13:46:20Z</prov:generatedAtTime>
       <sdmx-concept:dsi>WDI</sdmx-concept:dsi>
       <sdmx-concept:mAgency>WB</sdmx-concept:mAgency>
       <owl:versionInfo>1.0</owl:versionInfo>
@@ -46,6 +48,7 @@
             <qb:dimension>
                <rdf:Description rdf:about="http://WB.270a.info/property/FREQ">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#CodedProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept>
                      <rdf:Description rdf:about="http://WB.270a.info/concept/FREQ">
@@ -64,6 +67,7 @@
             <qb:dimension>
                <rdf:Description rdf:about="http://WB.270a.info/property/SERIES">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#CodedProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept>
                      <rdf:Description rdf:about="http://WB.270a.info/concept/SERIES">
@@ -82,6 +86,7 @@
             <qb:dimension>
                <rdf:Description rdf:about="http://WB.270a.info/property/REF_AREA">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#CodedProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept>
                      <rdf:Description rdf:about="http://WB.270a.info/concept/REF_AREA">
@@ -100,6 +105,7 @@
             <qb:dimension>
                <rdf:Description rdf:about="http://WB.270a.info/property/TIME_PERIOD">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#CodedProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept>
                      <rdf:Description rdf:about="http://WB.270a.info/concept/TIME_PERIOD">
@@ -116,6 +122,7 @@
             <qb:measure>
                <rdf:Description rdf:about="http://WB.270a.info/property/OBS_VALUE">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#MeasureProperty"/>
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#CodedProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept>
                      <rdf:Description rdf:about="http://WB.270a.info/concept/OBS_VALUE">
@@ -131,6 +138,7 @@
             <qb:attribute>
                <rdf:Description rdf:about="http://WB.270a.info/property/UNIT_MULT">
                   <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#CodedProperty"/>
                   <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
                   <qb:concept>
                      <rdf:Description rdf:about="http://WB.270a.info/concept/UNIT_MULT">
@@ -201,7 +209,7 @@
             <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
             <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
             <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdfs:seeAlso rdf:resource="http://WB.270a.info/codeCL_FREQ_WDI"/>
+            <rdfs:seeAlso rdf:resource="http://WB.270a.info/code/CL_FREQ_WDI"/>
             <skos:prefLabel xml:lang="en">Frequency code list</skos:prefLabel>
          </rdf:Description>
       </rdfs:seeAlso>
@@ -283,7 +291,7 @@
             <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
             <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
             <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdfs:seeAlso rdf:resource="http://WB.270a.info/codeCL_REF_AREA_WDI"/>
+            <rdfs:seeAlso rdf:resource="http://WB.270a.info/code/CL_REF_AREA_WDI"/>
             <skos:prefLabel xml:lang="en">Reference area code list</skos:prefLabel>
          </rdf:Description>
       </rdfs:seeAlso>
@@ -2906,7 +2914,7 @@
             <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
             <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
             <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdfs:seeAlso rdf:resource="http://WB.270a.info/codeCL_SERIES_WDI"/>
+            <rdfs:seeAlso rdf:resource="http://WB.270a.info/code/CL_SERIES_WDI"/>
             <skos:prefLabel xml:lang="en">Series code list</skos:prefLabel>
          </rdf:Description>
       </rdfs:seeAlso>
@@ -15660,7 +15668,7 @@
             <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
             <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
             <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <rdfs:seeAlso rdf:resource="http://WB.270a.info/codeCL_UNIT_MULT_WDI"/>
+            <rdfs:seeAlso rdf:resource="http://WB.270a.info/code/CL_UNIT_MULT_WDI"/>
             <skos:prefLabel xml:lang="en">Units multipliers code list</skos:prefLabel>
          </rdf:Description>
       </rdfs:seeAlso>

@@ -21,9 +21,10 @@
    <rdf:Description rdf:about="http://csarven.ca/#i">
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Agent"/>
    </rdf:Description>
-   <rdf:Description rdf:about="http://example.org/prov/activity/20130125132659">
+   <rdf:Description rdf:about="http://example.org/provenance/activity/20130127135119">
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
-      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-25T13:26:59Z</prov:startedAtTime>
+      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-27T13:51:19Z</prov:startedAtTime>
+      <prov:wasAssociatedWith rdf:resource="http://csarven.ca/#i"/>
       <prov:used rdf:resource="http://example.org/data/SDMX.GenericSample.xml"/>
       <prov:used rdf:resource="http://example.org/data/SDMX.StructureSample.xml"/>
       <prov:used rdf:resource="https://raw.github.com/csarven/sdmx-to-qb/master/scripts/generic.xsl"/>
@@ -37,7 +38,8 @@
       <rdf:type rdf:resource="http://purl.org/linked-data/cube#DataSet"/>
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
       <prov:wasAttributedTo rdf:resource="http://csarven.ca/#i"/>
-      <qb:structure rdf:resource="http://example.org/datasetBIS/BIS_JOINT_DEBT/structure"/>
+      <prov:generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-27T13:51:19Z</prov:generatedAtTime>
+      <qb:structure rdf:resource="http://example.org/dataset/BIS/BIS_JOINT_DEBT/structure"/>
    </rdf:Description>
    <rdf:Description rdf:about="http://example.org/dataset/BIS_JOINT_DEBT">
       <qb:slice>
@@ -69,9 +71,8 @@
       <property:JD_TYPE rdf:resource="http://5B0.270a.info/code/CL_JD_TYPE/P"/>
       <property:JD_CATEGORY rdf:resource="http://5B0.270a.info/code/CL_JD_CATEGORY/A"/>
       <property:VIS_CTY rdf:resource="http://5B0.270a.info/code/CL_BIS_IF_REF_AREA/MX"/>
-      <property:TIME xmlns:property="http://example.org/property/BIS/">2000-01</property:TIME>
-      <property:OBS_VALUE xmlns:property="http://example.org/property/BIS/"
-                          rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.14</property:OBS_VALUE>
+      <property:TIME>2000-01</property:TIME>
+      <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.14</property:OBS_VALUE>
       <property:OBS_STATUS rdf:resource="http://5B0.270a.info/code/CL_OBS_STATUS/A"/>
       <property:COLLECTION rdf:resource="http://5B0.270a.info/code/CL_COLLECTION/B"/>
       <property:TIME_FORMAT rdf:resource="http://5B0.270a.info/code/CL_TIME_FORMAT/P1M"/>
@@ -83,9 +84,8 @@
       <property:JD_TYPE rdf:resource="http://5B0.270a.info/code/CL_JD_TYPE/P"/>
       <property:JD_CATEGORY rdf:resource="http://5B0.270a.info/code/CL_JD_CATEGORY/A"/>
       <property:VIS_CTY rdf:resource="http://5B0.270a.info/code/CL_BIS_IF_REF_AREA/MX"/>
-      <property:TIME xmlns:property="http://example.org/property/BIS/">2000-02</property:TIME>
-      <property:OBS_VALUE xmlns:property="http://example.org/property/BIS/"
-                          rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.14</property:OBS_VALUE>
+      <property:TIME>2000-02</property:TIME>
+      <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.14</property:OBS_VALUE>
       <property:OBS_STATUS rdf:resource="http://5B0.270a.info/code/CL_OBS_STATUS/A"/>
       <property:COLLECTION rdf:resource="http://5B0.270a.info/code/CL_COLLECTION/B"/>
       <property:TIME_FORMAT rdf:resource="http://5B0.270a.info/code/CL_TIME_FORMAT/P1M"/>
@@ -97,9 +97,8 @@
       <property:JD_TYPE rdf:resource="http://5B0.270a.info/code/CL_JD_TYPE/P"/>
       <property:JD_CATEGORY rdf:resource="http://5B0.270a.info/code/CL_JD_CATEGORY/A"/>
       <property:VIS_CTY rdf:resource="http://5B0.270a.info/code/CL_BIS_IF_REF_AREA/MX"/>
-      <property:TIME xmlns:property="http://example.org/property/BIS/">2000-03</property:TIME>
-      <property:OBS_VALUE xmlns:property="http://example.org/property/BIS/"
-                          rdf:datatype="http://www.w3.org/2001/XMLSchema#double">4.29</property:OBS_VALUE>
+      <property:TIME>2000-03</property:TIME>
+      <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">4.29</property:OBS_VALUE>
       <property:OBS_STATUS rdf:resource="http://5B0.270a.info/code/CL_OBS_STATUS/A"/>
       <property:COLLECTION rdf:resource="http://5B0.270a.info/code/CL_COLLECTION/B"/>
       <property:TIME_FORMAT rdf:resource="http://5B0.270a.info/code/CL_TIME_FORMAT/P1M"/>
@@ -111,9 +110,8 @@
       <property:JD_TYPE rdf:resource="http://5B0.270a.info/code/CL_JD_TYPE/P"/>
       <property:JD_CATEGORY rdf:resource="http://5B0.270a.info/code/CL_JD_CATEGORY/A"/>
       <property:VIS_CTY rdf:resource="http://5B0.270a.info/code/CL_BIS_IF_REF_AREA/MX"/>
-      <property:TIME xmlns:property="http://example.org/property/BIS/">2000-04</property:TIME>
-      <property:OBS_VALUE xmlns:property="http://example.org/property/BIS/"
-                          rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.04</property:OBS_VALUE>
+      <property:TIME>2000-04</property:TIME>
+      <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.04</property:OBS_VALUE>
       <property:OBS_STATUS rdf:resource="http://5B0.270a.info/code/CL_OBS_STATUS/A"/>
       <property:COLLECTION rdf:resource="http://5B0.270a.info/code/CL_COLLECTION/B"/>
       <property:TIME_FORMAT rdf:resource="http://5B0.270a.info/code/CL_TIME_FORMAT/P1M"/>
@@ -125,9 +123,8 @@
       <property:JD_TYPE rdf:resource="http://5B0.270a.info/code/CL_JD_TYPE/P"/>
       <property:JD_CATEGORY rdf:resource="http://5B0.270a.info/code/CL_JD_CATEGORY/A"/>
       <property:VIS_CTY rdf:resource="http://5B0.270a.info/code/CL_BIS_IF_REF_AREA/MX"/>
-      <property:TIME xmlns:property="http://example.org/property/BIS/">2000-05</property:TIME>
-      <property:OBS_VALUE xmlns:property="http://example.org/property/BIS/"
-                          rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5.18</property:OBS_VALUE>
+      <property:TIME>2000-05</property:TIME>
+      <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5.18</property:OBS_VALUE>
       <property:OBS_STATUS rdf:resource="http://5B0.270a.info/code/CL_OBS_STATUS/A"/>
       <property:COLLECTION rdf:resource="http://5B0.270a.info/code/CL_COLLECTION/B"/>
       <property:TIME_FORMAT rdf:resource="http://5B0.270a.info/code/CL_TIME_FORMAT/P1M"/>
@@ -139,9 +136,8 @@
       <property:JD_TYPE rdf:resource="http://5B0.270a.info/code/CL_JD_TYPE/P"/>
       <property:JD_CATEGORY rdf:resource="http://5B0.270a.info/code/CL_JD_CATEGORY/A"/>
       <property:VIS_CTY rdf:resource="http://5B0.270a.info/code/CL_BIS_IF_REF_AREA/MX"/>
-      <property:TIME xmlns:property="http://example.org/property/BIS/">2000-06</property:TIME>
-      <property:OBS_VALUE xmlns:property="http://example.org/property/BIS/"
-                          rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5.07</property:OBS_VALUE>
+      <property:TIME>2000-06</property:TIME>
+      <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5.07</property:OBS_VALUE>
       <property:OBS_STATUS rdf:resource="http://5B0.270a.info/code/CL_OBS_STATUS/A"/>
       <property:COLLECTION rdf:resource="http://5B0.270a.info/code/CL_COLLECTION/B"/>
       <property:TIME_FORMAT rdf:resource="http://5B0.270a.info/code/CL_TIME_FORMAT/P1M"/>
@@ -153,9 +149,8 @@
       <property:JD_TYPE rdf:resource="http://5B0.270a.info/code/CL_JD_TYPE/P"/>
       <property:JD_CATEGORY rdf:resource="http://5B0.270a.info/code/CL_JD_CATEGORY/A"/>
       <property:VIS_CTY rdf:resource="http://5B0.270a.info/code/CL_BIS_IF_REF_AREA/MX"/>
-      <property:TIME xmlns:property="http://example.org/property/BIS/">2000-07</property:TIME>
-      <property:OBS_VALUE xmlns:property="http://example.org/property/BIS/"
-                          rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.13</property:OBS_VALUE>
+      <property:TIME>2000-07</property:TIME>
+      <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.13</property:OBS_VALUE>
       <property:OBS_STATUS rdf:resource="http://5B0.270a.info/code/CL_OBS_STATUS/A"/>
       <property:COLLECTION rdf:resource="http://5B0.270a.info/code/CL_COLLECTION/B"/>
       <property:TIME_FORMAT rdf:resource="http://5B0.270a.info/code/CL_TIME_FORMAT/P1M"/>
@@ -167,9 +162,8 @@
       <property:JD_TYPE rdf:resource="http://5B0.270a.info/code/CL_JD_TYPE/P"/>
       <property:JD_CATEGORY rdf:resource="http://5B0.270a.info/code/CL_JD_CATEGORY/A"/>
       <property:VIS_CTY rdf:resource="http://5B0.270a.info/code/CL_BIS_IF_REF_AREA/MX"/>
-      <property:TIME xmlns:property="http://example.org/property/BIS/">2000-08</property:TIME>
-      <property:OBS_VALUE xmlns:property="http://example.org/property/BIS/"
-                          rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.17</property:OBS_VALUE>
+      <property:TIME>2000-08</property:TIME>
+      <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.17</property:OBS_VALUE>
       <property:OBS_STATUS rdf:resource="http://5B0.270a.info/code/CL_OBS_STATUS/A"/>
       <property:COLLECTION rdf:resource="http://5B0.270a.info/code/CL_COLLECTION/B"/>
       <property:TIME_FORMAT rdf:resource="http://5B0.270a.info/code/CL_TIME_FORMAT/P1M"/>
@@ -181,9 +175,8 @@
       <property:JD_TYPE rdf:resource="http://5B0.270a.info/code/CL_JD_TYPE/P"/>
       <property:JD_CATEGORY rdf:resource="http://5B0.270a.info/code/CL_JD_CATEGORY/A"/>
       <property:VIS_CTY rdf:resource="http://5B0.270a.info/code/CL_BIS_IF_REF_AREA/MX"/>
-      <property:TIME xmlns:property="http://example.org/property/BIS/">2000-09</property:TIME>
-      <property:OBS_VALUE xmlns:property="http://example.org/property/BIS/"
-                          rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.14</property:OBS_VALUE>
+      <property:TIME>2000-09</property:TIME>
+      <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.14</property:OBS_VALUE>
       <property:OBS_STATUS rdf:resource="http://5B0.270a.info/code/CL_OBS_STATUS/A"/>
       <property:COLLECTION rdf:resource="http://5B0.270a.info/code/CL_COLLECTION/B"/>
       <property:TIME_FORMAT rdf:resource="http://5B0.270a.info/code/CL_TIME_FORMAT/P1M"/>
@@ -195,9 +188,8 @@
       <property:JD_TYPE rdf:resource="http://5B0.270a.info/code/CL_JD_TYPE/P"/>
       <property:JD_CATEGORY rdf:resource="http://5B0.270a.info/code/CL_JD_CATEGORY/A"/>
       <property:VIS_CTY rdf:resource="http://5B0.270a.info/code/CL_BIS_IF_REF_AREA/MX"/>
-      <property:TIME xmlns:property="http://example.org/property/BIS/">2000-10</property:TIME>
-      <property:OBS_VALUE xmlns:property="http://example.org/property/BIS/"
-                          rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.04</property:OBS_VALUE>
+      <property:TIME>2000-10</property:TIME>
+      <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.04</property:OBS_VALUE>
       <property:OBS_STATUS rdf:resource="http://5B0.270a.info/code/CL_OBS_STATUS/A"/>
       <property:COLLECTION rdf:resource="http://5B0.270a.info/code/CL_COLLECTION/B"/>
       <property:TIME_FORMAT rdf:resource="http://5B0.270a.info/code/CL_TIME_FORMAT/P1M"/>
@@ -209,9 +201,8 @@
       <property:JD_TYPE rdf:resource="http://5B0.270a.info/code/CL_JD_TYPE/P"/>
       <property:JD_CATEGORY rdf:resource="http://5B0.270a.info/code/CL_JD_CATEGORY/A"/>
       <property:VIS_CTY rdf:resource="http://5B0.270a.info/code/CL_BIS_IF_REF_AREA/MX"/>
-      <property:TIME xmlns:property="http://example.org/property/BIS/">2000-11</property:TIME>
-      <property:OBS_VALUE xmlns:property="http://example.org/property/BIS/"
-                          rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.14</property:OBS_VALUE>
+      <property:TIME>2000-11</property:TIME>
+      <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.14</property:OBS_VALUE>
       <property:OBS_STATUS rdf:resource="http://5B0.270a.info/code/CL_OBS_STATUS/A"/>
       <property:COLLECTION rdf:resource="http://5B0.270a.info/code/CL_COLLECTION/B"/>
       <property:TIME_FORMAT rdf:resource="http://5B0.270a.info/code/CL_TIME_FORMAT/P1M"/>
@@ -223,9 +214,8 @@
       <property:JD_TYPE rdf:resource="http://5B0.270a.info/code/CL_JD_TYPE/P"/>
       <property:JD_CATEGORY rdf:resource="http://5B0.270a.info/code/CL_JD_CATEGORY/A"/>
       <property:VIS_CTY rdf:resource="http://5B0.270a.info/code/CL_BIS_IF_REF_AREA/MX"/>
-      <property:TIME xmlns:property="http://example.org/property/BIS/">2000-12</property:TIME>
-      <property:OBS_VALUE xmlns:property="http://example.org/property/BIS/"
-                          rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.24</property:OBS_VALUE>
+      <property:TIME>2000-12</property:TIME>
+      <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.24</property:OBS_VALUE>
       <property:OBS_STATUS rdf:resource="http://5B0.270a.info/code/CL_OBS_STATUS/A"/>
       <property:COLLECTION rdf:resource="http://5B0.270a.info/code/CL_COLLECTION/B"/>
       <property:TIME_FORMAT rdf:resource="http://5B0.270a.info/code/CL_TIME_FORMAT/P1M"/>
@@ -249,9 +239,8 @@
       <property:JD_TYPE rdf:resource="http://5B0.270a.info/code/CL_JD_TYPE/P"/>
       <property:JD_CATEGORY rdf:resource="http://5B0.270a.info/code/CL_JD_CATEGORY/A"/>
       <property:VIS_CTY rdf:resource="http://5B0.270a.info/code/CL_BIS_IF_REF_AREA/MX"/>
-      <property:TIME xmlns:property="http://example.org/property/BIS/">2000-01</property:TIME>
-      <property:OBS_VALUE xmlns:property="http://example.org/property/BIS/"
-                          rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.14</property:OBS_VALUE>
+      <property:TIME>2000-01</property:TIME>
+      <property:OBS_VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.14</property:OBS_VALUE>
       <property:OBS_STATUS rdf:resource="http://5B0.270a.info/code/CL_OBS_STATUS/A"/>
       <property:COLLECTION rdf:resource="http://5B0.270a.info/code/CL_COLLECTION/B"/>
       <property:TIME_FORMAT rdf:resource="http://5B0.270a.info/code/CL_TIME_FORMAT/P1Y"/>
