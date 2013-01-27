@@ -154,6 +154,7 @@ Should we give any special treatment to TimeDimension even though qb currently d
                             <qb:dimension>
                                 <rdf:Description rdf:about="{$property}{$conceptRef}">
                                     <rdf:type rdf:resource="{$qb}DimensionProperty"/>
+                                    <rdf:type rdf:resource="{$qb}CodedProperty"/>
                                     <rdf:type rdf:resource="{$rdf}Property"/>
                                     <qb:concept>
                                         <rdf:Description rdf:about="{$concept}{$conceptRef}">
@@ -185,6 +186,7 @@ Consider what to do with optional <TextFormat textType="Double"/> or whatever. P
                             <qb:measure>
                                 <rdf:Description rdf:about="{$property}{@conceptRef}">
                                     <rdf:type rdf:resource="{$qb}MeasureProperty"/>
+                                    <rdf:type rdf:resource="{$qb}CodedProperty"/>
                                     <rdf:type rdf:resource="{$rdf}Property"/>
                                     <qb:concept>
                                         <rdf:Description rdf:about="{$concept}{$conceptRef}">
@@ -210,6 +212,7 @@ Multiple measures
                             <qb:attribute>
                                 <rdf:Description rdf:about="{$property}{@conceptRef}">
                                     <rdf:type rdf:resource="{$qb}AttributeProperty"/>
+                                    <rdf:type rdf:resource="{$qb}CodedProperty"/>
                                     <rdf:type rdf:resource="{$rdf}Property"/>
                                     <qb:concept>
                                         <rdf:Description rdf:about="{$concept}{$conceptRef}">
@@ -396,7 +399,7 @@ structure:textFormat
                             <rdf:type rdf:resource="{$rdfs}Class"/>
                             <rdf:type rdf:resource="{$owl}Class"/>
                             <rdfs:subClassOf rdf:resource="{$skos}Concept"/>
-                            <rdfs:seeAlso rdf:resource="{$code}{$id}{$uriValidFromToSeparator}"/>
+                            <rdfs:seeAlso rdf:resource="{$code}{$uriThingSeparator}{$id}{$uriValidFromToSeparator}"/>
                             <xsl:apply-templates select="structure:Name"/>
                         </rdf:Description>
                     </rdfs:seeAlso>
