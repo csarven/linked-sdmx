@@ -447,7 +447,7 @@ structure:textFormat
     <xsl:template name="HierarchicalCodelists">
         <xsl:for-each select="Structure/HierarchicalCodelists/structure:HierarchicalCodelist">
             <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
-            <xsl:variable name="agencyID" select="fn:getAttributeValue(@agencyID)"/>
+<!--            <xsl:variable name="agencyID" select="fn:getAttributeValue(@agencyID)"/>-->
 
             <xsl:variable name="uriValidFromToSeparator">
                 <xsl:if test="@validFrom and @validTo">
@@ -495,7 +495,7 @@ structure:textFormat
 
                             <xsl:call-template name="CodeRefs">
                                 <xsl:with-param name="HierarchicalCodelistID" select="$id"/>
-                                <xsl:with-param name="agencyID" select="$agencyID"/>
+<!--                                <xsl:with-param name="agencyID" select="$agencyID"/>-->
                             </xsl:call-template>
                         </rdf:Description>
                     </xkos:hasPart>
@@ -509,7 +509,7 @@ structure:textFormat
         <xsl:param name="HierarchicalCodelistID"/>
         <xsl:param name="CodelistAliasRef_parent"/>
         <xsl:param name="CodeID_parent"/>
-        <xsl:param name="agencyID"/>
+<!--        <xsl:param name="agencyID"/>-->
 
         <xsl:for-each select="structure:CodeRef">
 <!--
@@ -545,26 +545,26 @@ This is a kind of a hack, works based on tested sample structures. Not guarantee
 XXX:
 Dirty?
 -->
-            <xsl:variable name="agencyID">
-                <xsl:choose>
-                    <xsl:when test="structure:URN">
-                        <xsl:variable name="structureURN" select="structure:URN"/>
+<!--            <xsl:variable name="agencyID">-->
+<!--                <xsl:choose>-->
+<!--                    <xsl:when test="structure:URN">-->
+<!--                        <xsl:variable name="structureURN" select="structure:URN"/>-->
 
-                        <xsl:variable name="AgencyID" select="/Structure/HierarchicalCodelists[@id = $HierarchicalCodelistID]/structure:HierarchicalCodelist/structure:CodelistRef"/>
+<!--                        <xsl:variable name="AgencyID" select="/Structure/HierarchicalCodelists[@id = $HierarchicalCodelistID]/structure:HierarchicalCodelist/structure:CodelistRef"/>-->
 
-                        <xsl:for-each select="distinct-values(/Structure/HierarchicalCodelists[@id = $HierarchicalCodelistID]/structure:HierarchicalCodelist/structure:CodelistRef/structure:CodelistID/text())">
-                            <xsl:variable name="CodelistID" select="."/>
+<!--                        <xsl:for-each select="distinct-values(/Structure/HierarchicalCodelists[@id = $HierarchicalCodelistID]/structure:HierarchicalCodelist/structure:CodelistRef/structure:CodelistID/text())">-->
+<!--                            <xsl:variable name="CodelistID" select="."/>-->
 
-                            <xsl:if test="contains($structureURN, $CodelistID)">
-                                <xsl:value-of select="distinct-values($AgencyID[structure:CodelistID = $CodelistID]/structure:AgencyID)[1]"/>
-                            </xsl:if>
-                        </xsl:for-each>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:value-of select="$agencyID"/>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </xsl:variable>
+<!--                            <xsl:if test="contains($structureURN, $CodelistID)">-->
+<!--                                <xsl:value-of select="distinct-values($AgencyID[structure:CodelistID = $CodelistID]/structure:AgencyID)[1]"/>-->
+<!--                            </xsl:if>-->
+<!--                        </xsl:for-each>-->
+<!--                    </xsl:when>-->
+<!--                    <xsl:otherwise>-->
+<!--                        <xsl:value-of select="$agencyID"/>-->
+<!--                    </xsl:otherwise>-->
+<!--                </xsl:choose>-->
+<!--            </xsl:variable>-->
 
 <!--
 TODO:
@@ -596,7 +596,7 @@ XXX:
                         <xsl:with-param name="HierarchicalCodelistID" select="$HierarchicalCodelistID"/>
                         <xsl:with-param name="CodelistAliasRef_parent" select="$CodelistAliasRef"/>
                         <xsl:with-param name="CodeID_parent" select="$CodeID"/>
-                        <xsl:with-param name="agencyID" select="$agencyID"/>
+<!--                        <xsl:with-param name="agencyID" select="$agencyID"/>-->
                     </xsl:call-template>
                 </rdf:Description>
             </xkos:hasPart>
