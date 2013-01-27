@@ -132,7 +132,7 @@
     </xsl:template>
 
     <xsl:template match="@urn">
-        <dcterms:identifier rdf:resource="{normalize-space(.)}"/>
+        <dcterms:identifier><xsl:value-of select="normalize-space(.)"/></dcterms:identifier>
     </xsl:template>
 
     <xsl:template name="qbCodeListrdfsRange">
