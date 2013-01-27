@@ -467,7 +467,7 @@ structure:textFormat
                 <xsl:apply-templates select="structure:Description"/>
 
                 <xsl:for-each select="structure:CodelistRef">
-                    <dcterms:references rdf:resource="{$code}{structure:CodelistID}"/>
+                    <dcterms:references rdf:resource="{$code}{$uriThingSeparator}{structure:CodelistID}"/>
                 </xsl:for-each>
 
                 <xsl:for-each select="structure:Hierarchy">
@@ -484,7 +484,7 @@ structure:textFormat
                             <rdf:type rdf:resource="{$skos}Collection"/>
                             <skos:notation><xsl:value-of select="$id"/></skos:notation>
 
-                            <xkos:isPartOf rdf:resource="{$code}{$id}{$uriValidFromToSeparator}"/>
+                            <xkos:isPartOf rdf:resource="{$code}{$uriThingSeparator}{$id}{$uriValidFromToSeparator}"/>
 
                             <xsl:apply-templates select="structure:Name"/>
 
