@@ -14,8 +14,8 @@
     skos:notation "5B0" , "BIS" .
 <http://5A0.270a.info/>
     skos:notation "5A0", "OECD" .
-<http://UN.270a.info/>
-    skos:notation "UN" , "UNDP-HDRO" .
+<http://1B0.270a.info/>
+    skos:notation "1B0", "UN" , "UNDP-HDRO" .
 <http://4F0.270a.info/>
     skos:notation "4F0" , "ECB" .
 <http://WB.270a.info/>
@@ -26,8 +26,8 @@
     skos:notation "1C0", "IMF" .
 <http://1J0.270a.info/>
     skos:notation "1J0", "FAO" .
-<http://ESTAT.270a.info/>
-    skos:notation "ESTAT", "EUROSTAT" .
+<http://4D0.270a.info/>
+    skos:notation "4D0", "ESTAT", "EUROSTAT" .
 <http://CH1.270a.info/>
     skos:notation "CH1" , "FSO" , "BFS", "OFS" , "UST" .
 
