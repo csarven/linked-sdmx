@@ -158,7 +158,7 @@ Should we give any special treatment to TimeDimension even though qb currently d
                                     <rdf:type rdf:resource="{$rdf}Property"/>
                                     <qb:concept>
                                         <rdf:Description rdf:about="{$concept}{$conceptRef}">
-                                            <rdf:type resource="{$sdmx}{fn:getConceptRole(.)}"></rdf:type>
+                                            <rdf:type rdf:resource="{$sdmx}{fn:getConceptRole(.)}"></rdf:type>
                                         </rdf:Description>
                                     </qb:concept>
                                     <xsl:call-template name="qbCodeListrdfsRange">
