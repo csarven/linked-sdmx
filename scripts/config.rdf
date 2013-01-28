@@ -53,6 +53,12 @@
     </rdf:value>
     <rdf:value>
       <rdf:Description>
+        <rdf:value>http://example.org/property/</rdf:value>
+        <rdfs:label>prov</rdfs:label>
+      </rdf:Description>
+    </rdf:value>
+    <rdf:value>
+      <rdf:Description>
         <rdf:value>http://www.w3.org/1999/02/22-rdf-syntax-ns#</rdf:value>
         <rdfs:label>rdf</rdfs:label>
       </rdf:Description>
@@ -62,22 +68,33 @@
         <rdf:value>
           <rdf:Description>
             <rdf:predicate>xkos:hasPart</rdf:predicate>
-            <rdf:type>http://CH1.270a.info/code/CL_HGDE_GDE</rdf:type>
-            <rdfs:label>CODE_OFS</rdfs:label>
+            <rdf:type>CODE_OFS</rdf:type>
+            <rdfs:label>AnnotationText</rdfs:label>
+            <rdfs:range>http://example.org/code/CL_HGDE_GDE</rdfs:range>
           </rdf:Description>
         </rdf:value>
         <rdf:value>
           <rdf:Description>
             <rdf:predicate>xkos:isPartOf</rdf:predicate>
-            <rdf:type>http://CH1.270a.info/code/CL_HGDE_GDE</rdf:type>
-            <rdfs:label>CODE_HISTORY</rdfs:label>
+            <rdf:type>CODE_HISTORY</rdf:type>
+            <rdfs:label>AnnotationText</rdfs:label>
+            <rdfs:range>http://example.org/code/CL_HGDE_GDE</rdfs:range>
           </rdf:Description>
         </rdf:value>
         <rdf:value>
           <rdf:Description>
             <rdf:predicate>skos:altLabel</rdf:predicate>
-            <rdf:type>Literal</rdf:type>
-            <rdfs:label>ABBREV</rdfs:label>
+            <rdf:type>ABBREV</rdf:type>
+            <rdfs:label>common:AnnotationText</rdfs:label>
+            <rdfs:range>Literal</rdfs:range>
+          </rdf:Description>
+        </rdf:value>
+        <rdf:value>
+          <rdf:Description>
+            <rdf:predicate>property:GDE_GARTE</rdf:predicate>
+            <rdf:type>REC_TYPE</rdf:type>
+            <rdfs:label>AnnotationTitle</rdfs:label>
+            <rdfs:range>http://example.org/code/CL_HGDE_MODALITY</rdfs:range>
           </rdf:Description>
         </rdf:value>
         <rdfs:label>interlinkAnnotationTypes</rdfs:label>

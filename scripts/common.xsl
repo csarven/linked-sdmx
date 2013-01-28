@@ -88,29 +88,25 @@
 
     <xsl:template match="structure:Annotations/common:Annotation">
         <xsl:variable name="AnnotationType" select="normalize-space(common:AnnotationType)"/>
-        <xsl:variable name="cIAT" select="$ConfigInterlinkAnnotationTypes[rdfs:label = $AnnotationType]"/>
+        <xsl:variable name="cIAT" select="$ConfigInterlinkAnnotationTypes[rdf:type = $AnnotationType]"/>
 
         <xsl:if test="$AnnotationType and $cIAT">
             <xsl:variable name="rdfPredicate" select="$cIAT/rdf:predicate"/>
-            <xsl:variable name="rdfType" select="$cIAT/rdf:type"/>
+            <xsl:variable name="rdfRange" select="$cIAT/rdfs:range"/>
 
-            <xsl:for-each select="common:AnnotationText">
+            <xsl:for-each select="*[local-name() = $cIAT/rdfs:label]">
                 <xsl:element name="{$rdfPredicate}" namespace="{fn:getConfig(tokenize($rdfPredicate, ':')[1])}">
                     <xsl:choose>
-                        <xsl:when test="$rdfType = 'Literal'">
+                        <xsl:when test="$rdfRange = 'Literal'">
                             <xsl:call-template name="langTextNode"/>
                         </xsl:when>
                         <xsl:otherwise>
                             <xsl:attribute name="rdf:resource">
-                                <xsl:value-of select="$rdfType"/><xsl:value-of select="$uriThingSeparator"/><xsl:value-of select="normalize-space(.)"/>
+                                <xsl:value-of select="$rdfRange"/><xsl:value-of select="$uriThingSeparator"/><xsl:value-of select="normalize-space(.)"/>
                             </xsl:attribute>
                         </xsl:otherwise>
                     </xsl:choose>
                 </xsl:element>
-            </xsl:for-each>
-
-            <xsl:for-each select="common:AnnotationTitle">
-                <rdfs:comment><xsl:value-of select="."/></rdfs:comment>
             </xsl:for-each>
 
             <xsl:for-each select="common:AnnotationURL">
