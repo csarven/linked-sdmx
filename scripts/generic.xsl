@@ -796,13 +796,25 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
 
                     <xsl:if test="$ObsTime != '' and $TimeDimensionConceptRef != ''">
                         <xsl:element name="property:{$TimeDimensionConceptRef}" namespace="{$property}{$SeriesKeyConceptsData/*[name() = $TimeDimensionConceptRef]}">
-                            <xsl:variable name="datatype" select="$SeriesKeyConceptsData/*[lower-case(name()) = lower-case($TimeDimensionConceptRef)]/@datatype"/>
-                            <xsl:if test="$datatype != ''">
-                                <xsl:call-template name="rdfDatatypeXSD">
-                                    <xsl:with-param name="type" select="$datatype"/>
-                                </xsl:call-template>
-                            </xsl:if>
-                            <xsl:value-of select="$ObsTime"/>
+
+                            <xsl:variable name="resourceRefPeriod" select="fn:getResourceRefPeriod($ObsTime)"/>
+
+                            <xsl:choose>
+                                <xsl:when test="$resourceRefPeriod != ''">
+                                    <xsl:attribute name="rdf:resource">
+                                        <xsl:value-of select="$resourceRefPeriod"/>
+                                    </xsl:attribute>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:variable name="datatype" select="$SeriesKeyConceptsData/*[lower-case(name()) = lower-case($TimeDimensionConceptRef)]/@datatype"/>
+                                    <xsl:if test="$datatype != ''">
+                                        <xsl:call-template name="rdfDatatypeXSD">
+                                            <xsl:with-param name="type" select="$datatype"/>
+                                        </xsl:call-template>
+                                    </xsl:if>
+                                    <xsl:value-of select="$ObsTime"/>
+                                </xsl:otherwise>
+                            </xsl:choose>
                         </xsl:element>
                     </xsl:if>
 

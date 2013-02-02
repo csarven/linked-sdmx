@@ -241,6 +241,25 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
         </xsl:choose>
     </xsl:function>
 
+
+    <xsl:function name="fn:getResourceRefPeriod">
+        <xsl:param name="date"/>
+        <xsl:analyze-string select="$date" regex="(([0-9]{{4}})|([1-9][0-9]{{3,}})+)(-?Q([1-4]))" flags="i">
+            <xsl:matching-substring>
+                <xsl:text>http://reference.data.gov.uk/id/quarter/</xsl:text><xsl:value-of select="regex-group(1)"/><xsl:text>-Q</xsl:text><xsl:value-of select="regex-group(5)"/>
+            </xsl:matching-substring>
+            <xsl:non-matching-substring>
+                <xsl:analyze-string select="$date" regex="(([0-9]{{4}})|([1-9][0-9]{{3,}})+)">
+                    <xsl:matching-substring>
+                       <xsl:text>http://reference.data.gov.uk/id/year/</xsl:text><xsl:value-of select="regex-group(1)"/>
+                    </xsl:matching-substring>
+                    <xsl:non-matching-substring>
+                    </xsl:non-matching-substring>
+                </xsl:analyze-string>
+            </xsl:non-matching-substring>
+        </xsl:analyze-string>
+    </xsl:function>
+
     <xsl:template name="provActivity">
         <xsl:param name="provUsedA"/>
         <xsl:param name="provUsedB"/>
