@@ -34,6 +34,7 @@
     <xsl:variable name="agency" select="fn:getConfig('agency')"/>
     <xsl:variable name="agencyURI" select="$Agencies/rdf:Description[skos:notation = $agency]/@rdf:about"/>
     <xsl:variable name="ConfigInterlinkAnnotationTypes" select="$Config/rdf:Description/rdf:value/rdf:Description[rdfs:label = 'interlinkAnnotationTypes']/rdf:value/rdf:Description"/>
+    <xsl:variable name="ConfigOmitComponents" select="$Config/rdf:Description/rdf:value/rdf:Description[rdfs:label = 'omitComponents']/rdf:value/rdf:Description"/>
     <xsl:variable name="xmlDocumentBaseUri" select="fn:getConfig('xmlDocumentBaseUri')"/>
     <xsl:variable name="xslDocument" select="fn:getConfig('xslDocument')"/>
     <xsl:variable name="now" select="fn:now()"/>

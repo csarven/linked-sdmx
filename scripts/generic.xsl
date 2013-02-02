@@ -42,16 +42,6 @@
     <xsl:param name="pathToGenericStructure"/>
     <xsl:variable name="genericStructure" select="document($pathToGenericStructure)/Structure"/>
 
-<!--
-TODO:
-* Default to language when the structure or data doesn't contain xml:lang
-* When agencyID="SDMX", fixed corresponding URIs within the SDMX namespace should be used. Sometimes codelistAgency or conceptSchemeAgency is not mentioned in the KeyFamily but the Codelist uses agencyID="SDMX". A first check might be to see if there is an agencyID set for the conceptRef or codelist
-* Similarly consider what to do for agencyID's that's different than self agency and SDMX. Ideally it should use their full URI - needs to check registry?
-* Consider detecting common datetime patterns and use a URI or datatypes
-* Improve config for URI and thing separator
-* isExternalReference
--->
-
     <xsl:template match="/">
         <rdf:RDF>
             <xsl:namespace name="property" select="$property"/>
@@ -765,14 +755,22 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
         </xsl:variable>
 -->
 
+            <xsl:variable name="omitComponents">
+                <xsl:for-each select="$ConfigOmitComponents/rdf:value">
+                    <xsl:value-of select="lower-case(.)"/><xsl:text> </xsl:text>
+                </xsl:for-each>
+            </xsl:variable>
+
             <xsl:variable name="GenericAttributes">
                 <xsl:for-each select="generic:Attributes/generic:Value">
                     <xsl:variable name="concept" select="@concept"/>
 
-                    <xsl:call-template name="ObsProperty">
-                        <xsl:with-param name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[lower-case(name()) = lower-case($concept)]"/>
-                        <xsl:with-param name="value" select="@value"/>
-                    </xsl:call-template>
+                    <xsl:if test="not(contains($omitComponents, lower-case($concept)))">
+                        <xsl:call-template name="ObsProperty">
+                            <xsl:with-param name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[lower-case(name()) = lower-case($concept)]"/>
+                            <xsl:with-param name="value" select="@value"/>
+                        </xsl:call-template>
+                    </xsl:if>
                 </xsl:for-each>
             </xsl:variable>
 
@@ -822,10 +820,13 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
 
                     <xsl:for-each select="generic:Attributes/generic:Value">
                         <xsl:variable name="concept" select="@concept"/>
-                        <xsl:call-template name="ObsProperty">
-                            <xsl:with-param name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[lower-case(name()) = lower-case($concept)]"/>
-                            <xsl:with-param name="value" select="@value"/>
-                        </xsl:call-template>
+
+                        <xsl:if test="not(contains($omitComponents, lower-case($concept)))">
+                            <xsl:call-template name="ObsProperty">
+                                <xsl:with-param name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[lower-case(name()) = lower-case($concept)]"/>
+                                <xsl:with-param name="value" select="@value"/>
+                            </xsl:call-template>
+                        </xsl:if>
                     </xsl:for-each>
 
                     <xsl:copy-of select="$GenericAttributes/*"/>
