@@ -432,7 +432,21 @@ structure:textFormat
                                 </xsl:if>
 
                                 <skos:notation><xsl:value-of select="@value"/></skos:notation>
-                                <xsl:apply-templates select="structure:Description"/>
+
+<!--
+XXX: Difference between SDMX 2.0 and SDMX 2.1
+-->
+                                <xsl:choose>
+                                    <xsl:when test="structure:Name and structure:Description">
+                                        <xsl:apply-templates select="structure:Name"/>
+                                        <xsl:apply-templates select="structure:Description"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:for-each select="structure:Description">
+                                            <skos:prefLabel><xsl:call-template name="langTextNode"/></skos:prefLabel>
+                                        </xsl:for-each>
+                                    </xsl:otherwise>
+                                </xsl:choose>
 
                                 <xsl:apply-templates select="structure:Annotations/common:Annotation"/>
                             </rdf:Description>
