@@ -646,7 +646,6 @@ XXX: Fallback: KeyfamilyRef may not exist. But this is inaccurate if there are m
 
             <xsl:variable name="SeriesKeyConceptsData" select="fn:createSeriesKeyComponentData($concepts, $KeyFamilyRef)"/>
 
-
             <xsl:variable name="datasetURI">
                 <xsl:value-of select="$dataset"/>
                 <xsl:value-of select="$KeyFamilyRef"/>
@@ -733,7 +732,7 @@ FIXME: Excluding 'FREQ' is a bit grubby?
                             <xsl:for-each select="$ValuesWOFreq">
                                 <xsl:variable name="concept" select="@concept"/>
                                 <xsl:call-template name="ObsProperty">
-                                    <xsl:with-param name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[name() = $concept]"/>
+                                    <xsl:with-param name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[lower-case(name()) = lower-case($concept)]"/>
                                     <xsl:with-param name="value" select="@value"/>
                                 </xsl:call-template>
                             </xsl:for-each>
@@ -769,8 +768,9 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
             <xsl:variable name="GenericAttributes">
                 <xsl:for-each select="generic:Attributes/generic:Value">
                     <xsl:variable name="concept" select="@concept"/>
+
                     <xsl:call-template name="ObsProperty">
-                        <xsl:with-param name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[name() = $concept]"/>
+                        <xsl:with-param name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[lower-case(name()) = lower-case($concept)]"/>
                         <xsl:with-param name="value" select="@value"/>
                     </xsl:call-template>
                 </xsl:for-each>
@@ -791,14 +791,14 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
                     <xsl:for-each select="$Values">
                         <xsl:variable name="concept" select="@concept"/>
                         <xsl:call-template name="ObsProperty">
-                            <xsl:with-param name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[name() = $concept]"/>
+                            <xsl:with-param name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[lower-case(name()) = lower-case($concept)]"/>
                             <xsl:with-param name="value" select="@value"/>
                         </xsl:call-template>
                     </xsl:for-each>
 
                     <xsl:if test="$ObsTime != '' and $TimeDimensionConceptRef != ''">
                         <xsl:element name="property:{$TimeDimensionConceptRef}" namespace="{$property}{$SeriesKeyConceptsData/*[name() = $TimeDimensionConceptRef]}">
-                            <xsl:variable name="datatype" select="$SeriesKeyConceptsData/*[name() = $TimeDimensionConceptRef]/@datatype"/>
+                            <xsl:variable name="datatype" select="$SeriesKeyConceptsData/*[lower-case(name()) = lower-case($TimeDimensionConceptRef)]/@datatype"/>
                             <xsl:if test="$datatype != ''">
                                 <xsl:call-template name="rdfDatatypeXSD">
                                     <xsl:with-param name="type" select="$datatype"/>
@@ -810,7 +810,7 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
 
                     <xsl:for-each select="generic:ObsValue">
                         <xsl:element name="property:{$PrimaryMeasureConceptRef}" namespace="{$property}{$SeriesKeyConceptsData/*[name() = $PrimaryMeasureConceptRef]}">
-                            <xsl:variable name="datatype" select="$SeriesKeyConceptsData/*[name() = $PrimaryMeasureConceptRef]/@datatype"/>
+                            <xsl:variable name="datatype" select="$SeriesKeyConceptsData/*[lower-case(name()) = lower-case($PrimaryMeasureConceptRef)]/@datatype"/>
                             <xsl:if test="$datatype != ''">
                                 <xsl:call-template name="rdfDatatypeXSD">
                                     <xsl:with-param name="type" select="$datatype"/>
@@ -823,7 +823,7 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
                     <xsl:for-each select="generic:Attributes/generic:Value">
                         <xsl:variable name="concept" select="@concept"/>
                         <xsl:call-template name="ObsProperty">
-                            <xsl:with-param name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[name() = $concept]"/>
+                            <xsl:with-param name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[lower-case(name()) = lower-case($concept)]"/>
                             <xsl:with-param name="value" select="@value"/>
                         </xsl:call-template>
                     </xsl:for-each>
