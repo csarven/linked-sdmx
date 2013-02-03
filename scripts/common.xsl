@@ -37,6 +37,7 @@
     <xsl:variable name="ConfigOmitComponents" select="$Config/rdf:Description/rdf:value/rdf:Description[rdfs:label = 'omitComponents']/rdf:value/rdf:Description"/>
     <xsl:variable name="xmlDocumentBaseUri" select="fn:getConfig('xmlDocumentBaseUri')"/>
     <xsl:variable name="xslDocument" select="fn:getConfig('xslDocument')"/>
+    <xsl:variable name="provDocument" select="document($pathToProvDocument)/rdf:RDF"/>
     <xsl:variable name="now" select="fn:now()"/>
     <xsl:variable name="rdf" select="'http://www.w3.org/1999/02/22-rdf-syntax-ns#'"/>
     <xsl:variable name="rdfs" select="'http://www.w3.org/2000/01/rdf-schema#'"/>
@@ -58,8 +59,6 @@
     <xsl:variable name="property" select="concat($agencyURI, 'property', $uriThingSeparator)"/>
     <xsl:variable name="dataset" select="concat($agencyURI, 'dataset/')"/>
     <xsl:variable name="slice" select="concat($agencyURI, 'slice', $uriThingSeparator)"/>
-
-    <xsl:variable name="interlinkAnnotationTypes" select="fn:getConfig('interlinkAnnotationTypes')"/>
 
     <xsl:template name="langTextNode">
         <xsl:choose>
@@ -266,15 +265,23 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
         <xsl:param name="provGenerated"/>
 
         <xsl:variable name="now" select="format-dateTime(current-dateTime(), '[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01]Z')"/>
-
         <rdf:Description rdf:about="{$provenance}activity{$uriThingSeparator}{replace($now, '\D', '')}">
             <rdf:type rdf:resource="{$prov}Activity"/>
 <!--dcterms:title-->
+            <xsl:variable name="informedBy" select="$provDocument/rdf:Description[prov:generated/@rdf:resource = $provUsedA]/@rdf:about"/>
+            <xsl:if test="$informedBy">
+                <prov:wasInformedBy rdf:resource="{$informedBy}"/>
+            </xsl:if>
             <prov:startedAtTime rdf:datatype="{$xsd}dateTime"><xsl:value-of select="$now"/></prov:startedAtTime>
             <prov:wasAssociatedWith rdf:resource="{$creator}"/>
             <prov:used rdf:resource="{$provUsedA}"/>
             <xsl:if test="$provUsedB">
                 <prov:used rdf:resource="{$provUsedB}"/>
+                <xsl:variable name="informedBy" select="$provDocument/rdf:Description[prov:generated/rdf:resource = $provUsedB]/@rdf:about"/>
+
+                <xsl:if test="$informedBy">
+                    <prov:wasInformedBy rdf:resource="{$informedBy}"/>
+                </xsl:if>
             </xsl:if>
             <prov:used rdf:resource="{$xslDocument}"/>
             <prov:generated>

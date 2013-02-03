@@ -40,6 +40,7 @@
 
     <xsl:param name="xmlDocument"/>
     <xsl:param name="pathToGenericStructure"/>
+    <xsl:param name="pathToProvDocument"/>
     <xsl:variable name="genericStructure" select="document($pathToGenericStructure)/Structure"/>
 
     <xsl:template match="/">
