@@ -181,7 +181,7 @@
 
         <xsl:variable name="uri" select="fn:getAgencyURI($agency)"/>
         <xsl:choose>
-            <xsl:when test="$uri">
+            <xsl:when test="$uri != ''">
                 <xsl:value-of select="concat($uri, $component, $uriThingSeparator)"/>
             </xsl:when>
             <xsl:otherwise>
