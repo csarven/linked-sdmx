@@ -172,7 +172,11 @@
     <xsl:function name="fn:getAgencyURI">
         <xsl:param name="agency"/>
 
-        <xsl:value-of select="$Agencies/rdf:Description[skos:notation = $agency]/@rdf:about"/>
+        <xsl:for-each select="$Agencies/rdf:Description/skos:notation">
+            <xsl:if test="starts-with(lower-case($agency), lower-case(.))">
+                <xsl:value-of select="../@rdf:about"/>
+            </xsl:if>
+        </xsl:for-each>
     </xsl:function>
 
     <xsl:function name="fn:getComponentURI">
