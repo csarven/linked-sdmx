@@ -2,16 +2,16 @@
 <rdf:RDF
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:skos="http://www.w3.org/2004/02/skos/core#">
-  <rdf:Description rdf:about="http://bis.270a.info/">
-    <skos:notation>5B0</skos:notation>
-    <skos:notation>BIS</skos:notation>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.gemeindezukunft.ch/bfs/">
+  <rdf:Description rdf:about="http://bfs.270a.info/">
     <skos:notation>BFS</skos:notation>
     <skos:notation>CH1</skos:notation>
     <skos:notation>FSO</skos:notation>
     <skos:notation>OFS</skos:notation>
     <skos:notation>UST</skos:notation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://bis.270a.info/">
+    <skos:notation>5B0</skos:notation>
+    <skos:notation>BIS</skos:notation>
   </rdf:Description>
   <rdf:Description rdf:about="http://ecb.270a.info/">
     <skos:notation>4F0</skos:notation>
