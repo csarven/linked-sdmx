@@ -10,24 +10,24 @@
 <http://example.org/>
     skos:notation "EXAMPLE" .
 
-<http://5B0.270a.info/>
+<http://bis.270a.info/>
     skos:notation "5B0" , "BIS" .
-<http://5A0.270a.info/>
+<http://oecd.270a.info/>
     skos:notation "5A0", "OECD" .
-<http://1B0.270a.info/>
+<http://un.270a.info/>
     skos:notation "1B0", "UN" , "UNDP-HDRO" .
-<http://4F0.270a.info/>
+<http://ecb.270a.info/>
     skos:notation "4F0" , "ECB" .
-<http://WB.270a.info/>
+<http://wb.270a.info/>
     skos:notation "WB" .
-<http://IAEG.270a.info/>
+<http://iaeg.270a.info/>
     skos:notation "IAEG" .
-<http://1C0.270a.info/>
+<http://imf.270a.info/>
     skos:notation "1C0", "IMF" .
-<http://1J0.270a.info/>
+<http://fao.270a.info/>
     skos:notation "1J0", "FAO" .
-<http://4D0.270a.info/>
+<http://eurostat.270a.info/>
     skos:notation "4D0", "ESTAT", "EUROSTAT" .
-<http://CH1.270a.info/>
+<http://data.gemeindezukunft.ch/bfs/>
     skos:notation "CH1" , "FSO" , "BFS", "OFS" , "UST" .
 
