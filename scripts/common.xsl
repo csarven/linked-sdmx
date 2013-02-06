@@ -301,7 +301,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
                 </xsl:when>
 
                 <xsl:otherwise>
-                    <rdfs:label xmln:lang="en"><xsl:value-of select="concat('Transformed ', $KeyFamilyRef, ' Structure')"/></rdfs:label>
+                    <rdfs:label xml:lang="en"><xsl:value-of select="concat('Transformed ', $KeyFamilyRef, ' Structure')"/></rdfs:label>
                 </xsl:otherwise>
             </xsl:choose>
         </rdf:Description>
