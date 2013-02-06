@@ -654,7 +654,7 @@ XXX: Fallback: KeyfamilyRef may not exist. But this is inaccurate if there are m
                 <prov:wasAttributedTo rdf:resource="{$creator}"/>
                 <prov:generatedAtTime rdf:datatype="{$xsd}dateTime"><xsl:value-of select="fn:now()"/></prov:generatedAtTime>
 
-                <qb:structure rdf:resource="{$dataset}{$KeyFamilyAgencyID}/{$KeyFamilyRef}{$uriThingSeparator}structure"/>
+                <qb:structure rdf:resource="{$dataset}{$KeyFamilyRef}{$uriThingSeparator}structure"/>
                 <xsl:if test="@datasetID">
                     <skos:notation><xsl:value-of select="@datasetID"/></skos:notation>
                 </xsl:if>
