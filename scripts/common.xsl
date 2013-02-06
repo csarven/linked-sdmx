@@ -297,7 +297,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
 
             <xsl:choose>
                 <xsl:when test="$provUsedB">
-                    <rdfs:label xmln:lang="en"><xsl:value-of select="concat('Transformed ', $KeyFamilyRef, ' Data')"/></rdfs:label>
+                    <rdfs:label xml:lang="en"><xsl:value-of select="concat('Transformed ', $KeyFamilyRef, ' Data')"/></rdfs:label>
                 </xsl:when>
 
                 <xsl:otherwise>
