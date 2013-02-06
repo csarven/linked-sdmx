@@ -270,7 +270,9 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
         <xsl:param name="KeyFamilyRef"/>
 
         <xsl:variable name="now" select="format-dateTime(current-dateTime(), '[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01]Z')"/>
-        <rdf:Description rdf:about="{$provenance}activity{$uriThingSeparator}{replace($now, '\D', '')}">
+        <xsl:variable name="provActivity" select="{$provenance}activity{$uriThingSeparator}{replace($now, '\D', '')}"/>
+
+        <rdf:Description rdf:about="{$provActivity}">
             <rdf:type rdf:resource="{$prov}Activity"/>
 <!--dcterms:title-->
             <xsl:variable name="informedBy" select="$provDocument/rdf:Description[prov:generated/@rdf:resource = $provUsedA]/@rdf:about"/>
@@ -292,6 +294,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
             <prov:generated>
                 <rdf:Description rdf:about="{$provGenerated}">
                     <prov:wasDerivedFrom rdf:resource="{$provUsedA}"/>
+                    <prov:wasGeneratedBy rdf:resource="{$provActivity}"/>
                 </rdf:Description>
             </prov:generated>
 
