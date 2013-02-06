@@ -80,6 +80,7 @@ FIXME: $pathToGenericStructure should be replaced with an HTTP URI
             <xsl:call-template name="provActivity">
                 <xsl:with-param name="provUsedA" select="resolve-uri(tokenize($xmlDocument, '/')[last()], $xmlDocumentBaseUri)"/>
                 <xsl:with-param name="provGenerated" select="$dsdURI"/>
+                <xsl:with-param name="KeyFamilyRef" select="$id"/>
             </xsl:call-template>
 
             <rdf:Description rdf:about="{$dsdURI}">
@@ -646,6 +647,7 @@ XXX: Fallback: KeyfamilyRef may not exist. But this is inaccurate if there are m
                 <xsl:with-param name="provUsedA" select="resolve-uri(tokenize($xmlDocument, '/')[last()], $xmlDocumentBaseUri)"/>
                 <xsl:with-param name="provUsedB" select="resolve-uri(tokenize($pathToGenericStructure, '/')[last()], $xmlDocumentBaseUri)"/>
                 <xsl:with-param name="provGenerated" select="$datasetURI"/>
+                <xsl:with-param name="KeyFamilyRef" select="$KeyFamilyRef"/>
             </xsl:call-template>
 
             <rdf:Description rdf:about="{$datasetURI}">

@@ -267,6 +267,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
         <xsl:param name="provUsedA"/>
         <xsl:param name="provUsedB"/>
         <xsl:param name="provGenerated"/>
+        <xsl:param name="KeyFamilyRef"/>
 
         <xsl:variable name="now" select="format-dateTime(current-dateTime(), '[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01]Z')"/>
         <rdf:Description rdf:about="{$provenance}activity{$uriThingSeparator}{replace($now, '\D', '')}">
@@ -293,6 +294,16 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
                     <prov:wasDerivedFrom rdf:resource="{$provUsedA}"/>
                 </rdf:Description>
             </prov:generated>
+
+            <xsl:choose>
+                <xsl:when test="$provUsedB">
+                    <rdfs:label xmln:lang="en"><xsl:value-of select="concat('Transformed ', $KeyFamilyRef, ' Data')"/></rdfs:label>
+                </xsl:when>
+
+                <xsl:otherwise>
+                    <rdfs:label xmln:lang="en"><xsl:value-of select="concat('Transformed ', $KeyFamilyRef, ' Structure')"/></rdfs:label>
+                </xsl:otherwise>
+            </xsl:choose>
         </rdf:Description>
     </xsl:template>
 
