@@ -83,6 +83,8 @@ FIXME: $pathToGenericStructure should be replaced with an HTTP URI
                 <xsl:with-param name="KeyFamilyRef" select="$id"/>
             </xsl:call-template>
 
+            <xsl:call-template name="provenance"/>
+
             <rdf:Description rdf:about="{$dsdURI}">
                 <rdf:type rdf:resource="{$sdmx}DataStructureDefinition"/>
                 <rdf:type rdf:resource="{$qb}DataStructureDefinition"/>
@@ -302,6 +304,8 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
 -->
             <rdf:type rdf:resource="{$skos}ConceptScheme"/>
 
+            <xsl:call-template name="provenance"/>
+
             <xsl:apply-templates select="@uri"/>
             <xsl:apply-templates select="@urn"/>
             <xsl:apply-templates select="@version"/>
@@ -344,6 +348,8 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
             <rdf:type rdf:resource="{$sdmx}Concept"/>
             <rdf:type rdf:resource="{$skos}Concept"/>
 
+            <xsl:call-template name="provenance"/>
+
             <xsl:if test="$ConceptSchemeID">
                 <skos:topConceptOf rdf:resource="{$concept}{$ConceptSchemeID}"/>
                 <skos:inScheme rdf:resource="{$concept}{$ConceptSchemeID}"/>
@@ -385,6 +391,8 @@ structure:textFormat
                 <rdf:Description rdf:about="{$code}/{$id}{$uriValidFromToSeparator}">
                     <rdf:type rdf:resource="{$sdmx}CodeList"/>
                     <rdf:type rdf:resource="{$skos}ConceptScheme"/>
+
+                    <xsl:call-template name="provenance"/>
 
                     <rdfs:seeAlso>
                         <rdf:Description rdf:about="{$class}{$id}{$uriValidFromToSeparator}">
@@ -463,6 +471,8 @@ XXX: Difference between SDMX 2.0 and SDMX 2.1
 
             <rdf:Description rdf:about="{$code}{$id}{$uriValidFromToSeparator}">
                 <rdf:type rdf:resource="{$skos}Collection"/>
+
+                <xsl:call-template name="provenance"/>
 
                 <xsl:apply-templates select="@uri"/>
                 <xsl:apply-templates select="@urn"/>
@@ -649,6 +659,8 @@ XXX: Fallback: KeyfamilyRef may not exist. But this is inaccurate if there are m
                 <xsl:with-param name="provGenerated" select="$datasetURI"/>
                 <xsl:with-param name="KeyFamilyRef" select="$KeyFamilyRef"/>
             </xsl:call-template>
+
+            <xsl:call-template name="provenance"/>
 
             <rdf:Description rdf:about="{$datasetURI}">
                 <rdf:type rdf:resource="{$qb}DataSet"/>

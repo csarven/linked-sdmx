@@ -38,6 +38,7 @@
     <xsl:variable name="xmlDocumentBaseUri" select="fn:getConfig('xmlDocumentBaseUri')"/>
     <xsl:variable name="xslDocument" select="fn:getConfig('xslDocument')"/>
     <xsl:variable name="provDocument" select="document($pathToProvDocument)/rdf:RDF"/>
+    <xsl:variable name="license" select="fn:getConfig('license')"/>
     <xsl:variable name="now" select="fn:now()"/>
     <xsl:variable name="rdf" select="'http://www.w3.org/1999/02/22-rdf-syntax-ns#'"/>
     <xsl:variable name="rdfs" select="'http://www.w3.org/2000/01/rdf-schema#'"/>
@@ -309,6 +310,21 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
             </xsl:choose>
         </rdf:Description>
     </xsl:template>
+
+    <xsl:template name="provenance">
+<!--        <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2012-02-29T00:00:00Z</dcterms:created>-->
+
+        <dcterms:issued>
+            <xsl:call-template name="rdfDatatypeXSD">
+                <xsl:with-param name="type" select="'dateTime'"/>
+            </xsl:call-template>
+            <xsl:value-of select="fn:now()"/>
+        </dcterms:issued>
+
+        <dcterms:creator rdf:resource="{$creator}"/>
+        <dcterms:license rdf:resource="{$license}"/>
+    </xsl:template>
+
 
     <xsl:function name="fn:now">
         <xsl:value-of select="format-dateTime(current-dateTime(), '[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01]Z')"/>
