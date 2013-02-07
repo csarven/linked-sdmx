@@ -264,18 +264,19 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
         </xsl:analyze-string>
     </xsl:function>
 
-    <xsl:template name="provActivity">
+    <xsl:template name="provenance">
         <xsl:param name="provUsedA"/>
         <xsl:param name="provUsedB"/>
         <xsl:param name="provGenerated"/>
-        <xsl:param name="KeyFamilyRef"/>
+        <xsl:param name="entityID"/>
 
         <xsl:variable name="now" select="format-dateTime(current-dateTime(), '[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01]Z')"/>
         <xsl:variable name="provActivity" select="concat($provenance, 'activity', $uriThingSeparator, replace($now, '\D', ''))"/>
 
         <rdf:Description rdf:about="{$provActivity}">
             <rdf:type rdf:resource="{$prov}Activity"/>
-<!--dcterms:title-->
+            <dcterms:title xml:lang="en"><xsl:value-of select="concat('Transformed ', $entityID, ' Data')"/></dcterms:title>
+
             <xsl:variable name="informedBy" select="$provDocument/rdf:Description[prov:generated/@rdf:resource = $provUsedA]/@rdf:about"/>
             <xsl:if test="$informedBy">
                 <prov:wasInformedBy rdf:resource="{$informedBy}"/>
@@ -294,35 +295,17 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
             <prov:used rdf:resource="{$xslDocument}"/>
             <prov:generated>
                 <rdf:Description rdf:about="{$provGenerated}">
+                    <rdf:type rdf:resource="{$prov}Entity"/>
+                    <prov:wasAttributedTo rdf:resource="{$creator}"/>
+                    <prov:generatedAtTime rdf:datatype="{$xsd}dateTime"><xsl:value-of select="$now"/></prov:generatedAtTime>
                     <prov:wasDerivedFrom rdf:resource="{$provUsedA}"/>
                     <prov:wasGeneratedBy rdf:resource="{$provActivity}"/>
+                    <dcterms:license rdf:resource="{$license}"/>
+                    <dcterms:issued rdf:datatype="{$xsd}dateTime"><xsl:value-of select="$now"/></dcterms:issued>
+                    <dcterms:creator rdf:resource="{$creator}"/>
                 </rdf:Description>
             </prov:generated>
-
-            <xsl:choose>
-                <xsl:when test="$provUsedB">
-                    <rdfs:label xml:lang="en"><xsl:value-of select="concat('Transformed ', $KeyFamilyRef, ' Data')"/></rdfs:label>
-                </xsl:when>
-
-                <xsl:otherwise>
-                    <rdfs:label xml:lang="en"><xsl:value-of select="concat('Transformed ', $KeyFamilyRef, ' Structure')"/></rdfs:label>
-                </xsl:otherwise>
-            </xsl:choose>
         </rdf:Description>
-    </xsl:template>
-
-    <xsl:template name="provenance">
-<!--        <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2012-02-29T00:00:00Z</dcterms:created>-->
-
-        <dcterms:issued>
-            <xsl:call-template name="rdfDatatypeXSD">
-                <xsl:with-param name="type" select="'dateTime'"/>
-            </xsl:call-template>
-            <xsl:value-of select="fn:now()"/>
-        </dcterms:issued>
-
-        <dcterms:creator rdf:resource="{$creator}"/>
-        <dcterms:license rdf:resource="{$license}"/>
     </xsl:template>
 
 

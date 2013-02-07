@@ -75,22 +75,17 @@
             </xsl:variable>
 
 <!--
-FIXME: $pathToGenericStructure should be replaced with an HTTP URI
+FIXME: $pathToGenericStructure should be replaced with an HTTP URI ??? Is this irrelevant now?
 -->
-            <xsl:call-template name="provActivity">
+            <xsl:call-template name="provenance">
                 <xsl:with-param name="provUsedA" select="resolve-uri(tokenize($xmlDocument, '/')[last()], $xmlDocumentBaseUri)"/>
                 <xsl:with-param name="provGenerated" select="$dsdURI"/>
-                <xsl:with-param name="KeyFamilyRef" select="$id"/>
+                <xsl:with-param name="entityID" select="$id"/>
             </xsl:call-template>
-
-            <xsl:call-template name="provenance"/>
 
             <rdf:Description rdf:about="{$dsdURI}">
                 <rdf:type rdf:resource="{$sdmx}DataStructureDefinition"/>
                 <rdf:type rdf:resource="{$qb}DataStructureDefinition"/>
-                <rdf:type rdf:resource="{$prov}Entity"/>
-                <prov:wasAttributedTo rdf:resource="{$creator}"/>
-                <prov:generatedAtTime rdf:datatype="{$xsd}dateTime"><xsl:value-of select="fn:now()"/></prov:generatedAtTime>
 
 <!-- TODO:
 * Review these properties. Some are close enough to existing SDMX, some I made them up - they should be added to sdmx* vocabs perhpas, so, consider creating sdmx-concept URIs for isFinal/isExternalReference/validFrom/validTo ...?
@@ -289,7 +284,6 @@ Check where to get ConceptScheme
 
     <xsl:template name="structureConceptScheme">
         <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
-        <xsl:variable name="agencyID" select="fn:getAttributeValue(@agencyID)"/>
 
         <xsl:variable name="uriValidFromToSeparator">
             <xsl:if test="@validFrom and @validTo">
@@ -297,14 +291,25 @@ Check where to get ConceptScheme
             </xsl:if>
         </xsl:variable>
 
-        <rdf:Description rdf:about="{$concept}{$id}{$uriValidFromToSeparator}">
+        <xsl:variable name="conceptSchemeURI">
+            <xsl:value-of select="$concept"/>
+            <xsl:value-of select="$id"/>
+            <xsl:value-of select="$uriValidFromToSeparator"/>
+        </xsl:variable>
+
+        <xsl:call-template name="provenance">
+            <xsl:with-param name="provUsedA" select="resolve-uri(tokenize($xmlDocument, '/')[last()], $xmlDocumentBaseUri)"/>
+            <xsl:with-param name="provGenerated" select="$conceptSchemeURI"/>
+            <xsl:with-param name="entityID" select="$id"/>
+        </xsl:call-template>
+
+
+        <rdf:Description rdf:about="{$conceptSchemeURI}">
 <!--
 XXX:
 SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptScheme?
 -->
             <rdf:type rdf:resource="{$skos}ConceptScheme"/>
-
-            <xsl:call-template name="provenance"/>
 
             <xsl:apply-templates select="@uri"/>
             <xsl:apply-templates select="@urn"/>
@@ -317,8 +322,7 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
             <xsl:for-each select="structure:Concept">
                 <skos:hasTopConcept>
                     <xsl:call-template name="structureConcept">
-                        <xsl:with-param name="ConceptSchemeID" select="$id"/>
-                        <xsl:with-param name="ConceptSchemeIDAgencyID" select="$agencyID"/>
+                        <xsl:with-param name="conceptSchemeURI" select="$conceptSchemeURI"/>
                     </xsl:call-template>
                 </skos:hasTopConcept>
             </xsl:for-each>
@@ -327,32 +331,17 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
 
 
     <xsl:template name="structureConcept">
-        <xsl:param name="ConceptSchemeID"/>
-        <xsl:param name="ConceptSchemeIDAgencyID"/>
+        <xsl:param name="conceptSchemeURI"/>
 
         <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
-        <xsl:variable name="agencyID" select="fn:getAttributeValue(@agencyID)"/>
-
-        <xsl:variable name="agencyID">
-            <xsl:choose>
-                <xsl:when test="$agencyID != ''">
-                    <xsl:value-of select="$agencyID"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:value-of select="$ConceptSchemeIDAgencyID"/>
-                </xsl:otherwise>
-            </xsl:choose>
-        </xsl:variable>
 
         <rdf:Description rdf:about="{$concept}{$id}">
             <rdf:type rdf:resource="{$sdmx}Concept"/>
             <rdf:type rdf:resource="{$skos}Concept"/>
 
-            <xsl:call-template name="provenance"/>
-
-            <xsl:if test="$ConceptSchemeID">
-                <skos:topConceptOf rdf:resource="{$concept}{$ConceptSchemeID}"/>
-                <skos:inScheme rdf:resource="{$concept}{$ConceptSchemeID}"/>
+            <xsl:if test="$conceptSchemeURI">
+                <skos:topConceptOf rdf:resource="$conceptSchemeURI"/>
+                <skos:inScheme rdf:resource="$conceptSchemeURI"/>
             </xsl:if>
 
             <xsl:apply-templates select="@uri"/>
@@ -388,18 +377,29 @@ structure:textFormat
                     </xsl:if>
                 </xsl:variable>
 
-                <rdf:Description rdf:about="{$code}/{$id}{$uriValidFromToSeparator}">
+                <xsl:variable name="codeListURI">
+                    <xsl:value-of select="$code"/>
+                    <xsl:value-of select="$uriThingSeparator"/>
+                    <xsl:value-of select="$id"/>
+                    <xsl:value-of select="$uriValidFromToSeparator"/>
+                </xsl:variable>
+
+                <xsl:call-template name="provenance">
+                    <xsl:with-param name="provUsedA" select="resolve-uri(tokenize($xmlDocument, '/')[last()], $xmlDocumentBaseUri)"/>
+                    <xsl:with-param name="provGenerated" select="$codeListURI"/>
+                    <xsl:with-param name="entityID" select="$id"/>
+                </xsl:call-template>
+
+                <rdf:Description rdf:about="{$codeListURI}">
                     <rdf:type rdf:resource="{$sdmx}CodeList"/>
                     <rdf:type rdf:resource="{$skos}ConceptScheme"/>
-
-                    <xsl:call-template name="provenance"/>
 
                     <rdfs:seeAlso>
                         <rdf:Description rdf:about="{$class}{$id}{$uriValidFromToSeparator}">
                             <rdf:type rdf:resource="{$rdfs}Class"/>
                             <rdf:type rdf:resource="{$owl}Class"/>
                             <rdfs:subClassOf rdf:resource="{$skos}Concept"/>
-                            <rdfs:seeAlso rdf:resource="{$code}{$uriThingSeparator}{$id}{$uriValidFromToSeparator}"/>
+                            <rdfs:seeAlso rdf:resource="{$codeListURI}"/>
                             <xsl:apply-templates select="structure:Name"/>
                         </rdf:Description>
                     </rdfs:seeAlso>
@@ -469,10 +469,21 @@ XXX: Difference between SDMX 2.0 and SDMX 2.1
                 </xsl:if>
             </xsl:variable>
 
-            <rdf:Description rdf:about="{$code}{$uriThingSeparator}{$id}{$uriValidFromToSeparator}">
-                <rdf:type rdf:resource="{$skos}Collection"/>
+            <xsl:variable name="hierarchicalCodeListURI">
+                <xsl:value-of select="$code"/>
+                <xsl:value-of select="$uriThingSeparator"/>
+                <xsl:value-of select="$id"/>
+                <xsl:value-of select="$uriValidFromToSeparator"/>
+            </xsl:variable>
 
-                <xsl:call-template name="provenance"/>
+            <xsl:call-template name="provenance">
+                <xsl:with-param name="provUsedA" select="resolve-uri(tokenize($xmlDocument, '/')[last()], $xmlDocumentBaseUri)"/>
+                <xsl:with-param name="provGenerated" select="$hierarchicalCodeListURI"/>
+                <xsl:with-param name="entityID" select="$id"/>
+            </xsl:call-template>
+
+            <rdf:Description rdf:about="{$hierarchicalCodeListURI}">
+                <rdf:type rdf:resource="{$skos}Collection"/>
 
                 <xsl:apply-templates select="@uri"/>
                 <xsl:apply-templates select="@urn"/>
@@ -653,20 +664,15 @@ XXX: Fallback: KeyfamilyRef may not exist. But this is inaccurate if there are m
                 <xsl:value-of select="$KeyFamilyRef"/>
             </xsl:variable>
 
-            <xsl:call-template name="provActivity">
+            <xsl:call-template name="provenance">
                 <xsl:with-param name="provUsedA" select="resolve-uri(tokenize($xmlDocument, '/')[last()], $xmlDocumentBaseUri)"/>
                 <xsl:with-param name="provUsedB" select="resolve-uri(tokenize($pathToGenericStructure, '/')[last()], $xmlDocumentBaseUri)"/>
                 <xsl:with-param name="provGenerated" select="$datasetURI"/>
-                <xsl:with-param name="KeyFamilyRef" select="$KeyFamilyRef"/>
+                <xsl:with-param name="entityID" select="$KeyFamilyRef"/>
             </xsl:call-template>
-
-            <xsl:call-template name="provenance"/>
 
             <rdf:Description rdf:about="{$datasetURI}">
                 <rdf:type rdf:resource="{$qb}DataSet"/>
-                <rdf:type rdf:resource="{$prov}Entity"/>
-                <prov:wasAttributedTo rdf:resource="{$creator}"/>
-                <prov:generatedAtTime rdf:datatype="{$xsd}dateTime"><xsl:value-of select="fn:now()"/></prov:generatedAtTime>
 
                 <qb:structure rdf:resource="{$dataset}{$KeyFamilyRef}{$uriThingSeparator}structure"/>
                 <xsl:if test="@datasetID">
