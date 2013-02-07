@@ -469,7 +469,7 @@ XXX: Difference between SDMX 2.0 and SDMX 2.1
                 </xsl:if>
             </xsl:variable>
 
-            <rdf:Description rdf:about="{$code}{$id}{$uriValidFromToSeparator}">
+            <rdf:Description rdf:about="{$code}{$uriThingSeparator}{$id}{$uriValidFromToSeparator}">
                 <rdf:type rdf:resource="{$skos}Collection"/>
 
                 <xsl:call-template name="provenance"/>
