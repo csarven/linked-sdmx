@@ -424,11 +424,11 @@ structure:textFormat
                                 <xsl:apply-templates select="@urn"/>
 
                                 <xsl:if test="@parentCode">
-                                    <skos:broader>
+                                    <xkos:isPartOf>
                                         <rdf:Description rdf:about="{$code}/{$id}{$uriThingSeparator}{@parentCode}">
                                             <skos:narrower rdf:resource="{$code}/{$id}{$uriThingSeparator}{@value}"/>
                                         </rdf:Description>
-                                    </skos:broader>
+                                    </xkos:isPartOf>
                                 </xsl:if>
 
                                 <skos:notation><xsl:value-of select="@value"/></skos:notation>
