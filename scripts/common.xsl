@@ -27,7 +27,7 @@
 
     <xsl:variable name="pathToSDMXCode"><xsl:text>./sdmx-code.rdf</xsl:text></xsl:variable>
     <xsl:variable name="SDMXCode" select="document($pathToSDMXCode)/rdf:RDF"/>
-    <xsl:variable name="pathToConfig"><xsl:text>./config.rdf</xsl:text></xsl:variable>
+    <xsl:variable name="pathToConfig"><xsl:text>./config.bfs.rdf</xsl:text></xsl:variable>
     <xsl:variable name="Config" select="document($pathToConfig)/rdf:RDF"/>
     <xsl:variable name="pathToAgencies"><xsl:text>./agencies.rdf</xsl:text></xsl:variable>
     <xsl:variable name="Agencies" select="document($pathToAgencies)/rdf:RDF"/>
@@ -275,7 +275,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
 
         <rdf:Description rdf:about="{$provActivity}">
             <rdf:type rdf:resource="{$prov}Activity"/>
-            <dcterms:title xml:lang="en"><xsl:value-of select="concat('Transformed ', $entityID, ' Data')"/></dcterms:title>
+            <dcterms:title xml:lang="en"><xsl:value-of select="concat('Transformed ', $entityID, ' data')"/></dcterms:title>
 
             <xsl:variable name="informedBy" select="$provDocument/rdf:Description[prov:generated/@rdf:resource = $provUsedA]/@rdf:about"/>
             <xsl:if test="$informedBy">
