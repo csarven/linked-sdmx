@@ -28,7 +28,6 @@
     skos:notation "1J0", "FAO" .
 <http://eurostat.270a.info/>
     skos:notation "4D0", "ESTAT", "EUROSTAT" .
-#data.gemeindezukunft.ch/bfs/
 <http://bfs.270a.info/>
     skos:notation "CH1" , "FSO" , "BFS", "OFS" , "UST" .
 
