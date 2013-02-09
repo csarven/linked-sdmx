@@ -54,9 +54,9 @@
     <xsl:variable name="uriThingSeparator" select="fn:getConfig('uriThingSeparator')"/>
     <xsl:variable name="uriDimensionSeparator" select="fn:getConfig('uriDimensionSeparator')"/>
     <xsl:variable name="provenance" select="concat($agencyURI, 'provenance', $uriThingSeparator)"/>
-    <xsl:variable name="concept" select="concat($agencyURI, 'concept', $uriThingSeparator)"/>
-    <xsl:variable name="code" select="concat($agencyURI, 'code')"/>
-    <xsl:variable name="class" select="concat($agencyURI, 'class', $uriThingSeparator)"/>
+    <xsl:variable name="concept" select="concat($agencyURI, 'concept/')"/>
+    <xsl:variable name="code" select="concat($agencyURI, 'code/')"/>
+    <xsl:variable name="class" select="concat($agencyURI, 'class/')"/>
     <xsl:variable name="property" select="concat($agencyURI, 'property', $uriThingSeparator)"/>
     <xsl:variable name="dataset" select="concat($agencyURI, 'dataset/')"/>
     <xsl:variable name="slice" select="concat($agencyURI, 'slice', $uriThingSeparator)"/>
@@ -151,20 +151,8 @@
                     <rdfs:range rdf:resource="{$SDMXConceptScheme/rdfs:seeAlso[1]/@rdf:resource}"/>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:variable name="uriValidFromToSeparator">
-                        <xsl:choose>
-                            <xsl:when test="$codelistAgency and $codelistVersion">
-                                <xsl:for-each select="//structure:CodeList[@id = $codelist and @agencyID = $codelistAgency and @version = $codelistVersion and (@validFrom and @validTo)]">
-                                    <xsl:value-of select="fn:getUriValidFromToSeparator(@validFrom, @validTo)"/>
-                                </xsl:for-each>
-                            </xsl:when>
-                            <xsl:otherwise>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </xsl:variable>
-
-                    <qb:codeList rdf:resource="{fn:getComponentURI('code', $codelistAgency)}{$codelist}{$uriValidFromToSeparator}"/>
-                    <rdfs:range rdf:resource="{fn:getComponentURI('class', $codelistAgency)}{$codelist}{$uriValidFromToSeparator}"/>
+                    <qb:codeList rdf:resource="{fn:getComponentURI('code', $codelistAgency)}/{fn:getVersion($codelistVersion)}/{$codelist}"/>
+                    <rdfs:range rdf:resource="{fn:getComponentURI('class', $codelistAgency)}/{fn:getVersion($codelistVersion)}/{$codelist}"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:if>
@@ -187,10 +175,10 @@
         <xsl:variable name="uri" select="fn:getAgencyURI($agency)"/>
         <xsl:choose>
             <xsl:when test="$uri != ''">
-                <xsl:value-of select="concat($uri, $component, $uriThingSeparator)"/>
+                <xsl:value-of select="concat($uri, $component)"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:value-of select="concat($agencyURI, $component, $uriThingSeparator)"/>
+                <xsl:value-of select="concat($agencyURI, $component)"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
@@ -321,6 +309,19 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
     </xsl:function>
 
 
+    <xsl:function name="fn:getVersion">
+        <xsl:param name="version"/>
+
+        <xsl:choose>
+            <xsl:when test="$version">
+                <xsl:value-of select="replace(normalize-space($version), '\s+', '')"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="'1.0'"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>
+
     <xsl:function name="fn:getSliceKey">
         <xsl:param name="agencyIDPath"/>
         <xsl:param name="Group"/>
@@ -435,12 +436,38 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
                         </xsl:if>
                     </xsl:attribute>
 
+                    <xsl:attribute name="codelistVersion">
+                        <xsl:choose>
+                            <xsl:when test="$Component/@codelistVersion">
+                                <xsl:value-of select="$Component/@codelistVersion"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="fn:getVersion($genericStructure/CodeLists//structure:CodeList[@id = $codelist]/@version)"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:attribute>
+
                     <xsl:variable name="conceptAgency">
                         <xsl:value-of select="fn:getConceptAgencyID($genericStructure, $Component)"/>
                     </xsl:variable>
                     <xsl:attribute name="conceptAgencyURI">
                         <xsl:value-of select="$conceptAgency"/><xsl:value-of select="$uriThingSeparator"/>
                     </xsl:attribute>
+
+                    <xsl:attribute name="conceptVersion">
+                        <xsl:choose>
+                            <xsl:when test="$Component/@conceptVersion">
+                                <xsl:value-of select="$Component/@conceptVersion"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+<!--
+TODO: This should probably get the version from ConceptScheme just as the structureConcept template
+-->
+                                <xsl:value-of select="fn:getVersion($genericStructure/Concepts//structure:Concept[@id = $concept]/@version)"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:attribute>
+
 
                     <xsl:attribute name="datatype">
                         <xsl:value-of select="fn:getXSDType($Component/structure:TextFormat/@textType)"/>

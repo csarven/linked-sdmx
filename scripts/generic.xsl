@@ -2,7 +2,7 @@
     Author: Sarven Capadisli <info@csarven.ca>
     Author URI: http://csarven.ca/#i
 
-    Description: XSLT for generic SDMX-ML to RDF Data Cube
+    Description: XSLT for SDMX to RDF
 -->
 <xsl:stylesheet version="2.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -134,6 +134,8 @@ FIXME: This could reuse the agencyID that's determined from SeriesKeyConceptsDat
             <qb:component>
                 <qb:ComponentSpecification>
                     <xsl:variable name="conceptRef" select="@conceptRef"/>
+                    <xsl:variable name="conceptURI" select="concat($concept, $SeriesKeyConceptsData/*[name() = @conceptRef]/@conceptVersion, @conceptRef)"/>
+
                     <xsl:choose>
 <!--
 XXX:
@@ -146,7 +148,7 @@ Should we give any special treatment to TimeDimension even though qb currently d
                                     <rdf:type rdf:resource="{$qb}CodedProperty"/>
                                     <rdf:type rdf:resource="{$rdf}Property"/>
                                     <qb:concept>
-                                        <rdf:Description rdf:about="{$concept}{$conceptRef}">
+                                        <rdf:Description rdf:about="{$conceptURI}">
                                             <rdf:type rdf:resource="{$sdmx}{fn:getConceptRole(.)}"></rdf:type>
                                         </rdf:Description>
                                     </qb:concept>
@@ -178,7 +180,7 @@ Consider what to do with optional <TextFormat textType="Double"/> or whatever. P
                                     <rdf:type rdf:resource="{$qb}CodedProperty"/>
                                     <rdf:type rdf:resource="{$rdf}Property"/>
                                     <qb:concept>
-                                        <rdf:Description rdf:about="{$concept}{$conceptRef}">
+                                        <rdf:Description rdf:about="{$conceptURI}">
                                             <rdf:type rdf:resource="{$sdmx}{fn:getConceptRole(.)}"></rdf:type>
                                         </rdf:Description>
                                     </qb:concept>
@@ -204,7 +206,7 @@ Multiple measures
                                     <rdf:type rdf:resource="{$qb}CodedProperty"/>
                                     <rdf:type rdf:resource="{$rdf}Property"/>
                                     <qb:concept>
-                                        <rdf:Description rdf:about="{$concept}{$conceptRef}">
+                                        <rdf:Description rdf:about="{$conceptURI}">
                                             <rdf:type rdf:resource="{$sdmx}{fn:getConceptRole(.)}"></rdf:type>
                                         </rdf:Description>
                                     </qb:concept>
@@ -283,24 +285,13 @@ Check where to get ConceptScheme
 
 
     <xsl:template name="structureConceptScheme">
-        <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
-
-        <xsl:variable name="uriValidFromToSeparator">
-            <xsl:if test="@validFrom and @validTo">
-                <xsl:value-of select="fn:getUriValidFromToSeparator(@validFrom, @validTo)"/>
-            </xsl:if>
-        </xsl:variable>
-
-        <xsl:variable name="conceptSchemeURI">
-            <xsl:value-of select="$concept"/>
-            <xsl:value-of select="$id"/>
-            <xsl:value-of select="$uriValidFromToSeparator"/>
-        </xsl:variable>
+        <xsl:variable name="version" select="fn:getVersion(@version)"/>
+        <xsl:variable name="conceptSchemeURI" select="concat($concept, $version, '/', @id)"/>
 
         <xsl:call-template name="provenance">
             <xsl:with-param name="provUsedA" select="resolve-uri(tokenize($xmlDocument, '/')[last()], $xmlDocumentBaseUri)"/>
             <xsl:with-param name="provGenerated" select="$conceptSchemeURI"/>
-            <xsl:with-param name="entityID" select="$id"/>
+            <xsl:with-param name="entityID" select="@id"/>
         </xsl:call-template>
 
 
@@ -315,7 +306,7 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
             <xsl:apply-templates select="@urn"/>
             <xsl:apply-templates select="@version"/>
 
-            <skos:notation><xsl:value-of select="$id"/></skos:notation>
+            <skos:notation><xsl:value-of select="@id"/></skos:notation>
 
             <xsl:apply-templates select="structure:Name"/>
 
@@ -333,9 +324,11 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
     <xsl:template name="structureConcept">
         <xsl:param name="conceptSchemeURI"/>
 
-        <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
+<!--
+XXX: Is it possible to have a Concept version that's different than the version than the ConceptScheme that it is in?
+-->
 
-        <rdf:Description rdf:about="{$concept}{$id}">
+        <rdf:Description rdf:about="{$conceptSchemeURI}{@id}">
             <rdf:type rdf:resource="{$sdmx}Concept"/>
             <rdf:type rdf:resource="{$skos}Concept"/>
 
@@ -348,7 +341,7 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
             <xsl:apply-templates select="@urn"/>
             <xsl:apply-templates select="@version"/>
 
-            <skos:notation><xsl:value-of select="$id"/></skos:notation>
+            <skos:notation><xsl:value-of select="@id"/></skos:notation>
 
             <xsl:apply-templates select="structure:Name"/>
 
@@ -369,33 +362,24 @@ structure:textFormat
         <xsl:for-each select="Structure/CodeLists/structure:CodeList">
             <xsl:if test="starts-with(@agencyID, $agency) or
                           fn:getAgencyURI(@agencyID) = fn:getAgencyURI($agency)">
-                <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
 
-                <xsl:variable name="uriValidFromToSeparator">
-                    <xsl:if test="@validFrom and @validTo">
-                        <xsl:value-of select="fn:getUriValidFromToSeparator(@validFrom, @validTo)"/>
-                    </xsl:if>
-                </xsl:variable>
-
-                <xsl:variable name="codeListURI">
-                    <xsl:value-of select="$code"/>
-                    <xsl:value-of select="$uriThingSeparator"/>
-                    <xsl:value-of select="$id"/>
-                    <xsl:value-of select="$uriValidFromToSeparator"/>
-                </xsl:variable>
+                <xsl:variable name="version" select="fn:getVersion(@version)"/>
+                <xsl:variable name="codeListURI" select="concat($code, $version, '/', @id)"/>
 
                 <xsl:call-template name="provenance">
                     <xsl:with-param name="provUsedA" select="resolve-uri(tokenize($xmlDocument, '/')[last()], $xmlDocumentBaseUri)"/>
                     <xsl:with-param name="provGenerated" select="$codeListURI"/>
-                    <xsl:with-param name="entityID" select="$id"/>
+                    <xsl:with-param name="entityID" select="@id"/>
                 </xsl:call-template>
 
                 <rdf:Description rdf:about="{$codeListURI}">
                     <rdf:type rdf:resource="{$sdmx}CodeList"/>
                     <rdf:type rdf:resource="{$skos}ConceptScheme"/>
 
+                    <xsl:variable name="classURI" select="concat($class, $version, '/', @id)"/>
+
                     <rdfs:seeAlso>
-                        <rdf:Description rdf:about="{$class}{$id}{$uriValidFromToSeparator}">
+                        <rdf:Description rdf:about="{$classURI}">
                             <rdf:type rdf:resource="{$rdfs}Class"/>
                             <rdf:type rdf:resource="{$owl}Class"/>
                             <rdfs:subClassOf rdf:resource="{$skos}Concept"/>
@@ -409,24 +393,26 @@ structure:textFormat
                     <xsl:apply-templates select="@validTo"/>
                     <xsl:apply-templates select="@version"/>
 
-                    <skos:notation><xsl:value-of select="$id"/></skos:notation>
+                    <skos:notation><xsl:value-of select="@id"/></skos:notation>
                     <xsl:apply-templates select="structure:Name"/>
 
                     <xsl:for-each select="structure:Code">
+                        <xsl:variable name="codeURI" select="concat($codeListURI, $uriThingSeparator, @value)"/>
+
                         <skos:hasTopConcept>
-                            <rdf:Description rdf:about="{$code}/{$id}{$uriThingSeparator}{@value}">
+                            <rdf:Description rdf:about="{$codeURI}">
                                 <rdf:type rdf:resource="{$sdmx}Concept"/>
                                 <rdf:type rdf:resource="{$skos}Concept"/>
-                                <rdf:type rdf:resource="{$class}{$id}{$uriValidFromToSeparator}"/>
-                                <skos:topConceptOf rdf:resource="{$code}{$uriThingSeparator}{$id}{$uriValidFromToSeparator}"/>
-                                <skos:inScheme rdf:resource="{$code}{$uriThingSeparator}{$id}{$uriValidFromToSeparator}"/>
+                                <rdf:type rdf:resource="{$classURI}"/>
+                                <skos:topConceptOf rdf:resource="{$codeListURI}"/>
+                                <skos:inScheme rdf:resource="{$codeListURI}"/>
 
                                 <xsl:apply-templates select="@urn"/>
 
                                 <xsl:if test="@parentCode">
                                     <xkos:isPartOf>
-                                        <rdf:Description rdf:about="{$code}/{$id}{$uriThingSeparator}{@parentCode}">
-                                            <skos:narrower rdf:resource="{$code}/{$id}{$uriThingSeparator}{@value}"/>
+                                        <rdf:Description rdf:about="{$code}{$version}/{@id}{$uriThingSeparator}{@parentCode}">
+                                            <xkos:hasPart rdf:resource="{$codeURI}"/>
                                         </rdf:Description>
                                     </xkos:isPartOf>
                                 </xsl:if>
@@ -460,26 +446,14 @@ XXX: Difference between SDMX 2.0 and SDMX 2.1
 
     <xsl:template name="HierarchicalCodelists">
         <xsl:for-each select="Structure/HierarchicalCodelists/structure:HierarchicalCodelist">
-            <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
-<!--            <xsl:variable name="agencyID" select="fn:getAttributeValue(@agencyID)"/>-->
-
-            <xsl:variable name="uriValidFromToSeparator">
-                <xsl:if test="@validFrom and @validTo">
-                    <xsl:value-of select="fn:getUriValidFromToSeparator(@validFrom, @validTo)"/>
-                </xsl:if>
-            </xsl:variable>
-
-            <xsl:variable name="hierarchicalCodeListURI">
-                <xsl:value-of select="$code"/>
-                <xsl:value-of select="$uriThingSeparator"/>
-                <xsl:value-of select="$id"/>
-                <xsl:value-of select="$uriValidFromToSeparator"/>
-            </xsl:variable>
+            <xsl:variable name="HierarchicalCodelistID" select="@id"/>
+            <xsl:variable name="version" select="fn:getVersion(@version)"/>
+            <xsl:variable name="hierarchicalCodeListURI" select="concat($code, $version, '/', @id)"/>
 
             <xsl:call-template name="provenance">
                 <xsl:with-param name="provUsedA" select="resolve-uri(tokenize($xmlDocument, '/')[last()], $xmlDocumentBaseUri)"/>
                 <xsl:with-param name="provGenerated" select="$hierarchicalCodeListURI"/>
-                <xsl:with-param name="entityID" select="$id"/>
+                <xsl:with-param name="entityID" select="@id"/>
             </xsl:call-template>
 
             <rdf:Description rdf:about="{$hierarchicalCodeListURI}">
@@ -489,31 +463,27 @@ XXX: Difference between SDMX 2.0 and SDMX 2.1
                 <xsl:apply-templates select="@urn"/>
                 <xsl:apply-templates select="@version"/>
 
-                <skos:notation><xsl:value-of select="$id"/></skos:notation>
+                <skos:notation><xsl:value-of select="@id"/></skos:notation>
                 <xsl:apply-templates select="structure:Name"/>
                 <xsl:apply-templates select="structure:Description"/>
 
+<!--
+FIXME: This needs the version
+-->
                 <xsl:for-each select="structure:CodelistRef">
-                    <dcterms:references rdf:resource="{$code}{$uriThingSeparator}{structure:CodelistID}"/>
+                    <dcterms:references rdf:resource="concat($code, fn:getVersion(structure:Version), '/', structure:CodelistID)"/>
                 </xsl:for-each>
 
                 <xsl:for-each select="structure:Hierarchy">
-                    <xsl:variable name="HierarchyID" select="@id"/>
-
                     <skos:member>
-                        <xsl:variable name="uriValidFromToHierarchySeparator">
-                            <xsl:if test="@validFrom and @validTo">
-                                <xsl:value-of select="fn:getUriValidFromToSeparator(@validFrom, @validTo)"/>
-                            </xsl:if>
-                        </xsl:variable>
+                        <xsl:variable name="version" select="fn:getVersion(@version)"/>
+                        <xsl:variable name="hierarchyURI" select="concat($code, $version, '/', @id)"/>
 
-                        <rdf:Description rdf:about="{$code}{$uriValidFromToHierarchySeparator}{$uriThingSeparator}{$HierarchyID}">
+                        <rdf:Description rdf:about="{$hierarchyURI}">
                             <rdf:type rdf:resource="{$skos}Collection"/>
                             <rdf:type rdf:resource="{$xkos}ClassificationLevel"/>
 
-                            <skos:notation><xsl:value-of select="$id"/></skos:notation>
-
-<!--                            <xkos:isPartOf rdf:resource="{$code}{$uriThingSeparator}{$id}{$uriValidFromToSeparator}"/>-->
+                            <skos:notation><xsl:value-of select="@id"/></skos:notation>
 
                             <xsl:apply-templates select="structure:Name"/>
 
@@ -525,7 +495,7 @@ XXX: Difference between SDMX 2.0 and SDMX 2.1
                             <xsl:for-each select="structure:CodeRef">
                                 <skos:member>
                                     <xsl:call-template name="CodeRefs">
-                                        <xsl:with-param name="HierarchicalCodelistID" select="$id"/>
+                                        <xsl:with-param name="HierarchicalCodelistID" select="$HierarchicalCodelistID"/>
                                     </xsl:call-template>
                                 </skos:member>
                             </xsl:for-each>
@@ -539,8 +509,7 @@ XXX: Difference between SDMX 2.0 and SDMX 2.1
 
     <xsl:template name="CodeRefs">
         <xsl:param name="HierarchicalCodelistID"/>
-        <xsl:param name="CodelistAliasRef_parent"/>
-        <xsl:param name="CodeID_parent"/>
+        <xsl:param name="codeURIParent"/>
 
 <!--
 XXX:
@@ -566,7 +535,7 @@ This is a kind of a hack, works based on tested sample structures. Not guarantee
                 <xsl:otherwise>
                     <xsl:variable name="CodelistAliasRef" select="structure:CodelistAliasRef"/>
 
-                    <xsl:value-of select="/Structure/HierarchicalCodelists/structure:HierarchicalCodelist[@id = $HierarchicalCodelistID]/structure:CodelistRef[structure:Alias = $CodelistAliasRef]/structure:CodelistID/text()"/>
+                    <xsl:value-of select="/Structure/HierarchicalCodelists/structure:HierarchicalCodelist[@id = $HierarchicalCodelistID]/structure:CodelistRef[structure:Alias = $CodelistAliasRef]/structure:CodelistID"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
@@ -583,9 +552,16 @@ XXX:
 * Should the parent CodelistAliasRef/CodeID be prefixed to current CodelistAliasRef/CodeID?
 -->
 
-            <rdf:Description rdf:about="{$code}/{$CodelistAliasRef}{$uriThingSeparator}{$CodeID}">
-                <xsl:if test="$CodelistAliasRef_parent and $CodeID_parent">
-                    <xkos:isPartOf rdf:resource="{$code}/{$CodelistAliasRef_parent}{$uriThingSeparator}{$CodeID_parent}"/>
+            <xsl:variable name="codelistVersion" select="/Structure/HierarchicalCodelists/structure:HierarchicalCodelist[@id = $HierarchicalCodelistID]/structure:CodelistRef[structure:Alias = $CodelistAliasRef]/structure:Version"/>
+
+            <xsl:variable name="version" select="fn:getVersion(/Structure/CodeLists/structure:CodeList[@id = $CodelistAliasRef and @version = $codelistVersion])"/>
+
+            <xsl:variable name="codeURI" select="concat($code, $version, '/', $CodelistAliasRef, $uriThingSeparator, $CodeID)"/>
+
+
+            <rdf:Description rdf:about="{$codeURI}">
+                <xsl:if test="$codeURIParent">
+                    <xkos:isPartOf rdf:resource="{$codeURIParent}"/>
                 </xsl:if>
 
                 <xsl:if test="structure:ValidFrom">
@@ -595,15 +571,15 @@ XXX:
                     <sdmx-concept:validTo><xsl:value-of select="structure:ValidTo"/></sdmx-concept:validTo>
                 </xsl:if>
 
-                <xsl:apply-templates select="@version"/>
+                <xsl:if test="structure:Version">
+                    <owl:versionInfo><xsl:value-of select="structure:Version"/></owl:versionInfo>
+                </xsl:if>
 
                 <xsl:for-each select="structure:CodeRef">
                     <xkos:hasPart>
                         <xsl:call-template name="CodeRefs">
                             <xsl:with-param name="HierarchicalCodelistID" select="$HierarchicalCodelistID"/>
-                            <xsl:with-param name="CodelistAliasRef_parent" select="$CodelistAliasRef"/>
-                            <xsl:with-param name="CodeID_parent" select="$CodeID"/>
-<!--                        <xsl:with-param name="agencyID" select="$agencyID"/>-->
+                            <xsl:with-param name="codeURIParent" select="$codeURI"/>
                         </xsl:call-template>
                     </xkos:hasPart>
                 </xsl:for-each>
@@ -706,6 +682,7 @@ TODO: generic:Attributes - this is apparently repeated in the Series says the sp
         <xsl:for-each select="generic:Series">
 <!--
 FIXME: Excluding 'FREQ' is a bit grubby?
+Use FrequencyDimension="true" from KeyFamily Component
 -->
             <xsl:variable name="Values" select="generic:SeriesKey/generic:Value"/>
             <xsl:variable name="ValuesWOFreq" select="$Values[lower-case(@concept) != 'freq']"/>
@@ -866,7 +843,7 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
 FIXME: $urithingSeparator is already used in getComponentURI
 -->
                     <xsl:otherwise>
-                        <xsl:value-of select="fn:getComponentURI('code', $SeriesKeyConcept/@codelistAgency)"/><xsl:value-of select="$SeriesKeyConcept/@codelist"/><xsl:value-of select="$uriThingSeparator"/><xsl:value-of select="normalize-space($value)"/>
+                        <xsl:value-of select="fn:getComponentURI('code', $SeriesKeyConcept/@codelistAgency)"/><xsl:text>/</xsl:text><xsl:value-of select="$SeriesKeyConcept/@codelistVersion"/><xsl:text>/</xsl:text><xsl:value-of select="$SeriesKeyConcept/@codelist"/><xsl:value-of select="$uriThingSeparator"/><xsl:value-of select="normalize-space($value)"/>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:attribute>
