@@ -288,7 +288,9 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
                     <prov:generatedAtTime rdf:datatype="{$xsd}dateTime"><xsl:value-of select="$now"/></prov:generatedAtTime>
                     <prov:wasDerivedFrom rdf:resource="{$provUsedA}"/>
                     <prov:wasGeneratedBy rdf:resource="{$provActivity}"/>
-                    <dcterms:license rdf:resource="{$license}"/>
+                    <xsl:if test="$license">
+                        <dcterms:license rdf:resource="{$license}"/>
+                    </xsl:if>
                     <dcterms:issued rdf:datatype="{$xsd}dateTime"><xsl:value-of select="$now"/></dcterms:issued>
                     <dcterms:creator rdf:resource="{$creator}"/>
                 </rdf:Description>
