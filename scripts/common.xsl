@@ -25,10 +25,22 @@
 
     <xsl:output encoding="utf-8" indent="yes" method="xml" omit-xml-declaration="no"/>
 
+    <xsl:param name="pathToConfig"/>
+
     <xsl:variable name="pathToSDMXCode"><xsl:text>./sdmx-code.rdf</xsl:text></xsl:variable>
     <xsl:variable name="SDMXCode" select="document($pathToSDMXCode)/rdf:RDF"/>
-    <xsl:variable name="pathToConfig"><xsl:text>./config.bfs.rdf</xsl:text></xsl:variable>
-    <xsl:variable name="Config" select="document($pathToConfig)/rdf:RDF"/>
+    <xsl:variable name="pTC">
+        <xsl:choose>
+            <xsl:when test="$pathToConfig != ''">
+                <xsl:value-of select="$pathToConfig"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:text>./config.rdf</xsl:text>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:variable>
+
+    <xsl:variable name="Config" select="document($pTC)/rdf:RDF"/>
     <xsl:variable name="pathToAgencies"><xsl:text>./agencies.rdf</xsl:text></xsl:variable>
     <xsl:variable name="Agencies" select="document($pathToAgencies)/rdf:RDF"/>
     <xsl:variable name="agency" select="fn:getConfig('agency')"/>
