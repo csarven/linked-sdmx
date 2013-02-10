@@ -333,8 +333,8 @@ XXX: Is it possible to have a Concept version that's different than the version 
             <rdf:type rdf:resource="{$skos}Concept"/>
 
             <xsl:if test="$conceptSchemeURI">
-                <skos:topConceptOf rdf:resource="$conceptSchemeURI"/>
-                <skos:inScheme rdf:resource="$conceptSchemeURI"/>
+                <skos:topConceptOf rdf:resource="{$conceptSchemeURI}"/>
+                <skos:inScheme rdf:resource="{$conceptSchemeURI}"/>
             </xsl:if>
 
             <xsl:apply-templates select="@uri"/>
