@@ -328,7 +328,7 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
 XXX: Is it possible to have a Concept version that's different than the version than the ConceptScheme that it is in?
 -->
 
-        <rdf:Description rdf:about="{$conceptSchemeURI}{@id}">
+        <rdf:Description rdf:about="{$conceptSchemeURI}{$uriThingSeparator}{@id}">
             <rdf:type rdf:resource="{$sdmx}Concept"/>
             <rdf:type rdf:resource="{$skos}Concept"/>
 
