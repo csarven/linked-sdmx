@@ -327,6 +327,7 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
 <!--
 XXX: Is it possible to have a Concept version that's different than the version than the ConceptScheme that it is in?
 -->
+        <xsl:variable name="version" select="fn:getVersion(@version)"/>
         <xsl:variable name="conceptURI">
             <xsl:choose>
                 <xsl:when test="$conceptSchemeURI">
