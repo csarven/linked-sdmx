@@ -327,8 +327,19 @@ SDMX-ML actually differentiates ConceptScheme from CodeList. Add sdmx:ConceptSch
 <!--
 XXX: Is it possible to have a Concept version that's different than the version than the ConceptScheme that it is in?
 -->
+        <xsl:variable name="conceptURI">
+            <xsl:choose>
+                <xsl:when test="$conceptSchemeURI">
+                    <xsl:value-of select="concat($conceptSchemeURI, $uriThingSeparator, @id)"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="concat($concept, $version, '/', @id)"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
 
-        <rdf:Description rdf:about="{$conceptSchemeURI}{$uriThingSeparator}{@id}">
+
+        <rdf:Description rdf:about="{$conceptURI}">
             <rdf:type rdf:resource="{$sdmx}Concept"/>
             <rdf:type rdf:resource="{$skos}Concept"/>
 
