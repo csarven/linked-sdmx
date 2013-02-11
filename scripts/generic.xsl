@@ -134,7 +134,7 @@ FIXME: This could reuse the agencyID that's determined from SeriesKeyConceptsDat
             <qb:component>
                 <qb:ComponentSpecification>
                     <xsl:variable name="conceptRef" select="@conceptRef"/>
-                    <xsl:variable name="conceptURI" select="concat($concept, $SeriesKeyConceptsData/*[name() = @conceptRef]/@conceptVersion, @conceptRef)"/>
+                    <xsl:variable name="conceptURI" select="concat($concept, $SeriesKeyConceptsData/*[name() = $conceptRef]/@conceptVersion, @conceptRef)"/>
 
                     <xsl:choose>
 <!--
