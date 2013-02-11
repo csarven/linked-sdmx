@@ -468,6 +468,18 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
                         <xsl:value-of select="$conceptAgency"/><xsl:value-of select="$uriThingSeparator"/>
                     </xsl:attribute>
 
+                    <xsl:variable name="conceptSchemeRef" select="$Component/@conceptSchemeRef"/>
+                    <xsl:attribute name="conceptScheme">
+                        <xsl:choose>
+                            <xsl:when test="$conceptSchemeRef">
+                                <xsl:value-of select="$conceptSchemeRef"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="$genericStructure/Concepts//structure:Concept[@id = $concept]/../@id"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:attribute>
+
                     <xsl:attribute name="conceptVersion">
                         <xsl:choose>
                             <xsl:when test="$Component/@conceptVersion">
