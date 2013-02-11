@@ -486,11 +486,20 @@ XXX: Difference between SDMX 2.0 and SDMX 2.1
                 <xsl:apply-templates select="structure:Name"/>
                 <xsl:apply-templates select="structure:Description"/>
 
-<!--
-FIXME: This needs the version
--->
+
                 <xsl:for-each select="structure:CodelistRef">
-                    <dcterms:references rdf:resource="{concat($code, fn:getVersion(structure:Version), '/', structure:CodelistID)}"/>
+                    <xsl:variable name="codelist">
+                        <xsl:choose>
+                            <xsl:when test="structure:CodelistID">
+                                <xsl:value-of select="structure:CodelistID"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="structure:Alias"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:variable>
+
+                    <dcterms:references rdf:resource="{concat($code, fn:getVersion(structure:Version), '/', $codelist)}"/>
                 </xsl:for-each>
 
                 <xsl:for-each select="structure:Hierarchy">
