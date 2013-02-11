@@ -471,7 +471,7 @@ XXX: Difference between SDMX 2.0 and SDMX 2.1
 FIXME: This needs the version
 -->
                 <xsl:for-each select="structure:CodelistRef">
-                    <dcterms:references rdf:resource="concat($code, fn:getVersion(structure:Version), '/', structure:CodelistID)"/>
+                    <dcterms:references rdf:resource="{concat($code, fn:getVersion(structure:Version), '/', structure:CodelistID)}"/>
                 </xsl:for-each>
 
                 <xsl:for-each select="structure:Hierarchy">
