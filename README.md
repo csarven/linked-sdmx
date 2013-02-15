@@ -1,6 +1,6 @@
 # SDMX to QB
 
-Brief overview of the project is here. If you want to use it or look under the hood for additional information, give the [wiki](https://github.com/csarven/sdmx-to-qb/wiki) page a go.
+Brief overview of the project is here. If you want to use it or look under the hood for additional information, give the [wiki](https://github.com/csarven/linked-sdmx/wiki) page a go.
 
 ## What is this?
 
@@ -26,12 +26,12 @@ It comes with scripts and sample data.
 * Bash script that transforms sample data using saxonb-xslt.
 
 ### Samples
-Sample SDMX Message and Structure [data/](https://github.com/csarven/sdmx-to-qb/tree/master/data) retrieved from these organizations: <a href="http://www.bis.org/" title="Bank for International Statements">BIS</a>, <a href="http://www.oecd.org/" title="Organisation for Economic Co-operation and Development">OECD</a>, <a href="http://www.un.org/" title="United Nations">UN</a>, <a href="http:/www.ecb.int/" title="European Central Bank">ECB</a>, <a href="http://worldbank.org/" title="World Bank">WB</a>, <a href="http://imf.org/" title="International Monetary Fund">IMF</a>, <a href="http://fao.org/" title="Food and Agriculture Organization of the United Nations">FAO</a>, <a href="http://epp.eurostat.ec.europa.eu/" title="Eurostat">EUROSTAT</a>, <a href="http://www.bfs.admin.ch/" title="Swiss Federal Statistical Office">BFS</a>.
+Sample SDMX Message and Structure [data/](https://github.com/csarven/linked-sdmx/tree/master/data) retrieved from these organizations: <a href="http://www.bis.org/" title="Bank for International Statements">BIS</a>, <a href="http://www.oecd.org/" title="Organisation for Economic Co-operation and Development">OECD</a>, <a href="http://www.un.org/" title="United Nations">UN</a>, <a href="http:/www.ecb.int/" title="European Central Bank">ECB</a>, <a href="http://worldbank.org/" title="World Bank">WB</a>, <a href="http://imf.org/" title="International Monetary Fund">IMF</a>, <a href="http://fao.org/" title="Food and Agriculture Organization of the United Nations">FAO</a>, <a href="http://epp.eurostat.ec.europa.eu/" title="Eurostat">EUROSTAT</a>, <a href="http://www.bfs.admin.ch/" title="Swiss Federal Statistical Office">BFS</a>.
 
 ### Requirements
 An XSLT 2.0 processor to transform, and some configuring using the provided config.rdf file.
 
 ## How to contribute
-* See [open GitHub issues](https://github.com/csarven/sdmx-to-qb/issues?state=open) if you want to hack, or create issues if you encounter bugs, or enhancements within the scope of this project. There are also some questions that would be nice to get answers to.
+* See [open GitHub issues](https://github.com/csarven/linked-sdmx/issues?state=open) if you want to hack, or create issues if you encounter bugs, or enhancements within the scope of this project. There are also some questions that would be nice to get answers to.
 * Please send pull requests or help improve documentation.
 * Reach out to organizations that publish data using the SDMX-ML to collaborate on this effort.
