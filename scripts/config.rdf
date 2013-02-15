@@ -2,10 +2,10 @@
 <rdf:RDF
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-  <rdf:Description rdf:about="file:///var/www/sdmx-to-qb/scripts/config.ttl">
+  <rdf:Description rdf:about="file:///var/www/linked-sdmx/scripts/config.ttl">
     <rdf:value>
       <rdf:Description>
-        <rdf:value>https://raw.github.com/csarven/sdmx-to-qb/master/scripts/generic.xsl</rdf:value>
+        <rdf:value>https://raw.github.com/csarven/linked-sdmx/master/scripts/generic.xsl</rdf:value>
         <rdfs:label>xslDocument</rdfs:label>
       </rdf:Description>
     </rdf:value>
@@ -41,6 +41,12 @@
     </rdf:value>
     <rdf:value>
       <rdf:Description>
+        <rdf:value>http://creativecommons.org/publicdomain/zero/1.0/</rdf:value>
+        <rdfs:label>license</rdfs:label>
+      </rdf:Description>
+    </rdf:value>
+    <rdf:value>
+      <rdf:Description>
         <rdf:value>EXAMPLE</rdf:value>
         <rdfs:label>agency</rdfs:label>
       </rdf:Description>
@@ -54,7 +60,7 @@
     <rdf:value>
       <rdf:Description>
         <rdf:value>http://example.org/property/</rdf:value>
-        <rdfs:label>prov</rdfs:label>
+        <rdfs:label>property</rdfs:label>
       </rdf:Description>
     </rdf:value>
     <rdf:value>
@@ -85,7 +91,7 @@
           <rdf:Description>
             <rdf:predicate>skos:altLabel</rdf:predicate>
             <rdf:type>ABBREV</rdf:type>
-            <rdfs:label>common:AnnotationText</rdfs:label>
+            <rdfs:label>AnnotationText</rdfs:label>
             <rdfs:range>Literal</rdfs:range>
           </rdf:Description>
         </rdf:value>
