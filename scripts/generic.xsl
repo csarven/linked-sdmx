@@ -643,9 +643,21 @@ XXX: Fallback: KeyfamilyRef may not exist. But this is inaccurate if there are m
 
             <xsl:variable name="SeriesKeyConceptsData" select="fn:createSeriesKeyComponentData($concepts, $KeyFamilyRef)"/>
 
+            <xsl:variable name="datasetID">
+                <xsl:choose>
+                    <xsl:when test="@datasetID">
+                        <xsl:value-of select="@datasetID"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="$KeyFamilyRef"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:variable>
+
+
             <xsl:variable name="datasetURI">
                 <xsl:value-of select="$dataset"/>
-                <xsl:value-of select="$KeyFamilyRef"/>
+                <xsl:value-of select="$datasetID"/>
             </xsl:variable>
 
             <xsl:call-template name="provenance">
@@ -659,9 +671,8 @@ XXX: Fallback: KeyfamilyRef may not exist. But this is inaccurate if there are m
                 <rdf:type rdf:resource="{$qb}DataSet"/>
 
                 <qb:structure rdf:resource="{$dataset}{$KeyFamilyRef}{$uriThingSeparator}structure"/>
-                <xsl:if test="@datasetID">
-                    <skos:notation><xsl:value-of select="@datasetID"/></skos:notation>
-                </xsl:if>
+
+                <dcterms:identifier><xsl:value-of select="@datasetID"/></dcterms:identifier>
 
 <!--
 XXX: do something about @keyFamilyURI?
