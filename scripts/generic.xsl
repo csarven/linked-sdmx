@@ -67,11 +67,9 @@
         <xsl:for-each select="Structure/KeyFamilies/structure:KeyFamily">
             <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
             <xsl:variable name="agencyID" select="fn:getAttributeValue(@agencyID)"/>
-            <xsl:variable name="dsdURI">
-                <xsl:value-of select="$dataset"/>
+            <xsl:variable name="structureURI">
+                <xsl:value-of select="$structure"/>
                 <xsl:value-of select="$id"/>
-                <xsl:value-of select="$uriThingSeparator"/>
-                <xsl:text>structure</xsl:text>
             </xsl:variable>
 
 <!--
@@ -79,11 +77,11 @@ FIXME: $pathToGenericStructure should be replaced with an HTTP URI ??? Is this i
 -->
             <xsl:call-template name="provenance">
                 <xsl:with-param name="provUsedA" select="resolve-uri(tokenize($xmlDocument, '/')[last()], $xmlDocumentBaseUri)"/>
-                <xsl:with-param name="provGenerated" select="$dsdURI"/>
+                <xsl:with-param name="provGenerated" select="$structureURI"/>
                 <xsl:with-param name="entityID" select="$id"/>
             </xsl:call-template>
 
-            <rdf:Description rdf:about="{$dsdURI}">
+            <rdf:Description rdf:about="{$structureURI}">
                 <rdf:type rdf:resource="{$sdmx}DataStructureDefinition"/>
                 <rdf:type rdf:resource="{$qb}DataStructureDefinition"/>
 
@@ -670,7 +668,7 @@ XXX: Fallback: KeyfamilyRef may not exist. But this is inaccurate if there are m
             <rdf:Description rdf:about="{$datasetURI}">
                 <rdf:type rdf:resource="{$qb}DataSet"/>
 
-                <qb:structure rdf:resource="{$dataset}{$KeyFamilyRef}{$uriThingSeparator}structure"/>
+                <qb:structure rdf:resource="{$structure}{$KeyFamilyRef}"/>
 
                 <dcterms:identifier><xsl:value-of select="$datasetID"/></dcterms:identifier>
 

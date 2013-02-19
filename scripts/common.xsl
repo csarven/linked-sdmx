@@ -71,6 +71,7 @@
     <xsl:variable name="class" select="concat($agencyURI, 'class/')"/>
     <xsl:variable name="property" select="concat($agencyURI, 'property', $uriThingSeparator)"/>
     <xsl:variable name="dataset" select="concat($agencyURI, 'dataset/')"/>
+    <xsl:variable name="structure" select="concat($agencyURI, 'structure/')"/>
     <xsl:variable name="slice" select="concat($agencyURI, 'slice', $uriThingSeparator)"/>
 
     <xsl:template name="langTextNode">
