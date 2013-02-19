@@ -672,7 +672,7 @@ XXX: Fallback: KeyfamilyRef may not exist. But this is inaccurate if there are m
 
                 <qb:structure rdf:resource="{$dataset}{$KeyFamilyRef}{$uriThingSeparator}structure"/>
 
-                <dcterms:identifier><xsl:value-of select="@datasetID"/></dcterms:identifier>
+                <dcterms:identifier><xsl:value-of select="$datasetID"/></dcterms:identifier>
 
 <!--
 XXX: do something about @keyFamilyURI?
