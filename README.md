@@ -1,4 +1,4 @@
-# SDMX to QB
+# SDMX-ML to RDF/XML
 
 Brief overview of the project is here. If you want to use it or look under the hood for additional information, give the [wiki](https://github.com/csarven/linked-sdmx/wiki) page a go.
 
