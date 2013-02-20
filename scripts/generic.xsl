@@ -662,7 +662,7 @@ XXX: Fallback: KeyfamilyRef may not exist. But this is inaccurate if there are m
                 <xsl:with-param name="provUsedA" select="resolve-uri(tokenize($xmlDocument, '/')[last()], $xmlDocumentBaseUri)"/>
                 <xsl:with-param name="provUsedB" select="resolve-uri(tokenize($pathToGenericStructure, '/')[last()], $xmlDocumentBaseUri)"/>
                 <xsl:with-param name="provGenerated" select="$datasetURI"/>
-                <xsl:with-param name="entityID" select="$KeyFamilyRef"/>
+                <xsl:with-param name="entityID" select="$datasetID"/>
             </xsl:call-template>
 
             <rdf:Description rdf:about="{$datasetURI}">
