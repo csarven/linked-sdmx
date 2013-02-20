@@ -276,7 +276,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
 
         <rdf:Description rdf:about="{$provActivity}">
             <rdf:type rdf:resource="{$prov}Activity"/>
-            <dcterms:title xml:lang="en"><xsl:value-of select="concat('Transformed ', $entityID, ' data')"/></dcterms:title>
+            <rdfs:label xml:lang="en"><xsl:value-of select="concat('Transformed ', $entityID, ' data')"/></rdfs:label>
 
             <xsl:variable name="informedBy" select="$provDocument/rdf:Description[prov:generated/@rdf:resource = $provUsedA]/@rdf:about"/>
             <xsl:if test="$informedBy">
