@@ -868,22 +868,35 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
         <xsl:param name="value"/>
 
         <xsl:element name="property:{$SeriesKeyConcept/name()}" namespace="{$property}">
-            <xsl:attribute name="rdf:resource">
-                <xsl:choose>
-                    <xsl:when test="lower-case(normalize-space($SeriesKeyConcept/@codelistAgency)) = 'sdmx'">
+            <xsl:choose>
+                <xsl:when test="$SeriesKeyConcept/@codelist != ''">
+                    <xsl:attribute name="rdf:resource">
+                        <xsl:choose>
+                            <xsl:when test="lower-case(normalize-space($SeriesKeyConcept/@codelistAgency)) = 'sdmx'">
 
-                        <xsl:variable name="codelistNormalized" select="fn:normalizeSDMXCodeListID($SeriesKeyConcept/@codelist)"/>
-                        <xsl:variable name="SDMXConcept" select="$SDMXCode/skos:Concept[skos:notation = $value and @rdf:about = $SDMXCode/skos:ConceptScheme[skos:notation = $codelistNormalized][1]/skos:hasTopConcept/@rdf:resource]"/>
-                        <xsl:value-of select="$SDMXConcept/@rdf:about"/>
-                    </xsl:when>
-<!--
-FIXME: $urithingSeparator is already used in getComponentURI
--->
-                    <xsl:otherwise>
-                        <xsl:value-of select="fn:getComponentURI('code', $SeriesKeyConcept/@codelistAgency)"/><xsl:text>/</xsl:text><xsl:value-of select="$SeriesKeyConcept/@codelistVersion"/><xsl:text>/</xsl:text><xsl:value-of select="$SeriesKeyConcept/@codelist"/><xsl:value-of select="$uriThingSeparator"/><xsl:value-of select="normalize-space($value)"/>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </xsl:attribute>
+                                <xsl:variable name="codelistNormalized" select="fn:normalizeSDMXCodeListID($SeriesKeyConcept/@codelist)"/>
+                                <xsl:variable name="SDMXConcept" select="$SDMXCode/skos:Concept[skos:notation = $value and @rdf:about = $SDMXCode/skos:ConceptScheme[skos:notation = $codelistNormalized][1]/skos:hasTopConcept/@rdf:resource]"/>
+                                <xsl:value-of select="$SDMXConcept/@rdf:about"/>
+                            </xsl:when>
+        <!--
+        FIXME: $urithingSeparator is already used in getComponentURI
+        -->
+                            <xsl:otherwise>
+                                <xsl:value-of select="fn:getComponentURI('code', $SeriesKeyConcept/@codelistAgency)"/><xsl:text>/</xsl:text><xsl:value-of select="$SeriesKeyConcept/@codelistVersion"/><xsl:text>/</xsl:text><xsl:value-of select="$SeriesKeyConcept/@codelist"/><xsl:value-of select="$uriThingSeparator"/><xsl:value-of select="normalize-space($value)"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:attribute>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:if test="$SeriesKeyConcept/@datatype != ''">
+                        <xsl:call-template name="rdfDatatypeXSD">
+                            <xsl:with-param name="type" select="$SeriesKeyConcept/@datatype"/>
+                        </xsl:call-template>
+                    </xsl:if>
+
+                    <xsl:value-of select="$value"/>
+                </xsl:otherwise>
+            </xsl:choose>
         </xsl:element>
     </xsl:template>
 </xsl:stylesheet>
