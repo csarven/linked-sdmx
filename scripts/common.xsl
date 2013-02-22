@@ -5,6 +5,7 @@
 <xsl:stylesheet version="2.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
@@ -20,7 +21,7 @@
     xmlns:common="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/common"
 
     xpath-default-namespace="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
-    exclude-result-prefixes="xsl fn structure message generic common"
+    exclude-result-prefixes="xs xsl fn structure message generic common"
     >
 
     <xsl:output encoding="utf-8" indent="yes" method="xml" omit-xml-declaration="no"/>
@@ -208,6 +209,18 @@
         <xsl:if test="$attributeName">
             <xsl:value-of select="$attributeName"/>
         </xsl:if>
+    </xsl:function>
+
+    <xsl:function name="fn:detectDatatype">
+        <xsl:param name="value"/>
+
+        <xsl:choose>
+            <xsl:when test="string($value) castable as xs:decimal">
+                <xsl:value-of select="'decimal'"/>
+            </xsl:when>
+            <xsl:otherwise>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:function>
 
     <xsl:template name="rdfDatatypeXSD">

@@ -836,11 +836,19 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
                     <xsl:for-each select="generic:ObsValue">
                         <xsl:element name="property:{$PrimaryMeasureConceptRef}" namespace="{$property}{$SeriesKeyConceptsData/*[name() = $PrimaryMeasureConceptRef]}">
                             <xsl:variable name="datatype" select="$SeriesKeyConceptsData/*[lower-case(name()) = lower-case($PrimaryMeasureConceptRef)]/@datatype"/>
-                            <xsl:if test="$datatype != ''">
-                                <xsl:call-template name="rdfDatatypeXSD">
-                                    <xsl:with-param name="type" select="$datatype"/>
-                                </xsl:call-template>
-                            </xsl:if>
+                            <xsl:choose>
+                                <xsl:when test="$datatype != ''">
+                                    <xsl:call-template name="rdfDatatypeXSD">
+                                        <xsl:with-param name="type" select="$datatype"/>
+                                    </xsl:call-template>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:call-template name="rdfDatatypeXSD">
+                                        <xsl:with-param name="type" select="fn:detectDatatype(@value)"/>
+                                    </xsl:call-template>
+                                </xsl:otherwise>
+                            </xsl:choose>
+
                             <xsl:value-of select="@value"/>
                         </xsl:element>
                     </xsl:for-each>
