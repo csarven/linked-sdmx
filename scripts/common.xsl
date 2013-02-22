@@ -86,7 +86,7 @@
                 </xsl:if>
             </xsl:otherwise>
         </xsl:choose>
-        <xsl:value-of select="normalize-space(text())"/>
+        <xsl:value-of select="normalize-space(.)"/>
     </xsl:template>
 
     <xsl:template match="structure:Name">
@@ -144,6 +144,14 @@
 
     <xsl:template match="@urn">
         <dcterms:identifier><xsl:value-of select="normalize-space(.)"/></dcterms:identifier>
+    </xsl:template>
+
+    <xsl:template name="ConceptLabels">
+        <xsl:param name="Concept"/>
+
+        <xsl:for-each select="$Concept">
+            <xsl:apply-templates select="structure:Name"/>
+        </xsl:for-each>
     </xsl:template>
 
     <xsl:template name="qbCodeListrdfsRange">
@@ -507,7 +515,6 @@ TODO: This should probably get the version from ConceptScheme just as the struct
                             </xsl:otherwise>
                         </xsl:choose>
                     </xsl:attribute>
-
 
                     <xsl:attribute name="datatype">
                         <xsl:value-of select="fn:getXSDType($Component/structure:TextFormat/@textType)"/>
