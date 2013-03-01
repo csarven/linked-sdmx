@@ -627,74 +627,86 @@ XXX:
 
     <xsl:template name="DataSets">
         <xsl:for-each select="*/*[local-name() = 'DataSet']">
-            <xsl:variable name="KeyFamilyRef">
-                <xsl:choose>
-                    <xsl:when test="generic:KeyFamilyRef">
-                        <xsl:value-of select="generic:KeyFamilyRef"/>
-                    </xsl:when>
-<!--
-XXX: Fallback: KeyfamilyRef may not exist. But this is inaccurate if there are multiple KeyFamilies
--->
-                    <xsl:otherwise>
-                        <xsl:value-of select="$genericStructure/KeyFamilies/structure:KeyFamily[1]/@id"/>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </xsl:variable>
+            <xsl:if test="generic:Series">
+                <xsl:variable name="KeyFamilyRef">
+                    <xsl:choose>
+                        <xsl:when test="generic:KeyFamilyRef">
+                            <xsl:value-of select="generic:KeyFamilyRef"/>
+                        </xsl:when>
+    <!--
+    XXX: Fallback: KeyfamilyRef may not exist. But this is inaccurate if there are multiple KeyFamilies
+    -->
+                        <xsl:otherwise>
+                            <xsl:value-of select="$genericStructure/KeyFamilies/structure:KeyFamily[1]/@id"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:variable>
 
-            <xsl:variable name="KeyFamily" select="$genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]"/>
+                <xsl:variable name="KeyFamily" select="$genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]"/>
 
-            <xsl:variable name="KeyFamilyAgencyID" select="$genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/@agencyID"/>
+                <xsl:variable name="KeyFamilyAgencyID" select="$genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/@agencyID"/>
 
-            <xsl:variable name="concepts" select="distinct-values($KeyFamily/structure:Components/*/@conceptRef)"/>
+                <xsl:variable name="concepts" select="distinct-values($KeyFamily/structure:Components/*/@conceptRef)"/>
 
-            <xsl:variable name="TimeDimensionConceptRef" select="distinct-values($KeyFamily/structure:Components/structure:TimeDimension/@conceptRef)"/>
+                <xsl:variable name="TimeDimensionConceptRef" select="distinct-values($KeyFamily/structure:Components/structure:TimeDimension/@conceptRef)"/>
 
-            <xsl:variable name="PrimaryMeasureConceptRef" select="distinct-values($KeyFamily/structure:Components/structure:PrimaryMeasure/@conceptRef)"/>
+                <xsl:variable name="PrimaryMeasureConceptRef" select="distinct-values($KeyFamily/structure:Components/structure:PrimaryMeasure/@conceptRef)"/>
 
-            <xsl:variable name="SeriesKeyConceptsData" select="fn:createSeriesKeyComponentData($concepts, $KeyFamilyRef)"/>
+                <xsl:variable name="SeriesKeyConceptsData" select="fn:createSeriesKeyComponentData($concepts, $KeyFamilyRef)"/>
 
-            <xsl:variable name="datasetID">
-                <xsl:choose>
-                    <xsl:when test="@datasetID">
-                        <xsl:value-of select="@datasetID"/>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:value-of select="$KeyFamilyRef"/>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </xsl:variable>
+                <xsl:variable name="datasetID">
+                    <xsl:choose>
+                        <xsl:when test="@datasetID">
+                            <xsl:value-of select="@datasetID"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="$KeyFamilyRef"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:variable>
 
 
-            <xsl:variable name="datasetURI">
-                <xsl:value-of select="$dataset"/>
-                <xsl:value-of select="$datasetID"/>
-            </xsl:variable>
+                <xsl:variable name="datasetURI">
+                    <xsl:value-of select="$dataset"/>
+                    <xsl:value-of select="$datasetID"/>
+                </xsl:variable>
 
-            <xsl:call-template name="provenance">
-                <xsl:with-param name="provUsedA" select="resolve-uri(tokenize($xmlDocument, '/')[last()], $xmlDocumentBaseUri)"/>
-                <xsl:with-param name="provUsedB" select="resolve-uri(tokenize($pathToGenericStructure, '/')[last()], $xmlDocumentBaseUri)"/>
-                <xsl:with-param name="provGenerated" select="$datasetURI"/>
-                <xsl:with-param name="entityID" select="$datasetID"/>
-            </xsl:call-template>
+                <xsl:call-template name="provenance">
+                    <xsl:with-param name="provUsedA" select="resolve-uri(tokenize($xmlDocument, '/')[last()], $xmlDocumentBaseUri)"/>
+                    <xsl:with-param name="provUsedB" select="resolve-uri(tokenize($pathToGenericStructure, '/')[last()], $xmlDocumentBaseUri)"/>
+                    <xsl:with-param name="provGenerated" select="$datasetURI"/>
+                    <xsl:with-param name="entityID" select="$datasetID"/>
+                </xsl:call-template>
 
-            <rdf:Description rdf:about="{$datasetURI}">
-                <rdf:type rdf:resource="{$qb}DataSet"/>
+                <rdf:Description rdf:about="{$datasetURI}">
+                    <rdf:type rdf:resource="{$qb}DataSet"/>
 
-                <qb:structure rdf:resource="{$structure}{$KeyFamilyRef}"/>
+                    <qb:structure rdf:resource="{$structure}{$KeyFamilyRef}"/>
 
-                <dcterms:identifier><xsl:value-of select="$datasetID"/></dcterms:identifier>
+                    <dcterms:identifier><xsl:value-of select="$datasetID"/></dcterms:identifier>
 
-<!--
-XXX: do something about @keyFamilyURI?
--->
-            </rdf:Description>
+    <!--
+    XXX: do something about @keyFamilyURI?
+    -->
+                </rdf:Description>
 
-            <xsl:for-each select="generic:Group">
-<!--
-XXX: This is currently a flat version. Needs to be reviewed.
+                <xsl:for-each select="generic:Group">
+    <!--
+    XXX: This is currently a flat version. Needs to be reviewed.
 
-TODO: generic:Attributes - this is apparently repeated in the Series says the spec. In that case it is already being treated like a attachmentLevel at Observation.
--->
+    TODO: generic:Attributes - this is apparently repeated in the Series says the spec. In that case it is already being treated like a attachmentLevel at Observation.
+    -->
+                    <xsl:call-template name="GenericSeries">
+                        <xsl:with-param name="KeyFamily" select="$KeyFamily" tunnel="yes"/>
+                        <xsl:with-param name="KeyFamilyRef" select="$KeyFamilyRef" tunnel="yes"/>
+                        <xsl:with-param name="KeyFamilyAgencyID" select="$KeyFamilyAgencyID" tunnel="yes"/>
+                        <xsl:with-param name="datasetURI" select="$datasetURI" tunnel="yes"/>
+                        <xsl:with-param name="SeriesKeyConceptsData" select="$SeriesKeyConceptsData" tunnel="yes"/>
+                        <xsl:with-param name="TimeDimensionConceptRef" select="$TimeDimensionConceptRef" tunnel="yes"/>
+                        <xsl:with-param name="PrimaryMeasureConceptRef" select="$PrimaryMeasureConceptRef" tunnel="yes"/>
+                    </xsl:call-template>
+                </xsl:for-each>
+
                 <xsl:call-template name="GenericSeries">
                     <xsl:with-param name="KeyFamily" select="$KeyFamily" tunnel="yes"/>
                     <xsl:with-param name="KeyFamilyRef" select="$KeyFamilyRef" tunnel="yes"/>
@@ -705,17 +717,7 @@ TODO: generic:Attributes - this is apparently repeated in the Series says the sp
                     <xsl:with-param name="PrimaryMeasureConceptRef" select="$PrimaryMeasureConceptRef" tunnel="yes"/>
                 </xsl:call-template>
             </xsl:for-each>
-
-            <xsl:call-template name="GenericSeries">
-                <xsl:with-param name="KeyFamily" select="$KeyFamily" tunnel="yes"/>
-                <xsl:with-param name="KeyFamilyRef" select="$KeyFamilyRef" tunnel="yes"/>
-                <xsl:with-param name="KeyFamilyAgencyID" select="$KeyFamilyAgencyID" tunnel="yes"/>
-                <xsl:with-param name="datasetURI" select="$datasetURI" tunnel="yes"/>
-                <xsl:with-param name="SeriesKeyConceptsData" select="$SeriesKeyConceptsData" tunnel="yes"/>
-                <xsl:with-param name="TimeDimensionConceptRef" select="$TimeDimensionConceptRef" tunnel="yes"/>
-                <xsl:with-param name="PrimaryMeasureConceptRef" select="$PrimaryMeasureConceptRef" tunnel="yes"/>
-            </xsl:call-template>
-        </xsl:for-each>
+        </xsl:if>
     </xsl:template>
 
 
