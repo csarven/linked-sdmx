@@ -716,8 +716,8 @@ XXX:
                     <xsl:with-param name="TimeDimensionConceptRef" select="$TimeDimensionConceptRef" tunnel="yes"/>
                     <xsl:with-param name="PrimaryMeasureConceptRef" select="$PrimaryMeasureConceptRef" tunnel="yes"/>
                 </xsl:call-template>
-            </xsl:for-each>
-        </xsl:if>
+            </xsl:if>
+        </xsl:for-each>
     </xsl:template>
 
 
