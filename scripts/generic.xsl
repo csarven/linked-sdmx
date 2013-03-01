@@ -390,20 +390,22 @@ structure:textFormat
             <xsl:if test="starts-with(@agencyID, $agency) or
                           fn:getAgencyURI(@agencyID) = fn:getAgencyURI($agency)">
 
+                <xsl:variable name="id" select="@id"/>
+
                 <xsl:variable name="version" select="fn:getVersion(@version)"/>
-                <xsl:variable name="codeListURI" select="concat($code, $version, '/', @id)"/>
+                <xsl:variable name="codeListURI" select="concat($code, $version, '/', $id)"/>
 
                 <xsl:call-template name="provenance">
                     <xsl:with-param name="provUsedA" select="resolve-uri(tokenize($xmlDocument, '/')[last()], $xmlDocumentBaseUri)"/>
                     <xsl:with-param name="provGenerated" select="$codeListURI"/>
-                    <xsl:with-param name="entityID" select="@id"/>
+                    <xsl:with-param name="entityID" select="$id"/>
                 </xsl:call-template>
 
                 <rdf:Description rdf:about="{$codeListURI}">
                     <rdf:type rdf:resource="{$sdmx}CodeList"/>
                     <rdf:type rdf:resource="{$skos}ConceptScheme"/>
 
-                    <xsl:variable name="classURI" select="concat($class, $version, '/', @id)"/>
+                    <xsl:variable name="classURI" select="concat($class, $version, '/', $id)"/>
 
                     <rdfs:seeAlso>
                         <rdf:Description rdf:about="{$classURI}">
@@ -420,7 +422,7 @@ structure:textFormat
                     <xsl:apply-templates select="@validTo"/>
                     <xsl:apply-templates select="@version"/>
 
-                    <skos:notation><xsl:value-of select="@id"/></skos:notation>
+                    <skos:notation><xsl:value-of select="$id"/></skos:notation>
                     <xsl:apply-templates select="structure:Name"/>
 
                     <xsl:for-each select="structure:Code">
@@ -438,7 +440,7 @@ structure:textFormat
 
                                 <xsl:if test="@parentCode">
                                     <xkos:isPartOf>
-                                        <rdf:Description rdf:about="{$code}{$version}/{@id}{$uriThingSeparator}{@parentCode}">
+                                        <rdf:Description rdf:about="{$code}{$version}/{$id}{$uriThingSeparator}{@parentCode}">
                                             <xkos:hasPart rdf:resource="{$codeURI}"/>
                                         </rdf:Description>
                                     </xkos:isPartOf>
