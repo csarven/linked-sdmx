@@ -65,8 +65,8 @@
 
     <xsl:template name="KeyFamily">
         <xsl:for-each select="Structure/KeyFamilies/structure:KeyFamily">
-            <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
-            <xsl:variable name="agencyID" select="fn:getAttributeValue(@agencyID)"/>
+            <xsl:variable name="id" select="@id"/>
+
             <xsl:variable name="structureURI">
                 <xsl:value-of select="$structure"/>
                 <xsl:value-of select="$id"/>
@@ -90,7 +90,9 @@ FIXME: $pathToGenericStructure should be replaced with an HTTP URI ??? Is this i
 -->
                 <sdmx-concept:dsi><xsl:value-of select="$id"/></sdmx-concept:dsi>
 
-                <sdmx-concept:mAgency><xsl:value-of select="$agencyID"/></sdmx-concept:mAgency>
+                <xsl:if test="@agencyID">
+                    <sdmx-concept:mAgency><xsl:value-of select="@agencyID"/></sdmx-concept:mAgency>
+                </xsl:if>
 
                 <xsl:apply-templates select="@version"/>
 
@@ -111,8 +113,6 @@ FIXME: $pathToGenericStructure should be replaced with an HTTP URI ??? Is this i
                 <xsl:call-template name="structureComponents">
                     <xsl:with-param name="KeyFamilyID" select="$id" tunnel="yes"/>
                 </xsl:call-template>
-
-                <xsl:call-template name="structureGroup"/>
             </rdf:Description>
         </xsl:for-each>
     </xsl:template>
@@ -262,26 +262,39 @@ FIXME: Is this somehow for qb:Dimension?
                 </qb:ComponentSpecification>
             </qb:component>
         </xsl:for-each>
-    </xsl:template>
 
-
-    <xsl:template name="structureGroup">
-        <xsl:variable name="agencyID" select="ancestor-or-self::structure:KeyFamily/@agencyID"/>
 
         <xsl:for-each select="structure:Components/structure:Group">
-            <xsl:variable name="id" select="fn:getAttributeValue(@id)"/>
+            <xsl:variable name="id" select="@id"/>
 
             <qb:sliceKey>
-                <rdf:Description rdf:about="{$slice}{$id}">
+                <rdf:Description rdf:about="{$slice}{$KeyFamilyID}{$uriThingSeparator}{$id}">
                     <rdf:type rdf:resource="{$qb}SliceKey"/>
                     <skos:notation><xsl:value-of select="$id"/></skos:notation>
 
                     <xsl:for-each select="structure:DimensionRef">
-                        <qb:componentProperty rdf:resource="{$concept}{normalize-space(text())}"/>
+                        <xsl:variable name="conceptRef" select="normalize-space(.)"/>
+                        <xsl:variable name="conceptScheme">
+                            <xsl:variable name="cS" select="$SeriesKeyConceptsData/*[name() = $conceptRef]/@conceptScheme"/>
+                            <xsl:if test="$cS != ''">
+                                <xsl:value-of select="concat('/', $cS)"/>
+                            </xsl:if>
+                        </xsl:variable>
+
+                        <xsl:variable name="conceptURI" select="concat($concept, $SeriesKeyConceptsData/*[name() = $conceptRef]/@conceptVersion, $conceptScheme, $uriThingSeparator, $conceptRef)"/>
+
+                        <qb:componentProperty rdf:resource="{$conceptURI}"/>
                     </xsl:for-each>
                 </rdf:Description>
             </qb:sliceKey>
         </xsl:for-each>
+    </xsl:template>
+
+
+    <xsl:template name="structureGroup">
+
+
+
     </xsl:template>
 
 <!--
@@ -747,7 +760,7 @@ Use FrequencyDimension="true" from KeyFamily Component
                     <qb:slice>
                         <rdf:Description rdf:about="{$slice}{$KeyFamilyRef}{$uriThingSeparator}{$SeriesKeyValuesURI}">
                             <rdf:type rdf:resource="{$qb}Slice"/>
-                            <qb:sliceStructure rdf:resource="{fn:getSliceKey($KeyFamilyAgencyID, $Group)}"/>
+                            <qb:sliceStructure rdf:resource="{concat($slice, $KeyFamilyRef, $uriThingSeparator, $Group/@id)}"/>
                             <xsl:for-each select="$ValuesWOFreq">
                                 <xsl:variable name="concept" select="@concept"/>
                                 <xsl:call-template name="ObsProperty">

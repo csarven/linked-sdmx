@@ -211,14 +211,6 @@
         <xsl:value-of select="replace(replace($codelist, '_SDMX', ''), 'CL_OBS_CONF', 'CL_CONF_STATUS')"/>
     </xsl:function>
 
-    <xsl:function name="fn:getAttributeValue">
-        <xsl:param name="attributeName"/>
-
-        <xsl:if test="$attributeName">
-            <xsl:value-of select="$attributeName"/>
-        </xsl:if>
-    </xsl:function>
-
     <xsl:function name="fn:detectDatatype">
         <xsl:param name="value"/>
 
@@ -358,13 +350,6 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
         </xsl:choose>
     </xsl:function>
 
-    <xsl:function name="fn:getSliceKey">
-        <xsl:param name="agencyIDPath"/>
-        <xsl:param name="Group"/>
-
-        <xsl:value-of select="$slice"/><xsl:value-of select="$agencyIDPath"/><xsl:text>/</xsl:text><xsl:value-of select="fn:getAttributeValue($Group/@id)"/>
-    </xsl:function>
-
 
     <xsl:function name="fn:getConfig">
         <xsl:param name="label"/>
@@ -466,10 +451,10 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
                         <xsl:value-of select="$codelist"/>
                     </xsl:attribute>
 
+                    <xsl:variable name="codelistAgency" select="fn:getCodeListAgencyID($genericStructure, $Component)"/>
+
                     <xsl:attribute name="codelistAgency">
-                        <xsl:if test="$codelist">
-                            <xsl:value-of select="fn:getCodeListAgencyID($genericStructure, $Component)"/>
-                        </xsl:if>
+                        <xsl:value-of select="$codelistAgency"/>
                     </xsl:attribute>
 
                     <xsl:attribute name="codelistVersion">
@@ -478,7 +463,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
                                 <xsl:value-of select="$Component/@codelistVersion"/>
                             </xsl:when>
                             <xsl:otherwise>
-                                <xsl:value-of select="fn:getVersion($genericStructure/CodeLists//structure:CodeList[@id = $codelist]/@version)"/>
+                                <xsl:value-of select="fn:getVersion($genericStructure/CodeLists//structure:CodeList[@id = $codelist and @agencyID = $codelistAgency]/@version)"/>
                             </xsl:otherwise>
                         </xsl:choose>
                     </xsl:attribute>
