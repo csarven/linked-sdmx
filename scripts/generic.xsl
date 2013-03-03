@@ -640,15 +640,15 @@ XXX:
 
     <xsl:template name="DataSets">
         <xsl:for-each select="*/*[local-name() = 'DataSet']">
-            <xsl:if test="generic:Series">
+            <xsl:if test="generic:Series or generic:Group/generic:Series">
                 <xsl:variable name="KeyFamilyRef">
                     <xsl:choose>
                         <xsl:when test="generic:KeyFamilyRef">
                             <xsl:value-of select="generic:KeyFamilyRef"/>
                         </xsl:when>
-    <!--
-    XXX: Fallback: KeyfamilyRef may not exist. But this is inaccurate if there are multiple KeyFamilies
-    -->
+<!--
+XXX: Fallback: KeyFamilyRef may not exist. But this is inaccurate if there are multiple KeyFamilies
+-->
                         <xsl:otherwise>
                             <xsl:value-of select="$genericStructure/KeyFamilies/structure:KeyFamily[1]/@id"/>
                         </xsl:otherwise>
