@@ -273,29 +273,13 @@ FIXME: Is this somehow for qb:Dimension?
                     <skos:notation><xsl:value-of select="$id"/></skos:notation>
 
                     <xsl:for-each select="structure:DimensionRef">
-                        <xsl:variable name="conceptRef" select="normalize-space(.)"/>
-                        <xsl:variable name="conceptScheme">
-                            <xsl:variable name="cS" select="$SeriesKeyConceptsData/*[name() = $conceptRef]/@conceptScheme"/>
-                            <xsl:if test="$cS != ''">
-                                <xsl:value-of select="concat('/', $cS)"/>
-                            </xsl:if>
-                        </xsl:variable>
-
-                        <xsl:variable name="conceptURI" select="concat($concept, $SeriesKeyConceptsData/*[name() = $conceptRef]/@conceptVersion, $conceptScheme, $uriThingSeparator, $conceptRef)"/>
-
-                        <qb:componentProperty rdf:resource="{$conceptURI}"/>
+                        <qb:componentProperty rdf:resource="{$property}{normalize-space(.)}"/>
                     </xsl:for-each>
                 </rdf:Description>
             </qb:sliceKey>
         </xsl:for-each>
     </xsl:template>
 
-
-    <xsl:template name="structureGroup">
-
-
-
-    </xsl:template>
 
 <!--
 TODO:
