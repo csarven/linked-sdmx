@@ -41,6 +41,7 @@
     <xsl:param name="xmlDocument"/>
     <xsl:param name="pathToGenericStructure"/>
     <xsl:param name="pathToProvDocument"/>
+    <xsl:param name="dataSetID"/>
     <xsl:variable name="genericStructure" select="document($pathToGenericStructure)/Structure"/>
 
     <xsl:template match="/">
@@ -655,6 +656,9 @@ XXX: Fallback: KeyFamilyRef may not exist. But this is inaccurate if there are m
                     <xsl:choose>
                         <xsl:when test="@datasetID">
                             <xsl:value-of select="@datasetID"/>
+                        </xsl:when>
+                        <xsl:when test="$dataSetID">
+                            <xsl:value-of select="$dataSetID"/>
                         </xsl:when>
                         <xsl:otherwise>
                             <xsl:value-of select="$KeyFamilyRef"/>
