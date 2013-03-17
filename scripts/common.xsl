@@ -262,16 +262,24 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
 
     <xsl:function name="fn:getResourceRefPeriod">
         <xsl:param name="date"/>
-        <xsl:analyze-string select="$date" regex="(([0-9]{{4}})|([1-9][0-9]{{3,}})+)(-?Q([1-4]))" flags="i">
+
+        <xsl:analyze-string select="$date" regex="(([0-9]{{4}})|([1-9][0-9]{{3,}})+)(-[0-1][0-9]-[0-3][0-9])">
             <xsl:matching-substring>
-                <xsl:text>http://reference.data.gov.uk/id/quarter/</xsl:text><xsl:value-of select="regex-group(1)"/><xsl:text>-Q</xsl:text><xsl:value-of select="regex-group(5)"/>
+                <xsl:value-of select="concat('http://reference.data.gov.uk/id/day/', $date)"/>
             </xsl:matching-substring>
             <xsl:non-matching-substring>
-                <xsl:analyze-string select="$date" regex="(([0-9]{{4}})|([1-9][0-9]{{3,}})+)">
+                <xsl:analyze-string select="$date" regex="(([0-9]{{4}})|([1-9][0-9]{{3,}})+)(-?Q([1-4]))" flags="i">
                     <xsl:matching-substring>
-                       <xsl:text>http://reference.data.gov.uk/id/year/</xsl:text><xsl:value-of select="regex-group(1)"/>
+                        <xsl:value-of select="concat('http://reference.data.gov.uk/id/quarter/', regex-group(1), '-Q', regex-group(5))"/>
                     </xsl:matching-substring>
                     <xsl:non-matching-substring>
+                        <xsl:analyze-string select="$date" regex="(([0-9]{{4}})|([1-9][0-9]{{3,}})+)">
+                            <xsl:matching-substring>
+                               <xsl:value-of select="concat('http://reference.data.gov.uk/id/year/', regex-group(1))"/>
+                            </xsl:matching-substring>
+                            <xsl:non-matching-substring>
+                            </xsl:non-matching-substring>
+                        </xsl:analyze-string>
                     </xsl:non-matching-substring>
                 </xsl:analyze-string>
             </xsl:non-matching-substring>
