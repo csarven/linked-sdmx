@@ -341,7 +341,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
         <xsl:param name="datasetID"/>
 
         <xsl:if test="$datasetID != ''">
-            <dcterms:title><xsl:value-of select="$dataflowStructure/Dataflows/structure:Dataflow[@id = $datasetID]/structure:Name[1]"/></dcterms:title>
+            <dcterms:title><xsl:value-of select="$dataflowStructure/Dataflows/structure:Dataflow[@id = $datasetID]/structure:Name/text()"/></dcterms:title>
         </xsl:if>
     </xsl:function>
 
