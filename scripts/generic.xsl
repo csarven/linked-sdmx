@@ -484,7 +484,7 @@ XXX: Difference between SDMX 2.0 and SDMX 2.1
             </xsl:call-template>
 
             <rdf:Description rdf:about="{$hierarchicalCodeListURI}">
-                <rdf:type rdf:resource="{$sdmx}Collection"/>
+                <rdf:type rdf:resource="{$skos}Collection"/>
 
                 <xsl:apply-templates select="@uri"/>
                 <xsl:apply-templates select="@urn"/>
