@@ -42,9 +42,9 @@
     <xsl:param name="pathToGenericStructure"/>
     <xsl:param name="pathToProvDocument"/>
     <xsl:param name="dataSetID"/>
-    <xsl:param name="dataflow"/>
+    <xsl:param name="pathToDataflow"/>
     <xsl:variable name="genericStructure" select="document($pathToGenericStructure)/Structure"/>
-    <xsl:variable name="dataflowStructure" select="document($dataflow)/Structure"/>
+    <xsl:variable name="dataflowStructure" select="document(pathToDataflow)/Structure"/>
 
 
     <xsl:template match="/">
