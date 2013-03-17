@@ -44,7 +44,7 @@
     <xsl:param name="dataSetID"/>
     <xsl:param name="pathToDataflow"/>
     <xsl:variable name="genericStructure" select="document($pathToGenericStructure)/Structure"/>
-    <xsl:variable name="dataflowStructure" select="document(pathToDataflow)/Structure"/>
+    <xsl:variable name="dataflowStructure" select="document($pathToDataflow)/Structure"/>
 
 
     <xsl:template match="/">
@@ -689,7 +689,10 @@ XXX: Fallback: KeyFamilyRef may not exist. But this is inaccurate if there are m
 
                     <dcterms:identifier><xsl:value-of select="$datasetID"/></dcterms:identifier>
 
-                    <xsl:value-of select="fn:getDataSetName($datasetID)"/>
+                    <xsl:call-template name="DataSetName">
+                        <xsl:with-param name="datasetID" select="$datasetID"/>
+                    </xsl:call-template>
+
 
     <!--
     XXX: do something about @keyFamilyURI?
