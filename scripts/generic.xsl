@@ -42,7 +42,10 @@
     <xsl:param name="pathToGenericStructure"/>
     <xsl:param name="pathToProvDocument"/>
     <xsl:param name="dataSetID"/>
+    <xsl:param name="dataflow"/>
     <xsl:variable name="genericStructure" select="document($pathToGenericStructure)/Structure"/>
+    <xsl:variable name="dataflowStructure" select="document($dataflow)/Structure"/>
+
 
     <xsl:template match="/">
         <rdf:RDF>
@@ -685,6 +688,8 @@ XXX: Fallback: KeyFamilyRef may not exist. But this is inaccurate if there are m
                     <qb:structure rdf:resource="{$structure}{$KeyFamilyRef}"/>
 
                     <dcterms:identifier><xsl:value-of select="$datasetID"/></dcterms:identifier>
+
+                    <xsl:value-of select="fn:getDataSetName($datasetID)"/>
 
     <!--
     XXX: do something about @keyFamilyURI?
