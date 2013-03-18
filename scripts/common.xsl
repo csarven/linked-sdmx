@@ -233,7 +233,6 @@
         <xsl:param name="type"/>
 
         <xsl:choose>
-            <xsl:when test="$type = 'String'"><xsl:text>string</xsl:text></xsl:when>
             <xsl:when test="$type = 'BigInteger'"><xsl:text>integer</xsl:text></xsl:when>
             <xsl:when test="$type = 'Integer'"><xsl:text>int</xsl:text></xsl:when>
             <xsl:when test="$type = 'Long'"><xsl:text>long</xsl:text></xsl:when>
