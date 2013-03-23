@@ -269,7 +269,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
             <xsl:non-matching-substring>
                 <xsl:analyze-string select="$date" regex="(([0-9]{{4}})|([1-9][0-9]{{3,}})+)(-[0-1][0-9])">
                     <xsl:matching-substring>
-                        <xsl:value-of select="concat('http://reference.data.gov.uk/id/month/', $date"/>
+                        <xsl:value-of select="concat('http://reference.data.gov.uk/id/month/', $date)"/>
                     </xsl:matching-substring>
                     <xsl:non-matching-substring>
                         <xsl:analyze-string select="$date" regex="(([0-9]{{4}})|([1-9][0-9]{{3,}})+)(-?Q([1-4]))" flags="i">
