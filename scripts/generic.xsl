@@ -627,8 +627,14 @@ XXX:
 
 
     <xsl:template name="DataSets">
+        <xsl:variable name="DataSetID">
+            <xsl:if test="*/Header/DataSetID">
+                <xsl:value-of select="*/Header/DataSetID"/>
+            </xsl:if>
+        </xsl:variable>
+
         <xsl:for-each select="*/*[local-name() = 'DataSet']">
-            <xsl:if test="generic:Series or generic:Group/generic:Series">
+            <xsl:if test="*[local-name() = 'Series'] or *[local-name() = Group]/*[local-name() = 'Series']">
                 <xsl:variable name="KeyFamilyRef">
                     <xsl:choose>
                         <xsl:when test="generic:KeyFamilyRef">
@@ -655,20 +661,27 @@ XXX: Fallback: KeyFamilyRef may not exist. But this is inaccurate if there are m
 
                 <xsl:variable name="SeriesKeyConceptsData" select="fn:createSeriesKeyComponentData($concepts, $KeyFamilyRef)"/>
 
+<!-- FIXME: WTF did I just come up with every case combination for "datasetid"? -->
                 <xsl:variable name="datasetID">
                     <xsl:choose>
+                        <!-- from generic data -->
                         <xsl:when test="@datasetID">
                             <xsl:value-of select="@datasetID"/>
                         </xsl:when>
+                        <!-- passed parameter -->
                         <xsl:when test="$dataSetID">
                             <xsl:value-of select="$dataSetID"/>
                         </xsl:when>
+                        <!-- from compact data? -->
+                        <xsl:when test="$DataSetID">
+                            <xsl:value-of select="$DataSetID"/>
+                        </xsl:when>
+                        <!-- last resort -->
                         <xsl:otherwise>
                             <xsl:value-of select="$KeyFamilyRef"/>
                         </xsl:otherwise>
                     </xsl:choose>
                 </xsl:variable>
-
 
                 <xsl:variable name="datasetURI">
                     <xsl:value-of select="$dataset"/>
@@ -705,7 +718,7 @@ XXX: Fallback: KeyFamilyRef may not exist. But this is inaccurate if there are m
 
     TODO: generic:Attributes - this is apparently repeated in the Series says the spec. In that case it is already being treated like a attachmentLevel at Observation.
     -->
-                    <xsl:call-template name="GenericSeries">
+                    <xsl:call-template name="Series">
                         <xsl:with-param name="KeyFamily" select="$KeyFamily" tunnel="yes"/>
                         <xsl:with-param name="KeyFamilyRef" select="$KeyFamilyRef" tunnel="yes"/>
                         <xsl:with-param name="KeyFamilyAgencyID" select="$KeyFamilyAgencyID" tunnel="yes"/>
@@ -716,7 +729,7 @@ XXX: Fallback: KeyFamilyRef may not exist. But this is inaccurate if there are m
                     </xsl:call-template>
                 </xsl:for-each>
 
-                <xsl:call-template name="GenericSeries">
+                <xsl:call-template name="Series">
                     <xsl:with-param name="KeyFamily" select="$KeyFamily" tunnel="yes"/>
                     <xsl:with-param name="KeyFamilyRef" select="$KeyFamilyRef" tunnel="yes"/>
                     <xsl:with-param name="KeyFamilyAgencyID" select="$KeyFamilyAgencyID" tunnel="yes"/>
@@ -730,7 +743,7 @@ XXX: Fallback: KeyFamilyRef may not exist. But this is inaccurate if there are m
     </xsl:template>
 
 
-    <xsl:template name="GenericSeries">
+    <xsl:template name="Series">
         <xsl:param name="KeyFamily" tunnel="yes"/>
         <xsl:param name="KeyFamilyRef" tunnel="yes"/>
         <xsl:param name="KeyFamilyAgencyID" tunnel="yes"/>
@@ -739,7 +752,7 @@ XXX: Fallback: KeyFamilyRef may not exist. But this is inaccurate if there are m
         <xsl:param name="TimeDimensionConceptRef" tunnel="yes"/>
         <xsl:param name="PrimaryMeasureConceptRef" tunnel="yes"/>
 
-        <xsl:for-each select="generic:Series">
+        <xsl:for-each select="*[local-name() = 'Series']">
 <!--
 FIXME: Excluding 'FREQ' is a bit grubby?
 Use FrequencyDimension="true" from KeyFamily Component
@@ -751,7 +764,7 @@ Use FrequencyDimension="true" from KeyFamily Component
             <xsl:variable name="SeriesKeyValuesURI" select="string-join($Values[lower-case(@concept) != 'freq']/normalize-space(@value), $uriDimensionSeparator)"/>
             <xsl:variable name="DimensionValuesURI" select="string-join($Values/normalize-space(@value), $uriDimensionSeparator)"/>
 
-            <xsl:if test="count($ValuesWOFreq) = count($Group/structure:DimensionRef)">
+            <xsl:if test="$Group and count($ValuesWOFreq) = count($Group/structure:DimensionRef)">
                 <rdf:Description rdf:about="{$datasetURI}">
                     <qb:slice>
                         <rdf:Description rdf:about="{$slice}{$KeyFamilyRef}{$uriThingSeparator}{$SeriesKeyValuesURI}">
@@ -812,7 +825,7 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
                 </xsl:for-each>
             </xsl:variable>
 
-            <xsl:for-each select="generic:Obs">
+            <xsl:for-each select="*[local-name() = 'Obs']">
                 <xsl:variable name="ObsTime" select="replace(generic:Time, '\s+', '')"/>
                 <xsl:variable name="ObsTimeURI">
                     <xsl:if test="$ObsTime">
