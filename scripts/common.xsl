@@ -469,6 +469,14 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
                 <xsl:element name="{$concept}">
                     <xsl:variable name="Component" select="$genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/*[@conceptRef = $concept]"/>
 
+                    <xsl:attribute name="component">
+                        <xsl:value-of select="$Component/local-name()"/>
+                    </xsl:attribute>
+
+                    <xsl:attribute name="conceptRole">
+                        <xsl:value-of select="fn:getConceptRole($Component)"/>
+                    </xsl:attribute>
+
                     <xsl:variable name="codelist" select="$Component/@codelist"/>
                     <xsl:attribute name="codelist">
                         <xsl:value-of select="$codelist"/>
@@ -536,7 +544,7 @@ TODO: This should probably get the version from ConceptScheme just as the struct
         <xsl:param name="node"/>
 
         <xsl:choose>
-            <xsl:when test="$node/local-name() = 'PrimaryMeasureRole'">
+            <xsl:when test="$node/local-name() = 'PrimaryMeasure'">
                 <xsl:text>PrimaryMeasureRole</xsl:text>
             </xsl:when>
             <xsl:when test="$node/local-name() = 'TimeDimension' or $node/@isTimeFormat">
