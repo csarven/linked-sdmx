@@ -634,7 +634,7 @@ XXX:
         </xsl:variable>
 
         <xsl:for-each select="*/*[local-name() = 'DataSet']">
-            <xsl:if test="*[local-name() = 'Series'] or *[local-name() = Group]/*[local-name() = 'Series']">
+            <xsl:if test="*/*[local-name() = 'Series'] or */*[local-name() = Group]/*[local-name() = 'Series']">
                 <xsl:variable name="KeyFamilyRef">
                     <xsl:choose>
                         <xsl:when test="generic:KeyFamilyRef">
