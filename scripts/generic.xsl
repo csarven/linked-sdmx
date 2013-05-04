@@ -628,13 +628,13 @@ XXX:
 
     <xsl:template name="DataSets">
         <xsl:variable name="DataSetID">
-            <xsl:if test="*/Header/DataSetID">
-                <xsl:value-of select="*/Header/DataSetID"/>
+            <xsl:if test="*/*[local-name() = 'Header']/*[local-name() = 'DataSetID']">
+                <xsl:value-of select="*/*[local-name() = 'Header']/*[local-name() = 'DataSetID']"/>
             </xsl:if>
         </xsl:variable>
 
         <xsl:for-each select="*/*[local-name() = 'DataSet']">
-            <xsl:if test="*/*[local-name() = 'Series'] or */*[local-name() = Group]/*[local-name() = 'Series']">
+            <xsl:if test="*[local-name() = 'Series'] or */*[local-name() = 'Series'] or */*[local-name() = Group]/*[local-name() = 'Series']">
                 <xsl:variable name="KeyFamilyRef">
                     <xsl:choose>
                         <xsl:when test="generic:KeyFamilyRef">
