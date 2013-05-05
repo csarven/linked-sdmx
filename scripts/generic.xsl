@@ -574,7 +574,16 @@ This is a kind of a hack, works based on tested sample structures. Not guarantee
                 <xsl:otherwise>
                     <xsl:variable name="CodelistAliasRef" select="structure:CodelistAliasRef"/>
 
-                    <xsl:value-of select="/Structure/HierarchicalCodelists/structure:HierarchicalCodelist[@id = $HierarchicalCodelistID]/structure:CodelistRef[structure:Alias = $CodelistAliasRef]/structure:CodelistID"/>
+                    <xsl:variable name="CodelistID" select="/Structure/HierarchicalCodelists/structure:HierarchicalCodelist[@id = $HierarchicalCodelistID]/structure:CodelistRef[structure:Alias = $CodelistAliasRef]/structure:CodelistID"/>
+
+                    <xsl:choose>
+                        <xsl:when test="$CodelistID != ''">
+                            <xsl:value-of select="$CodelistID"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="$CodelistAliasRef"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
