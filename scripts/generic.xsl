@@ -674,15 +674,15 @@ XXX: Fallback: KeyFamilyRef may not exist. But this is inaccurate if there are m
                 <xsl:variable name="datasetID">
                     <xsl:choose>
                         <!-- from generic data -->
-                        <xsl:when test="@datasetID">
+                        <xsl:when test="@datasetID != ''">
                             <xsl:value-of select="@datasetID"/>
                         </xsl:when>
                         <!-- passed parameter -->
-                        <xsl:when test="$dataSetID">
+                        <xsl:when test="$dataSetID != ''">
                             <xsl:value-of select="$dataSetID"/>
                         </xsl:when>
                         <!-- from compact data? -->
-                        <xsl:when test="$DataSetID">
+                        <xsl:when test="$DataSetID != ''">
                             <xsl:value-of select="$DataSetID"/>
                         </xsl:when>
                         <!-- last resort -->
