@@ -467,7 +467,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
                 <xsl:variable name="concept" select="."/>
 
                 <xsl:element name="{$concept}">
-                    <xsl:variable name="Component" select="$genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/*[@conceptRef = $concept]"/>
+                    <xsl:variable name="Component" select="$genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/*[@conceptRef = $concept][1]"/>
 
                     <xsl:attribute name="component">
                         <xsl:value-of select="$Component/local-name()"/>
