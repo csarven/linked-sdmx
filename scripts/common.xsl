@@ -218,6 +218,12 @@
             <xsl:when test="string($value) castable as xs:decimal">
                 <xsl:value-of select="'decimal'"/>
             </xsl:when>
+            <xsl:when test="string($value) castable as xs:double">
+                <xsl:value-of select="'double'"/>
+            </xsl:when>
+            <xsl:when test="string($value) castable as xs:float">
+                <xsl:value-of select="'float'"/>
+            </xsl:when>
             <xsl:otherwise>
             </xsl:otherwise>
         </xsl:choose>
@@ -226,7 +232,9 @@
     <xsl:template name="rdfDatatypeXSD">
         <xsl:param name="type"/>
 
-        <xsl:attribute name="rdf:datatype"><xsl:text>http://www.w3.org/2001/XMLSchema#</xsl:text><xsl:value-of select="$type"/></xsl:attribute>
+        <xsl:if test="$type != ''">
+            <xsl:attribute name="rdf:datatype"><xsl:text>http://www.w3.org/2001/XMLSchema#</xsl:text><xsl:value-of select="$type"/></xsl:attribute>
+        </xsl:if>
     </xsl:template>
 
     <xsl:function name="fn:getXSDType">
