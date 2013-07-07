@@ -146,6 +146,9 @@ FIXME: This could reuse the agencyID that's determined from SeriesKeyConceptsDat
                     <xsl:variable name="conceptURI" select="concat($concept, $SeriesKeyConceptsData/*[name() = $conceptRef]/@conceptVersion, $conceptScheme, $uriThingSeparator, @conceptRef)"/>
 
                     <xsl:variable name="Concept" select="//Concepts//structure:Concept[@id = $conceptRef]"/>
+
+                    <qb:componentProperty rdf:resource="{$property}{$conceptRef}"/>
+
                     <xsl:choose>
 <!--
 XXX:
@@ -188,7 +191,7 @@ Consider what to do with optional <TextFormat textType="Double"/> or whatever. P
 -->
                         <xsl:when test="local-name() = 'PrimaryMeasure'">
                             <qb:measure>
-                                <rdf:Description rdf:about="{$property}{@conceptRef}">
+                                <rdf:Description rdf:about="{$property}{$conceptRef}">
                                     <rdf:type rdf:resource="{$qb}MeasureProperty"/>
                                     <rdf:type rdf:resource="{$qb}CodedProperty"/>
                                     <rdf:type rdf:resource="{$rdf}Property"/>
@@ -217,7 +220,7 @@ Multiple measures
 
                         <xsl:when test="local-name() = 'Attribute'">
                             <qb:attribute>
-                                <rdf:Description rdf:about="{$property}{@conceptRef}">
+                                <rdf:Description rdf:about="{$property}{$conceptRef}">
                                     <rdf:type rdf:resource="{$qb}AttributeProperty"/>
                                     <rdf:type rdf:resource="{$qb}CodedProperty"/>
                                     <rdf:type rdf:resource="{$rdf}Property"/>
