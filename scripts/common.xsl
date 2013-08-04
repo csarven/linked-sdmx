@@ -313,7 +313,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
             <rdf:type rdf:resource="{$prov}Activity"/>
             <rdfs:label xml:lang="en"><xsl:value-of select="concat('Transformed ', $entityID, ' data')"/></rdfs:label>
 
-            <xsl:variable name="informedBy" select="$provDocument/rdf:Description[prov:generated/@rdf:resource = $provUsedA]/@rdf:about"/>
+            <xsl:variable name="informedBy" select="$provDocument/rdf:Description[prov:generated/@rdf:about = $provUsedA]/@rdf:about"/>
             <xsl:if test="$informedBy">
                 <prov:wasInformedBy rdf:resource="{$informedBy}"/>
             </xsl:if>
@@ -322,7 +322,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
             <prov:used rdf:resource="{$provUsedA}"/>
             <xsl:if test="$provUsedB">
                 <prov:used rdf:resource="{$provUsedB}"/>
-                <xsl:variable name="informedBy" select="$provDocument/rdf:Description[prov:generated/rdf:resource = $provUsedB]/@rdf:about"/>
+                <xsl:variable name="informedBy" select="$provDocument/rdf:Description[prov:generated/rdf:about = $provUsedB]/@rdf:about"/>
 
                 <xsl:if test="$informedBy">
                     <prov:wasInformedBy rdf:resource="{$informedBy}"/>
