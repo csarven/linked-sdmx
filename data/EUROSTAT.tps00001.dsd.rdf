@@ -1,0 +1,1049 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/"
+         xmlns:sdmx-measure="http://purl.org/linked-data/sdmx/2009/measure#"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns:sdmx-metadata="http://purl.org/linked-data/sdmx/2009/metadata#"
+         xmlns:prov="http://www.w3.org/ns/prov#"
+         xmlns:sdmx-subject="http://purl.org/linked-data/sdmx/2009/subject#"
+         xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+         xmlns:xkos="http://purl.org/linked-data/xkos#"
+         xmlns:qb="http://purl.org/linked-data/cube#"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:sdmx="http://purl.org/linked-data/sdmx#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:sdmx-attribute="http://purl.org/linked-data/sdmx/2009/attribute#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:sdmx-code="http://purl.org/linked-data/sdmx/2009/code#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:sdmx-concept="http://purl.org/linked-data/sdmx/2009/concept#"
+         xmlns:sdmx-dimension="http://purl.org/linked-data/sdmx/2009/dimension#"
+         xmlns:property="http://eurostat.270a.info/property/">
+   <rdf:Description rdf:about="http://csarven.ca/#i">
+      <rdf:type rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://eurostat.270a.info/provenance/activity/20131123181353">
+      <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+      <rdfs:label xml:lang="en">Transformed tps00001_DSD data</rdfs:label>
+      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-11-23T18:13:53Z</prov:startedAtTime>
+      <prov:wasAssociatedWith rdf:resource="http://csarven.ca/#i"/>
+      <prov:used rdf:resource="http://eurostat.org/data/EUROSTAT.tps00001.dsd.xml"/>
+      <prov:used rdf:resource="https://raw.github.com/csarven/linked-sdmx/master/scripts/generic.xsl"/>
+      <prov:generated>
+         <rdf:Description rdf:about="http://eurostat.270a.info/structure/tps00001_DSD">
+            <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+            <prov:wasAttributedTo rdf:resource="http://csarven.ca/#i"/>
+            <prov:generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-11-23T18:13:53Z</prov:generatedAtTime>
+            <prov:wasDerivedFrom rdf:resource="http://eurostat.org/data/EUROSTAT.tps00001.dsd.xml"/>
+            <prov:wasGeneratedBy rdf:resource="http://eurostat.270a.info/provenance/activity/20131123181353"/>
+            <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+            <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-11-23T18:13:53Z</dcterms:issued>
+            <dcterms:creator rdf:resource="http://csarven.ca/#i"/>
+         </rdf:Description>
+      </prov:generated>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://eurostat.270a.info/structure/tps00001_DSD">
+      <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#DataStructureDefinition"/>
+      <rdf:type rdf:resource="http://purl.org/linked-data/cube#DataStructureDefinition"/>
+      <sdmx-concept:dsi>tps00001_DSD</sdmx-concept:dsi>
+      <sdmx-concept:mAgency>EUROSTAT</sdmx-concept:mAgency>
+      <sdmx-concept:isFinal rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</sdmx-concept:isFinal>
+      <skos:prefLabel xml:lang="en">tps00001_DSD</skos:prefLabel>
+      <qb:component>
+         <qb:ComponentSpecification>
+            <qb:componentProperty rdf:resource="http://eurostat.270a.info/property/FREQ"/>
+            <qb:dimension>
+               <rdf:Description rdf:about="http://eurostat.270a.info/property/FREQ">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#CodedProperty"/>
+                  <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://eurostat.270a.info/concept/1.0/CONCEPTS/FREQ">
+                        <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#FrequencyRole"/>
+                     </rdf:Description>
+                  </qb:concept>
+                  <qb:codeList rdf:resource="http://purl.org/linked-data/sdmx/2009/code#freq"/>
+                  <rdfs:range rdf:resource="http://purl.org/linked-data/sdmx/2009/code#Freq"/>
+                  <skos:prefLabel xml:lang="en">Frequency</skos:prefLabel>
+               </rdf:Description>
+            </qb:dimension>
+            <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</qb:order>
+         </qb:ComponentSpecification>
+      </qb:component>
+      <qb:component>
+         <qb:ComponentSpecification>
+            <qb:componentProperty rdf:resource="http://eurostat.270a.info/property/indic_de"/>
+            <qb:dimension>
+               <rdf:Description rdf:about="http://eurostat.270a.info/property/indic_de">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#CodedProperty"/>
+                  <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://eurostat.270a.info/concept/1.0/CONCEPTS/indic_de">
+                        <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
+                  <qb:codeList rdf:resource="http://eurostat.270a.info/code/1.0/CL_INDIC_DE"/>
+                  <rdfs:range rdf:resource="http://eurostat.270a.info/class/1.0/CL_INDIC_DE"/>
+                  <skos:prefLabel xml:lang="en">Demographic indicator</skos:prefLabel>
+                  <skos:prefLabel xml:lang="de">Demographische Indikator</skos:prefLabel>
+                  <skos:prefLabel xml:lang="fr">Indicateur démographique</skos:prefLabel>
+               </rdf:Description>
+            </qb:dimension>
+            <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</qb:order>
+         </qb:ComponentSpecification>
+      </qb:component>
+      <qb:component>
+         <qb:ComponentSpecification>
+            <qb:componentProperty rdf:resource="http://eurostat.270a.info/property/geo"/>
+            <qb:dimension>
+               <rdf:Description rdf:about="http://eurostat.270a.info/property/geo">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#CodedProperty"/>
+                  <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://eurostat.270a.info/concept/1.0/CONCEPTS/geo">
+                        <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
+                  <qb:codeList rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+                  <rdfs:range rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+                  <skos:prefLabel xml:lang="en">Geopolitical entity (declaring)</skos:prefLabel>
+                  <skos:prefLabel xml:lang="de">Geopolitische Meldeeinheit</skos:prefLabel>
+                  <skos:prefLabel xml:lang="fr">Entité géopolitique (déclarante)</skos:prefLabel>
+               </rdf:Description>
+            </qb:dimension>
+            <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</qb:order>
+         </qb:ComponentSpecification>
+      </qb:component>
+      <qb:component>
+         <qb:ComponentSpecification>
+            <qb:componentProperty rdf:resource="http://eurostat.270a.info/property/TIME_PERIOD"/>
+            <qb:dimension>
+               <rdf:Description rdf:about="http://eurostat.270a.info/property/TIME_PERIOD">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#CodedProperty"/>
+                  <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://eurostat.270a.info/concept/1.0/CONCEPTS/TIME_PERIOD">
+                        <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#TimeRole"/>
+                     </rdf:Description>
+                  </qb:concept>
+                  <skos:prefLabel xml:lang="en">Time period or range</skos:prefLabel>
+               </rdf:Description>
+            </qb:dimension>
+            <qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</qb:order>
+         </qb:ComponentSpecification>
+      </qb:component>
+      <qb:component>
+         <qb:ComponentSpecification>
+            <qb:componentProperty rdf:resource="http://eurostat.270a.info/property/OBS_VALUE"/>
+            <qb:measure>
+               <rdf:Description rdf:about="http://eurostat.270a.info/property/OBS_VALUE">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#MeasureProperty"/>
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#CodedProperty"/>
+                  <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://eurostat.270a.info/concept/1.0/CONCEPTS/OBS_VALUE">
+                        <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#PrimaryMeasureRole"/>
+                     </rdf:Description>
+                  </qb:concept>
+                  <skos:prefLabel xml:lang="en">Observation Value</skos:prefLabel>
+               </rdf:Description>
+            </qb:measure>
+         </qb:ComponentSpecification>
+      </qb:component>
+      <qb:component>
+         <qb:ComponentSpecification>
+            <qb:componentProperty rdf:resource="http://eurostat.270a.info/property/TIME_FORMAT"/>
+            <qb:attribute>
+               <rdf:Description rdf:about="http://eurostat.270a.info/property/TIME_FORMAT">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#CodedProperty"/>
+                  <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://eurostat.270a.info/concept/1.0/CONCEPTS/TIME_FORMAT">
+                        <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
+                  <qb:codeList rdf:resource="http://purl.org/linked-data/sdmx/2009/code#timeFormat"/>
+                  <rdfs:range rdf:resource="http://purl.org/linked-data/sdmx/2009/code#TimeFormat"/>
+               </rdf:Description>
+            </qb:attribute>
+            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Observation"/>
+         </qb:ComponentSpecification>
+      </qb:component>
+      <qb:component>
+         <qb:ComponentSpecification>
+            <qb:componentProperty rdf:resource="http://eurostat.270a.info/property/OBS_STATUS"/>
+            <qb:attribute>
+               <rdf:Description rdf:about="http://eurostat.270a.info/property/OBS_STATUS">
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#AttributeProperty"/>
+                  <rdf:type rdf:resource="http://purl.org/linked-data/cube#CodedProperty"/>
+                  <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+                  <qb:concept>
+                     <rdf:Description rdf:about="http://eurostat.270a.info/concept/1.0/CONCEPTS/OBS_STATUS">
+                        <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#ConceptRole"/>
+                     </rdf:Description>
+                  </qb:concept>
+                  <qb:codeList rdf:resource="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS"/>
+                  <rdfs:range rdf:resource="http://eurostat.270a.info/class/1.0/CL_OBS_STATUS"/>
+                  <skos:prefLabel xml:lang="en">Observation Status</skos:prefLabel>
+               </rdf:Description>
+            </qb:attribute>
+            <qb:componentAttachment rdf:resource="http://purl.org/linked-data/cube#Observation"/>
+         </qb:ComponentSpecification>
+      </qb:component>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://eurostat.270a.info/provenance/activity/20131123181353">
+      <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+      <rdfs:label xml:lang="en">Transformed CONCEPTS data</rdfs:label>
+      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-11-23T18:13:53Z</prov:startedAtTime>
+      <prov:wasAssociatedWith rdf:resource="http://csarven.ca/#i"/>
+      <prov:used rdf:resource="http://eurostat.org/data/EUROSTAT.tps00001.dsd.xml"/>
+      <prov:used rdf:resource="https://raw.github.com/csarven/linked-sdmx/master/scripts/generic.xsl"/>
+      <prov:generated>
+         <rdf:Description rdf:about="http://eurostat.270a.info/concept/1.0/CONCEPTS">
+            <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+            <prov:wasAttributedTo rdf:resource="http://csarven.ca/#i"/>
+            <prov:generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-11-23T18:13:53Z</prov:generatedAtTime>
+            <prov:wasDerivedFrom rdf:resource="http://eurostat.org/data/EUROSTAT.tps00001.dsd.xml"/>
+            <prov:wasGeneratedBy rdf:resource="http://eurostat.270a.info/provenance/activity/20131123181353"/>
+            <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+            <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-11-23T18:13:53Z</dcterms:issued>
+            <dcterms:creator rdf:resource="http://csarven.ca/#i"/>
+         </rdf:Description>
+      </prov:generated>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://eurostat.270a.info/concept/1.0/CONCEPTS">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+      <skos:notation>CONCEPTS</skos:notation>
+      <skos:prefLabel xml:lang="en">Concepts</skos:prefLabel>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/concept/1.0/CONCEPTS/FREQ">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/concept/1.0/CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/concept/1.0/CONCEPTS"/>
+            <skos:notation>FREQ</skos:notation>
+            <skos:prefLabel xml:lang="en">Frequency</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/concept/1.0/CONCEPTS/indic_de">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/concept/1.0/CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/concept/1.0/CONCEPTS"/>
+            <skos:notation>indic_de</skos:notation>
+            <skos:prefLabel xml:lang="en">Demographic indicator</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Demographische Indikator</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Indicateur démographique</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/concept/1.0/CONCEPTS/geo">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/concept/1.0/CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/concept/1.0/CONCEPTS"/>
+            <skos:notation>geo</skos:notation>
+            <skos:prefLabel xml:lang="en">Geopolitical entity (declaring)</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Geopolitische Meldeeinheit</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Entité géopolitique (déclarante)</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/concept/1.0/CONCEPTS/TIME_PERIOD">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/concept/1.0/CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/concept/1.0/CONCEPTS"/>
+            <skos:notation>TIME_PERIOD</skos:notation>
+            <skos:prefLabel xml:lang="en">Time period or range</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/concept/1.0/CONCEPTS/OBS_VALUE">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/concept/1.0/CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/concept/1.0/CONCEPTS"/>
+            <skos:notation>OBS_VALUE</skos:notation>
+            <skos:prefLabel xml:lang="en">Observation Value</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/concept/1.0/CONCEPTS/OBS_STATUS">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/concept/1.0/CONCEPTS"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/concept/1.0/CONCEPTS"/>
+            <skos:notation>OBS_STATUS</skos:notation>
+            <skos:prefLabel xml:lang="en">Observation Status</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://eurostat.270a.info/provenance/activity/20131123181353">
+      <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+      <rdfs:label xml:lang="en">Transformed CL_INDIC_DE data</rdfs:label>
+      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-11-23T18:13:53Z</prov:startedAtTime>
+      <prov:wasAssociatedWith rdf:resource="http://csarven.ca/#i"/>
+      <prov:used rdf:resource="http://eurostat.org/data/EUROSTAT.tps00001.dsd.xml"/>
+      <prov:used rdf:resource="https://raw.github.com/csarven/linked-sdmx/master/scripts/generic.xsl"/>
+      <prov:generated>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_INDIC_DE">
+            <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+            <prov:wasAttributedTo rdf:resource="http://csarven.ca/#i"/>
+            <prov:generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-11-23T18:13:53Z</prov:generatedAtTime>
+            <prov:wasDerivedFrom rdf:resource="http://eurostat.org/data/EUROSTAT.tps00001.dsd.xml"/>
+            <prov:wasGeneratedBy rdf:resource="http://eurostat.270a.info/provenance/activity/20131123181353"/>
+            <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+            <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-11-23T18:13:53Z</dcterms:issued>
+            <dcterms:creator rdf:resource="http://csarven.ca/#i"/>
+         </rdf:Description>
+      </prov:generated>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_INDIC_DE">
+      <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+      <rdfs:seeAlso>
+         <rdf:Description rdf:about="http://eurostat.270a.info/class/1.0/CL_INDIC_DE">
+            <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+            <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdfs:seeAlso rdf:resource="http://eurostat.270a.info/code/1.0/CL_INDIC_DE"/>
+            <skos:prefLabel xml:lang="en">Demographic indicator</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Demographische Indikator</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Indicateur démographique</skos:prefLabel>
+         </rdf:Description>
+      </rdfs:seeAlso>
+      <skos:notation>CL_INDIC_DE</skos:notation>
+      <skos:prefLabel xml:lang="en">Demographic indicator</skos:prefLabel>
+      <skos:prefLabel xml:lang="de">Demographische Indikator</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Indicateur démographique</skos:prefLabel>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_INDIC_DE/JAN">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_INDIC_DE"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_INDIC_DE"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_INDIC_DE"/>
+            <skos:notation>JAN</skos:notation>
+            <skos:prefLabel xml:lang="en">Population on 1 January - total</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Bevölkerung am 1. Januar - insgesamt</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Population au 1er janvier - totale</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://eurostat.270a.info/provenance/activity/20131123181353">
+      <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+      <rdfs:label xml:lang="en">Transformed CL_GEO data</rdfs:label>
+      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-11-23T18:13:53Z</prov:startedAtTime>
+      <prov:wasAssociatedWith rdf:resource="http://csarven.ca/#i"/>
+      <prov:used rdf:resource="http://eurostat.org/data/EUROSTAT.tps00001.dsd.xml"/>
+      <prov:used rdf:resource="https://raw.github.com/csarven/linked-sdmx/master/scripts/generic.xsl"/>
+      <prov:generated>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO">
+            <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+            <prov:wasAttributedTo rdf:resource="http://csarven.ca/#i"/>
+            <prov:generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-11-23T18:13:53Z</prov:generatedAtTime>
+            <prov:wasDerivedFrom rdf:resource="http://eurostat.org/data/EUROSTAT.tps00001.dsd.xml"/>
+            <prov:wasGeneratedBy rdf:resource="http://eurostat.270a.info/provenance/activity/20131123181353"/>
+            <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+            <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-11-23T18:13:53Z</dcterms:issued>
+            <dcterms:creator rdf:resource="http://csarven.ca/#i"/>
+         </rdf:Description>
+      </prov:generated>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO">
+      <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+      <rdfs:seeAlso>
+         <rdf:Description rdf:about="http://eurostat.270a.info/class/1.0/CL_GEO">
+            <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+            <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdfs:seeAlso rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:prefLabel xml:lang="en">Geopolitical entity (declaring)</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Geopolitische Meldeeinheit</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Entité géopolitique (déclarante)</skos:prefLabel>
+         </rdf:Description>
+      </rdfs:seeAlso>
+      <skos:notation>CL_GEO</skos:notation>
+      <skos:prefLabel xml:lang="en">Geopolitical entity (declaring)</skos:prefLabel>
+      <skos:prefLabel xml:lang="de">Geopolitische Meldeeinheit</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Entité géopolitique (déclarante)</skos:prefLabel>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/EU27">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>EU27</skos:notation>
+            <skos:prefLabel xml:lang="en">European Union (27 countries)</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Europäische Union (27 Länder)</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Union européenne (27 pays)</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/EA17">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>EA17</skos:notation>
+            <skos:prefLabel xml:lang="en">Euro area (17 countries)</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Euroraum (17 Länder)</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Zone euro (17 pays)</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/EA16">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>EA16</skos:notation>
+            <skos:prefLabel xml:lang="en">Euro area (16 countries)</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Euroraum (16 Länder)</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Zone euro (16 pays)</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/BE">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>BE</skos:notation>
+            <skos:prefLabel xml:lang="en">Belgium</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Belgien</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Belgique</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/BG">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>BG</skos:notation>
+            <skos:prefLabel xml:lang="en">Bulgaria</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Bulgarien</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Bulgarie</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/CZ">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>CZ</skos:notation>
+            <skos:prefLabel xml:lang="en">Czech Republic</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Tschechische Republik</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">République tchèque</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/DK">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>DK</skos:notation>
+            <skos:prefLabel xml:lang="en">Denmark</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Dänemark</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Danemark</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/DE">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>DE</skos:notation>
+            <skos:prefLabel xml:lang="en">Germany (including former GDR from 1991)</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Deutschland (einschließlich der ehemaligen DDR seit 1991)</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Allemagne (incluant l'ancienne RDA à partir de 1991)</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/EE">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>EE</skos:notation>
+            <skos:prefLabel xml:lang="en">Estonia</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Estland</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Estonie</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/IE">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>IE</skos:notation>
+            <skos:prefLabel xml:lang="en">Ireland</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Irland</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Irlande</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/EL">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>EL</skos:notation>
+            <skos:prefLabel xml:lang="en">Greece</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Griechenland</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Grèce</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/ES">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>ES</skos:notation>
+            <skos:prefLabel xml:lang="en">Spain</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Spanien</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Espagne</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/FR">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>FR</skos:notation>
+            <skos:prefLabel xml:lang="en">France</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Frankreich</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">France</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/IT">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>IT</skos:notation>
+            <skos:prefLabel xml:lang="en">Italy</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Italien</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Italie</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/CY">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>CY</skos:notation>
+            <skos:prefLabel xml:lang="en">Cyprus</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Zypern</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Chypre</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/LV">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>LV</skos:notation>
+            <skos:prefLabel xml:lang="en">Latvia</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Lettland</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Lettonie</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/LT">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>LT</skos:notation>
+            <skos:prefLabel xml:lang="en">Lithuania</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Litauen</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Lituanie</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/LU">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>LU</skos:notation>
+            <skos:prefLabel xml:lang="en">Luxembourg</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Luxemburg</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Luxembourg</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/HU">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>HU</skos:notation>
+            <skos:prefLabel xml:lang="en">Hungary</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Ungarn</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Hongrie</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/MT">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>MT</skos:notation>
+            <skos:prefLabel xml:lang="en">Malta</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Malta</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Malte</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/NL">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>NL</skos:notation>
+            <skos:prefLabel xml:lang="en">Netherlands</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Niederlande</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Pays-Bas</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/AT">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>AT</skos:notation>
+            <skos:prefLabel xml:lang="en">Austria</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Österreich</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Autriche</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/PL">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>PL</skos:notation>
+            <skos:prefLabel xml:lang="en">Poland</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Polen</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Pologne</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/PT">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>PT</skos:notation>
+            <skos:prefLabel xml:lang="en">Portugal</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Portugal</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Portugal</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/RO">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>RO</skos:notation>
+            <skos:prefLabel xml:lang="en">Romania</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Rumänien</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Roumanie</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/SI">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>SI</skos:notation>
+            <skos:prefLabel xml:lang="en">Slovenia</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Slowenien</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Slovénie</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/SK">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>SK</skos:notation>
+            <skos:prefLabel xml:lang="en">Slovakia</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Slowakei</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Slovaquie</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/FI">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>FI</skos:notation>
+            <skos:prefLabel xml:lang="en">Finland</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Finnland</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Finlande</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/SE">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>SE</skos:notation>
+            <skos:prefLabel xml:lang="en">Sweden</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Schweden</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Suède</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/UK">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>UK</skos:notation>
+            <skos:prefLabel xml:lang="en">United Kingdom</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Vereinigtes Königreich</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Royaume-Uni</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/IS">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>IS</skos:notation>
+            <skos:prefLabel xml:lang="en">Iceland</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Island</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Islande</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/LI">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>LI</skos:notation>
+            <skos:prefLabel xml:lang="en">Liechtenstein</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Liechtenstein</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Liechtenstein</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/NO">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>NO</skos:notation>
+            <skos:prefLabel xml:lang="en">Norway</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Norwegen</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Norvège</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/CH">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>CH</skos:notation>
+            <skos:prefLabel xml:lang="en">Switzerland</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Schweiz</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Suisse</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/ME">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>ME</skos:notation>
+            <skos:prefLabel xml:lang="en">Montenegro</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Montenegro</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Monténégro</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/HR">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>HR</skos:notation>
+            <skos:prefLabel xml:lang="en">Croatia</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Kroatien</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Croatie</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/MK">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>MK</skos:notation>
+            <skos:prefLabel xml:lang="en">Former Yugoslav Republic of Macedonia, the</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Die ehemalige jugoslawische Republik Mazedonien</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Ancienne République yougoslave de Macédoine</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_GEO/TR">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_GEO"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_GEO"/>
+            <skos:notation>TR</skos:notation>
+            <skos:prefLabel xml:lang="en">Turkey</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Türkei</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">Turquie</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://eurostat.270a.info/provenance/activity/20131123181353">
+      <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+      <rdfs:label xml:lang="en">Transformed CL_OBS_STATUS data</rdfs:label>
+      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-11-23T18:13:53Z</prov:startedAtTime>
+      <prov:wasAssociatedWith rdf:resource="http://csarven.ca/#i"/>
+      <prov:used rdf:resource="http://eurostat.org/data/EUROSTAT.tps00001.dsd.xml"/>
+      <prov:used rdf:resource="https://raw.github.com/csarven/linked-sdmx/master/scripts/generic.xsl"/>
+      <prov:generated>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS">
+            <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+            <prov:wasAttributedTo rdf:resource="http://csarven.ca/#i"/>
+            <prov:generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-11-23T18:13:53Z</prov:generatedAtTime>
+            <prov:wasDerivedFrom rdf:resource="http://eurostat.org/data/EUROSTAT.tps00001.dsd.xml"/>
+            <prov:wasGeneratedBy rdf:resource="http://eurostat.270a.info/provenance/activity/20131123181353"/>
+            <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+            <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-11-23T18:13:53Z</dcterms:issued>
+            <dcterms:creator rdf:resource="http://csarven.ca/#i"/>
+         </rdf:Description>
+      </prov:generated>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS">
+      <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#CodeList"/>
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+      <rdfs:seeAlso>
+         <rdf:Description rdf:about="http://eurostat.270a.info/class/1.0/CL_OBS_STATUS">
+            <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+            <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdfs:seeAlso rdf:resource="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS"/>
+            <skos:prefLabel xml:lang="en">Observation status code list</skos:prefLabel>
+         </rdf:Description>
+      </rdfs:seeAlso>
+      <skos:notation>CL_OBS_STATUS</skos:notation>
+      <skos:prefLabel xml:lang="en">Observation status code list</skos:prefLabel>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS/b">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_OBS_STATUS"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS"/>
+            <skos:notation>b</skos:notation>
+            <skos:prefLabel xml:lang="en">break in series</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Zeitreihenbruch</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">rupture de série</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS/c">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_OBS_STATUS"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS"/>
+            <skos:notation>c</skos:notation>
+            <skos:prefLabel xml:lang="en">confidential</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">vertraulich</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">confidentiel</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS/e">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_OBS_STATUS"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS"/>
+            <skos:notation>e</skos:notation>
+            <skos:prefLabel xml:lang="en">estimated</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">geschätzt</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">estimé</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS/f">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_OBS_STATUS"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS"/>
+            <skos:notation>f</skos:notation>
+            <skos:prefLabel xml:lang="en">forecast</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Prognose</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">prévision</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS/i">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_OBS_STATUS"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS"/>
+            <skos:notation>i</skos:notation>
+            <skos:prefLabel xml:lang="en">see metadata</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">siehe Metadaten</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">voir métadonnées</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS/n">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_OBS_STATUS"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS"/>
+            <skos:notation>n</skos:notation>
+            <skos:prefLabel xml:lang="en">not significant</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">unbedeutend</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">non significatif</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS/p">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_OBS_STATUS"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS"/>
+            <skos:notation>p</skos:notation>
+            <skos:prefLabel xml:lang="en">provisional</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">vorläufig</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">provisoire</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS/r">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_OBS_STATUS"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS"/>
+            <skos:notation>r</skos:notation>
+            <skos:prefLabel xml:lang="en">revised</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">revidiert</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">révisé</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS/s">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_OBS_STATUS"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS"/>
+            <skos:notation>s</skos:notation>
+            <skos:prefLabel xml:lang="en">Eurostat estimate</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">Eurostat Schätzung</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">estimation Eurostat</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS/u">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_OBS_STATUS"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS"/>
+            <skos:notation>u</skos:notation>
+            <skos:prefLabel xml:lang="en">unreliable</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">unzuverlässig</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">non fiable</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <rdf:Description rdf:about="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS/z">
+            <rdf:type rdf:resource="http://purl.org/linked-data/sdmx#Concept"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <rdf:type rdf:resource="http://eurostat.270a.info/class/1.0/CL_OBS_STATUS"/>
+            <skos:topConceptOf rdf:resource="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS"/>
+            <skos:inScheme rdf:resource="http://eurostat.270a.info/code/1.0/CL_OBS_STATUS"/>
+            <skos:notation>z</skos:notation>
+            <skos:prefLabel xml:lang="en">not applicable (incl. real zero)</skos:prefLabel>
+            <skos:prefLabel xml:lang="de">nicht zutreffend (einschl. reale Null)</skos:prefLabel>
+            <skos:prefLabel xml:lang="fr">non applicable (zéro réel inclus)</skos:prefLabel>
+         </rdf:Description>
+      </skos:hasTopConcept>
+   </rdf:Description>
+</rdf:RDF>
