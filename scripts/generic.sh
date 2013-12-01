@@ -6,8 +6,13 @@ rapper -g agencies.ttl -o rdfxml-abbrev > agencies.rdf
 #saxonb-xslt -t -tree:linked -s ../data/WB.KeyFamily.xml -xsl generic.xsl xmlDocument=../data/WB.KeyFamily.xml pathToGenericStructure=../data/WB.KeyFamily.xml > ../data/WB.KeyFamily.rdf
 #saxonb-xslt -t -tree:linked -s ../data/WB.sp.pop.totl.xml -xsl generic.xsl xmlDocument=../data/WB.sp.pop.totl.xml pathToGenericStructure=../data/WB.KeyFamily.xml > ../data/WB.sp.pop.totl.rdf
 
+#XXX: Generic
 #saxonb-xslt -t -tree:linked -s ../data/Eurostat.tps00001.dsd.xml -xsl generic.xsl xmlDocument=../data/Eurostat.tps00001.dsd.xml pathToGenericStructure=../data/Eurostat.tps00001.dsd.xml > ../data/Eurostat.tps00001.dsd.rdf
 #saxonb-xslt -t -tree:linked -s ../data/Eurostat.tps00001.sdmx.xml -xsl generic.xsl xmlDocument=../data/Eurostat.tps00001.sdmx.xml pathToGenericStructure=../data/Eurostat.tps00001.dsd.xml > ../data/Eurostat.tps00001.sdmx.rdf
+
+#XXX: Compact
+#saxonb-xslt -t -tree:linked -s ../data/EUROSTAT.tps00001.dsd.xml -xsl generic.xsl xmlDocument=../data/EUROSTAT.tps00001.dsd.xml pathToGenericStructure=../data/EUROSTAT.tps00001.dsd.xml > ../data/EUROSTAT.tps00001.dsd.rdf
+#saxonb-xslt -t -tree:linked -s ../data/EUROSTAT.tps00001.sdmx.xml -xsl generic.xsl xmlDocument=../data/EUROSTAT.tps00001.sdmx.xml pathToGenericStructure=../data/EUROSTAT.tps00001.dsd.xml > ../data/EUROSTAT.tps00001.sdmx.rdf
 
 #saxonb-xslt -t -tree:linked -s ../data/HDI.DSD.HDR.xml -xsl generic.xsl xmlDocument=../data/HDI.DSD.HDR.xml pathToGenericStructure=../data/HDI.DSD.HDR.xml > ../data/HDI.DSD.HDR.rdf
 

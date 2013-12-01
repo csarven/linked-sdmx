@@ -21,23 +21,23 @@
    <rdf:Description rdf:about="http://csarven.ca/#i">
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Agent"/>
    </rdf:Description>
-   <rdf:Description rdf:about="http://eurostat.270a.info/provenance/activity/20131201142419">
+   <rdf:Description rdf:about="http://eurostat.270a.info/provenance/activity/20131201142415">
       <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
       <rdfs:label xml:lang="en">Transformed tps00001 data</rdfs:label>
-      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-12-01T14:24:19Z</prov:startedAtTime>
+      <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-12-01T14:24:15Z</prov:startedAtTime>
       <prov:wasAssociatedWith rdf:resource="http://csarven.ca/#i"/>
-      <prov:used rdf:resource="http://eurostat.270a.info/data/EUROSTAT.tps00001.sdmx.xml"/>
+      <prov:used rdf:resource="http://eurostat.270a.info/data/EUROSTAT.tps00001.sdmx.generic.xml"/>
       <prov:used rdf:resource="http://eurostat.270a.info/data/EUROSTAT.tps00001.dsd.xml"/>
       <prov:used rdf:resource="https://raw.github.com/csarven/linked-sdmx/master/scripts/generic.xsl"/>
       <prov:generated>
          <rdf:Description rdf:about="http://eurostat.270a.info/dataset/tps00001">
             <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
             <prov:wasAttributedTo rdf:resource="http://csarven.ca/#i"/>
-            <prov:generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-12-01T14:24:19Z</prov:generatedAtTime>
-            <prov:wasDerivedFrom rdf:resource="http://eurostat.270a.info/data/EUROSTAT.tps00001.sdmx.xml"/>
-            <prov:wasGeneratedBy rdf:resource="http://eurostat.270a.info/provenance/activity/20131201142419"/>
+            <prov:generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-12-01T14:24:15Z</prov:generatedAtTime>
+            <prov:wasDerivedFrom rdf:resource="http://eurostat.270a.info/data/EUROSTAT.tps00001.sdmx.generic.xml"/>
+            <prov:wasGeneratedBy rdf:resource="http://eurostat.270a.info/provenance/activity/20131201142415"/>
             <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-            <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-12-01T14:24:19Z</dcterms:issued>
+            <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-12-01T14:24:15Z</dcterms:issued>
             <dcterms:creator rdf:resource="http://csarven.ca/#i"/>
          </rdf:Description>
       </prov:generated>
