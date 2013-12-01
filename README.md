@@ -1,11 +1,11 @@
 # SDMX-ML to RDF/XML
-
 See [Linked SDMX Data](http://csarven.ca/linked-sdmx-data) about this project.
+
+This transformation is used to published some of the [270a Linked Dataspaces](http://270a.info/).
 
 Brief overview of the project is here. If you want to use it or look under the hood for additional information, give the [wiki](https://github.com/csarven/linked-sdmx/wiki) page a go.
 
 ## What is this?
-
 XSLT 2.0 templates and scripts to transform Generic and Compact [SDMX 2.0](http://sdmx.org/?page_id=16#package) data and metadata to RDF/XML using the [RDF Data Cube](http://www.w3.org/TR/vocab-data-cube/) and related vocabularies for statistical Linked Data. Its purpose is:
 
 * To automagically transform SDMX-ML data and metadata into RDF/XML as semantically and complete as possible.
