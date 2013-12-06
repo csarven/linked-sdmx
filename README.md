@@ -24,7 +24,7 @@ XSLT 2.0 templates and scripts to transform Generic and Compact [SDMX 2.0](http:
 It comes with scripts and sample data.
 
 ### Scripts
-* XSLT 2.0 templates to transform Generic SDMX-ML data and metadata. It includes the main XSL template for generic SDMX-ML, an XSL for common templates and functions, and an RDF/XML configuration file to set preferences like base URIs, delimiters in URIs, how to mapping annotation types.
+* XSLT 2.0 templates to transform Generic and Compact SDMX-ML data and metadata. It includes the main XSL template for generic SDMX-ML, an XSL for common templates and functions, and an RDF/XML configuration file to set preferences like base URIs, delimiters in URIs, how to mapping annotation types.
 * Bash script that transforms sample data using saxonb-xslt.
 
 ### Samples
