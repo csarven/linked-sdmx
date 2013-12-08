@@ -201,9 +201,6 @@ Consider what to do with optional <TextFormat textType="Double"/> or whatever. P
                                             <rdf:type rdf:resource="{$sdmx}{fn:getConceptRole(.)}"></rdf:type>
                                         </rdf:Description>
                                     </qb:concept>
-                                    <xsl:call-template name="qbCodeListrdfsRange">
-                                        <xsl:with-param name="SeriesKeyConceptsData" select="$SeriesKeyConceptsData/*[name() = $conceptRef]" tunnel="yes"/>
-                                    </xsl:call-template>
                                     <xsl:call-template name="ConceptLabels">
                                         <xsl:with-param name="Concept" select="$Concept"/>
                                     </xsl:call-template>
