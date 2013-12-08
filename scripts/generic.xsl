@@ -195,7 +195,6 @@ Consider what to do with optional <TextFormat textType="Double"/> or whatever. P
                                 <rdf:Description rdf:about="{$property}{$conceptRef}">
                                     <rdf:type rdf:resource="{$qb}ComponentProperty"/>
                                     <rdf:type rdf:resource="{$qb}MeasureProperty"/>
-                                    <rdf:type rdf:resource="{$qb}CodedProperty"/>
                                     <rdf:type rdf:resource="{$rdf}Property"/>
                                     <qb:concept>
                                         <rdf:Description rdf:about="{$conceptURI}">
