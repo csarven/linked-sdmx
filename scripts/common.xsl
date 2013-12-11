@@ -66,15 +66,15 @@
     <xsl:variable name="lang" select="fn:getConfig('lang')"/>
     <xsl:variable name="uriThingSeparator" select="fn:getConfig('uriThingSeparator')"/>
     <xsl:variable name="uriDimensionSeparator" select="fn:getConfig('uriDimensionSeparator')"/>
-    <xsl:variable name="provenance" select="concat($agencyURI, 'provenance', $uriThingSeparator)"/>
-    <xsl:variable name="concept" select="concat($agencyURI, 'concept/')"/>
-    <xsl:variable name="code" select="concat($agencyURI, 'code/')"/>
-    <xsl:variable name="class" select="concat($agencyURI, 'class/')"/>
+    <xsl:variable name="provenance" select="concat('provenance', $uriThingSeparator)"/>
+    <xsl:variable name="concept" select="'concept/'"/>
+    <xsl:variable name="code" select="'code/'"/>
+    <xsl:variable name="class" select="'class/'"/>
     <xsl:variable name="property" select="concat($agencyURI, 'property', $uriThingSeparator)"/>
-    <xsl:variable name="dataset" select="concat($agencyURI, 'dataset/')"/>
-    <xsl:variable name="structure" select="concat($agencyURI, 'structure/')"/>
-    <xsl:variable name="slice" select="concat($agencyURI, 'slice', $uriThingSeparator)"/>
-    <xsl:variable name="component" select="concat($agencyURI, 'component', $uriThingSeparator)"/>
+    <xsl:variable name="dataset" select="'dataset/'"/>
+    <xsl:variable name="structure" select="'structure/'"/>
+    <xsl:variable name="slice" select="concat('slice', $uriThingSeparator)"/>
+    <xsl:variable name="component" select="concat('component', $uriThingSeparator)"/>
 
     <xsl:template name="langTextNode">
         <xsl:choose>
@@ -197,11 +197,11 @@
 
         <xsl:variable name="uri" select="fn:getAgencyURI($agency)"/>
         <xsl:choose>
-            <xsl:when test="$uri != ''">
-                <xsl:value-of select="concat($uri, $component)"/>
+            <xsl:when test="$uri = '' or $uri = $agencyURI">
+                <xsl:value-of select="$component"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:value-of select="concat($agencyURI, $component)"/>
+                <xsl:value-of select="concat($uri, $component)"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>

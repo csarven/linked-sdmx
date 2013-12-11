@@ -48,7 +48,7 @@
 
 
     <xsl:template match="/">
-        <rdf:RDF>
+        <rdf:RDF xml:base="{$agencyURI}">
             <xsl:namespace name="property" select="$property"/>
 
             <rdf:Description rdf:about="{$creator}">
