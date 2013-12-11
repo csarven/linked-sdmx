@@ -134,19 +134,22 @@ FIXME: This could reuse the agencyID that's determined from SeriesKeyConceptsDat
 -->
             <xsl:variable name="agencyID" select="fn:getConceptAgencyID(/Structure,.)"/>
             <qb:component>
-                <qb:ComponentSpecification>
-                    <xsl:variable name="conceptRef" select="@conceptRef"/>
-                    <xsl:variable name="conceptScheme">
-                        <xsl:variable name="cS" select="$SeriesKeyConceptsData/*[name() = $conceptRef]/@conceptScheme"/>
-                        <xsl:if test="$cS != ''">
-                            <xsl:value-of select="concat('/', $cS)"/>
-                        </xsl:if>
-                    </xsl:variable>
+                <xsl:variable name="conceptRef" select="@conceptRef"/>
+                <xsl:variable name="conceptScheme">
+                    <xsl:variable name="cS" select="$SeriesKeyConceptsData/*[name() = $conceptRef]/@conceptScheme"/>
+                    <xsl:if test="$cS != ''">
+                        <xsl:value-of select="concat('/', $cS)"/>
+                    </xsl:if>
+                </xsl:variable>
 
-                    <xsl:variable name="conceptURI" select="concat($concept, $SeriesKeyConceptsData/*[name() = $conceptRef]/@conceptVersion, $conceptScheme, $uriThingSeparator, @conceptRef)"/>
+                <xsl:variable name="conceptPath" select="concat($SeriesKeyConceptsData/*[name() = $conceptRef]/@conceptVersion, $conceptScheme, $uriThingSeparator, @conceptRef)"/>
 
-                    <xsl:variable name="Concept" select="//Concepts//structure:Concept[@id = $conceptRef]"/>
+                <xsl:variable name="conceptURI" select="concat($concept, $conceptPath)"/>
 
+                <xsl:variable name="Concept" select="//Concepts//structure:Concept[@id = $conceptRef]"/>
+
+                <rdf:Description rdf:about="{$component}{$KeyFamilyID}/{$conceptPath}">
+                    <rdf:type rdf:resource="{$qb}ComponentSpecification"/>
                     <qb:componentProperty rdf:resource="{$property}{$conceptRef}"/>
 
                     <xsl:choose>
@@ -265,7 +268,7 @@ FIXME: Is this somehow for qb:Dimension?
                         <xsl:otherwise>
                         </xsl:otherwise>
                     </xsl:choose>
-                </qb:ComponentSpecification>
+                </rdf:Description>
             </qb:component>
         </xsl:for-each>
 
