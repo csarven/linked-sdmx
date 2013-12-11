@@ -727,7 +727,7 @@ XXX: Fallback: KeyFamilyRef may not exist. But this is inaccurate if there are m
                 </rdf:Description>
 
                 <xsl:variable name="SDMXSchema">
-                    <xsl:if test="/*/name() = 'GenericData'">
+                    <xsl:if test="/*/local-name() = 'GenericData'">
                         <xsl:text>Generic</xsl:text>
                     </xsl:if>
                 </xsl:variable>
