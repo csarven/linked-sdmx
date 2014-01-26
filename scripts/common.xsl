@@ -360,15 +360,6 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
     </xsl:function>
 
 
-    <xsl:template name="DataSetName">
-        <xsl:param name="datasetID"/>
-
-        <xsl:if test="$datasetID != '' and $dataflowStructure != ''">
-            <dcterms:title><xsl:value-of select="$dataflowStructure/Dataflows/structure:Dataflow[@id = $datasetID]/structure:Name/text()"/></dcterms:title>
-        </xsl:if>
-    </xsl:template>
-
-
     <xsl:function name="fn:getVersion">
         <xsl:param name="version"/>
 

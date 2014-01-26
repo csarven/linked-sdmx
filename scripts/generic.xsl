@@ -647,6 +647,12 @@ XXX:
             </xsl:if>
         </xsl:variable>
 
+        <xsl:variable name="datasetName">
+            <xsl:if test="*/*[local-name() = 'Header']/*[local-name() = 'Name']">
+                <xsl:value-of select="*/*[local-name() = 'Header']/*[local-name() = 'Name']"/>
+            </xsl:if>
+        </xsl:variable>
+
         <xsl:for-each select="*/*[local-name() = 'DataSet']">
             <xsl:if test="*[local-name() = 'Series'] or */*[local-name() = 'Series'] or */*[local-name() = Group]/*[local-name() = 'Series']">
                 <xsl:variable name="KeyFamilyRef">
@@ -716,9 +722,18 @@ XXX: Fallback: KeyFamilyRef may not exist. But this is inaccurate if there are m
 
                     <dcterms:identifier><xsl:value-of select="$datasetID"/></dcterms:identifier>
 
-                    <xsl:call-template name="DataSetName">
-                        <xsl:with-param name="datasetID" select="$datasetID"/>
-                    </xsl:call-template>
+                    <xsl:choose>
+                        <xsl:when test="$datasetName != ''">
+                            <xsl:for-each select="$datasetName">
+                                <dcterms:title><xsl:call-template name="langTextNode"/></dcterms:title>
+                            </xsl:for-each>
+                        </xsl:when>
+                        <xsl:when test="$datasetID != '' and $dataflowStructure != ''">
+                            <dcterms:title><xsl:value-of select="$dataflowStructure/Dataflows/structure:Dataflow[@id = $datasetID]/structure:Name/text()"/></dcterms:title>
+                        </xsl:when>
+                        <xsl:otherwise>
+                        </xsl:otherwise>
+                    </xsl:choose>
 
 
     <!--
