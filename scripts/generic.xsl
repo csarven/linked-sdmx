@@ -43,7 +43,7 @@
     <xsl:param name="pathToProvDocument"/>
     <xsl:param name="dataSetID"/>
     <xsl:param name="pathToDataflow"/>
-    <xsl:variable name="genericStructure" select="document($pathToGenericStructure)/Structure"/>
+    <xsl:variable name="genericStructure" select="document($pathToGenericStructure)/Structure | document($pathToGenericStructure)/RegistryInterface/QueryStructureResponse"/>
     <xsl:variable name="dataflowStructure" select="document($pathToDataflow)/Structure"/>
 
 
@@ -55,20 +55,22 @@
                 <rdf:type rdf:resource="{$prov}Agent"/>
             </rdf:Description>
 
-            <xsl:call-template name="KeyFamily"/>
+            <xsl:for-each select="Structure | RegistryInterface/QueryStructureResponse">
+                <xsl:call-template name="KeyFamily"/>
 
-            <xsl:call-template name="Concepts"/>
+                <xsl:call-template name="Concepts"/>
 
-            <xsl:call-template name="CodeLists"/>
+                <xsl:call-template name="CodeLists"/>
 
-            <xsl:call-template name="HierarchicalCodelists"/>
+                <xsl:call-template name="HierarchicalCodelists"/>
+            </xsl:for-each>
 
             <xsl:call-template name="DataSets"/>
         </rdf:RDF>
     </xsl:template>
 
     <xsl:template name="KeyFamily">
-        <xsl:for-each select="Structure/KeyFamilies/structure:KeyFamily">
+        <xsl:for-each select="*[local-name() = 'KeyFamilies']/structure:KeyFamily">
             <xsl:variable name="id" select="@id"/>
 
             <xsl:variable name="structureURI">
@@ -146,7 +148,7 @@ FIXME: This could reuse the agencyID that's determined from SeriesKeyConceptsDat
 
                 <xsl:variable name="conceptURI" select="concat($concept, $conceptPath)"/>
 
-                <xsl:variable name="Concept" select="//Concepts//structure:Concept[@id = $conceptRef]"/>
+                <xsl:variable name="Concept" select="//*[local-name() = 'Concepts']//structure:Concept[@id = $conceptRef]"/>
 
                 <rdf:Description rdf:about="{$component}{$KeyFamilyID}/{$conceptPath}">
                     <rdf:type rdf:resource="{$qb}ComponentSpecification"/>
@@ -295,11 +297,11 @@ TODO:
 Check where to get ConceptScheme
 -->
     <xsl:template name="Concepts">
-        <xsl:for-each select="Structure/Concepts/structure:ConceptScheme">
+        <xsl:for-each select="*[local-name() = 'Concepts']/structure:ConceptScheme">
             <xsl:call-template name="structureConceptScheme"/>
         </xsl:for-each>
 
-        <xsl:for-each select="Structure/Concepts/structure:Concept">
+        <xsl:for-each select="*[local-name() = 'Concepts']/structure:Concept">
             <xsl:call-template name="structureConcept"/>
         </xsl:for-each>
     </xsl:template>
@@ -392,7 +394,7 @@ structure:textFormat
 
 
     <xsl:template name="CodeLists">
-        <xsl:for-each select="Structure/CodeLists/structure:CodeList">
+        <xsl:for-each select="*[local-name() = 'CodeLists']/structure:CodeList">
             <xsl:if test="starts-with(@agencyID, $agency) or
                           fn:getAgencyURI(@agencyID) = fn:getAgencyURI($agency)">
 
@@ -480,7 +482,7 @@ XXX: Difference between SDMX 2.0 and SDMX 2.1
 
 
     <xsl:template name="HierarchicalCodelists">
-        <xsl:for-each select="Structure/HierarchicalCodelists/structure:HierarchicalCodelist">
+        <xsl:for-each select="*[local-name() = 'HierarchicalCodelists']/structure:HierarchicalCodelist">
             <xsl:variable name="HierarchicalCodelistID" select="@id"/>
             <xsl:variable name="version" select="fn:getVersion(@version)"/>
             <xsl:variable name="hierarchicalCodeListURI" select="concat($code, $version, '/', @id)"/>
@@ -570,7 +572,7 @@ This is a kind of a hack, works based on tested sample structures. Not guarantee
                 <xsl:when test="structure:URN">
                     <xsl:variable name="structureURN" select="structure:URN"/>
 
-                    <xsl:for-each select="distinct-values(/Structure/HierarchicalCodelists/structure:HierarchicalCodelist[@id = $HierarchicalCodelistID]/structure:CodelistRef/structure:CodelistID/text())">
+                    <xsl:for-each select="distinct-values(*[local-name() = 'HierarchicalCodelists']/structure:HierarchicalCodelist[@id = $HierarchicalCodelistID]/structure:CodelistRef/structure:CodelistID/text())">
                         <xsl:if test="contains($structureURN, .)">
                             <xsl:value-of select="."/>
                         </xsl:if>
@@ -579,7 +581,7 @@ This is a kind of a hack, works based on tested sample structures. Not guarantee
                 <xsl:otherwise>
                     <xsl:variable name="CodelistAliasRef" select="structure:CodelistAliasRef"/>
 
-                    <xsl:variable name="CodelistID" select="/Structure/HierarchicalCodelists/structure:HierarchicalCodelist[@id = $HierarchicalCodelistID]/structure:CodelistRef[structure:Alias = $CodelistAliasRef]/structure:CodelistID"/>
+                    <xsl:variable name="CodelistID" select="*[local-name() = 'HierarchicalCodelists']/structure:HierarchicalCodelist[@id = $HierarchicalCodelistID]/structure:CodelistRef[structure:Alias = $CodelistAliasRef]/structure:CodelistID"/>
 
                     <xsl:choose>
                         <xsl:when test="$CodelistID != ''">
@@ -605,9 +607,9 @@ XXX:
 * Should the parent CodelistAliasRef/CodeID be prefixed to current CodelistAliasRef/CodeID?
 -->
 
-            <xsl:variable name="codelistVersion" select="/Structure/HierarchicalCodelists/structure:HierarchicalCodelist[@id = $HierarchicalCodelistID]/structure:CodelistRef[structure:Alias = $CodelistAliasRef]/structure:Version"/>
+            <xsl:variable name="codelistVersion" select="//*[local-name() = 'HierarchicalCodelists']/structure:HierarchicalCodelist[@id = $HierarchicalCodelistID]/structure:CodelistRef[structure:Alias = $CodelistAliasRef]/structure:Version"/>
 
-            <xsl:variable name="version" select="fn:getVersion(/Structure/CodeLists/structure:CodeList[@id = $CodelistAliasRef and @version = $codelistVersion])"/>
+            <xsl:variable name="version" select="fn:getVersion(//*[local-name() = 'CodeLists']/structure:CodeList[@id = $CodelistAliasRef and @version = $codelistVersion])"/>
 
             <xsl:variable name="codeURI" select="concat($code, $version, '/', $CodelistAliasRef, $uriThingSeparator, $CodeID)"/>
 
@@ -664,14 +666,14 @@ XXX:
 XXX: Fallback: KeyFamilyRef may not exist. But this is inaccurate if there are multiple KeyFamilies
 -->
                         <xsl:otherwise>
-                            <xsl:value-of select="$genericStructure/KeyFamilies/structure:KeyFamily[1]/@id"/>
+                            <xsl:value-of select="$genericStructure/*[local-name() = 'KeyFamilies']/structure:KeyFamily[1]/@id"/>
                         </xsl:otherwise>
                     </xsl:choose>
                 </xsl:variable>
 
-                <xsl:variable name="KeyFamily" select="$genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]"/>
+                <xsl:variable name="KeyFamily" select="$genericStructure/*[local-name() = 'KeyFamilies']/structure:KeyFamily[@id = $KeyFamilyRef]"/>
 
-                <xsl:variable name="KeyFamilyAgencyID" select="$genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/@agencyID"/>
+                <xsl:variable name="KeyFamilyAgencyID" select="$genericStructure/*[local-name() = 'KeyFamilies']/structure:KeyFamily[@id = $KeyFamilyRef]/@agencyID"/>
 
                 <xsl:variable name="concepts" select="distinct-values($KeyFamily/structure:Components/*/@conceptRef)"/>
 
@@ -843,7 +845,7 @@ TODO:
 This is a one time retrieval but perhaps not necessary for the observations. Revisit.
 
         <xsl:variable name="PrimaryMeasureTextFormattextType">
-            <xsl:value-of select="$genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/PrimaryMeasure/TextFormat/@textType"/>
+            <xsl:value-of select="$genericStructure/*[local-name() = 'KeyFamilies']/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/PrimaryMeasure/TextFormat/@textType"/>
         </xsl:variable>
 -->
 

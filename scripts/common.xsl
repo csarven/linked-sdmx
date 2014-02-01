@@ -397,7 +397,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
                 </xsl:when>
                 <!-- Best bet if Concept is in the same document -->
                 <xsl:otherwise>
-                    <xsl:variable name="Concept" select="$doc/Concepts//structure:Concept[@id = $node/@conceptRef]"/>
+                    <xsl:variable name="Concept" select="$doc/*[local-name() = 'Concepts']//structure:Concept[@id = $node/@conceptRef]"/>
 
                     <xsl:if test="count($Concept) = 1">
                         <xsl:choose>
@@ -421,7 +421,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
             </xsl:when>
             <!-- Fallback -->
             <xsl:otherwise>
-                <xsl:value-of select="$doc/KeyFamilies/structure:KeyFamily[1]/@agencyID"/>
+                <xsl:value-of select="$doc/*[local-name() = 'KeyFamilies']/structure:KeyFamily[1]/@agencyID"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
@@ -437,7 +437,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
                 </xsl:when>
                 <!-- Best bet if Concept is in the same document -->
                 <xsl:otherwise>
-                    <xsl:variable name="CodeList" select="$doc/CodeLists//structure:CodeList[@id = $node/@codelist]"/>
+                    <xsl:variable name="CodeList" select="$doc/*[local-name() = 'CodeLists']//structure:CodeList[@id = $node/@codelist]"/>
 
                     <xsl:if test="count($CodeList) = 1">
                         <xsl:value-of select="$CodeList/@agencyID"/>
@@ -452,7 +452,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
             </xsl:when>
             <!-- Fallback -->
             <xsl:otherwise>
-                <xsl:value-of select="$doc/KeyFamilies/structure:KeyFamily[1]/@agencyID"/>
+                <xsl:value-of select="$doc/*[local-name() = 'KeyFamilies']/structure:KeyFamily[1]/@agencyID"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
@@ -467,7 +467,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
                 <xsl:variable name="concept" select="."/>
 
                 <xsl:element name="{$concept}">
-                    <xsl:variable name="Component" select="$genericStructure/KeyFamilies/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/*[@conceptRef = $concept][1]"/>
+                    <xsl:variable name="Component" select="$genericStructure/*[local-name() = 'KeyFamilies']/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/*[@conceptRef = $concept][1]"/>
 
                     <xsl:attribute name="component">
                         <xsl:value-of select="$Component/local-name()"/>
@@ -494,7 +494,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
                                 <xsl:value-of select="$Component/@codelistVersion"/>
                             </xsl:when>
                             <xsl:otherwise>
-                                <xsl:value-of select="fn:getVersion($genericStructure/CodeLists//structure:CodeList[@id = $codelist and @agencyID = $codelistAgency]/@version)"/>
+                                <xsl:value-of select="fn:getVersion($genericStructure/*[local-name() = 'CodeLists']//structure:CodeList[@id = $codelist and @agencyID = $codelistAgency]/@version)"/>
                             </xsl:otherwise>
                         </xsl:choose>
                     </xsl:attribute>
@@ -513,7 +513,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
                                 <xsl:value-of select="$conceptSchemeRef"/>
                             </xsl:when>
                             <xsl:otherwise>
-                                <xsl:value-of select="$genericStructure/Concepts//structure:Concept[@id = $concept]/../@id"/>
+                                <xsl:value-of select="$genericStructure/*[local-name() = 'Concepts']//structure:Concept[@id = $concept]/../@id"/>
                             </xsl:otherwise>
                         </xsl:choose>
                     </xsl:attribute>
@@ -527,7 +527,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
 <!--
 TODO: This should probably get the version from ConceptScheme just as the structureConcept template
 -->
-                                <xsl:value-of select="fn:getVersion($genericStructure/Concepts//structure:Concept[@id = $concept]/@version)"/>
+                                <xsl:value-of select="fn:getVersion($genericStructure/*[local-name() = 'Concepts']//structure:Concept[@id = $concept]/@version)"/>
                             </xsl:otherwise>
                         </xsl:choose>
                     </xsl:attribute>
