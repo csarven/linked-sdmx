@@ -744,8 +744,8 @@ XXX: Fallback: KeyFamilyRef may not exist. But this is inaccurate if there are m
                 </rdf:Description>
 
                 <xsl:variable name="SDMXSchema">
-                    <xsl:if test="/*/local-name() = 'GenericData'">
-                        <xsl:text>Generic</xsl:text>
+                    <xsl:if test="/*/local-name() = 'CompactData'">
+                        <xsl:text>Compact</xsl:text>
                     </xsl:if>
                 </xsl:variable>
 
@@ -793,7 +793,7 @@ XXX: Fallback: KeyFamilyRef may not exist. But this is inaccurate if there are m
         <xsl:param name="SDMXSchema" tunnel="yes"/>
 
         <xsl:choose>
-            <xsl:when test="$SDMXSchema = 'Generic'">
+            <xsl:when test="$SDMXSchema != 'Compact'">
                 <xsl:for-each select="*[local-name() = 'Series']">
 <!--
 FIXME: Excluding 'FREQ' is a bit grubby?
