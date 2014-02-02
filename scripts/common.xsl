@@ -15,13 +15,14 @@
     xmlns:qb="http://purl.org/linked-data/cube#"
     xmlns:sdmx-concept="http://purl.org/linked-data/sdmx/2009/concept#"
     xmlns:fn="http://270a.info/xpath-function/"
+    xmlns:uuid="java:java.util.UUID"
     xmlns:structure="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/structure"
     xmlns:message="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
     xmlns:generic="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/generic"
     xmlns:common="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/common"
 
     xpath-default-namespace="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
-    exclude-result-prefixes="xs xsl fn structure message generic common"
+    exclude-result-prefixes="xs xsl fn structure message generic common uuid"
     >
 
     <xsl:output encoding="utf-8" indent="yes" method="xml" omit-xml-declaration="no"/>
@@ -49,7 +50,7 @@
     <xsl:variable name="ConfigInterlinkAnnotationTypes" select="$Config/rdf:Description/rdf:value/rdf:Description[rdfs:label = 'interlinkAnnotationTypes']/rdf:value/rdf:Description"/>
     <xsl:variable name="ConfigOmitComponents" select="$Config/rdf:Description/rdf:value/rdf:Description[rdfs:label = 'omitComponents']/rdf:value/rdf:Description"/>
     <xsl:variable name="xmlDocumentBaseUri" select="fn:getConfig('xmlDocumentBaseUri')"/>
-    <xsl:variable name="xslDocument" select="fn:getConfig('xslDocument')"/>
+    <xsl:variable name="LinkedSDMX" select="fn:getConfig('LinkedSDMX')"/>
     <xsl:variable name="provDocument" select="document($pathToProvDocument)/rdf:RDF"/>
     <xsl:variable name="license" select="fn:getConfig('license')"/>
     <xsl:variable name="now" select="fn:now()"/>
@@ -301,6 +302,34 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
         </xsl:analyze-string>
     </xsl:function>
 
+
+    <xsl:template name="provenanceInit">
+        <rdf:Description rdf:about="{$creator}">
+            <rdf:type rdf:resource="{$prov}Agent"/>
+        </rdf:Description>
+
+        <rdf:Description rdf:about="https://github.com/csarven/linked-sdmx">
+            <rdf:type rdf:resource="{$prov}Agent"/>
+            <rdfs:label xml:lang="en">Linked SDMX</rdfs:label>
+        </rdf:Description>
+
+        <rdf:Description rdf:about="http://csarven.ca/linked-sdmx-data">
+            <rdf:type rdf:resource="{$prov}Association"/>
+            <rdfs:label xml:lang="en">Linked SDMX Data</rdfs:label>
+            <prov:agent rdf:resource="https://github.com/csarven/linked-sdmx"/>
+            <prov:hadRole>
+                <rdf:Description rdf:about="https://github.com/csarven/linked-sdmx#sdmx-ml-to-rdfxml">
+                    <rdfs:label>Transformation from SDMX-ML to RDF/XML</rdfs:label>
+                </rdf:Description>
+            </prov:hadRole>
+            <dcterms:creator>
+                <rdf:Description rdf:about="http://csarven.ca/#i">
+                    <rdfs:label xml:lang="en">Sarven Capadisli</rdfs:label>
+                </rdf:Description>
+            </dcterms:creator>
+        </rdf:Description>
+    </xsl:template>
+
     <xsl:template name="provenance">
         <xsl:param name="provUsedA"/>
         <xsl:param name="provUsedB"/>
@@ -308,7 +337,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
         <xsl:param name="entityID"/>
 
         <xsl:variable name="now" select="format-dateTime(current-dateTime(), '[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01]Z')"/>
-        <xsl:variable name="provActivity" select="concat($provenance, 'activity', $uriThingSeparator, replace($now, '\D', ''))"/>
+        <xsl:variable name="provActivity" select="concat($provenance, 'activity', $uriThingSeparator, uuid:randomUUID())"/>
 
         <rdf:Description rdf:about="{$provActivity}">
             <rdf:type rdf:resource="{$prov}Activity"/>
@@ -319,17 +348,45 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
                 <prov:wasInformedBy rdf:resource="{$informedBy}"/>
             </xsl:if>
             <prov:startedAtTime rdf:datatype="{$xsd}dateTime"><xsl:value-of select="$now"/></prov:startedAtTime>
-            <prov:wasAssociatedWith rdf:resource="{$creator}"/>
-            <prov:used rdf:resource="{$provUsedA}"/>
+            <prov:wasStartedBy rdf:resource="{$creator}"/>
+
+            <prov:wasAssociatedWith rdf:resource="https://github.com/csarven/linked-sdmx"/>
+            <prov:qualifiedAssociation rdf:resource="http://csarven.ca/linked-sdmx-data"/>
+
+            <prov:used>
+                <rdf:Description rdf:about="{$provUsedA}">
+                    <rdf:type rdf:resource="{$prov}Entity"/>
+                </rdf:Description>
+            </prov:used>
+            <prov:qualifiedUsage>
+                <rdf:Description>
+                    <rdf:type rdf:resource="{$prov}Usage"/>
+                    <prov:entity rdf:resource="{$provUsedA}"/>
+                    <prov:atTime rdf:datatype="{$xsd}dateTime"><xsl:value-of select="$now"/></prov:atTime>
+                </rdf:Description>
+            </prov:qualifiedUsage>
+
             <xsl:if test="$provUsedB">
-                <prov:used rdf:resource="{$provUsedB}"/>
+                <prov:used>
+                    <rdf:Description rdf:about="{$provUsedB}">
+                        <rdf:type rdf:resource="{$prov}Entity"/>
+                    </rdf:Description>
+                </prov:used>
+                <prov:qualifiedUsage>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="{$prov}Usage"/>
+                        <prov:entity rdf:resource="{$provUsedB}"/>
+                        <prov:atTime rdf:datatype="{$xsd}dateTime"><xsl:value-of select="$now"/></prov:atTime>
+                    </rdf:Description>
+                </prov:qualifiedUsage>
+
                 <xsl:variable name="informedBy" select="$provDocument/rdf:Description[prov:generated/rdf:Description/@rdf:about = $provUsedB]/@rdf:about"/>
 
                 <xsl:if test="$informedBy">
                     <prov:wasInformedBy rdf:resource="{$informedBy}"/>
                 </xsl:if>
             </xsl:if>
-            <prov:used rdf:resource="{$xslDocument}"/>
+
             <prov:generated>
                 <rdf:Description rdf:about="{$provGenerated}">
                     <rdf:type rdf:resource="{$prov}Entity"/>

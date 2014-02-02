@@ -25,13 +25,14 @@
     xmlns:sdmx-measure="http://purl.org/linked-data/sdmx/2009/measure#"
     xmlns:sdmx-metadata="http://purl.org/linked-data/sdmx/2009/metadata#"
     xmlns:sdmx-subject="http://purl.org/linked-data/sdmx/2009/subject#"
+    xmlns:uuid="java:java.util.UUID"
     xmlns:structure="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/structure"
     xmlns:message="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
     xmlns:generic="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/generic"
     xmlns:common="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/common"
 
     xpath-default-namespace="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
-    exclude-result-prefixes="xsl fn structure message generic common"
+    exclude-result-prefixes="xsl fn structure message generic common uuid"
     >
 
     <xsl:import href="common.xsl"/>
@@ -51,9 +52,7 @@
         <rdf:RDF xml:base="{$agencyURI}">
             <xsl:namespace name="property" select="$property"/>
 
-            <rdf:Description rdf:about="{$creator}">
-                <rdf:type rdf:resource="{$prov}Agent"/>
-            </rdf:Description>
+            <xsl:call-template name="provenanceInit"/>
 
             <xsl:for-each select="Structure | RegistryInterface/QueryStructureResponse">
                 <xsl:call-template name="KeyFamily"/>
