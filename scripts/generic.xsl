@@ -149,9 +149,17 @@ FIXME: This could reuse the agencyID that's determined from SeriesKeyConceptsDat
 
                 <xsl:variable name="Concept" select="//*[local-name() = 'Concepts']//structure:Concept[@id = $conceptRef]"/>
 
+                <xsl:variable name="conceptSchemePath">
+                    <xsl:if test="$SeriesKeyConceptsData/*[name() = $conceptRef]/@conceptScheme != ''">
+                        <xsl:value-of select="concat('/', $SeriesKeyConceptsData/*[name() = $conceptRef]/@conceptScheme)"/>
+                    </xsl:if>
+                </xsl:variable>
+
+                <xsl:variable name="componentProperty" select="concat(fn:getComponentURI('property', $agencyID), '/', fn:getVersion($SeriesKeyConceptsData/*[name() = $conceptRef]/@conceptVersion), $conceptSchemePath, $uriThingSeparator, $conceptRef)"/>
+
                 <rdf:Description rdf:about="{$component}{$KeyFamilyID}{$uriThingSeparator}{$conceptPath}">
                     <rdf:type rdf:resource="{$qb}ComponentSpecification"/>
-                    <qb:componentProperty rdf:resource="{$property}{$conceptRef}"/>
+                    <qb:componentProperty rdf:resource="{$componentProperty}"/>
 
                     <xsl:choose>
 <!--
@@ -160,7 +168,7 @@ Should we give any special treatment to TimeDimension even though qb currently d
 -->
                         <xsl:when test="local-name() = 'Dimension' or local-name() = 'TimeDimension'">
                             <qb:dimension>
-                                <rdf:Description rdf:about="{$property}{$conceptRef}">
+                                <rdf:Description rdf:about="{$componentProperty}">
                                     <rdf:type rdf:resource="{$qb}ComponentProperty"/>
                                     <rdf:type rdf:resource="{$qb}DimensionProperty"/>
                                     <rdf:type rdf:resource="{$qb}CodedProperty"/>
@@ -196,7 +204,7 @@ Consider what to do with optional <TextFormat textType="Double"/> or whatever. P
 -->
                         <xsl:when test="local-name() = 'PrimaryMeasure'">
                             <qb:measure>
-                                <rdf:Description rdf:about="{$property}{$conceptRef}">
+                                <rdf:Description rdf:about="{$componentProperty}">
                                     <rdf:type rdf:resource="{$qb}ComponentProperty"/>
                                     <rdf:type rdf:resource="{$qb}MeasureProperty"/>
                                     <rdf:type rdf:resource="{$rdf}Property"/>
@@ -222,7 +230,7 @@ Multiple measures
 
                         <xsl:when test="local-name() = 'Attribute'">
                             <qb:attribute>
-                                <rdf:Description rdf:about="{$property}{$conceptRef}">
+                                <rdf:Description rdf:about="{$componentProperty}">
                                     <rdf:type rdf:resource="{$qb}ComponentProperty"/>
                                     <rdf:type rdf:resource="{$qb}AttributeProperty"/>
                                     <rdf:type rdf:resource="{$qb}CodedProperty"/>
