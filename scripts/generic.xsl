@@ -149,7 +149,7 @@ FIXME: This could reuse the agencyID that's determined from SeriesKeyConceptsDat
 
                 <xsl:variable name="Concept" select="//*[local-name() = 'Concepts']//structure:Concept[@id = $conceptRef]"/>
 
-                <rdf:Description rdf:about="{$component}{$KeyFamilyID}/{$conceptPath}">
+                <rdf:Description rdf:about="{$component}{$KeyFamilyID}{$uriThingSeparator}{$conceptPath}">
                     <rdf:type rdf:resource="{$qb}ComponentSpecification"/>
                     <qb:componentProperty rdf:resource="{$property}{$conceptRef}"/>
 
