@@ -75,7 +75,7 @@
     <xsl:variable name="dataset" select="'dataset/'"/>
     <xsl:variable name="structure" select="'structure/'"/>
     <xsl:variable name="slice" select="concat('slice', $uriThingSeparator)"/>
-    <xsl:variable name="component" select="concat('component', $uriThingSeparator)"/>
+    <xsl:variable name="component" select="concat('component/')"/>
 
     <xsl:template name="langTextNode">
         <xsl:choose>
