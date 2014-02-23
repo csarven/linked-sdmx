@@ -192,6 +192,21 @@
         </xsl:for-each>
     </xsl:function>
 
+    <xsl:function name="fn:getAgencyBase">
+        <xsl:param name="node"/>
+
+        <xsl:variable name="uri" select="fn:getAgencyURI($node/@agencyID)"/>
+        <xsl:choose>
+            <xsl:when test="$uri = '' or $uri = $agencyURI">
+                <xsl:value-of select="$agencyURI"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="$uri"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>
+
+
     <xsl:function name="fn:getComponentURI">
         <xsl:param name="component"/>
         <xsl:param name="agency"/>
@@ -559,8 +574,8 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
                     <xsl:variable name="conceptAgency">
                         <xsl:value-of select="fn:getConceptAgencyID($genericStructure, $Component)"/>
                     </xsl:variable>
-                    <xsl:attribute name="conceptAgencyURI">
-                        <xsl:value-of select="$conceptAgency"/><xsl:value-of select="$uriThingSeparator"/>
+                    <xsl:attribute name="conceptAgency">
+                        <xsl:value-of select="$conceptAgency"/>
                     </xsl:attribute>
 
                     <xsl:variable name="conceptSchemeRef" select="$Component/@conceptSchemeRef"/>

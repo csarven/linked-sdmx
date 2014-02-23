@@ -145,7 +145,7 @@ FIXME: This could reuse the agencyID that's determined from SeriesKeyConceptsDat
 
                 <xsl:variable name="conceptPath" select="concat($SeriesKeyConceptsData/*[name() = $conceptRef]/@conceptVersion, $conceptScheme, $uriThingSeparator, @conceptRef)"/>
 
-                <xsl:variable name="conceptURI" select="concat($concept, $conceptPath)"/>
+                <xsl:variable name="conceptURI" select="concat(fn:getAgencyBase($SeriesKeyConceptsData/*[name() = $conceptRef]/@conceptAgency), $concept, $conceptPath)"/>
 
                 <xsl:variable name="Concept" select="//*[local-name() = 'Concepts']//structure:Concept[@id = $conceptRef]"/>
 
@@ -316,7 +316,7 @@ Check where to get ConceptScheme
 
     <xsl:template name="structureConceptScheme">
         <xsl:variable name="version" select="fn:getVersion(@version)"/>
-        <xsl:variable name="conceptSchemeURI" select="concat($concept, $version, '/', @id)"/>
+        <xsl:variable name="conceptSchemeURI" select="concat(fn:getAgencyBase(.), $concept, $version, '/', @id)"/>
 
         <xsl:call-template name="provenance">
             <xsl:with-param name="provUsedA" select="resolve-uri(tokenize($xmlDocument, '/')[last()], $xmlDocumentBaseUri)"/>
@@ -364,7 +364,7 @@ XXX: Is it possible to have a Concept version that's different than the version 
                     <xsl:value-of select="concat($conceptSchemeURI, $uriThingSeparator, @id)"/>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:value-of select="concat($concept, $version, '/', @id)"/>
+                    <xsl:value-of select="concat(fn:getAgencyBase(.), $concept, $version, '/', @id)"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
@@ -1131,9 +1131,7 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
                                 <xsl:variable name="SDMXConcept" select="$SDMXCode/skos:Concept[skos:notation = $value and @rdf:about = $SDMXCode/skos:ConceptScheme[skos:notation = $codelistNormalized][1]/skos:hasTopConcept/@rdf:resource]"/>
                                 <xsl:value-of select="$SDMXConcept/@rdf:about"/>
                             </xsl:when>
-        <!--
-        FIXME: $urithingSeparator is already used in getComponentURI
-        -->
+
                             <xsl:otherwise>
                                 <xsl:value-of select="fn:getComponentURI('code', $SeriesKeyConcept/@codelistAgency)"/><xsl:text>/</xsl:text><xsl:value-of select="$SeriesKeyConcept/@codelistVersion"/><xsl:text>/</xsl:text><xsl:value-of select="$SeriesKeyConcept/@codelist"/><xsl:value-of select="$uriThingSeparator"/><xsl:value-of select="normalize-space($value)"/>
                             </xsl:otherwise>
