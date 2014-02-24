@@ -233,7 +233,6 @@ Multiple measures
                                 <rdf:Description rdf:about="{$componentProperty}">
                                     <rdf:type rdf:resource="{$qb}ComponentProperty"/>
                                     <rdf:type rdf:resource="{$qb}AttributeProperty"/>
-                                    <rdf:type rdf:resource="{$qb}CodedProperty"/>
                                     <rdf:type rdf:resource="{$rdf}Property"/>
                                     <qb:concept>
                                         <rdf:Description rdf:about="{$conceptURI}">
