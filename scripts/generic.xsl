@@ -136,26 +136,14 @@ FIXME: This could reuse the agencyID that's determined from SeriesKeyConceptsDat
             <xsl:variable name="agencyID" select="fn:getConceptAgencyID(/Structure,.)"/>
             <qb:component>
                 <xsl:variable name="conceptRef" select="@conceptRef"/>
-                <xsl:variable name="conceptScheme">
-                    <xsl:variable name="cS" select="$SeriesKeyConceptsData/*[name() = $conceptRef]/@conceptScheme"/>
-                    <xsl:if test="$cS != ''">
-                        <xsl:value-of select="concat('/', $cS)"/>
-                    </xsl:if>
-                </xsl:variable>
 
-                <xsl:variable name="conceptPath" select="concat($SeriesKeyConceptsData/*[name() = $conceptRef]/@conceptVersion, $conceptScheme, $uriThingSeparator, @conceptRef)"/>
+                <xsl:variable name="conceptPath" select="$SeriesKeyConceptsData/*[name() = $conceptRef]/@conceptPath"/>
 
-                <xsl:variable name="conceptURI" select="concat(fn:getAgencyBase($SeriesKeyConceptsData/*[name() = $conceptRef]/@conceptAgency), $concept, $conceptPath)"/>
+                <xsl:variable name="conceptURI" select="$SeriesKeyConceptsData/*[name() = $conceptRef]/@conceptURI"/>
 
                 <xsl:variable name="Concept" select="//*[local-name() = 'Concepts']//structure:Concept[@id = $conceptRef]"/>
 
-                <xsl:variable name="conceptSchemePath">
-                    <xsl:if test="$SeriesKeyConceptsData/*[name() = $conceptRef]/@conceptScheme != ''">
-                        <xsl:value-of select="concat('/', $SeriesKeyConceptsData/*[name() = $conceptRef]/@conceptScheme)"/>
-                    </xsl:if>
-                </xsl:variable>
-
-                <xsl:variable name="componentProperty" select="concat(fn:getComponentURI('property', $agencyID), '/', fn:getVersion($SeriesKeyConceptsData/*[name() = $conceptRef]/@conceptVersion), $conceptSchemePath, $uriThingSeparator, $conceptRef)"/>
+                <xsl:variable name="componentProperty" select="$SeriesKeyConceptsData/*[name() = $conceptRef]/@componentProperty"/>
 
                 <rdf:Description rdf:about="{$component}{$KeyFamilyID}{$uriThingSeparator}{$conceptPath}">
                     <rdf:type rdf:resource="{$qb}ComponentSpecification"/>
@@ -290,7 +278,8 @@ FIXME: Is this somehow for qb:Dimension?
                     <skos:notation><xsl:value-of select="$id"/></skos:notation>
 
                     <xsl:for-each select="structure:DimensionRef">
-                        <qb:componentProperty rdf:resource="{$property}{normalize-space(.)}"/>
+                        <xsl:variable name="conceptRef" select="normalize-space(.)"/>
+                        <qb:componentProperty rdf:resource="{$SeriesKeyConceptsData/*[name() = $conceptRef]/@componentProperty}"/>
                     </xsl:for-each>
                 </rdf:Description>
             </qb:sliceKey>
