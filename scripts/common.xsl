@@ -15,14 +15,13 @@
     xmlns:qb="http://purl.org/linked-data/cube#"
     xmlns:sdmx-concept="http://purl.org/linked-data/sdmx/2009/concept#"
     xmlns:fn="http://270a.info/xpath-function/"
-    xmlns:uuid="java:java.util.UUID"
     xmlns:structure="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/structure"
     xmlns:message="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
     xmlns:generic="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/generic"
     xmlns:common="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/common"
 
     xpath-default-namespace="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
-    exclude-result-prefixes="xs xsl fn structure message generic common uuid"
+    exclude-result-prefixes="xs xsl fn structure message generic common"
     >
 
     <xsl:output encoding="utf-8" indent="yes" method="xml" omit-xml-declaration="no"/>
@@ -352,7 +351,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
         <xsl:param name="entityID"/>
 
         <xsl:variable name="now" select="format-dateTime(current-dateTime(), '[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01]Z')"/>
-        <xsl:variable name="provActivity" select="concat($provenance, 'activity', $uriThingSeparator, uuid:randomUUID())"/>
+        <xsl:variable name="provActivity" select="concat($provenance, 'activity', $uriThingSeparator, replace($now, '\D', ''))"/>
 
         <rdf:Description rdf:about="{$provActivity}">
             <rdf:type rdf:resource="{$prov}Activity"/>
