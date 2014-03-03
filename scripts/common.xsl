@@ -333,7 +333,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
             <prov:agent rdf:resource="https://github.com/csarven/linked-sdmx"/>
             <prov:hadRole>
                 <rdf:Description rdf:about="https://github.com/csarven/linked-sdmx#sdmx-ml-to-rdfxml">
-                    <rdfs:label>Transformation from SDMX-ML to RDF/XML</rdfs:label>
+                    <rdfs:label xml:lang="en">Transformation from SDMX-ML to RDF/XML</rdfs:label>
                 </rdf:Description>
             </prov:hadRole>
             <dcterms:creator>
