@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rdf:RDF
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
   <rdf:Description rdf:about="file:///var/www/linked-sdmx/scripts/config.ttl">
     <rdf:value>
       <rdf:Description>
-        <rdf:value>https://raw.github.com/csarven/linked-sdmx/master/scripts/generic.xsl</rdf:value>
-        <rdfs:label>xslDocument</rdfs:label>
+        <rdf:value>http://purl.org/linked-data/xkos#</rdf:value>
+        <rdfs:label>xkos</rdfs:label>
+      </rdf:Description>
+    </rdf:value>
+    <rdf:value>
+      <rdf:Description>
+        <rdf:value>http://purl.org/linked-data/sdmx#</rdf:value>
+        <rdfs:label>sdmx</rdfs:label>
       </rdf:Description>
     </rdf:value>
     <rdf:value>
@@ -65,8 +70,26 @@
     </rdf:value>
     <rdf:value>
       <rdf:Description>
-        <rdf:value>http://www.w3.org/1999/02/22-rdf-syntax-ns#</rdf:value>
-        <rdfs:label>rdf</rdfs:label>
+        <rdf:value>http://example.org/dimension/</rdf:value>
+        <rdfs:label>dimension</rdfs:label>
+      </rdf:Description>
+    </rdf:value>
+    <rdf:value>
+      <rdf:Description>
+        <rdf:value>http://example.org/measure/</rdf:value>
+        <rdfs:label>measure</rdfs:label>
+      </rdf:Description>
+    </rdf:value>
+    <rdf:value>
+      <rdf:Description>
+        <rdf:value>http://example.org/attribute/</rdf:value>
+        <rdfs:label>attribute</rdfs:label>
+      </rdf:Description>
+    </rdf:value>
+    <rdf:value>
+      <rdf:Description>
+        <rdf:value>true</rdf:value>
+        <rdfs:label>useSeparateProperties</rdfs:label>
       </rdf:Description>
     </rdf:value>
     <rdf:value>
@@ -76,7 +99,7 @@
             <rdf:predicate>xkos:hasPart</rdf:predicate>
             <rdf:type>CODE_OFS</rdf:type>
             <rdfs:label>AnnotationText</rdfs:label>
-            <rdfs:range>http://example.org/code/CL_HGDE_GDE</rdfs:range>
+            <rdfs:range>http://example.org/code/1.0/CL_HGDE_GDE</rdfs:range>
           </rdf:Description>
         </rdf:value>
         <rdf:value>
@@ -84,7 +107,7 @@
             <rdf:predicate>xkos:isPartOf</rdf:predicate>
             <rdf:type>CODE_HISTORY</rdf:type>
             <rdfs:label>AnnotationText</rdfs:label>
-            <rdfs:range>http://example.org/code/CL_HGDE_GDE</rdfs:range>
+            <rdfs:range>http://example.org/code/1.0/CL_HGDE_GDE</rdfs:range>
           </rdf:Description>
         </rdf:value>
         <rdf:value>
@@ -100,10 +123,33 @@
             <rdf:predicate>property:GDE_GARTE</rdf:predicate>
             <rdf:type>REC_TYPE</rdf:type>
             <rdfs:label>AnnotationTitle</rdfs:label>
-            <rdfs:range>http://example.org/code/CL_HGDE_MODALITY</rdfs:range>
+            <rdfs:range>http://example.org/code/1.0/CL_HGDE_MODALITY</rdfs:range>
           </rdf:Description>
         </rdf:value>
         <rdfs:label>interlinkAnnotationTypes</rdfs:label>
+      </rdf:Description>
+    </rdf:value>
+    <rdf:value>
+      <rdf:Description>
+        <rdf:value>
+          <rdf:Description>
+            <rdf:value>https://github.com/csarven/linked-sdmx</rdf:value>
+            <rdfs:label>URI</rdfs:label>
+          </rdf:Description>
+        </rdf:value>
+        <rdf:value>
+          <rdf:Description>
+            <rdf:value>http://csarven.ca/linked-sdmx-data</rdf:value>
+            <rdfs:label>seeAlso</rdfs:label>
+          </rdf:Description>
+        </rdf:value>
+        <rdfs:label>LinkedSDMX</rdfs:label>
+      </rdf:Description>
+    </rdf:value>
+    <rdf:value>
+      <rdf:Description>
+        <rdf:value>http://www.w3.org/1999/02/22-rdf-syntax-ns#</rdf:value>
+        <rdfs:label>rdf</rdfs:label>
       </rdf:Description>
     </rdf:value>
     <rdf:value>
@@ -134,18 +180,6 @@
       <rdf:Description>
         <rdf:value>http://www.w3.org/2004/02/skos/core#</rdf:value>
         <rdfs:label>skos</rdfs:label>
-      </rdf:Description>
-    </rdf:value>
-    <rdf:value>
-      <rdf:Description>
-        <rdf:value>http://purl.org/linked-data/xkos#</rdf:value>
-        <rdfs:label>xkos</rdfs:label>
-      </rdf:Description>
-    </rdf:value>
-    <rdf:value>
-      <rdf:Description>
-        <rdf:value>http://purl.org/linked-data/sdmx#</rdf:value>
-        <rdfs:label>sdmx</rdfs:label>
       </rdf:Description>
     </rdf:value>
   </rdf:Description>
