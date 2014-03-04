@@ -601,38 +601,38 @@ XXX:
 * Should the parent CodelistAliasRef/CodeID be prefixed to current CodelistAliasRef/CodeID?
 -->
 
-            <xsl:variable name="codelistVersion" select="//*[local-name() = 'HierarchicalCodelists']/structure:HierarchicalCodelist[@id = $HierarchicalCodelistID]/structure:CodelistRef[structure:Alias = $CodelistAliasRef]/structure:Version"/>
+        <xsl:variable name="codelistVersion" select="//*[local-name() = 'HierarchicalCodelists']/structure:HierarchicalCodelist[@id = $HierarchicalCodelistID]/structure:CodelistRef[structure:Alias = $CodelistAliasRef]/structure:Version"/>
 
-            <xsl:variable name="version" select="fn:getVersion(//*[local-name() = 'CodeLists']/structure:CodeList[@id = $CodelistAliasRef and @version = $codelistVersion])"/>
+        <xsl:variable name="version" select="fn:getVersion(//*[local-name() = 'CodeLists']/structure:CodeList[@id = $CodelistAliasRef and @version = $codelistVersion])"/>
 
-            <xsl:variable name="codeURI" select="concat($code, $version, '/', $CodelistAliasRef, $uriThingSeparator, $CodeID)"/>
+        <xsl:variable name="codeURI" select="concat($code, $version, '/', $CodelistAliasRef, $uriThingSeparator, $CodeID)"/>
 
 
-            <rdf:Description rdf:about="{$codeURI}">
-                <xsl:if test="$codeURIParent">
-                    <xkos:isPartOf rdf:resource="{$codeURIParent}"/>
-                </xsl:if>
+        <rdf:Description rdf:about="{$codeURI}">
+            <xsl:if test="$codeURIParent">
+                <xkos:isPartOf rdf:resource="{$codeURIParent}"/>
+            </xsl:if>
 
-                <xsl:if test="structure:ValidFrom">
-                    <sdmx-concept:validFrom><xsl:value-of select="structure:ValidFrom"/></sdmx-concept:validFrom>
-                </xsl:if>
-                <xsl:if test="structure:ValidTo">
-                    <sdmx-concept:validTo><xsl:value-of select="structure:ValidTo"/></sdmx-concept:validTo>
-                </xsl:if>
+            <xsl:if test="structure:ValidFrom">
+                <sdmx-concept:validFrom><xsl:value-of select="structure:ValidFrom"/></sdmx-concept:validFrom>
+            </xsl:if>
+            <xsl:if test="structure:ValidTo">
+                <sdmx-concept:validTo><xsl:value-of select="structure:ValidTo"/></sdmx-concept:validTo>
+            </xsl:if>
 
-                <xsl:if test="structure:Version">
-                    <owl:versionInfo><xsl:value-of select="structure:Version"/></owl:versionInfo>
-                </xsl:if>
+            <xsl:if test="structure:Version">
+                <owl:versionInfo><xsl:value-of select="structure:Version"/></owl:versionInfo>
+            </xsl:if>
 
-                <xsl:for-each select="structure:CodeRef">
-                    <xkos:hasPart>
-                        <xsl:call-template name="CodeRefs">
-                            <xsl:with-param name="HierarchicalCodelistID" select="$HierarchicalCodelistID"/>
-                            <xsl:with-param name="codeURIParent" select="$codeURI"/>
-                        </xsl:call-template>
-                    </xkos:hasPart>
-                </xsl:for-each>
-            </rdf:Description>
+            <xsl:for-each select="structure:CodeRef">
+                <xkos:hasPart>
+                    <xsl:call-template name="CodeRefs">
+                        <xsl:with-param name="HierarchicalCodelistID" select="$HierarchicalCodelistID"/>
+                        <xsl:with-param name="codeURIParent" select="$codeURI"/>
+                    </xsl:call-template>
+                </xkos:hasPart>
+            </xsl:for-each>
+        </rdf:Description>
     </xsl:template>
 
 
