@@ -619,7 +619,7 @@ XXX:
                 <xsl:otherwise>
                     <xsl:value-of select="$codelistVersion"/>
                 </xsl:otherwise>
-            </xsl:choose>        
+            </xsl:choose>
         </xsl:variable>
 
         <xsl:variable name="codeURI" select="concat($code, $version, '/', $CodelistAliasRef, $uriThingSeparator, $CodeID)"/>
