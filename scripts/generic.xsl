@@ -49,8 +49,6 @@
 
     <xsl:template match="/">
         <rdf:RDF xml:base="{$agencyURI}">
-            <xsl:call-template name="provenanceInit"/>
-
             <xsl:for-each select="Structure | RegistryInterface/QueryStructureResponse">
                 <xsl:call-template name="KeyFamily"/>
 
@@ -62,6 +60,8 @@
             </xsl:for-each>
 
             <xsl:call-template name="DataSets"/>
+
+            <xsl:call-template name="provenanceInit"/>
         </rdf:RDF>
     </xsl:template>
 
@@ -677,6 +677,10 @@ XXX: Fallback: KeyFamilyRef may not exist. But this is inaccurate if there are m
 
                 <xsl:variable name="SeriesKeyConceptsData" select="fn:createSeriesKeyComponentData($concepts, $KeyFamilyRef)"/>
 
+                <xsl:for-each select="$SeriesKeyConceptsData/*">
+                    <xsl:namespace name="{@propertyPrefix}" select="@propertyNamespace"/>
+                </xsl:for-each>
+
 <!-- FIXME: WTF did I just come up with every case combination for "datasetid"? -->
                 <xsl:variable name="datasetID">
                     <xsl:choose>
@@ -884,7 +888,7 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
                             </xsl:for-each>
 
                             <xsl:if test="$ObsTime != '' and $TimeDimensionConceptRef != ''">
-                                <xsl:element name="{$SeriesKeyConceptsData/*[name() = $TimeDimensionConceptRef]/@propertyType}:{$TimeDimensionConceptRef}" namespace="{$SeriesKeyConceptsData/*[name() = $TimeDimensionConceptRef]/@propertyNamespace}{$SeriesKeyConceptsData/*[name() = $TimeDimensionConceptRef]}">
+                                <xsl:element name="{$SeriesKeyConceptsData/*[name() = $TimeDimensionConceptRef]/@propertyPrefix}:{$TimeDimensionConceptRef}" namespace="{$SeriesKeyConceptsData/*[name() = $TimeDimensionConceptRef]/@propertyNamespace}{$SeriesKeyConceptsData/*[name() = $TimeDimensionConceptRef]}">
 
                                     <xsl:variable name="resourceRefPeriod" select="fn:getResourceRefPeriod($ObsTime)"/>
 
@@ -908,7 +912,7 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
                             </xsl:if>
 
                             <xsl:for-each select="generic:ObsValue">
-                                <xsl:element name="{$SeriesKeyConceptsData/*[name() = $PrimaryMeasureConceptRef]/@propertyType}:{$PrimaryMeasureConceptRef}" namespace="{$SeriesKeyConceptsData/*[name() = $PrimaryMeasureConceptRef]/@propertyNamespace}{$SeriesKeyConceptsData/*[name() = $PrimaryMeasureConceptRef]}">
+                                <xsl:element name="{$SeriesKeyConceptsData/*[name() = $PrimaryMeasureConceptRef]/@propertyPrefix}:{$PrimaryMeasureConceptRef}" namespace="{$SeriesKeyConceptsData/*[name() = $PrimaryMeasureConceptRef]/@propertyNamespace}{$SeriesKeyConceptsData/*[name() = $PrimaryMeasureConceptRef]}">
                                     <xsl:variable name="datatype" select="$SeriesKeyConceptsData/*[lower-case(name()) = lower-case($PrimaryMeasureConceptRef)]/@datatype"/>
                                     <xsl:choose>
                                         <xsl:when test="$datatype != ''">
@@ -1040,7 +1044,7 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
                             </xsl:for-each>
 
                             <xsl:if test="$ObsTime != '' and $TimeDimensionConceptRef != ''">
-                                <xsl:element name="{$SeriesKeyConceptsData/*[name() = $TimeDimensionConceptRef]/@propertyType}:{$TimeDimensionConceptRef}" namespace="{$SeriesKeyConceptsData/*[name() = $TimeDimensionConceptRef]/@propertyNamespace}{$SeriesKeyConceptsData/*[name() = $TimeDimensionConceptRef]}">
+                                <xsl:element name="{$SeriesKeyConceptsData/*[name() = $TimeDimensionConceptRef]/@propertyPrefix}" namespace="{$SeriesKeyConceptsData/*[name() = $TimeDimensionConceptRef]/@propertyNamespace}{$SeriesKeyConceptsData/*[name() = $TimeDimensionConceptRef]}">
                                     <xsl:variable name="resourceRefPeriod" select="fn:getResourceRefPeriod($ObsTime)"/>
 
                                     <xsl:choose>
@@ -1063,7 +1067,7 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
                             </xsl:if>
 
                             <xsl:for-each select="@*[local-name() = $PrimaryMeasureConceptRef]">
-                                <xsl:element name="{$SeriesKeyConceptsData/*[name() = $PrimaryMeasureConceptRef]/@propertyType}:{$PrimaryMeasureConceptRef}" namespace="{$SeriesKeyConceptsData/*[name() = $PrimaryMeasureConceptRef]/@propertyNamespace}{$SeriesKeyConceptsData/*[name() = $PrimaryMeasureConceptRef]}">
+                                <xsl:element name="{$SeriesKeyConceptsData/*[name() = $PrimaryMeasureConceptRef]/@propertyPrefix}:{$PrimaryMeasureConceptRef}" namespace="{$SeriesKeyConceptsData/*[name() = $PrimaryMeasureConceptRef]/@propertyNamespace}{$SeriesKeyConceptsData/*[name() = $PrimaryMeasureConceptRef]}">
 
                                     <xsl:variable name="datatype" select="$SeriesKeyConceptsData/*[lower-case(name()) = lower-case($PrimaryMeasureConceptRef)]/@datatype"/>
                                     <xsl:choose>
@@ -1110,7 +1114,7 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
         <xsl:param name="SeriesKeyConcept"/>
         <xsl:param name="value"/>
 
-        <xsl:element name="{$SeriesKeyConcept/@propertyType}:{$SeriesKeyConcept/name()}" namespace="{$SeriesKeyConcept/@propertyNamespace}">
+        <xsl:element name="{$SeriesKeyConcept/@propertyPrefix}:{$SeriesKeyConcept/name()}" namespace="{$SeriesKeyConcept/@propertyNamespace}">
             <xsl:choose>
                 <xsl:when test="$SeriesKeyConcept/@codelist != ''">
                     <xsl:attribute name="rdf:resource">

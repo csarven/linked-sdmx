@@ -557,10 +557,6 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
                     </xsl:attribute>
 
                     <xsl:variable name="codelistAgency" select="fn:getCodeListAgencyID($genericStructure, .)"/>
-<!--<xsl:message>-->
-<!--<xsl:value-of select="$codelistAgency"/>-->
-<!--</xsl:message>-->
-
 
                     <xsl:attribute name="codelistAgency">
                         <xsl:value-of select="$codelistAgency"/>
@@ -639,6 +635,17 @@ TODO: This should probably get the version from ConceptScheme just as the struct
                     <xsl:attribute name="propertyType">
                         <xsl:value-of select="$propertyType"/>
                     </xsl:attribute>
+
+                    <xsl:variable name="nodeId" select="generate-id(.)"/>
+                    <xsl:attribute name="nodeId">
+                        <xsl:value-of select="$nodeId"/>
+                    </xsl:attribute>
+
+                    <xsl:variable name="propertyPrefix" select="fn:getPropertyType($componentType)"/>
+                    <xsl:attribute name="propertyPrefix">
+                        <xsl:value-of select="concat(substring($propertyType, 1, 1), '-', substring($nodeId, string-length($nodeId)-2))"/>
+                    </xsl:attribute>
+
 
                     <xsl:variable name="componentBase" select="fn:getComponentBase($propertyType, $conceptAgency)"/>
                     <xsl:variable name="propertyNamespace">
