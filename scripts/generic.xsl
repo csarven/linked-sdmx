@@ -603,7 +603,24 @@ XXX:
 
         <xsl:variable name="codelistVersion" select="//*[local-name() = 'HierarchicalCodelists']/structure:HierarchicalCodelist[@id = $HierarchicalCodelistID]/structure:CodelistRef[structure:Alias = $CodelistAliasRef]/structure:Version"/>
 
-        <xsl:variable name="version" select="fn:getVersion(//*[local-name() = 'CodeLists']/structure:CodeList[@id = $CodelistAliasRef and @version = $codelistVersion])"/>
+        <xsl:variable name="version">
+            <xsl:choose>
+                <xsl:when test="$codelistVersion = ''">
+                    <xsl:variable name="clV" select="//*[local-name() = 'CodeLists']/structure:CodeList[@id = $CodelistAliasRef]/@version"/>
+                    <xsl:choose>
+                        <xsl:when test="$clV = ''">
+                            <xsl:value-of select="fn:getVersion($codelistVersion)"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="$clV"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="$codelistVersion"/>
+                </xsl:otherwise>
+            </xsl:choose>        
+        </xsl:variable>
 
         <xsl:variable name="codeURI" select="concat($code, $version, '/', $CodelistAliasRef, $uriThingSeparator, $CodeID)"/>
 
