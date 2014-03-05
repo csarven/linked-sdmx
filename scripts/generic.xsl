@@ -605,10 +605,11 @@ XXX:
 
         <xsl:variable name="version">
             <xsl:choose>
-                <xsl:when test="$codelistVersion = ''">
+                <xsl:when test="count($codelistVersion) = 0">
                     <xsl:variable name="clV" select="//structure:CodeList[@id = $CodelistID]/@version"/>
+
                     <xsl:choose>
-                        <xsl:when test="$clV = ''">
+                        <xsl:when test="count($clV) = 0">
                             <xsl:value-of select="fn:getVersion($codelistVersion)"/>
                         </xsl:when>
                         <xsl:otherwise>
