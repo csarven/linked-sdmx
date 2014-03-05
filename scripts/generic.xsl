@@ -557,25 +557,25 @@ XXX:
 -->
         <xsl:variable name="CodeID" select="structure:CodeID"/>
 
+        <xsl:variable name="CodelistAliasRef" select="structure:CodelistAliasRef"/>
+
+        <xsl:variable name="CodelistID">
+            <xsl:choose>
 <!--
 FIXME:
 This is a kind of a hack, works based on tested sample structures. Not guaranteed to work for all URNs. Alternatively, reconsider the data model given URNs
 -->
-        <xsl:variable name="CodelistAliasRef">
-            <xsl:choose>
                 <xsl:when test="structure:URN">
                     <xsl:variable name="structureURN" select="structure:URN"/>
 
-                    <xsl:for-each select="distinct-values(*[local-name() = 'HierarchicalCodelists']/structure:HierarchicalCodelist[@id = $HierarchicalCodelistID]/structure:CodelistRef/structure:CodelistID/text())">
+                    <xsl:for-each select="distinct-values(//structure:HierarchicalCodelist[@id = $HierarchicalCodelistID]/structure:CodelistRef/structure:CodelistID/text())">
                         <xsl:if test="contains($structureURN, .)">
                             <xsl:value-of select="."/>
                         </xsl:if>
                     </xsl:for-each>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:variable name="CodelistAliasRef" select="structure:CodelistAliasRef"/>
-
-                    <xsl:variable name="CodelistID" select="*[local-name() = 'HierarchicalCodelists']/structure:HierarchicalCodelist[@id = $HierarchicalCodelistID]/structure:CodelistRef[structure:Alias = $CodelistAliasRef]/structure:CodelistID"/>
+                    <xsl:variable name="CodelistID" select="//structure:HierarchicalCodelist[@id = $HierarchicalCodelistID]/structure:CodelistRef[structure:Alias = $CodelistAliasRef]/structure:CodelistID"/>
 
                     <xsl:choose>
                         <xsl:when test="$CodelistID != ''">
@@ -601,12 +601,12 @@ XXX:
 * Should the parent CodelistAliasRef/CodeID be prefixed to current CodelistAliasRef/CodeID?
 -->
 
-        <xsl:variable name="codelistVersion" select="//*[local-name() = 'HierarchicalCodelists']/structure:HierarchicalCodelist[@id = $HierarchicalCodelistID]/structure:CodelistRef[structure:Alias = $CodelistAliasRef]/structure:Version"/>
+        <xsl:variable name="codelistVersion" select="//structure:HierarchicalCodelist[@id = $HierarchicalCodelistID]/structure:CodelistRef[structure:Alias = $CodelistAliasRef or contains(structure:URN, $CodelistID)]/structure:Version"/>
 
         <xsl:variable name="version">
             <xsl:choose>
                 <xsl:when test="$codelistVersion = ''">
-                    <xsl:variable name="clV" select="//*[local-name() = 'CodeLists']/structure:CodeList[@id = $CodelistAliasRef]/@version"/>
+                    <xsl:variable name="clV" select="//structure:CodeList[@id = $CodelistID]/@version"/>
                     <xsl:choose>
                         <xsl:when test="$clV = ''">
                             <xsl:value-of select="fn:getVersion($codelistVersion)"/>
@@ -622,8 +622,7 @@ XXX:
             </xsl:choose>
         </xsl:variable>
 
-        <xsl:variable name="codeURI" select="concat($code, $version, '/', $CodelistAliasRef, $uriThingSeparator, $CodeID)"/>
-
+        <xsl:variable name="codeURI" select="concat($code, $version, '/', $CodelistID, $uriThingSeparator, $CodeID)"/>
 
         <rdf:Description rdf:about="{$codeURI}">
             <xsl:if test="$codeURIParent">
