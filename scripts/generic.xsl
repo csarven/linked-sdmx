@@ -132,17 +132,19 @@ FIXME: This could reuse the agencyID that's determined from SeriesKeyConceptsDat
 -->
             <xsl:variable name="agencyID" select="fn:getConceptAgencyID(/Structure,.)"/>
             <qb:component>
+                <xsl:variable name="componentType" select="local-name()"/>
+
                 <xsl:variable name="propertyType" select="fn:getPropertyType(local-name())"/>
 
                 <xsl:variable name="conceptRef" select="@conceptRef"/>
 
-                <xsl:variable name="conceptPath" select="$SeriesKeyConceptsData/*[name() = $conceptRef and @propertyType = $propertyType]/@conceptPath"/>
+                <xsl:variable name="conceptPath" select="$SeriesKeyConceptsData/*[name() = $conceptRef and @componentType = $componentType]/@conceptPath"/>
 
-                <xsl:variable name="conceptURI" select="$SeriesKeyConceptsData/*[name() = $conceptRef and @propertyType = $propertyType]/@conceptURI"/>
+                <xsl:variable name="conceptURI" select="$SeriesKeyConceptsData/*[name() = $conceptRef and @componentType = $componentType]/@conceptURI"/>
 
                 <xsl:variable name="Concept" select="//*[local-name() = 'Concepts']//structure:Concept[@id = $conceptRef]"/>
 
-                <xsl:variable name="componentProperty" select="$SeriesKeyConceptsData/*[name() = $conceptRef and @propertyType = $propertyType]/@componentProperty"/>
+                <xsl:variable name="componentProperty" select="$SeriesKeyConceptsData/*[name() = $conceptRef and @componentType = $componentType]/@componentProperty"/>
 
                 <rdf:Description rdf:about="{$component}{$KeyFamilyID}/{$propertyType}/{$conceptPath}">
                     <rdf:type rdf:resource="{$qb}ComponentSpecification"/>
@@ -166,7 +168,7 @@ Should we give any special treatment to TimeDimension even though qb currently d
                                         </rdf:Description>
                                     </qb:concept>
                                     <xsl:call-template name="qbCodeListrdfsRange">
-                                        <xsl:with-param name="concept" select="$SeriesKeyConceptsData/*[name() = $conceptRef and @propertyType = $propertyType]" tunnel="yes"/>
+                                        <xsl:with-param name="concept" select="$SeriesKeyConceptsData/*[name() = $conceptRef and @componentType = $componentType]" tunnel="yes"/>
                                     </xsl:call-template>
                                     <xsl:call-template name="ConceptLabels">
                                         <xsl:with-param name="Concept" select="$Concept"/>
@@ -227,7 +229,7 @@ Multiple measures
                                         </rdf:Description>
                                     </qb:concept>
                                     <xsl:call-template name="qbCodeListrdfsRange">
-                                        <xsl:with-param name="concept" select="$SeriesKeyConceptsData/*[name() = $conceptRef and @propertyType = $propertyType]" tunnel="yes"/>
+                                        <xsl:with-param name="concept" select="$SeriesKeyConceptsData/*[name() = $conceptRef and @componentType = $componentType]" tunnel="yes"/>
                                     </xsl:call-template>
                                     <xsl:call-template name="ConceptLabels">
                                         <xsl:with-param name="Concept" select="$Concept"/>
