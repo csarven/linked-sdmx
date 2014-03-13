@@ -163,23 +163,26 @@
         <xsl:param name="concept" tunnel="yes"/>
 
         <xsl:variable name="codelist" select="$concept/@codelist"/>
-        <xsl:variable name="codelistVersion" select="$concept/@codelistVersion"/>
-        <xsl:variable name="codelistAgency" select="$concept/@codelistAgency"/>
 
-        <xsl:choose>
-            <xsl:when test="lower-case(normalize-space($codelistAgency)) = 'sdmx'">
-                <xsl:variable name="codelistNormalized" select="fn:normalizeSDMXCodeListID($codelist)"/>
+        <xsl:if test="$codelist != ''">
+            <xsl:variable name="codelistVersion" select="$concept/@codelistVersion"/>
+            <xsl:variable name="codelistAgency" select="$concept/@codelistAgency"/>
 
-                <xsl:variable name="SDMXConceptScheme" select="$SDMXCode/skos:ConceptScheme[skos:notation = $codelistNormalized][1]"/>
+            <xsl:choose>
+                <xsl:when test="lower-case(normalize-space($codelistAgency)) = 'sdmx'">
+                    <xsl:variable name="codelistNormalized" select="fn:normalizeSDMXCodeListID($codelist)"/>
 
-                <qb:codeList rdf:resource="{$SDMXConceptScheme/@rdf:about}"/>
-                <rdfs:range rdf:resource="{$SDMXConceptScheme/rdfs:seeAlso[1]/@rdf:resource}"/>
-            </xsl:when>
-            <xsl:otherwise>
-                <qb:codeList rdf:resource="{fn:getComponentBase('code', $codelistAgency)}/{fn:getVersion($codelistVersion)}/{$codelist}"/>
-                <rdfs:range rdf:resource="{fn:getComponentBase('class', $codelistAgency)}/{fn:getVersion($codelistVersion)}/{$codelist}"/>
-            </xsl:otherwise>
-        </xsl:choose>
+                    <xsl:variable name="SDMXConceptScheme" select="$SDMXCode/skos:ConceptScheme[skos:notation = $codelistNormalized][1]"/>
+
+                    <qb:codeList rdf:resource="{$SDMXConceptScheme/@rdf:about}"/>
+                    <rdfs:range rdf:resource="{$SDMXConceptScheme/rdfs:seeAlso[1]/@rdf:resource}"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <qb:codeList rdf:resource="{fn:getComponentBase('code', $codelistAgency)}/{fn:getVersion($codelistVersion)}/{$codelist}"/>
+                    <rdfs:range rdf:resource="{fn:getComponentBase('class', $codelistAgency)}/{fn:getVersion($codelistVersion)}/{$codelist}"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:if>
     </xsl:template>
 
     <xsl:function name="fn:getAgencyURI">
