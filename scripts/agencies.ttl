@@ -15,7 +15,7 @@
 <http://oecd.270a.info/>
     skos:notation "5A0", "OECD" .
 <http://un.270a.info/>
-    skos:notation "1B0", "UN" , "UNDP-HDRO" .
+    skos:notation "1B0", "UN" , "UNDP-HDRO" , "UNSD" .
 <http://ecb.270a.info/>
     skos:notation "4F0" , "ECB" .
 <http://wb.270a.info/>
@@ -30,4 +30,11 @@
     skos:notation "4D0", "ESTAT", "EUROSTAT" .
 <http://bfs.270a.info/>
     skos:notation "CH1" , "FSO" , "BFS", "OFS" , "UST" .
-
+<http://dst.270a.info/>
+    skos:notation "StatisticsDenmark", "DK1" .
+<http://frb.270a.info/>
+    skos:notation "FRB", "US3" .
+<http://istat.270a.info/>
+    skos:notation "IT1" .
+<http://uis.270a.info/>
+    skos:notation "UIS" .
