@@ -25,12 +25,12 @@
     xmlns:sdmx-measure="http://purl.org/linked-data/sdmx/2009/measure#"
     xmlns:sdmx-metadata="http://purl.org/linked-data/sdmx/2009/metadata#"
     xmlns:sdmx-subject="http://purl.org/linked-data/sdmx/2009/subject#"
-    xmlns:structure="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/structure"
-    xmlns:message="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
-    xmlns:generic="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/generic"
-    xmlns:common="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/common"
+    xmlns:structure="http://www.SDMX.org/resources/SDMXML/schemas/v1_0/structure"
+    xmlns:message="http://www.SDMX.org/resources/SDMXML/schemas/v1_0/message"
+    xmlns:generic="http://www.SDMX.org/resources/SDMXML/schemas/v1_0/generic"
+    xmlns:common="http://www.SDMX.org/resources/SDMXML/schemas/v1_0/common"
 
-    xpath-default-namespace="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
+    xpath-default-namespace="http://www.SDMX.org/resources/SDMXML/schemas/v1_0/message"
     exclude-result-prefixes="xsl fn structure message generic common"
     >
 
@@ -97,8 +97,8 @@ FIXME: $pathToGenericStructure should be replaced with an HTTP URI ??? Is this i
 -->
                 <sdmx-concept:dsi><xsl:value-of select="$id"/></sdmx-concept:dsi>
 
-                <xsl:if test="@agencyID">
-                    <sdmx-concept:mAgency><xsl:value-of select="@agencyID"/></sdmx-concept:mAgency>
+                <xsl:if test="@agency">
+                    <sdmx-concept:mAgency><xsl:value-of select="@agency"/></sdmx-concept:mAgency>
                 </xsl:if>
 
                 <xsl:apply-templates select="@version"/>
@@ -127,7 +127,7 @@ FIXME: $pathToGenericStructure should be replaced with an HTTP URI ??? Is this i
     <xsl:template name="structureComponents">
         <xsl:param name="KeyFamilyID" tunnel="yes"/>
 
-        <xsl:variable name="concepts" select="structure:Components/*[@conceptRef]"/>
+        <xsl:variable name="concepts" select="structure:Components/*[@concept]"/>
 
         <xsl:variable name="SeriesKeyConceptsData" select="$SeriesKeyComponentData/*[local-name() = $KeyFamilyID]"/>
 
@@ -141,7 +141,7 @@ FIXME: This could reuse the agencyID that's determined from SeriesKeyConceptsDat
 
                 <xsl:variable name="propertyType" select="fn:getPropertyType(local-name())"/>
 
-                <xsl:variable name="conceptRef" select="@conceptRef"/>
+                <xsl:variable name="conceptRef" select="@concept"/>
 
                 <xsl:variable name="conceptPath" select="$SeriesKeyConceptsData/*[name() = $conceptRef and @componentType = $componentType]/@conceptPath"/>
 
@@ -310,7 +310,7 @@ Check where to get ConceptScheme
 
     <xsl:template name="structureConceptScheme">
         <xsl:variable name="version" select="fn:getVersion(@version)"/>
-        <xsl:variable name="conceptSchemeURI" select="concat(fn:getAgencyBase(@agencyID), $concept, $version, '/', @id)"/>
+        <xsl:variable name="conceptSchemeURI" select="concat(fn:getAgencyBase(@agency), $concept, $version, '/', @id)"/>
 
         <xsl:call-template name="provenance">
             <xsl:with-param name="provUsedA" select="resolve-uri(tokenize($xmlDocument, '/')[last()], $xmlDocumentBaseUri)"/>
@@ -358,7 +358,7 @@ XXX: Is it possible to have a Concept version that's different than the version 
                     <xsl:value-of select="concat($conceptSchemeURI, $uriThingSeparator, @id)"/>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:value-of select="concat(fn:getAgencyBase(@agencyID), $concept, $version, $uriThingSeparator, @id)"/>
+                    <xsl:value-of select="concat(fn:getAgencyBase(@agency), $concept, $version, $uriThingSeparator, @id)"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
@@ -396,8 +396,8 @@ structure:textFormat
 
     <xsl:template name="CodeLists">
         <xsl:for-each select="*[local-name() = 'CodeLists']/structure:CodeList">
-            <xsl:if test="starts-with(@agencyID, $agency) or
-                          fn:getAgencyURI(@agencyID) = fn:getAgencyURI($agency)">
+            <xsl:if test="starts-with(@agency, $agency) or
+                          fn:getAgencyURI(@agency) = fn:getAgencyURI($agency)">
 
                 <xsl:variable name="id" select="@id"/>
 
@@ -721,13 +721,13 @@ XXX: Fallback: KeyFamilyRef may not exist. Tries the DataSet id as the KeyFamily
 
                 <xsl:variable name="KeyFamily" select="$genericStructure/*[local-name() = 'KeyFamilies']/structure:KeyFamily[@id = $KeyFamilyRef]"/>
 
-                <xsl:variable name="KeyFamilyAgencyID" select="$genericStructure/*[local-name() = 'KeyFamilies']/structure:KeyFamily[@id = $KeyFamilyRef]/@agencyID"/>
+                <xsl:variable name="KeyFamilyAgencyID" select="$genericStructure/*[local-name() = 'KeyFamilies']/structure:KeyFamily[@id = $KeyFamilyRef]/@agency"/>
 
-                <xsl:variable name="concepts" select="$KeyFamily/structure:Components/*[@conceptRef]"/>
+                <xsl:variable name="concepts" select="$KeyFamily/structure:Components/*[@concept]"/>
 
-                <xsl:variable name="TimeDimensionConceptRef" select="distinct-values($KeyFamily/structure:Components/structure:TimeDimension/@conceptRef)"/>
+                <xsl:variable name="TimeDimensionConceptRef" select="distinct-values($KeyFamily/structure:Components/structure:TimeDimension/@concept)"/>
 
-                <xsl:variable name="PrimaryMeasureConceptRef" select="distinct-values($KeyFamily/structure:Components/structure:PrimaryMeasure/@conceptRef)"/>
+                <xsl:variable name="PrimaryMeasureConceptRef" select="distinct-values($KeyFamily/structure:Components/structure:PrimaryMeasure/@concept)"/>
 
                 <xsl:variable name="SeriesKeyConceptsData" select="$SeriesKeyComponentData/*[local-name() = $KeyFamilyRef]"/>
 
@@ -770,7 +770,7 @@ XXX: Fallback: KeyFamilyRef may not exist. Tries the DataSet id as the KeyFamily
                 </rdf:Description>
 
                 <xsl:variable name="SDMXSchema">
-                    <xsl:if test="/*/local-name() = 'CompactData'">
+                    <xsl:if test="/*[local-name() = 'CompactData' or local-name() = 'MessageGroup']">
                         <xsl:text>Compact</xsl:text>
                     </xsl:if>
                 </xsl:variable>

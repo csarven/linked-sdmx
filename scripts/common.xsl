@@ -15,12 +15,12 @@
     xmlns:qb="http://purl.org/linked-data/cube#"
     xmlns:sdmx-concept="http://purl.org/linked-data/sdmx/2009/concept#"
     xmlns:fn="http://270a.info/xpath-function/"
-    xmlns:structure="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/structure"
-    xmlns:message="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
-    xmlns:generic="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/generic"
-    xmlns:common="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/common"
+    xmlns:structure="http://www.SDMX.org/resources/SDMXML/schemas/v1_0/structure"
+    xmlns:message="http://www.SDMX.org/resources/SDMXML/schemas/v1_0/message"
+    xmlns:generic="http://www.SDMX.org/resources/SDMXML/schemas/v1_0/generic"
+    xmlns:common="http://www.SDMX.org/resources/SDMXML/schemas/v1_0/common"
 
-    xpath-default-namespace="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
+    xpath-default-namespace="http://www.SDMX.org/resources/SDMXML/schemas/v1_0/message"
     exclude-result-prefixes="xs xsl fn structure message generic common"
     >
 
@@ -471,7 +471,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
                 </xsl:when>
                 <!-- Best bet if Concept is in the same document -->
                 <xsl:otherwise>
-                    <xsl:variable name="Concept" select="$doc/*[local-name() = 'Concepts']//structure:Concept[@id = $node/@conceptRef]"/>
+                    <xsl:variable name="Concept" select="$doc/*[local-name() = 'Concepts']//structure:Concept[@id = $node/@concept]"/>
 
                     <xsl:if test="count($Concept) = 1">
                         <xsl:choose>
@@ -537,14 +537,14 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
             <xsl:for-each select="$genericStructure/*[local-name() = 'KeyFamilies']/structure:KeyFamily">
                 <xsl:variable name="KeyFamilyRef" select="@id"/>
 
-                <xsl:variable name="concepts" select="structure:Components/*[@conceptRef]"/>
+                <xsl:variable name="concepts" select="structure:Components/*[@concept]"/>
 
                 <xsl:element name="{$KeyFamilyRef}">
                     <xsl:for-each select="$concepts">
-                        <xsl:variable name="conceptRef" select="@conceptRef"/>
+                        <xsl:variable name="conceptRef" select="@concept"/>
 
                         <xsl:element name="{$conceptRef}">
-        <!--                    <xsl:variable name="Component" select="$genericStructure/*[local-name() = 'KeyFamilies']/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/*[@conceptRef = $conceptRef][1]"/>-->
+        <!--                    <xsl:variable name="Component" select="$genericStructure/*[local-name() = 'KeyFamilies']/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/*[@concept = $conceptRef][1]"/>-->
 
                             <xsl:variable name="componentType">
                                 <xsl:value-of select="local-name()"/>
@@ -586,7 +586,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
                                 <xsl:value-of select="$conceptAgency"/>
                             </xsl:attribute>
 
-                            <xsl:variable name="conceptSchemeRef" select="@conceptRefSchemeRef"/>
+                            <xsl:variable name="conceptSchemeRef" select="@conceptSchemeRef"/>
                             <xsl:variable name="conceptScheme">
                                 <xsl:choose>
                                     <xsl:when test="$conceptSchemeRef">
@@ -610,8 +610,8 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
 
                             <xsl:variable name="conceptVersion">
                                 <xsl:choose>
-                                    <xsl:when test="@conceptRefVersion">
-                                        <xsl:value-of select="@conceptRefVersion"/>
+                                    <xsl:when test="@conceptVersion">
+                                        <xsl:value-of select="@conceptVersion"/>
                                     </xsl:when>
                                     <xsl:otherwise>
         <!--
