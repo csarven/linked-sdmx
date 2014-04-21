@@ -670,6 +670,32 @@ XXX:
 
         <xsl:for-each select="*/*[local-name() = 'DataSet']">
             <xsl:if test="*[local-name() = 'Series'] or */*[local-name() = 'Series'] or */*[local-name() = Group]/*[local-name() = 'Series']">
+<!-- FIXME: WTF did I just come up with every case combination for "datasetid"? -->
+                <xsl:variable name="datasetID">
+                    <xsl:choose>
+                        <!-- from generic data -->
+                        <xsl:when test="@datasetID != ''">
+                            <xsl:value-of select="@datasetID"/>
+                        </xsl:when>
+                        <!-- passed parameter -->
+                        <xsl:when test="$dataSetID != ''">
+                            <xsl:value-of select="$dataSetID"/>
+                        </xsl:when>
+                        <!-- from compact data? -->
+                        <xsl:when test="$DataSetID != ''">
+                            <xsl:value-of select="$DataSetID"/>
+                        </xsl:when>
+                        <!-- from SDMXv1.0 compact data -->
+                        <xsl:when test="@id != ''">
+                            <xsl:value-of select="@id"/>
+                        </xsl:when>
+                        <!-- last resort -->
+                        <xsl:otherwise>
+                            <xsl:value-of select="generic:KeyFamilyRef"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:variable>
+
                 <xsl:variable name="KeyFamilyRef">
                     <xsl:choose>
                         <xsl:when test="generic:KeyFamilyRef">
@@ -699,28 +725,6 @@ XXX: Fallback: KeyFamilyRef may not exist. But this is inaccurate if there are m
                 <xsl:for-each select="$SeriesKeyConceptsData/*">
                     <xsl:namespace name="{@propertyPrefix}" select="@propertyNamespace"/>
                 </xsl:for-each>
-
-<!-- FIXME: WTF did I just come up with every case combination for "datasetid"? -->
-                <xsl:variable name="datasetID">
-                    <xsl:choose>
-                        <!-- from generic data -->
-                        <xsl:when test="@datasetID != ''">
-                            <xsl:value-of select="@datasetID"/>
-                        </xsl:when>
-                        <!-- passed parameter -->
-                        <xsl:when test="$dataSetID != ''">
-                            <xsl:value-of select="$dataSetID"/>
-                        </xsl:when>
-                        <!-- from compact data? -->
-                        <xsl:when test="$DataSetID != ''">
-                            <xsl:value-of select="$DataSetID"/>
-                        </xsl:when>
-                        <!-- last resort -->
-                        <xsl:otherwise>
-                            <xsl:value-of select="$KeyFamilyRef"/>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                </xsl:variable>
 
                 <xsl:variable name="datasetURI">
                     <xsl:value-of select="$dataset"/>
