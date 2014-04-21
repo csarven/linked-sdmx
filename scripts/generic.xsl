@@ -46,9 +46,14 @@
     <xsl:variable name="genericStructure" select="document($pathToGenericStructure)/Structure | document($pathToGenericStructure)/RegistryInterface/QueryStructureResponse"/>
     <xsl:variable name="dataflowStructure" select="document($pathToDataflow)/Structure"/>
 
+    <xsl:variable name="SeriesKeyComponentData" select="fn:createSeriesKeyComponentData()"/>
 
     <xsl:template match="/">
         <rdf:RDF xml:base="{$agencyURI}">
+            <xsl:for-each select="$SeriesKeyComponentData/*/*">
+                <xsl:namespace name="{@propertyPrefix}" select="@propertyNamespace"/>
+            </xsl:for-each>
+
             <xsl:for-each select="Structure | RegistryInterface/QueryStructureResponse">
                 <xsl:call-template name="KeyFamily"/>
 
@@ -124,7 +129,7 @@ FIXME: $pathToGenericStructure should be replaced with an HTTP URI ??? Is this i
 
         <xsl:variable name="concepts" select="structure:Components/*[@conceptRef]"/>
 
-        <xsl:variable name="SeriesKeyConceptsData" select="fn:createSeriesKeyComponentData($concepts, $KeyFamilyID)"/>
+        <xsl:variable name="SeriesKeyConceptsData" select="$SeriesKeyComponentData/*[local-name() = $KeyFamilyID]"/>
 
         <xsl:for-each select="structure:Components/*[local-name() != 'Group']">
 <!--
@@ -705,13 +710,14 @@ XXX:
 XXX: Fallback: KeyFamilyRef may not exist. Tries the DataSet id as the KeyFamily id, otherwise takes the first available key (which is last resort)
 -->
                         <xsl:when test="@id != '' and $genericStructure/*[local-name() = 'KeyFamilies']/structure:KeyFamily/@id = @id">
-                            <xsl:value-of select="$genericStructure/*[local-name() = 'KeyFamilies']/structure:KeyFamily/@id"/>
+                            <xsl:value-of select="@id"/>
                         </xsl:when>
                         <xsl:otherwise>
                             <xsl:value-of select="$genericStructure/*[local-name() = 'KeyFamilies']/structure:KeyFamily[1]/@id"/>
                         </xsl:otherwise>
                     </xsl:choose>
                 </xsl:variable>
+
 
                 <xsl:variable name="KeyFamily" select="$genericStructure/*[local-name() = 'KeyFamilies']/structure:KeyFamily[@id = $KeyFamilyRef]"/>
 
@@ -723,11 +729,7 @@ XXX: Fallback: KeyFamilyRef may not exist. Tries the DataSet id as the KeyFamily
 
                 <xsl:variable name="PrimaryMeasureConceptRef" select="distinct-values($KeyFamily/structure:Components/structure:PrimaryMeasure/@conceptRef)"/>
 
-                <xsl:variable name="SeriesKeyConceptsData" select="fn:createSeriesKeyComponentData($concepts, $KeyFamilyRef)"/>
-
-                <xsl:for-each select="$SeriesKeyConceptsData/*">
-                    <xsl:namespace name="{@propertyPrefix}" select="@propertyNamespace"/>
-                </xsl:for-each>
+                <xsl:variable name="SeriesKeyConceptsData" select="$SeriesKeyComponentData/*[local-name() = $KeyFamilyRef]"/>
 
                 <xsl:variable name="datasetURI">
                     <xsl:value-of select="$dataset"/>
@@ -1078,7 +1080,7 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
                             <xsl:if test="$ObsTime != '' and $TimeDimensionConceptRef != ''">
                                 <xsl:variable name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[lower-case(name()) = lower-case($TimeDimensionConceptRef) and (@componentType = 'TimeDimension' or @propertyType = 'property')]"/>
 
-                                <xsl:element name="{$SeriesKeyConcept/@propertyPrefix}" namespace="{$SeriesKeyConcept/@propertyNamespace}">
+                                <xsl:element name="{$SeriesKeyConcept/@propertyPrefix}:{$TimeDimensionConceptRef}" namespace="{$SeriesKeyConcept/@propertyNamespace}">
                                     <xsl:variable name="resourceRefPeriod" select="fn:getResourceRefPeriod($ObsTime)"/>
 
                                     <xsl:choose>

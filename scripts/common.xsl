@@ -475,11 +475,11 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
 
                     <xsl:if test="count($Concept) = 1">
                         <xsl:choose>
-                            <xsl:when test="$Concept/@agencyID">
-                                <xsl:value-of select="$Concept/@agencyID"/>
+                            <xsl:when test="$Concept/@agency">
+                                <xsl:value-of select="$Concept/@agency"/>
                             </xsl:when>
-                            <xsl:when test="$Concept/../structure:ConceptScheme[@agencyID]/@agencyID">
-                                <xsl:value-of select="$Concept/../structure:ConceptScheme[@agencyID]/@agencyID"/>
+                            <xsl:when test="$Concept/../structure:ConceptScheme[@agency]/@agency">
+                                <xsl:value-of select="$Concept/../structure:ConceptScheme[@agency]/@agency"/>
                             </xsl:when>
                             <xsl:otherwise>
                             </xsl:otherwise>
@@ -495,7 +495,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
             </xsl:when>
             <!-- Fallback -->
             <xsl:otherwise>
-                <xsl:value-of select="$doc/*[local-name() = 'KeyFamilies']/structure:KeyFamily[1]/@agencyID"/>
+                <xsl:value-of select="$doc/*[local-name() = 'KeyFamilies']/structure:KeyFamily[1]/@agency"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
@@ -514,7 +514,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
                     <xsl:variable name="CodeList" select="$doc/*[local-name() = 'CodeLists']//structure:CodeList[@id = $node/@codelist]"/>
 
                     <xsl:if test="count($CodeList) = 1">
-                        <xsl:value-of select="$CodeList/@agencyID"/>
+                        <xsl:value-of select="$CodeList/@agency"/>
                     </xsl:if>
                 </xsl:otherwise>
             </xsl:choose>
@@ -526,163 +526,168 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
             </xsl:when>
             <!-- Fallback -->
             <xsl:otherwise>
-                <xsl:value-of select="$doc/*[local-name() = 'KeyFamilies']/structure:KeyFamily[1]/@agencyID"/>
+                <xsl:value-of select="$doc/*[local-name() = 'KeyFamilies']/structure:KeyFamily[1]/@agency"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
 
 
     <xsl:function name="fn:createSeriesKeyComponentData">
-        <xsl:param name="concepts"/>
-        <xsl:param name="KeyFamilyRef"/>
-
         <rdf:RDF>
-            <xsl:for-each select="$concepts">
-                <xsl:variable name="conceptRef" select="@conceptRef"/>
+            <xsl:for-each select="$genericStructure/*[local-name() = 'KeyFamilies']/structure:KeyFamily">
+                <xsl:variable name="KeyFamilyRef" select="@id"/>
 
-                <xsl:element name="{$conceptRef}">
-<!--                    <xsl:variable name="Component" select="$genericStructure/*[local-name() = 'KeyFamilies']/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/*[@conceptRef = $conceptRef][1]"/>-->
+                <xsl:variable name="concepts" select="structure:Components/*[@conceptRef]"/>
 
-                    <xsl:variable name="componentType">
-                        <xsl:value-of select="local-name()"/>
-                    </xsl:variable>
-                    <xsl:attribute name="componentType">
-                        <xsl:value-of select="$componentType"/>
-                    </xsl:attribute>
+                <xsl:element name="{$KeyFamilyRef}">
+                    <xsl:for-each select="$concepts">
+                        <xsl:variable name="conceptRef" select="@conceptRef"/>
 
-                    <xsl:attribute name="conceptRole">
-                        <xsl:value-of select="fn:getConceptRole(.)"/>
-                    </xsl:attribute>
+                        <xsl:element name="{$conceptRef}">
+        <!--                    <xsl:variable name="Component" select="$genericStructure/*[local-name() = 'KeyFamilies']/structure:KeyFamily[@id = $KeyFamilyRef]/structure:Components/*[@conceptRef = $conceptRef][1]"/>-->
 
-                    <xsl:variable name="codelist" select="@codelist"/>
-                    <xsl:attribute name="codelist">
-                        <xsl:value-of select="$codelist"/>
-                    </xsl:attribute>
+                            <xsl:variable name="componentType">
+                                <xsl:value-of select="local-name()"/>
+                            </xsl:variable>
+                            <xsl:attribute name="componentType">
+                                <xsl:value-of select="$componentType"/>
+                            </xsl:attribute>
 
-                    <xsl:variable name="codelistAgency" select="fn:getCodeListAgencyID($genericStructure, .)"/>
+                            <xsl:attribute name="conceptRole">
+                                <xsl:value-of select="fn:getConceptRole(.)"/>
+                            </xsl:attribute>
 
-                    <xsl:attribute name="codelistAgency">
-                        <xsl:value-of select="$codelistAgency"/>
-                    </xsl:attribute>
+                            <xsl:variable name="codelist" select="@codelist"/>
+                            <xsl:attribute name="codelist">
+                                <xsl:value-of select="$codelist"/>
+                            </xsl:attribute>
 
-                    <xsl:attribute name="codelistVersion">
-                        <xsl:choose>
-                            <xsl:when test="@codelistVersion">
-                                <xsl:value-of select="@codelistVersion"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:value-of select="fn:getVersion($genericStructure/*[local-name() = 'CodeLists']//structure:CodeList[@id = $codelist and @agencyID = $codelistAgency]/@version)"/>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </xsl:attribute>
+                            <xsl:variable name="codelistAgency" select="fn:getCodeListAgencyID($genericStructure, .)"/>
 
-                    <xsl:variable name="conceptAgency">
-                        <xsl:value-of select="fn:getConceptAgencyID($genericStructure, .)"/>
-                    </xsl:variable>
-                    <xsl:attribute name="conceptAgency">
-                        <xsl:value-of select="$conceptAgency"/>
-                    </xsl:attribute>
+                            <xsl:attribute name="codelistAgency">
+                                <xsl:value-of select="$codelistAgency"/>
+                            </xsl:attribute>
 
-                    <xsl:variable name="conceptSchemeRef" select="@conceptSchemeRef"/>
-                    <xsl:variable name="conceptScheme">
-                        <xsl:choose>
-                            <xsl:when test="$conceptSchemeRef">
-                                <xsl:value-of select="$conceptSchemeRef"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:value-of select="$genericStructure/*[local-name() = 'Concepts']//structure:Concept[@id = $concept]/../@id"/>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </xsl:variable>
-
-                    <xsl:attribute name="conceptScheme">
-                        <xsl:value-of select="$conceptScheme"/>
-                    </xsl:attribute>
-
-                    <xsl:variable name="conceptSchemePath">
-                        <xsl:if test="$conceptScheme != ''">
-                            <xsl:value-of select="concat('/', $conceptScheme)"/>
-                        </xsl:if>
-                    </xsl:variable>
-
-                    <xsl:variable name="conceptVersion">
-                        <xsl:choose>
-                            <xsl:when test="@conceptVersion">
-                                <xsl:value-of select="@conceptVersion"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-<!--
-TODO: This should probably get the version from ConceptScheme just as the structureConcept template
--->
-                                <xsl:value-of select="fn:getVersion($genericStructure/*[local-name() = 'Concepts']//structure:Concept[@id = $concept]/@version)"/>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </xsl:variable>
-                    <xsl:attribute name="conceptVersion">
-                        <xsl:value-of select="$conceptVersion"/>
-                    </xsl:attribute>
-
-                    <xsl:variable name="conceptPathWOConceptRef" select="concat($conceptVersion, $conceptSchemePath)"/>
-
-                    <xsl:variable name="conceptPath" select="concat($conceptPathWOConceptRef, $uriThingSeparator, $conceptRef)"/>
-                    <xsl:attribute name="conceptPath">
-                        <xsl:value-of select="$conceptPath"/>
-                    </xsl:attribute>
-
-                    <xsl:variable name="conceptURI" select="concat(fn:getAgencyBase($conceptAgency), $concept, $conceptPath)"/>
-                    <xsl:attribute name="conceptURI">
-                        <xsl:value-of select="$conceptURI"/>
-                    </xsl:attribute>
-
-                    <xsl:variable name="propertyType" select="fn:getPropertyType($componentType)"/>
-                    <xsl:attribute name="propertyType">
-                        <xsl:value-of select="$propertyType"/>
-                    </xsl:attribute>
-
-                    <xsl:variable name="nodeId" select="generate-id(.)"/>
-                    <xsl:attribute name="nodeId">
-                        <xsl:value-of select="$nodeId"/>
-                    </xsl:attribute>
-
-                    <xsl:variable name="propertyPrefix" select="fn:getPropertyType($componentType)"/>
-                    <xsl:attribute name="propertyPrefix">
-                        <xsl:value-of select="concat(substring($propertyType, 1, 1), '-', substring($nodeId, string-length($nodeId)-2))"/>
-                    </xsl:attribute>
-
-
-                    <xsl:variable name="componentBase" select="fn:getComponentBase($propertyType, $conceptAgency)"/>
-                    <xsl:variable name="propertyNamespace">
-                        <xsl:choose>
-                            <xsl:when test="$useSeparateProperties = 'true'">
+                            <xsl:attribute name="codelistVersion">
                                 <xsl:choose>
-                                    <xsl:when test="$componentBase = $propertyType">
-                                        <xsl:value-of select="concat($agencyURI, $componentBase, '/', $conceptPathWOConceptRef, $uriThingSeparator)"/>
+                                    <xsl:when test="@codelistVersion">
+                                        <xsl:value-of select="@codelistVersion"/>
                                     </xsl:when>
                                     <xsl:otherwise>
-                                        <xsl:value-of select="concat($componentBase, '/', $conceptPathWOConceptRef, $uriThingSeparator)"/>
+                                        <xsl:value-of select="fn:getVersion($genericStructure/*[local-name() = 'CodeLists']//structure:CodeList[@id = $codelist and @agency = $codelistAgency]/@version)"/>
                                     </xsl:otherwise>
                                 </xsl:choose>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <!-- TODO: -->
-                                <xsl:value-of select="$property"/>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </xsl:variable>
-                    <xsl:attribute name="propertyNamespace">
-                        <xsl:value-of select="$propertyNamespace"/>
-                    </xsl:attribute>
+                            </xsl:attribute>
 
-                    <xsl:variable name="componentProperty">
-                        <xsl:value-of select="concat($componentBase, '/', $conceptPath)"/>
-                    </xsl:variable>
-                    <xsl:attribute name="componentProperty">
-                        <xsl:value-of select="$componentProperty"/>
-                    </xsl:attribute>
+                            <xsl:variable name="conceptAgency">
+                                <xsl:value-of select="fn:getConceptAgencyID($genericStructure, .)"/>
+                            </xsl:variable>
+                            <xsl:attribute name="conceptAgency">
+                                <xsl:value-of select="$conceptAgency"/>
+                            </xsl:attribute>
 
-                    <xsl:attribute name="datatype">
-                        <xsl:value-of select="fn:getXSDType(structure:TextFormat/@textType)"/>
-                    </xsl:attribute>
+                            <xsl:variable name="conceptSchemeRef" select="@conceptRefSchemeRef"/>
+                            <xsl:variable name="conceptScheme">
+                                <xsl:choose>
+                                    <xsl:when test="$conceptSchemeRef">
+                                        <xsl:value-of select="$conceptSchemeRef"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="$genericStructure/*[local-name() = 'Concepts']//structure:Concept[@id = $concept]/../@id"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </xsl:variable>
+
+                            <xsl:attribute name="conceptScheme">
+                                <xsl:value-of select="$conceptScheme"/>
+                            </xsl:attribute>
+
+                            <xsl:variable name="conceptSchemePath">
+                                <xsl:if test="$conceptScheme != ''">
+                                    <xsl:value-of select="concat('/', $conceptScheme)"/>
+                                </xsl:if>
+                            </xsl:variable>
+
+                            <xsl:variable name="conceptVersion">
+                                <xsl:choose>
+                                    <xsl:when test="@conceptRefVersion">
+                                        <xsl:value-of select="@conceptRefVersion"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+        <!--
+        TODO: This should probably get the version from ConceptScheme just as the structureConcept template
+        -->
+                                        <xsl:value-of select="fn:getVersion($genericStructure/*[local-name() = 'Concepts']//structure:Concept[@id = $concept]/@version)"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </xsl:variable>
+                            <xsl:attribute name="conceptVersion">
+                                <xsl:value-of select="$conceptVersion"/>
+                            </xsl:attribute>
+
+                            <xsl:variable name="conceptPathWOConceptRef" select="concat($conceptVersion, $conceptSchemePath)"/>
+
+                            <xsl:variable name="conceptPath" select="concat($conceptPathWOConceptRef, $uriThingSeparator, $conceptRef)"/>
+                            <xsl:attribute name="conceptPath">
+                                <xsl:value-of select="$conceptPath"/>
+                            </xsl:attribute>
+
+                            <xsl:variable name="conceptURI" select="concat(fn:getAgencyBase($conceptAgency), $concept, $conceptPath)"/>
+                            <xsl:attribute name="conceptURI">
+                                <xsl:value-of select="$conceptURI"/>
+                            </xsl:attribute>
+
+                            <xsl:variable name="propertyType" select="fn:getPropertyType($componentType)"/>
+                            <xsl:attribute name="propertyType">
+                                <xsl:value-of select="$propertyType"/>
+                            </xsl:attribute>
+
+                            <xsl:variable name="nodeId" select="generate-id(.)"/>
+                            <xsl:attribute name="nodeId">
+                                <xsl:value-of select="$nodeId"/>
+                            </xsl:attribute>
+
+                            <xsl:variable name="propertyPrefix" select="fn:getPropertyType($componentType)"/>
+                            <xsl:attribute name="propertyPrefix">
+                                <xsl:value-of select="concat(substring($propertyType, 1, 1), '-', substring($nodeId, string-length($nodeId)-3))"/>
+                            </xsl:attribute>
+
+
+                            <xsl:variable name="componentBase" select="fn:getComponentBase($propertyType, $conceptAgency)"/>
+                            <xsl:variable name="propertyNamespace">
+                                <xsl:choose>
+                                    <xsl:when test="$useSeparateProperties = 'true'">
+                                        <xsl:choose>
+                                            <xsl:when test="$componentBase = $propertyType">
+                                                <xsl:value-of select="concat($agencyURI, $componentBase, '/', $conceptPathWOConceptRef, $uriThingSeparator)"/>
+                                            </xsl:when>
+                                            <xsl:otherwise>
+                                                <xsl:value-of select="concat($componentBase, '/', $conceptPathWOConceptRef, $uriThingSeparator)"/>
+                                            </xsl:otherwise>
+                                        </xsl:choose>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <!-- TODO: -->
+                                        <xsl:value-of select="$property"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </xsl:variable>
+                            <xsl:attribute name="propertyNamespace">
+                                <xsl:value-of select="$propertyNamespace"/>
+                            </xsl:attribute>
+
+                            <xsl:variable name="componentProperty">
+                                <xsl:value-of select="concat($componentBase, '/', $conceptPath)"/>
+                            </xsl:variable>
+                            <xsl:attribute name="componentProperty">
+                                <xsl:value-of select="$componentProperty"/>
+                            </xsl:attribute>
+
+                            <xsl:attribute name="datatype">
+                                <xsl:value-of select="fn:getXSDType(structure:TextFormat/@textType)"/>
+                            </xsl:attribute>
+                        </xsl:element>
+                    </xsl:for-each>
                 </xsl:element>
             </xsl:for-each>
         </rdf:RDF>
