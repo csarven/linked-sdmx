@@ -540,6 +540,14 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
                 <xsl:variable name="concepts" select="structure:Components/*[@conceptRef]"/>
 
                 <xsl:element name="{$KeyFamilyRef}">
+                    <xsl:attribute name="agencyID">
+                        <xsl:value-of select="@agencyID"/>
+                    </xsl:attribute>
+
+                    <xsl:attribute name="version">
+                        <xsl:value-of select="fn:getVersion(@version)"/>
+                    </xsl:attribute>
+
                     <xsl:for-each select="$concepts">
                         <xsl:variable name="conceptRef" select="@conceptRef"/>
 
