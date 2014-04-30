@@ -475,11 +475,11 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
 
                     <xsl:if test="count($Concept) = 1">
                         <xsl:choose>
-                            <xsl:when test="$Concept/@agency">
-                                <xsl:value-of select="$Concept/@agency"/>
+                            <xsl:when test="$Concept/@agencyID">
+                                <xsl:value-of select="$Concept/@agencyID"/>
                             </xsl:when>
-                            <xsl:when test="$Concept/../structure:ConceptScheme[@agency]/@agency">
-                                <xsl:value-of select="$Concept/../structure:ConceptScheme[@agency]/@agency"/>
+                            <xsl:when test="$Concept/../structure:ConceptScheme[@agencyID]/@agencyID">
+                                <xsl:value-of select="$Concept/../structure:ConceptScheme[@agencyID]/@agencyID"/>
                             </xsl:when>
                             <xsl:otherwise>
                             </xsl:otherwise>
@@ -495,7 +495,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
             </xsl:when>
             <!-- Fallback -->
             <xsl:otherwise>
-                <xsl:value-of select="$doc/*[local-name() = 'KeyFamilies']/structure:KeyFamily[1]/@agency"/>
+                <xsl:value-of select="$doc/*[local-name() = 'KeyFamilies']/structure:KeyFamily[1]/@agencyID"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
@@ -514,7 +514,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
                     <xsl:variable name="CodeList" select="$doc/*[local-name() = 'CodeLists']//structure:CodeList[@id = $node/@codelist]"/>
 
                     <xsl:if test="count($CodeList) = 1">
-                        <xsl:value-of select="$CodeList/@agency"/>
+                        <xsl:value-of select="$CodeList/@agencyID"/>
                     </xsl:if>
                 </xsl:otherwise>
             </xsl:choose>
@@ -526,7 +526,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
             </xsl:when>
             <!-- Fallback -->
             <xsl:otherwise>
-                <xsl:value-of select="$doc/*[local-name() = 'KeyFamilies']/structure:KeyFamily[1]/@agency"/>
+                <xsl:value-of select="$doc/*[local-name() = 'KeyFamilies']/structure:KeyFamily[1]/@agencyID"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
@@ -582,7 +582,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
                                         <xsl:value-of select="@codelistVersion"/>
                                     </xsl:when>
                                     <xsl:otherwise>
-                                        <xsl:value-of select="fn:getVersion($genericStructure/*[local-name() = 'CodeLists']//structure:CodeList[@id = $codelist and @agency = $codelistAgency]/@version)"/>
+                                        <xsl:value-of select="fn:getVersion($genericStructure/*[local-name() = 'CodeLists']//structure:CodeList[@id = $codelist and @agencyID = $codelistAgency]/@version)"/>
                                     </xsl:otherwise>
                                 </xsl:choose>
                             </xsl:attribute>
@@ -594,7 +594,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
                                 <xsl:value-of select="$conceptAgency"/>
                             </xsl:attribute>
 
-                            <xsl:variable name="conceptSchemeRef" select="@conceptRefSchemeRef"/>
+                            <xsl:variable name="conceptSchemeRef" select="@conceptSchemeRef"/>
                             <xsl:variable name="conceptScheme">
                                 <xsl:choose>
                                     <xsl:when test="$conceptSchemeRef">
@@ -618,8 +618,8 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
 
                             <xsl:variable name="conceptVersion">
                                 <xsl:choose>
-                                    <xsl:when test="@conceptRefVersion">
-                                        <xsl:value-of select="@conceptRefVersion"/>
+                                    <xsl:when test="@conceptVersion">
+                                        <xsl:value-of select="@conceptVersion"/>
                                     </xsl:when>
                                     <xsl:otherwise>
         <!--
