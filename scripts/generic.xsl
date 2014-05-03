@@ -46,11 +46,11 @@
     <xsl:variable name="genericStructure" select="document($pathToGenericStructure)/Structure | document($pathToGenericStructure)/RegistryInterface/QueryStructureResponse"/>
     <xsl:variable name="dataflowStructure" select="document($pathToDataflow)/Structure"/>
 
-    <xsl:variable name="SeriesKeyComponentData" select="fn:createSeriesKeyComponentData()"/>
+    <xsl:variable name="StructureData" select="fn:createStructureData()"/>
 
     <xsl:template match="/">
         <rdf:RDF xml:base="{$agencyURI}">
-            <xsl:for-each select="$SeriesKeyComponentData/*/*">
+            <xsl:for-each select="$StructureData/*/*">
                 <xsl:namespace name="{@propertyPrefix}" select="@propertyNamespace"/>
             </xsl:for-each>
 
@@ -76,7 +76,9 @@
             <xsl:variable name="version" select="fn:getVersion(@version)"/>
             <xsl:variable name="agencyID" select="@agencyID"/>
 
-            <xsl:variable name="structureURI" select="concat(fn:getAgencyBase($agencyID), $structure, $version, $uriThingSeparator, $id)"/>
+            <xsl:variable name="structureData" select="$StructureData/*[local-name() = $id and @agencyID = $agencyID and @version = $version]"/>
+
+            <xsl:variable name="structureURI" select="$structureData/@structureURI"/>
 
 <!--
 FIXME: $pathToGenericStructure should be replaced with an HTTP URI ??? Is this irrelevant now?
@@ -130,7 +132,7 @@ FIXME: $pathToGenericStructure should be replaced with an HTTP URI ??? Is this i
         <xsl:param name="agencyID" tunnel="yes"/>
         <xsl:param name="version" tunnel="yes"/>
 
-        <xsl:variable name="SeriesKeyConceptsData" select="$SeriesKeyComponentData/*[local-name() = $KeyFamilyID and @agencyID = $agencyID and @version = $version]"/>
+        <xsl:variable name="structureData" select="$StructureData/*[local-name() = $KeyFamilyID and @agencyID = $agencyID and @version = $version]"/>
 
         <xsl:for-each select="structure:Components/*[local-name() != 'Group']">
             <qb:component>
@@ -140,7 +142,7 @@ FIXME: $pathToGenericStructure should be replaced with an HTTP URI ??? Is this i
 
                 <xsl:variable name="conceptRef" select="@conceptRef"/>
 
-                <xsl:variable name="C" select="$SeriesKeyConceptsData/*[name() = $conceptRef and @componentType = $componentType]"/>
+                <xsl:variable name="C" select="$structureData/*[name() = $conceptRef and @componentType = $componentType]"/>
 
                 <xsl:variable name="conceptPath" select="$C/@conceptPath"/>
 
@@ -196,7 +198,7 @@ Should we give any special treatment to TimeDimension even though qb currently d
                                         </rdf:Description>
                                     </qb:concept>
                                     <xsl:call-template name="qbCodeListrdfsRange">
-                                        <xsl:with-param name="concept" select="$SeriesKeyConceptsData/*[name() = $conceptRef and @componentType = $componentType]" tunnel="yes"/>
+                                        <xsl:with-param name="concept" select="$structureData/*[name() = $conceptRef and @componentType = $componentType]" tunnel="yes"/>
                                     </xsl:call-template>
                                     <xsl:call-template name="ConceptLabels">
                                         <xsl:with-param name="Concept" select="$Concept"/>
@@ -257,7 +259,7 @@ Multiple measures
                                         </rdf:Description>
                                     </qb:concept>
                                     <xsl:call-template name="qbCodeListrdfsRange">
-                                        <xsl:with-param name="concept" select="$SeriesKeyConceptsData/*[name() = $conceptRef and @componentType = $componentType]" tunnel="yes"/>
+                                        <xsl:with-param name="concept" select="$structureData/*[name() = $conceptRef and @componentType = $componentType]" tunnel="yes"/>
                                     </xsl:call-template>
                                     <xsl:call-template name="ConceptLabels">
                                         <xsl:with-param name="Concept" select="$Concept"/>
@@ -308,7 +310,7 @@ FIXME: Is this somehow for qb:Dimension?
 
                     <xsl:for-each select="structure:DimensionRef">
                         <xsl:variable name="conceptRef" select="normalize-space(.)"/>
-                        <qb:componentProperty rdf:resource="{$SeriesKeyConceptsData/*[name() = $conceptRef and @propertyType = 'dimension']/@componentProperty}"/>
+                        <qb:componentProperty rdf:resource="{$structureData/*[name() = $conceptRef and @propertyType = 'dimension']/@componentProperty}"/>
                     </xsl:for-each>
                 </rdf:Description>
             </qb:sliceKey>
@@ -752,7 +754,7 @@ XXX: Fallback: KeyFamilyRef may not exist. Tries the DataSet id as the KeyFamily
 
                 <xsl:variable name="PrimaryMeasureConceptRef" select="distinct-values($KeyFamily/structure:Components/structure:PrimaryMeasure/@conceptRef)"/>
 
-                <xsl:variable name="SeriesKeyConceptsData" select="$SeriesKeyComponentData/*[local-name() = $KeyFamilyRef]"/>
+                <xsl:variable name="structureData" select="$StructureData/*[local-name() = $KeyFamilyRef]"/>
 
                 <xsl:variable name="datasetURI">
                     <xsl:value-of select="$dataset"/>
@@ -809,7 +811,7 @@ XXX: Fallback: KeyFamilyRef may not exist. Tries the DataSet id as the KeyFamily
                         <xsl:with-param name="KeyFamilyRef" select="$KeyFamilyRef" tunnel="yes"/>
                         <xsl:with-param name="KeyFamilyAgencyID" select="$KeyFamilyAgencyID" tunnel="yes"/>
                         <xsl:with-param name="datasetURI" select="$datasetURI" tunnel="yes"/>
-                        <xsl:with-param name="SeriesKeyConceptsData" select="$SeriesKeyConceptsData" tunnel="yes"/>
+                        <xsl:with-param name="structureData" select="$structureData" tunnel="yes"/>
                         <xsl:with-param name="TimeDimensionConceptRef" select="$TimeDimensionConceptRef" tunnel="yes"/>
                         <xsl:with-param name="PrimaryMeasureConceptRef" select="$PrimaryMeasureConceptRef" tunnel="yes"/>
                         <xsl:with-param name="SDMXSchema" select="$SDMXSchema" tunnel="yes"/>
@@ -821,7 +823,7 @@ XXX: Fallback: KeyFamilyRef may not exist. Tries the DataSet id as the KeyFamily
                     <xsl:with-param name="KeyFamilyRef" select="$KeyFamilyRef" tunnel="yes"/>
                     <xsl:with-param name="KeyFamilyAgencyID" select="$KeyFamilyAgencyID" tunnel="yes"/>
                     <xsl:with-param name="datasetURI" select="$datasetURI" tunnel="yes"/>
-                    <xsl:with-param name="SeriesKeyConceptsData" select="$SeriesKeyConceptsData" tunnel="yes"/>
+                    <xsl:with-param name="structureData" select="$structureData" tunnel="yes"/>
                     <xsl:with-param name="TimeDimensionConceptRef" select="$TimeDimensionConceptRef" tunnel="yes"/>
                     <xsl:with-param name="PrimaryMeasureConceptRef" select="$PrimaryMeasureConceptRef" tunnel="yes"/>
                     <xsl:with-param name="SDMXSchema" select="$SDMXSchema" tunnel="yes"/>
@@ -836,7 +838,7 @@ XXX: Fallback: KeyFamilyRef may not exist. Tries the DataSet id as the KeyFamily
         <xsl:param name="KeyFamilyRef" tunnel="yes"/>
         <xsl:param name="KeyFamilyAgencyID" tunnel="yes"/>
         <xsl:param name="datasetURI" tunnel="yes"/>
-        <xsl:param name="SeriesKeyConceptsData" tunnel="yes"/>
+        <xsl:param name="structureData" tunnel="yes"/>
         <xsl:param name="TimeDimensionConceptRef" tunnel="yes"/>
         <xsl:param name="PrimaryMeasureConceptRef" tunnel="yes"/>
         <xsl:param name="SDMXSchema" tunnel="yes"/>
@@ -865,7 +867,7 @@ Use FrequencyDimension="true" from KeyFamily Component
                                     <xsl:for-each select="$ValuesWOFreq">
                                         <xsl:variable name="concept" select="@concept"/>
                                         <xsl:call-template name="ObsProperty">
-                                            <xsl:with-param name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[lower-case(name()) = lower-case($concept) and (@componentType = 'Dimension' or @propertyType = 'property')]"/>
+                                            <xsl:with-param name="SeriesKeyConcept" select="$structureData/*[lower-case(name()) = lower-case($concept) and (@componentType = 'Dimension' or @propertyType = 'property')]"/>
                                             <xsl:with-param name="value" select="@value"/>
                                         </xsl:call-template>
                                     </xsl:for-each>
@@ -911,7 +913,7 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
 
                             <xsl:if test="not(contains($omitComponents, lower-case($concept)))">
                                 <xsl:call-template name="ObsProperty">
-                                    <xsl:with-param name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[lower-case(name()) = lower-case($concept) and (@componentType = 'Attribute' or @propertyType = 'property')]"/>
+                                    <xsl:with-param name="SeriesKeyConcept" select="$structureData/*[lower-case(name()) = lower-case($concept) and (@componentType = 'Attribute' or @propertyType = 'property')]"/>
                                     <xsl:with-param name="value" select="@value"/>
                                 </xsl:call-template>
                             </xsl:if>
@@ -933,13 +935,13 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
                             <xsl:for-each select="$Values">
                                 <xsl:variable name="concept" select="@concept"/>
                                 <xsl:call-template name="ObsProperty">
-                                    <xsl:with-param name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[lower-case(name()) = lower-case($concept) and (@componentType = 'Dimension' or @propertyType = 'property')]"/>
+                                    <xsl:with-param name="SeriesKeyConcept" select="$structureData/*[lower-case(name()) = lower-case($concept) and (@componentType = 'Dimension' or @propertyType = 'property')]"/>
                                     <xsl:with-param name="value" select="@value"/>
                                 </xsl:call-template>
                             </xsl:for-each>
 
                             <xsl:if test="$ObsTime != '' and $TimeDimensionConceptRef != ''">
-                                <xsl:variable name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[lower-case(name()) = lower-case($TimeDimensionConceptRef) and (@componentType = 'TimeDimension' or @propertyType = 'property')]"/>
+                                <xsl:variable name="SeriesKeyConcept" select="$structureData/*[lower-case(name()) = lower-case($TimeDimensionConceptRef) and (@componentType = 'TimeDimension' or @propertyType = 'property')]"/>
 
                                 <xsl:element name="{$SeriesKeyConcept/@propertyPrefix}:{$TimeDimensionConceptRef}" namespace="{$SeriesKeyConcept/@propertyNamespace}">
 
@@ -965,7 +967,7 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
                             </xsl:if>
 
                             <xsl:for-each select="generic:ObsValue">
-                                <xsl:variable name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[lower-case(name()) = lower-case($PrimaryMeasureConceptRef) and (@componentType = 'PrimaryMeasure' or @propertyType = 'property')]"/>
+                                <xsl:variable name="SeriesKeyConcept" select="$structureData/*[lower-case(name()) = lower-case($PrimaryMeasureConceptRef) and (@componentType = 'PrimaryMeasure' or @propertyType = 'property')]"/>
 
                                 <xsl:element name="{$SeriesKeyConcept/@propertyPrefix}:{$PrimaryMeasureConceptRef}" namespace="{$SeriesKeyConcept/@propertyNamespace}">
                                     <xsl:variable name="datatype" select="$SeriesKeyConcept/@datatype"/>
@@ -991,7 +993,7 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
 
                                 <xsl:if test="not(contains($omitComponents, lower-case($concept)))">
                                     <xsl:call-template name="ObsProperty">
-                                        <xsl:with-param name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[lower-case(name()) = lower-case($concept) and (@componentType = 'Attribute' or @propertyType = 'property')]"/>
+                                        <xsl:with-param name="SeriesKeyConcept" select="$structureData/*[lower-case(name()) = lower-case($concept) and (@componentType = 'Attribute' or @propertyType = 'property')]"/>
                                         <xsl:with-param name="value" select="@value"/>
                                     </xsl:call-template>
                                 </xsl:if>
@@ -1008,7 +1010,7 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
                         <xsl:for-each select="@*">
                             <xsl:variable name="c" select="name()"/>
 
-                            <xsl:if test="$SeriesKeyConceptsData/*[(@componentType = 'Dimension' or @componentType = 'TimeDimension') and local-name() = $c]">
+                            <xsl:if test="$structureData/*[(@componentType = 'Dimension' or @componentType = 'TimeDimension') and local-name() = $c]">
                                 <xsl:element name="generic:Value">
                                     <xsl:attribute name="concept"><xsl:value-of select="$c"/></xsl:attribute>
                                     <xsl:attribute name="value"><xsl:value-of select="."/></xsl:attribute>
@@ -1033,7 +1035,7 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
                                     <xsl:for-each select="$ValuesWOFreq">
                                         <xsl:variable name="concept" select="@concept"/>
                                         <xsl:call-template name="ObsProperty">
-                                            <xsl:with-param name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[lower-case(name()) = lower-case($concept) and (@componentType = 'Dimension' or @propertyType = 'property')]"/>
+                                            <xsl:with-param name="SeriesKeyConcept" select="$structureData/*[lower-case(name()) = lower-case($concept) and (@componentType = 'Dimension' or @propertyType = 'property')]"/>
                                             <xsl:with-param name="value" select="@value"/>
                                         </xsl:call-template>
                                     </xsl:for-each>
@@ -1067,7 +1069,7 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
                         <xsl:for-each select="@*">
                             <xsl:variable name="concept" select="name()"/>
 
-                            <xsl:variable name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[lower-case(name()) = lower-case($concept) and (@componentType = 'Attribute' or @propertyType = 'property')]"/>
+                            <xsl:variable name="SeriesKeyConcept" select="$structureData/*[lower-case(name()) = lower-case($concept) and (@componentType = 'Attribute' or @propertyType = 'property')]"/>
 
                             <xsl:if test="$SeriesKeyConcept">
                                 <xsl:if test="not(contains($omitComponents, lower-case($concept)))">
@@ -1095,13 +1097,13 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
                             <xsl:for-each select="$Values/generic:Value">
                                 <xsl:variable name="concept" select="@concept"/>
                                 <xsl:call-template name="ObsProperty">
-                                    <xsl:with-param name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[lower-case(name()) = lower-case($concept) and (@componentType = 'Dimension' or @propertyType = 'property')]"/>
+                                    <xsl:with-param name="SeriesKeyConcept" select="$structureData/*[lower-case(name()) = lower-case($concept) and (@componentType = 'Dimension' or @propertyType = 'property')]"/>
                                     <xsl:with-param name="value" select="@value"/>
                                 </xsl:call-template>
                             </xsl:for-each>
 
                             <xsl:if test="$ObsTime != '' and $TimeDimensionConceptRef != ''">
-                                <xsl:variable name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[lower-case(name()) = lower-case($TimeDimensionConceptRef) and (@componentType = 'TimeDimension' or @propertyType = 'property')]"/>
+                                <xsl:variable name="SeriesKeyConcept" select="$structureData/*[lower-case(name()) = lower-case($TimeDimensionConceptRef) and (@componentType = 'TimeDimension' or @propertyType = 'property')]"/>
 
                                 <xsl:element name="{$SeriesKeyConcept/@propertyPrefix}:{$TimeDimensionConceptRef}" namespace="{$SeriesKeyConcept/@propertyNamespace}">
                                     <xsl:variable name="resourceRefPeriod" select="fn:getResourceRefPeriod($ObsTime)"/>
@@ -1126,7 +1128,7 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
                             </xsl:if>
 
                             <xsl:for-each select="@*[local-name() = $PrimaryMeasureConceptRef]">
-                                <xsl:variable name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[lower-case(name()) = lower-case($PrimaryMeasureConceptRef) and (@componentType = 'PrimaryMeasure' or @propertyType = 'property')]"/>
+                                <xsl:variable name="SeriesKeyConcept" select="$structureData/*[lower-case(name()) = lower-case($PrimaryMeasureConceptRef) and (@componentType = 'PrimaryMeasure' or @propertyType = 'property')]"/>
 
                                 <xsl:element name="{$SeriesKeyConcept/@propertyPrefix}:{$PrimaryMeasureConceptRef}" namespace="{$SeriesKeyConcept/@propertyNamespace}">
 
@@ -1151,7 +1153,7 @@ This is a one time retrieval but perhaps not necessary for the observations. Rev
 
                             <xsl:for-each select="@*">
                                 <xsl:variable name="concept" select="name()"/>
-                                <xsl:variable name="SeriesKeyConcept" select="$SeriesKeyConceptsData/*[lower-case(name()) = lower-case($concept) and (@componentType = 'Attribute' or @propertyType = 'property')]"/>
+                                <xsl:variable name="SeriesKeyConcept" select="$structureData/*[lower-case(name()) = lower-case($concept) and (@componentType = 'Attribute' or @propertyType = 'property')]"/>
 
                                 <xsl:if test="$SeriesKeyConcept">
                                     <xsl:if test="not(contains($omitComponents, lower-case($concept)))">

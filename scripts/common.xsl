@@ -594,7 +594,7 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
         </xsl:choose>
     </xsl:function>
 
-    <xsl:function name="fn:createSeriesKeyComponentData">
+    <xsl:function name="fn:createStructureData">
         <rdf:RDF>
             <xsl:for-each select="$genericStructure/*[local-name() = 'KeyFamilies']/structure:KeyFamily">
                 <xsl:variable name="KeyFamilyRef" select="@id"/>
@@ -602,12 +602,24 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
                 <xsl:variable name="concepts" select="structure:Components/*[@conceptRef]"/>
 
                 <xsl:element name="{$KeyFamilyRef}">
+                    <xsl:variable name="agencyID" select="@agencyID"/>
                     <xsl:attribute name="agencyID">
-                        <xsl:value-of select="@agencyID"/>
+                        <xsl:value-of select="$agencyID"/>
                     </xsl:attribute>
 
+                    <xsl:variable name="version" select="fn:getVersion(@version)"/>
                     <xsl:attribute name="version">
-                        <xsl:value-of select="fn:getVersion(@version)"/>
+                        <xsl:value-of select="$version"/>
+                    </xsl:attribute>
+
+                    <xsl:variable name="agencyBase" select="fn:getAgencyBase(@agencyID)"/>
+                    <xsl:attribute name="agencyBase">
+                        <xsl:value-of select="$agencyBase"/>
+                    </xsl:attribute>
+
+                    <xsl:variable name="structureURI" select="concat($agencyBase, $structure, $version, $uriThingSeparator, $KeyFamilyRef)"/>
+                    <xsl:attribute name="structureURI">
+                        <xsl:value-of select="$structureURI"/>
                     </xsl:attribute>
 
                     <xsl:for-each select="$concepts">
