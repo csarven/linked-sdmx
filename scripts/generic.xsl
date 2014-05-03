@@ -73,11 +73,10 @@
     <xsl:template name="KeyFamily">
         <xsl:for-each select="*[local-name() = 'KeyFamilies']/structure:KeyFamily">
             <xsl:variable name="id" select="@id"/>
+            <xsl:variable name="version" select="fn:getVersion(@version)"/>
+            <xsl:variable name="agencyID" select="@agencyID"/>
 
-            <xsl:variable name="structureURI">
-                <xsl:value-of select="$structure"/>
-                <xsl:value-of select="$id"/>
-            </xsl:variable>
+            <xsl:variable name="structureURI" select="concat(fn:getAgencyBase($agencyID), $structure, $version, $uriThingSeparator, $id)"/>
 
 <!--
 FIXME: $pathToGenericStructure should be replaced with an HTTP URI ??? Is this irrelevant now?
@@ -97,8 +96,8 @@ FIXME: $pathToGenericStructure should be replaced with an HTTP URI ??? Is this i
 -->
                 <sdmx-concept:dsi><xsl:value-of select="$id"/></sdmx-concept:dsi>
 
-                <xsl:if test="@agencyID">
-                    <sdmx-concept:mAgency><xsl:value-of select="@agencyID"/></sdmx-concept:mAgency>
+                <xsl:if test="$agencyID != ''">
+                    <sdmx-concept:mAgency><xsl:value-of select="$agencyID"/></sdmx-concept:mAgency>
                 </xsl:if>
 
                 <xsl:apply-templates select="@version"/>
@@ -119,6 +118,8 @@ FIXME: $pathToGenericStructure should be replaced with an HTTP URI ??? Is this i
 
                 <xsl:call-template name="structureComponents">
                     <xsl:with-param name="KeyFamilyID" select="$id" tunnel="yes"/>
+                    <xsl:with-param name="agencyID" select="$agencyID" tunnel="yes"/>
+                    <xsl:with-param name="version" select="$version" tunnel="yes"/>
                 </xsl:call-template>
             </rdf:Description>
         </xsl:for-each>
@@ -126,16 +127,12 @@ FIXME: $pathToGenericStructure should be replaced with an HTTP URI ??? Is this i
 
     <xsl:template name="structureComponents">
         <xsl:param name="KeyFamilyID" tunnel="yes"/>
+        <xsl:param name="agencyID" tunnel="yes"/>
+        <xsl:param name="version" tunnel="yes"/>
 
-        <xsl:variable name="concepts" select="structure:Components/*[@conceptRef]"/>
-
-        <xsl:variable name="SeriesKeyConceptsData" select="$SeriesKeyComponentData/*[local-name() = $KeyFamilyID]"/>
+        <xsl:variable name="SeriesKeyConceptsData" select="$SeriesKeyComponentData/*[local-name() = $KeyFamilyID and @agencyID = $agencyID and @version = $version]"/>
 
         <xsl:for-each select="structure:Components/*[local-name() != 'Group']">
-<!--
-FIXME: This could reuse the agencyID that's determined from SeriesKeyConceptsData above instead. Cheaper.
--->
-            <xsl:variable name="agencyID" select="fn:getConceptAgencyID(/Structure,.)"/>
             <qb:component>
                 <xsl:variable name="componentType" select="local-name()"/>
 
@@ -143,15 +140,41 @@ FIXME: This could reuse the agencyID that's determined from SeriesKeyConceptsDat
 
                 <xsl:variable name="conceptRef" select="@conceptRef"/>
 
-                <xsl:variable name="conceptPath" select="$SeriesKeyConceptsData/*[name() = $conceptRef and @componentType = $componentType]/@conceptPath"/>
+                <xsl:variable name="C" select="$SeriesKeyConceptsData/*[name() = $conceptRef and @componentType = $componentType]"/>
 
-                <xsl:variable name="conceptURI" select="$SeriesKeyConceptsData/*[name() = $conceptRef and @componentType = $componentType]/@conceptURI"/>
+                <xsl:variable name="conceptPath" select="$C/@conceptPath"/>
 
-                <xsl:variable name="Concept" select="//*[local-name() = 'Concepts']//structure:Concept[@id = $conceptRef]"/>
+                <xsl:variable name="conceptURI" select="$C/@conceptURI"/>
 
-                <xsl:variable name="componentProperty" select="$SeriesKeyConceptsData/*[name() = $conceptRef and @componentType = $componentType]/@componentProperty"/>
+                <xsl:variable name="conceptVersion" select="$C/@conceptVersion"/>
 
-                <rdf:Description rdf:about="{$component}{$KeyFamilyID}/{$propertyType}/{$conceptPath}">
+                <xsl:variable name="conceptScheme" select="$C/@conceptScheme"/>
+
+                <xsl:variable name="conceptAgency" select="$C/@conceptAgency"/>
+
+                <xsl:variable name="componentProperty" select="$C/@componentProperty"/>
+
+                <xsl:variable name="Concept">
+                    <xsl:variable name="c" select="//*[local-name() = 'Concepts']//structure:Concept[@id = $conceptRef]"/>
+                    <xsl:choose>
+                        <xsl:when test="$c">
+                            <xsl:choose>
+                                <xsl:when test="@agencyID = $conceptAgency and (@version = $conceptVersion or ../@version = $conceptVersion)">
+                                    <xsl:value-of select="$c"/>
+                                </xsl:when>
+                                <xsl:when test="../@agencyID = $conceptAgency and (@version = $conceptVersion or ../@version = $conceptVersion)">
+                                    <xsl:value-of select="$c"/>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </xsl:when>
+                        <xsl:otherwise>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:variable>
+
+                <rdf:Description rdf:about="{fn:getAgencyBase($agencyID)}{$component}{$version}/{$KeyFamilyID}/{$propertyType}/{$conceptPath}">
                     <rdf:type rdf:resource="{$qb}ComponentSpecification"/>
                     <qb:componentProperty rdf:resource="{$componentProperty}"/>
 

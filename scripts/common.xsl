@@ -532,6 +532,68 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
     </xsl:function>
 
 
+    <xsl:function name="fn:getConceptVersion">
+        <xsl:param name="doc"/>
+        <xsl:param name="node"/>
+        <xsl:param name="conceptAgency"/>
+        <xsl:param name="conceptScheme"/>
+
+        <xsl:variable name="ConceptVersion">
+            <xsl:choose>
+                <xsl:when test="$node/@conceptVersion">
+                    <xsl:value-of select="$node/@conceptVersion"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:variable name="c" select="$doc/*[local-name() = 'Concepts']//structure:Concept[@id = $node/@conceptRef]"/>
+                    <xsl:choose>
+                        <xsl:when test="$c">
+                            <xsl:choose>
+                                <xsl:when test="$c/@agencyID = $conceptAgency">
+                                    <xsl:variable name="cA" select="$c/../*[@agencyID = $conceptAgency]"/>
+                                    <xsl:choose>
+                                        <xsl:when test="$cA/@version">
+                                            <xsl:value-of select="$cA/@version"/>
+                                        </xsl:when>
+                                        <xsl:when test="$cA/../@version">
+                                            <xsl:value-of select="$c/../@version"/>
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                        </xsl:otherwise>
+                                    </xsl:choose>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:variable name="cA" select="$c/../../*[@agencyID = $conceptAgency]"/>
+                                    <xsl:choose>
+                                        <xsl:when test="$c/@version">
+                                            <xsl:value-of select="$c/@version"/>
+                                        </xsl:when>
+                                        <xsl:when test="$cA/@version">
+                                            <xsl:value-of select="($cA/@version)[1]"/>
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                        </xsl:otherwise>
+                                    </xsl:choose>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </xsl:when>
+                        <xsl:otherwise>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+
+        <xsl:choose>
+            <xsl:when test="$ConceptVersion != ''">
+                <xsl:value-of select="$ConceptVersion"/>
+            </xsl:when>
+            <!-- Fallback -->
+            <xsl:otherwise>
+                <xsl:value-of select="'1.0'"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>
+
     <xsl:function name="fn:createSeriesKeyComponentData">
         <rdf:RDF>
             <xsl:for-each select="$genericStructure/*[local-name() = 'KeyFamilies']/structure:KeyFamily">
@@ -616,18 +678,9 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
                                 </xsl:if>
                             </xsl:variable>
 
+
                             <xsl:variable name="conceptVersion">
-                                <xsl:choose>
-                                    <xsl:when test="@conceptVersion">
-                                        <xsl:value-of select="@conceptVersion"/>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-        <!--
-        TODO: This should probably get the version from ConceptScheme just as the structureConcept template
-        -->
-                                        <xsl:value-of select="fn:getVersion($genericStructure/*[local-name() = 'Concepts']//structure:Concept[@id = $concept]/@version)"/>
-                                    </xsl:otherwise>
-                                </xsl:choose>
+                                <xsl:value-of select="fn:getConceptVersion($genericStructure, ., $conceptAgency, $conceptScheme)"/>
                             </xsl:variable>
                             <xsl:attribute name="conceptVersion">
                                 <xsl:value-of select="$conceptVersion"/>
