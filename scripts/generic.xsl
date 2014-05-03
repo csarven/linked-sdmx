@@ -119,20 +119,14 @@ FIXME: $pathToGenericStructure should be replaced with an HTTP URI ??? Is this i
                 <xsl:apply-templates select="structure:Description"/>
 
                 <xsl:call-template name="structureComponents">
-                    <xsl:with-param name="KeyFamilyID" select="$id" tunnel="yes"/>
-                    <xsl:with-param name="agencyID" select="$agencyID" tunnel="yes"/>
-                    <xsl:with-param name="version" select="$version" tunnel="yes"/>
+                    <xsl:with-param name="structureData" select="$structureData" tunnel="yes"/>
                 </xsl:call-template>
             </rdf:Description>
         </xsl:for-each>
     </xsl:template>
 
     <xsl:template name="structureComponents">
-        <xsl:param name="KeyFamilyID" tunnel="yes"/>
-        <xsl:param name="agencyID" tunnel="yes"/>
-        <xsl:param name="version" tunnel="yes"/>
-
-        <xsl:variable name="structureData" select="$StructureData/*[local-name() = $KeyFamilyID and @agencyID = $agencyID and @version = $version]"/>
+        <xsl:param name="structureData" tunnel="yes"/>
 
         <xsl:for-each select="structure:Components/*[local-name() != 'Group']">
             <qb:component>
@@ -176,7 +170,7 @@ FIXME: $pathToGenericStructure should be replaced with an HTTP URI ??? Is this i
                     </xsl:choose>
                 </xsl:variable>
 
-                <rdf:Description rdf:about="{fn:getAgencyBase($agencyID)}{$component}{$version}/{$KeyFamilyID}/{$propertyType}/{$conceptPath}">
+                <rdf:Description rdf:about="{$structureData/@agencyBase}{$component}{$structureData/@version}/{$structureData/local-name()}/{$propertyType}/{$conceptPath}">
                     <rdf:type rdf:resource="{$qb}ComponentSpecification"/>
                     <qb:componentProperty rdf:resource="{$componentProperty}"/>
 
@@ -304,7 +298,7 @@ FIXME: Is this somehow for qb:Dimension?
             <xsl:variable name="id" select="@id"/>
 
             <qb:sliceKey>
-                <rdf:Description rdf:about="{$slice}{$KeyFamilyID}{$uriThingSeparator}{$id}">
+                <rdf:Description rdf:about="{$structureData/@agencyBase}{$slice}{$structureData/@version}/{$structureData/local-name()}{$uriThingSeparator}{$id}">
                     <rdf:type rdf:resource="{$qb}SliceKey"/>
                     <skos:notation><xsl:value-of select="$id"/></skos:notation>
 
