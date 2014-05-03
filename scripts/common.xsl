@@ -599,6 +599,8 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
             <xsl:for-each select="$genericStructure/*[local-name() = 'KeyFamilies']/structure:KeyFamily">
                 <xsl:variable name="KeyFamilyRef" select="@id"/>
 
+                <xsl:variable name="concepts" select="structure:Components/*[@conceptRef]"/>
+
                 <xsl:element name="{$KeyFamilyRef}">
                     <xsl:variable name="agencyID" select="@agencyID"/>
                     <xsl:attribute name="agencyID">
