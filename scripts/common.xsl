@@ -86,7 +86,7 @@
                 <xsl:copy-of select="@*[name() = 'xml:lang']"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:if test="$lang">
+                <xsl:if test="$lang != ''">
                     <xsl:attribute name="xml:lang" select="$lang"/>
                 </xsl:if>
             </xsl:otherwise>
