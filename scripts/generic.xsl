@@ -503,7 +503,8 @@ XXX: Difference between SDMX 2.0 and SDMX 2.1
         <xsl:for-each select="*[local-name() = 'HierarchicalCodelists']/structure:HierarchicalCodelist">
             <xsl:variable name="HierarchicalCodelistID" select="@id"/>
             <xsl:variable name="version" select="fn:getVersion(@version)"/>
-            <xsl:variable name="hierarchicalCodeListURI" select="concat($code, $version, '/', @id)"/>
+            <xsl:variable name="agencyID" select="@agencyID"/>
+            <xsl:variable name="hierarchicalCodeListURI" select="concat(fn:getAgencyBase($agency), $code, $version, '/', @id)"/>
 
             <xsl:call-template name="provenance">
                 <xsl:with-param name="provUsedA" select="resolve-uri(tokenize($xmlDocument, '/')[last()], $xmlDocumentBaseUri)"/>
@@ -535,13 +536,24 @@ XXX: Difference between SDMX 2.0 and SDMX 2.1
                         </xsl:choose>
                     </xsl:variable>
 
-                    <dcterms:references rdf:resource="{concat($code, fn:getVersion(structure:Version), '/', $codelist)}"/>
+                    <xsl:variable name="version">
+                        <xsl:choose>
+                            <xsl:when test="structure:Version">
+                                <xsl:value-of select="structure:Version"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="../@version"/>                            
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:variable>
+
+                    <dcterms:references rdf:resource="{concat(fn:getAgencyBase(structure:AgencyID), $code, $version, '/', $codelist)}"/>
                 </xsl:for-each>
 
                 <xsl:for-each select="structure:Hierarchy">
                     <skos:member>
                         <xsl:variable name="version" select="fn:getVersion(@version)"/>
-                        <xsl:variable name="hierarchyURI" select="concat($code, $version, '/', @id)"/>
+                        <xsl:variable name="hierarchyURI" select="concat(fn:getAgencyBase($agency), $code, $version, '/', @id)"/>
 
                         <rdf:Description rdf:about="{$hierarchyURI}">
                             <rdf:type rdf:resource="{$skos}Collection"/>
@@ -550,6 +562,7 @@ XXX: Difference between SDMX 2.0 and SDMX 2.1
                             <skos:notation><xsl:value-of select="@id"/></skos:notation>
 
                             <xsl:apply-templates select="structure:Name"/>
+                            <xsl:apply-templates select="structure:Description"/>
 
                             <xsl:apply-templates select="@urn"/>
                             <xsl:apply-templates select="@validFrom"/>
@@ -614,6 +627,34 @@ This is a kind of a hack, works based on tested sample structures. Not guarantee
         </xsl:variable>
 
 
+        <xsl:variable name="CodelistRefAgencyID">
+            <xsl:choose>
+                <xsl:when test="structure:URN">
+                    <xsl:variable name="structureURN" select="structure:URN"/>
+
+                    <xsl:for-each select="distinct-values(//structure:HierarchicalCodelist[@id = $HierarchicalCodelistID]/structure:CodelistRef/structure:AgencyID/text())">
+                        <xsl:if test="contains($structureURN, .)">
+                            <xsl:value-of select="."/>
+                        </xsl:if>
+                    </xsl:for-each>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:variable name="AgencyID" select="//structure:HierarchicalCodelist[@id = $HierarchicalCodelistID]/structure:CodelistRef[structure:Alias = $CodelistAliasRef]/structure:AgencyID"/>
+
+                    <xsl:choose>
+                        <xsl:when test="$AgencyID != ''">
+                            <xsl:value-of select="$AgencyID"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="$AgencyID/../@agencyID"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+
+
+
 <!--
 TODO:
 "NodeAliasID allows for an ID to be assigned to the use of the particular code at that specific point in the hierarchy. This value is unique within the hierarchy being created, and is used to map the hierarchy against external structures."
@@ -627,27 +668,7 @@ XXX:
 
         <xsl:variable name="codelistVersion" select="//structure:HierarchicalCodelist[@id = $HierarchicalCodelistID]/structure:CodelistRef[structure:Alias = $CodelistAliasRef or contains(structure:URN, $CodelistID)]/structure:Version"/>
 
-        <xsl:variable name="version">
-            <xsl:choose>
-                <xsl:when test="count($codelistVersion) = 0">
-                    <xsl:variable name="clV" select="//structure:CodeList[@id = $CodelistID]/@version"/>
-
-                    <xsl:choose>
-                        <xsl:when test="count($clV) = 0">
-                            <xsl:value-of select="fn:getVersion($codelistVersion)"/>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <xsl:value-of select="$clV"/>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:value-of select="$codelistVersion"/>
-                </xsl:otherwise>
-            </xsl:choose>
-        </xsl:variable>
-
-        <xsl:variable name="codeURI" select="concat($code, $version, '/', $CodelistID, $uriThingSeparator, $CodeID)"/>
+        <xsl:variable name="codeURI" select="concat(fn:getAgencyBase($CodelistRefAgencyID), $code, fn:getVersion($codelistVersion), '/', $CodelistID, $uriThingSeparator, $CodeID)"/>
 
         <rdf:Description rdf:about="{$codeURI}">
             <xsl:if test="$codeURIParent">
