@@ -740,9 +740,14 @@ XXX:
                 </xsl:variable>
 
                 <xsl:variable name="KeyFamilyRef">
+                    <xsl:variable name="keyFamilyURI" select="@keyFamilyURI"/>
+
                     <xsl:choose>
                         <xsl:when test="generic:KeyFamilyRef">
                             <xsl:value-of select="generic:KeyFamilyRef"/>
+                        </xsl:when>
+                        <xsl:when test="$keyFamilyURI = $genericStructure/*[local-name() = 'KeyFamilies']/structure:KeyFamily/@urn">
+                            <xsl:value-of select="$genericStructure/*[local-name() = 'KeyFamilies']/structure:KeyFamily[@urn = $keyFamilyURI]/@id"/>
                         </xsl:when>
 <!--
 XXX: Fallback: KeyFamilyRef may not exist. Tries the DataSet id as the KeyFamily id, otherwise takes the first available key (which is last resort)
