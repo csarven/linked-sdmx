@@ -772,7 +772,8 @@ XXX: Fallback: KeyFamilyRef may not exist. Tries the DataSet id as the KeyFamily
 
                 <xsl:variable name="PrimaryMeasureConceptRef" select="distinct-values($KeyFamily/structure:Components/structure:PrimaryMeasure/@conceptRef)"/>
 
-                <xsl:variable name="structureData" select="$StructureData/*[local-name() = $KeyFamilyRef]"/>
+<!-- XXX: This takes the first match - which is rather arbitrary and inaccurate, but probably good enough in published SDMX 2.0 -->
+                <xsl:variable name="structureData" select="$StructureData/*[local-name() = $KeyFamilyRef and @agencyID = $KeyFamilyAgencyID][1]"/>
 
                 <xsl:variable name="datasetURI">
                     <xsl:value-of select="$dataset"/>
@@ -789,7 +790,7 @@ XXX: Fallback: KeyFamilyRef may not exist. Tries the DataSet id as the KeyFamily
                 <rdf:Description rdf:about="{$datasetURI}">
                     <rdf:type rdf:resource="{$qb}DataSet"/>
 
-                    <qb:structure rdf:resource="{$structure}{$KeyFamilyRef}"/>
+                    <qb:structure rdf:resource="{$structureData/@structureURI}"/>
 
                     <dcterms:identifier><xsl:value-of select="$datasetID"/></dcterms:identifier>
 
