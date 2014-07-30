@@ -38,5 +38,9 @@
     skos:notation "IT1" .
 <http://uis.270a.info/>
     skos:notation "UIS" .
+<http://bis.270a.info/>
+    skos:notation "BIS" .
+<http://abs.270a.info/>
+    skos:notation "ABS" .
 <http://sdmx.270a.info/>
     skos:notation "SDMX" .
