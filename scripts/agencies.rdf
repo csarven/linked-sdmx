@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+  <rdf:Description rdf:about="http://abs.270a.info/">
+    <skos:notation>ABS</skos:notation>
+  </rdf:Description>
   <rdf:Description rdf:about="http://bfs.270a.info/">
     <skos:notation>BFS</skos:notation>
     <skos:notation>CH1</skos:notation>
@@ -11,6 +14,10 @@
   <rdf:Description rdf:about="http://bis.270a.info/">
     <skos:notation>5B0</skos:notation>
     <skos:notation>BIS</skos:notation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dst.270a.info/">
+    <skos:notation>DK1</skos:notation>
+    <skos:notation>StatisticsDenmark</skos:notation>
   </rdf:Description>
   <rdf:Description rdf:about="http://ecb.270a.info/">
     <skos:notation>4F0</skos:notation>
@@ -28,6 +35,10 @@
     <skos:notation>1J0</skos:notation>
     <skos:notation>FAO</skos:notation>
   </rdf:Description>
+  <rdf:Description rdf:about="http://frb.270a.info/">
+    <skos:notation>FRB</skos:notation>
+    <skos:notation>US3</skos:notation>
+  </rdf:Description>
   <rdf:Description rdf:about="http://iaeg.270a.info/">
     <skos:notation>IAEG</skos:notation>
   </rdf:Description>
@@ -35,14 +46,24 @@
     <skos:notation>1C0</skos:notation>
     <skos:notation>IMF</skos:notation>
   </rdf:Description>
+  <rdf:Description rdf:about="http://istat.270a.info/">
+    <skos:notation>IT1</skos:notation>
+  </rdf:Description>
   <rdf:Description rdf:about="http://oecd.270a.info/">
     <skos:notation>5A0</skos:notation>
     <skos:notation>OECD</skos:notation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sdmx.270a.info/">
+    <skos:notation>SDMX</skos:notation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://uis.270a.info/">
+    <skos:notation>UIS</skos:notation>
   </rdf:Description>
   <rdf:Description rdf:about="http://un.270a.info/">
     <skos:notation>1B0</skos:notation>
     <skos:notation>UN</skos:notation>
     <skos:notation>UNDP-HDRO</skos:notation>
+    <skos:notation>UNSD</skos:notation>
   </rdf:Description>
   <rdf:Description rdf:about="http://wb.270a.info/">
     <skos:notation>WB</skos:notation>
