@@ -150,25 +150,7 @@ FIXME: $pathToGenericStructure should be replaced with an HTTP URI ??? Is this i
 
                 <xsl:variable name="componentProperty" select="$C/@componentProperty"/>
 
-                <xsl:variable name="Concept">
-                    <xsl:variable name="c" select="//*[local-name() = 'Concepts']//structure:Concept[@id = $conceptRef]"/>
-                    <xsl:choose>
-                        <xsl:when test="$c">
-                            <xsl:choose>
-                                <xsl:when test="@agencyID = $conceptAgency and (@version = $conceptVersion or ../@version = $conceptVersion)">
-                                    <xsl:value-of select="$c"/>
-                                </xsl:when>
-                                <xsl:when test="../@agencyID = $conceptAgency and (@version = $conceptVersion or ../@version = $conceptVersion)">
-                                    <xsl:value-of select="$c"/>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                </xsl:otherwise>
-                            </xsl:choose>
-                        </xsl:when>
-                        <xsl:otherwise>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                </xsl:variable>
+                <xsl:variable name="Concept" select="//*[local-name() = 'Concepts']//structure:Concept[@id = $conceptRef and (@agencyID = $conceptAgency or ../@agencyID = $conceptAgency) and (@version = $conceptVersion or ../@version = $conceptVersion)]"/>
 
                 <rdf:Description rdf:about="{$structureData/@agencyBase}{$component}{$structureData/@version}/{$structureData/local-name()}/{$propertyType}/{$conceptPath}">
                     <rdf:type rdf:resource="{$qb}ComponentSpecification"/>
