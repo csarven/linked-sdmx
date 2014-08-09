@@ -150,7 +150,7 @@ FIXME: $pathToGenericStructure should be replaced with an HTTP URI ??? Is this i
 
                 <xsl:variable name="componentProperty" select="$C/@componentProperty"/>
 
-                <xsl:variable name="Concept" select="//*[local-name() = 'Concepts']//structure:Concept[@id = $conceptRef and (@agencyID = $conceptAgency or ../@agencyID = $conceptAgency) and (@version = $conceptVersion or ../@version = $conceptVersion)]"/>
+                <xsl:variable name="Concept" select="//*[local-name() = 'Concepts']//structure:Concept[@id = $conceptRef and (@agencyID = $conceptAgency or ../@agencyID = $conceptAgency) and (@version = $conceptVersion or ../@version = $conceptVersion or $conceptVersion = '1.0')]"/>
 
                 <rdf:Description rdf:about="{$structureData/@agencyBase}{$component}{$structureData/@version}/{$structureData/local-name()}/{$propertyType}/{$conceptPath}">
                     <rdf:type rdf:resource="{$qb}ComponentSpecification"/>
