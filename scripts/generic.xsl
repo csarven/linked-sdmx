@@ -447,7 +447,7 @@ structure:textFormat
 
                                 <xsl:apply-templates select="@urn"/>
 
-                                <xsl:if test="@parentCode">
+                                <xsl:if test="@parentCode != ''">
                                     <xkos:isPartOf>
                                         <rdf:Description rdf:about="{$agencyBase}{$code}{$version}/{$id}{$uriThingSeparator}{@parentCode}">
                                             <xkos:hasPart rdf:resource="{$codeURI}"/>

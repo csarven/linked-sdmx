@@ -148,7 +148,9 @@
     </xsl:template>
 
     <xsl:template match="@urn">
-        <dcterms:identifier><xsl:value-of select="normalize-space(.)"/></dcterms:identifier>
+        <xsl:if test="normalize-space(.) != ''">
+            <dcterms:identifier><xsl:value-of select="normalize-space(.)"/></dcterms:identifier>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template name="ConceptLabels">
