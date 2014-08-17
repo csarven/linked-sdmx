@@ -95,7 +95,9 @@
     </xsl:template>
 
     <xsl:template match="structure:Name">
-        <skos:prefLabel><xsl:call-template name="langTextNode"/></skos:prefLabel>
+        <xsl:if test="normalize-space(.) != ''">
+            <skos:prefLabel><xsl:call-template name="langTextNode"/></skos:prefLabel>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template match="structure:Description">
