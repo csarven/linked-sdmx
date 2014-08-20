@@ -731,6 +731,10 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
 
 
                             <xsl:variable name="componentBase" select="fn:getComponentBase($propertyType, $conceptAgency)"/>
+                            <xsl:attribute name="componentBase">
+                                <xsl:value-of select="fn:getComponentBase($propertyType, $conceptAgency)"/>
+                            </xsl:attribute>
+
                             <xsl:variable name="propertyNamespace">
                                 <xsl:choose>
                                     <xsl:when test="$useSeparateProperties = 'true'">
