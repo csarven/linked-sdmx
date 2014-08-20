@@ -43,6 +43,7 @@
     <xsl:param name="pathToProvDocument"/>
     <xsl:param name="dataSetID"/>
     <xsl:param name="pathToDataflow"/>
+    <xsl:param name="debug"/>
     <xsl:variable name="genericStructure" select="document($pathToGenericStructure)/Structure | document($pathToGenericStructure)/RegistryInterface/QueryStructureResponse"/>
     <xsl:variable name="dataflowStructure" select="document($pathToDataflow)/Structure"/>
 
@@ -53,6 +54,20 @@
             <xsl:for-each select="$StructureData/*/*">
                 <xsl:namespace name="{@propertyPrefix}" select="@propertyNamespace"/>
             </xsl:for-each>
+
+<xsl:if test="$debug = 'true'">
+<xsl:message>
+<xsl:for-each select="$StructureData/*/*">
+    <xsl:value-of select="local-name()"/>
+    <xsl:for-each select="@*">
+<xsl:text>
+    </xsl:text><xsl:value-of select="local-name()"/><xsl:text> </xsl:text><xsl:value-of select="."/>
+    </xsl:for-each>
+<xsl:text>
+</xsl:text>
+</xsl:for-each>
+</xsl:message>
+</xsl:if>
 
             <xsl:for-each select="Structure | RegistryInterface/QueryStructureResponse">
                 <xsl:call-template name="KeyFamily"/>
