@@ -675,11 +675,11 @@ TODO: Timespan, Count, InclusiveValueRange, ExclusiveValueRange, Incremental, Ob
                             <xsl:variable name="conceptSchemeRef" select="@conceptSchemeRef"/>
                             <xsl:variable name="conceptScheme">
                                 <xsl:choose>
-                                    <xsl:when test="$conceptSchemeRef">
+                                    <xsl:when test="$conceptSchemeRef != ''">
                                         <xsl:value-of select="$conceptSchemeRef"/>
                                     </xsl:when>
                                     <xsl:otherwise>
-                                        <xsl:value-of select="$genericStructure/*[local-name() = 'Concepts']//structure:Concept[@id = $concept]/../@id"/>
+                                        <xsl:value-of select="$genericStructure/*[local-name() = 'Concepts']//structure:Concept[@id = $conceptRef]/../@id"/>
                                     </xsl:otherwise>
                                 </xsl:choose>
                             </xsl:variable>
