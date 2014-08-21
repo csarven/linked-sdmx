@@ -122,6 +122,10 @@
                         <xsl:when test="$rdfRange = 'Literal'">
                             <xsl:call-template name="langTextNode"/>
                         </xsl:when>
+                        <xsl:when test="$rdfRange = 'Datatype'">
+                            <xsl:attribute name="rdf:datatype" select="$cIAT/rdf:value"/>
+                            <xsl:value-of select="normalize-space(.)"/>
+                        </xsl:when>
                         <xsl:otherwise>
                             <xsl:attribute name="rdf:resource">
                                 <xsl:value-of select="$rdfRange"/><xsl:value-of select="$uriThingSeparator"/><xsl:value-of select="normalize-space(.)"/>
