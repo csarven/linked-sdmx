@@ -38,7 +38,6 @@
 
     <xsl:output encoding="utf-8" indent="yes" method="xml" omit-xml-declaration="no"/>
 
-    <xsl:param name="xmlDocument"/>
     <xsl:param name="pathToGenericStructure"/>
     <xsl:param name="pathToProvDocument"/>
     <xsl:param name="dataSetID"/>
@@ -99,7 +98,7 @@
 FIXME: $pathToGenericStructure should be replaced with an HTTP URI ??? Is this irrelevant now?
 -->
             <xsl:call-template name="provenance">
-                <xsl:with-param name="provUsedA" select="resolve-uri(tokenize($xmlDocument, '/')[last()], $xmlDocumentBaseUri)"/>
+                <xsl:with-param name="provUsedA" select="resolve-uri(tokenize(base-uri(), '/')[last()], $xmlDocumentBaseUri)"/>
                 <xsl:with-param name="provGenerated" select="$structureURI"/>
                 <xsl:with-param name="entityID" select="$id"/>
             </xsl:call-template>
@@ -329,7 +328,7 @@ Check where to get ConceptScheme
         <xsl:variable name="conceptSchemeURI" select="concat(fn:getAgencyBase(@agencyID), $concept, $version, '/', @id)"/>
 
         <xsl:call-template name="provenance">
-            <xsl:with-param name="provUsedA" select="resolve-uri(tokenize($xmlDocument, '/')[last()], $xmlDocumentBaseUri)"/>
+            <xsl:with-param name="provUsedA" select="resolve-uri(tokenize(base-uri(), '/')[last()], $xmlDocumentBaseUri)"/>
             <xsl:with-param name="provGenerated" select="$conceptSchemeURI"/>
             <xsl:with-param name="entityID" select="@id"/>
         </xsl:call-template>
@@ -420,7 +419,7 @@ structure:textFormat
                 <xsl:variable name="codeListURI" select="concat($agencyBase, $code, $version, '/', $id)"/>
 
                 <xsl:call-template name="provenance">
-                    <xsl:with-param name="provUsedA" select="resolve-uri(tokenize($xmlDocument, '/')[last()], $xmlDocumentBaseUri)"/>
+                    <xsl:with-param name="provUsedA" select="resolve-uri(tokenize(base-uri(), '/')[last()], $xmlDocumentBaseUri)"/>
                     <xsl:with-param name="provGenerated" select="$codeListURI"/>
                     <xsl:with-param name="entityID" select="$id"/>
                 </xsl:call-template>
@@ -504,7 +503,7 @@ XXX: Difference between SDMX 2.0 and SDMX 2.1
             <xsl:variable name="hierarchicalCodeListURI" select="concat(fn:getAgencyBase($agency), $code, $version, '/', @id)"/>
 
             <xsl:call-template name="provenance">
-                <xsl:with-param name="provUsedA" select="resolve-uri(tokenize($xmlDocument, '/')[last()], $xmlDocumentBaseUri)"/>
+                <xsl:with-param name="provUsedA" select="resolve-uri(tokenize(base-uri(), '/')[last()], $xmlDocumentBaseUri)"/>
                 <xsl:with-param name="provGenerated" select="$hierarchicalCodeListURI"/>
                 <xsl:with-param name="entityID" select="@id"/>
             </xsl:call-template>
@@ -778,7 +777,7 @@ XXX: Fallback: KeyFamilyRef may not exist. Tries the DataSet id as the KeyFamily
                 </xsl:variable>
 
                 <xsl:call-template name="provenance">
-                    <xsl:with-param name="provUsedA" select="resolve-uri(tokenize($xmlDocument, '/')[last()], $xmlDocumentBaseUri)"/>
+                    <xsl:with-param name="provUsedA" select="resolve-uri(tokenize(base-uri(), '/')[last()], $xmlDocumentBaseUri)"/>
                     <xsl:with-param name="provUsedB" select="resolve-uri(tokenize($pathToGenericStructure, '/')[last()], $xmlDocumentBaseUri)"/>
                     <xsl:with-param name="provGenerated" select="$datasetURI"/>
                     <xsl:with-param name="entityID" select="$datasetID"/>
