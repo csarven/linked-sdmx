@@ -97,11 +97,13 @@
 <!--
 FIXME: $pathToGenericStructure should be replaced with an HTTP URI ??? Is this irrelevant now?
 -->
-            <xsl:call-template name="provenance">
-                <xsl:with-param name="provUsedA" select="resolve-uri(tokenize(base-uri(), '/')[last()], $xmlDocumentBaseUri)"/>
-                <xsl:with-param name="provGenerated" select="$structureURI"/>
-                <xsl:with-param name="entityID" select="$id"/>
-            </xsl:call-template>
+            <xsl:if test="$useProvenance = 'true'">
+                <xsl:call-template name="provenance">
+                    <xsl:with-param name="provUsedA" select="resolve-uri(tokenize(base-uri(), '/')[last()], $xmlDocumentBaseUri)"/>
+                    <xsl:with-param name="provGenerated" select="$structureURI"/>
+                    <xsl:with-param name="entityID" select="$id"/>
+                </xsl:call-template>
+            </xsl:if>
 
             <rdf:Description rdf:about="{$structureURI}">
                 <rdf:type rdf:resource="{$sdmx}DataStructureDefinition"/>
@@ -327,12 +329,13 @@ Check where to get ConceptScheme
         <xsl:variable name="version" select="fn:getVersion(@version)"/>
         <xsl:variable name="conceptSchemeURI" select="concat(fn:getAgencyBase(@agencyID), $concept, $version, '/', @id)"/>
 
-        <xsl:call-template name="provenance">
-            <xsl:with-param name="provUsedA" select="resolve-uri(tokenize(base-uri(), '/')[last()], $xmlDocumentBaseUri)"/>
-            <xsl:with-param name="provGenerated" select="$conceptSchemeURI"/>
-            <xsl:with-param name="entityID" select="@id"/>
-        </xsl:call-template>
-
+        <xsl:if test="$useProvenance = 'true'">
+            <xsl:call-template name="provenance">
+                <xsl:with-param name="provUsedA" select="resolve-uri(tokenize(base-uri(), '/')[last()], $xmlDocumentBaseUri)"/>
+                <xsl:with-param name="provGenerated" select="$conceptSchemeURI"/>
+                <xsl:with-param name="entityID" select="@id"/>
+            </xsl:call-template>
+        </xsl:if>
 
         <rdf:Description rdf:about="{$conceptSchemeURI}">
 <!--
@@ -418,11 +421,13 @@ structure:textFormat
                 <xsl:variable name="version" select="fn:getVersion(@version)"/>
                 <xsl:variable name="codeListURI" select="concat($agencyBase, $code, $version, '/', $id)"/>
 
-                <xsl:call-template name="provenance">
-                    <xsl:with-param name="provUsedA" select="resolve-uri(tokenize(base-uri(), '/')[last()], $xmlDocumentBaseUri)"/>
-                    <xsl:with-param name="provGenerated" select="$codeListURI"/>
-                    <xsl:with-param name="entityID" select="$id"/>
-                </xsl:call-template>
+                <xsl:if test="$useProvenance = 'true'">
+                    <xsl:call-template name="provenance">
+                        <xsl:with-param name="provUsedA" select="resolve-uri(tokenize(base-uri(), '/')[last()], $xmlDocumentBaseUri)"/>
+                        <xsl:with-param name="provGenerated" select="$codeListURI"/>
+                        <xsl:with-param name="entityID" select="$id"/>
+                    </xsl:call-template>
+                </xsl:if>
 
                 <rdf:Description rdf:about="{$codeListURI}">
                     <rdf:type rdf:resource="{$sdmx}CodeList"/>
@@ -502,11 +507,13 @@ XXX: Difference between SDMX 2.0 and SDMX 2.1
             <xsl:variable name="agencyID" select="@agencyID"/>
             <xsl:variable name="hierarchicalCodeListURI" select="concat(fn:getAgencyBase($agency), $code, $version, '/', @id)"/>
 
-            <xsl:call-template name="provenance">
-                <xsl:with-param name="provUsedA" select="resolve-uri(tokenize(base-uri(), '/')[last()], $xmlDocumentBaseUri)"/>
-                <xsl:with-param name="provGenerated" select="$hierarchicalCodeListURI"/>
-                <xsl:with-param name="entityID" select="@id"/>
-            </xsl:call-template>
+            <xsl:if test="$useProvenance = 'true'">
+                <xsl:call-template name="provenance">
+                    <xsl:with-param name="provUsedA" select="resolve-uri(tokenize(base-uri(), '/')[last()], $xmlDocumentBaseUri)"/>
+                    <xsl:with-param name="provGenerated" select="$hierarchicalCodeListURI"/>
+                    <xsl:with-param name="entityID" select="@id"/>
+                </xsl:call-template>
+            </xsl:if>
 
             <rdf:Description rdf:about="{$hierarchicalCodeListURI}">
                 <rdf:type rdf:resource="{$skos}Collection"/>
@@ -776,12 +783,14 @@ XXX: Fallback: KeyFamilyRef may not exist. Tries the DataSet id as the KeyFamily
                     <xsl:value-of select="$datasetID"/>
                 </xsl:variable>
 
-                <xsl:call-template name="provenance">
-                    <xsl:with-param name="provUsedA" select="resolve-uri(tokenize(base-uri(), '/')[last()], $xmlDocumentBaseUri)"/>
-                    <xsl:with-param name="provUsedB" select="resolve-uri(tokenize($pathToGenericStructure, '/')[last()], $xmlDocumentBaseUri)"/>
-                    <xsl:with-param name="provGenerated" select="$datasetURI"/>
-                    <xsl:with-param name="entityID" select="$datasetID"/>
-                </xsl:call-template>
+                <xsl:if test="$useProvenance = 'true'">
+                    <xsl:call-template name="provenance">
+                        <xsl:with-param name="provUsedA" select="resolve-uri(tokenize(base-uri(), '/')[last()], $xmlDocumentBaseUri)"/>
+                        <xsl:with-param name="provUsedB" select="resolve-uri(tokenize($pathToGenericStructure, '/')[last()], $xmlDocumentBaseUri)"/>
+                        <xsl:with-param name="provGenerated" select="$datasetURI"/>
+                        <xsl:with-param name="entityID" select="$datasetID"/>
+                    </xsl:call-template>
+                </xsl:if>
 
                 <rdf:Description rdf:about="{$datasetURI}">
                     <rdf:type rdf:resource="{$qb}DataSet"/>

@@ -71,6 +71,7 @@
     <xsl:variable name="measure" select="fn:getConfig('measure')"/>
     <xsl:variable name="attribute" select="fn:getConfig('attribute')"/>
     <xsl:variable name="useSeparateProperties" select="fn:getConfig('useSeparateProperties')"/>
+    <xsl:variable name="useProvenance" select="fn:getConfig('useProvenance')"/>
     <xsl:variable name="provenance" select="concat('provenance', $uriThingSeparator)"/>
     <xsl:variable name="concept" select="'concept/'"/>
     <xsl:variable name="code" select="'code/'"/>

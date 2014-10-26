@@ -40,6 +40,12 @@
     </rdf:value>
     <rdf:value>
       <rdf:Description>
+        <rdf:value>true</rdf:value>
+        <rdfs:label>useProvenance</rdfs:label>
+      </rdf:Description>
+    </rdf:value>
+    <rdf:value>
+      <rdf:Description>
         <rdf:value>http://csarven.ca/#i</rdf:value>
         <rdfs:label>creator</rdfs:label>
       </rdf:Description>
@@ -96,6 +102,23 @@
       <rdf:Description>
         <rdf:value>
           <rdf:Description>
+            <rdf:value>https://github.com/csarven/linked-sdmx</rdf:value>
+            <rdfs:label>URI</rdfs:label>
+          </rdf:Description>
+        </rdf:value>
+        <rdf:value>
+          <rdf:Description>
+            <rdf:value>http://csarven.ca/linked-sdmx-data</rdf:value>
+            <rdfs:label>seeAlso</rdfs:label>
+          </rdf:Description>
+        </rdf:value>
+        <rdfs:label>LinkedSDMX</rdfs:label>
+      </rdf:Description>
+    </rdf:value>
+    <rdf:value>
+      <rdf:Description>
+        <rdf:value>
+          <rdf:Description>
             <rdf:predicate>xkos:hasPart</rdf:predicate>
             <rdf:type>CODE_OFS</rdf:type>
             <rdfs:label>AnnotationText</rdfs:label>
@@ -127,23 +150,6 @@
           </rdf:Description>
         </rdf:value>
         <rdfs:label>interlinkAnnotationTypes</rdfs:label>
-      </rdf:Description>
-    </rdf:value>
-    <rdf:value>
-      <rdf:Description>
-        <rdf:value>
-          <rdf:Description>
-            <rdf:value>https://github.com/csarven/linked-sdmx</rdf:value>
-            <rdfs:label>URI</rdfs:label>
-          </rdf:Description>
-        </rdf:value>
-        <rdf:value>
-          <rdf:Description>
-            <rdf:value>http://csarven.ca/linked-sdmx-data</rdf:value>
-            <rdfs:label>seeAlso</rdfs:label>
-          </rdf:Description>
-        </rdf:value>
-        <rdfs:label>LinkedSDMX</rdfs:label>
       </rdf:Description>
     </rdf:value>
     <rdf:value>
